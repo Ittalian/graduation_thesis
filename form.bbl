@@ -4,31 +4,6 @@
 D-Analyzer.
 \newblock R{PA}にできないこと、不得意な業務はなにか？, 2019.
 
-\bibitem{flanagan2008ruby}
-David Flanagan and Yukihiro Matsumoto.
-\newblock {\em The ruby programming language}.
-\newblock " O'Reilly Media, Inc.", 2008.
-
-\bibitem{fulton2006ruby}
-Hal Fulton.
-\newblock {\em The ruby way: solutions and techniques in ruby programming}.
-\newblock Addison-Wesley Professional, 2006.
-
-\bibitem{goto2010bioruby}
-Naohisa Goto, Pjotr Prins, Mitsuteru Nakao, Raoul Bonnal, Jan Aerts, and
-  Toshiaki Katayama.
-\newblock Bioruby: bioinformatics software for the ruby programming language.
-\newblock {\em Bioinformatics}, 26(20):2617--2619, 2010.
-
-\bibitem{matsumoto2002ruby}
-Yukio Matsumoto and K~Ishituka.
-\newblock Ruby programming language, 2002.
-
-\bibitem{richardson2008restful}
-Leonard Richardson and Sam Ruby.
-\newblock {\em RESTful web services}.
-\newblock " O'Reilly Media, Inc.", 2008.
-
 \bibitem{sasada2005yarv}
 Koichi Sasada.
 \newblock Yarv: yet another rubyvm: innovating the ruby interpreter.

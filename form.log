@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.11.7)  9 DEC 2024 12:11
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.11.7)  9 DEC 2024 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -289,6 +289,21 @@ File: img/paper_media_survey.pdf Graphic file (type pdf)
 [4]
 第 2 章
 
+LaTeX Warning: Citation `goto2010bioruby' on page 5 undefined on input line 11.
+
+
+
+LaTeX Warning: Citation `matsumoto2002ruby' on page 5 undefined on input line 1
+4.
+
+
+LaTeX Warning: Citation `fulton2006ruby' on page 5 undefined on input line 19.
+
+
+LaTeX Warning: Citation `richardson2008restful' on page 5 undefined on input li
+ne 39.
+
+
 
 [5
 
@@ -303,8 +318,27 @@ LaTeX Warning: Reference `rw_yyy ' on page 6 undefined on input line 59.
 
 [6]
 第 3 章
+
+LaTeX Warning: Citation `flanagan2008ruby' on page 7 undefined on input line 5.
+
+
+
+LaTeX Warning: Citation `goto2010bioruby' on page 7 undefined on input line 10.
+
+
+
+LaTeX Warning: Citation `matsumoto2002ruby' on page 7 undefined on input line 1
+2.
+
+
+LaTeX Warning: Citation `fulton2006ruby' on page 7 undefined on input line 14.
+
 File: img/sample.pdf Graphic file (type pdf)
 <img/sample.pdf>
+
+LaTeX Warning: Citation `richardson2008restful' on page 7 undefined on input li
+ne 42.
+
 ) (./experiment.tex
 
 [7
@@ -316,10 +350,34 @@ File: img/sample.pdf Graphic file (type pdf)
 [9]
 第 4 章
 
+LaTeX Warning: Citation `flanagan2008ruby' on page 10 undefined on input line 6
+.
+
+
+LaTeX Warning: Citation `goto2010bioruby' on page 10 undefined on input line 11
+.
+
+
+LaTeX Warning: Citation `matsumoto2002ruby' on page 10 undefined on input line 
+14.
+
+
+LaTeX Warning: Citation `fulton2006ruby' on page 10 undefined on input line 19.
+
+
+
+LaTeX Warning: Citation `richardson2008restful' on page 10 undefined on input l
+ine 39.
+
+
 
 [10
 
 ]
+
+LaTeX Warning: Citation `richardson2008restful' on page 11 undefined on input l
+ine 63.
+
 
 LaTeX Warning: Reference `exp_xxx' on page 11 undefined on input line 66.
 
@@ -334,6 +392,22 @@ LaTeX Warning: Reference `exp_zzz' on page 11 undefined on input line 68.
 [11]
 第 5 章
 
+LaTeX Warning: Citation `flanagan2008ruby' on page 12 undefined on input line 6
+.
+
+
+LaTeX Warning: Citation `goto2010bioruby' on page 12 undefined on input line 11
+.
+
+
+LaTeX Warning: Citation `matsumoto2002ruby' on page 12 undefined on input line 
+14.
+
+
+LaTeX Warning: Citation `richardson2008restful' on page 12 undefined on input l
+ine 37.
+
+
 
 [12
 
@@ -347,17 +421,9 @@ LaTeX Warning: Reference `exp_zzz' on page 11 undefined on input line 68.
 
 ] (./form.bbl
 LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 9.
+(Font)              No change on input line 10.
 LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 14.
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 21.
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 29.
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 35.
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 42.
+(Font)              No change on input line 17.
 )
 
 [15
@@ -382,4 +448,20 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  57i,8n,65p,955b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on form.dvi (16 pages, 38556 bytes).
+Output written on form.dvi (16 pages, 37584 bytes).
+eX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5092 strings out of 474021
+ 73553 string characters out of 5739387
+ 650334 words of memory out of 5000000
+ 28150 multiletter control sequences out of 15000+600000
+ 573534 words of font info for 91 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 57i,8n,65p,955b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on form.dvi (16 pages, 37576 bytes).
