@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  卒論要旨スタイルシート      2008 Hajime Shiozawa
+%      copy from Tomiyama Lab
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   用紙設定                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-1.74cm}
+%\setlength{\oddsidemargin}{-1.04cm}
+%\setlength{\evensidemargin}{-1.04cm}
+\setlength{\evensidemargin}{-0.24cm}
+\setlength{\textheight}{26cm}
+%\setlength{\textwidth}{17.8cm}
+\setlength{\textwidth}{16.64cm}
+\setlength{\columnsep}{1.0cm}
+
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage{jtygm}
+%\usepackage{./Macro}
+\makeatletter
+
+\@addtoreset{equation}{section}
+\def\theequation{{\bf \arabic{section}.\arabic{equation}}}
+% \@addtoreset{figure}{section}
+\def\thefigure{\arabic{figure}}
+% \@addtoreset{table}{section}
+\def\thetable{\arabic{table}}
+\def\fnum@figure{\bf 図 \thefigure}
+\def\fnum@table{\bf 表 \thetable}
+\def\Endpage{\label{Lastpage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   タイトル(邦文&英文)，著者名のマクロ定義  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\def\title#1#2{\gdef\@title{#1\\#2}}
+%\def\etitle#1#2{\gdef\@etitle{#1\\#2}}
+
+\def\title#1#2{\gdef\@title{#1} \gdef\@subtitle{#2}}
+\def\etitle#1#2{\gdef\@etitle{#1} \gdef\@subetitle{#2}}
+
+\def\AuthorA{%
+\def\author##1{\gdef\@author{##1}}
+\def\eauthor##1{\gdef\@eauthor{##1}}
+\def\belong##1{\gdef\@belongA{##1}}
+\def\class##1{\gdef\@classA{##1 &}}
+\def\presen##1{\gdef\@presenA{##1}}
+%\gdef\@nameA{\@presenA \@classA \@author & (\@belongA)}
+\gdef\@nameA{\@author & (\@belongA)}
+%\gdef\@nameA{\@belongA ~~ & \@author & (\@eauthor)}
+}
+\def\AuthorB{%
+\def\author##1{\gdef\@authorb{##1}}
+\def\eauthor##1{\gdef\@eauthorb{##1}}
+\def\belong##1{\gdef\@belongB{##1}}
+\def\class##1{\gdef\@classB{##1 &}}
+\def\presen##1{\gdef\@presenB{##1}}
+\gdef\@nameB{\@presenB \@classB \@authorb & (\@belongB)}
+}
+\def\AuthorC{%
+\def\author##1{\gdef\@authorc{##1}}
+\def\eauthor##1{\gdef\@eauthorc{##1}}
+\def\belong##1{\gdef\@belongC{##1}}
+\def\class##1{\gdef\@classC{##1 &}}
+\def\presen##1{\gdef\@presenC{##1}}
+\gdef\@nameC{\@presenC \@classC \@authorc & (\@belongC)}
+}
+
+\def\year#1#2#3{
+\newcounter{Year}\setcounter{Year}{#1}
+\def\@Month{#2}
+\def\@Day{#3}
+\def\@day{#3}
+\newcounter{YEAR}\setcounter{YEAR}{#1}
+\newcounter{JYEAR}\setcounter{JYEAR}{#1}
+\addtocounter{JYEAR}{-1989}%
+}
+
+\gdef\Ptype{卒業論文}
+\gdef\PtypeMid{}
+\def\修士論文{\def\Ptype{修士論文}}
+\def\卒業論文{\def\Ptype{卒業論文}}
+\def\中間{\def\PtypeMid{中間発表抄録}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   電子メール                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Email#1{\newcommand{\EMAIL}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   キーワードのマクロ定義                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Keyword#1{\newcommand{\KeyWord}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   題目のチェック                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\CHECK{
+\@ifundefined{@Day}{
+  \@error_no_year_defined
+}
+\def\@a{中間発表抄録}
+\ifx\PtypeMid\@a\empty
+\else
+\addtocounter{YEAR}{-1}
+\fi
+\@ifundefined{@etitle}
+  {
+  \gdef\@TITLE{{\huge{\@title} \\ \LARGE{\@subtitle}  \par}}
+  }
+  {
+  \gdef\@TITLE{{\huge \@title \\ \LARGE{\@subtitle} \par} 
+  \vskip 5pt {\bf \LARGE{\@etitle} \\ \Large{\@subetitle} \par}}
+  }
+
+
+\@ifundefined{@authorb}
+  {%
+  \gdef\Wauthor{\@nameA}
+  \gdef\Weauthor{\multicolumn{3}{c}{\@eauthor}}
+  \def\COL{lrl}
+% \def\COL{rcc}
+% \def\eCOL{c}
+  }
+  {%
+  \@ifundefined{@authorc}
+    {%
+    \gdef\Wauthor{\@nameA & \@nameB}
+    \gdef\Weauthor{\multicolumn{3}{c}{\@eauthor} & \multicolumn{3}{c}{\@eauthorb}}
+    \def\COL{rccrcc}
+%   \def\eCOL{cc}
+    }
+    {
+    \gdef\Wauthor{\@nameA & \@nameB & \@nameC}
+    \gdef\Weauthor{\multicolumn{3}{c}{\@eauthor} & \multicolumn{3}{c}{\@eauthorb} & \multicolumn{3}{c}{\@eauthorc}}
+    \def\COL{rccrccrcc}
+%   \def\eCOL{ccc}
+    }
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% タイトルページの内部命令                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\@maketitle{
+\newpage
+\null
+\vspace*{-1.0cm}
+\begin{center}
+\begin{tabular}{c}
+\Large 青山学院大学理工学部情報テクノロジー学科\\
+\Large \theYEAR \ (平成 \theJYEAR) 年度 卒業論文要旨\\
+%\begin{minipage}{1.5cm}
+%\includegraphics[width=1.5cm]{\FigHome/agu.eps}
+%\end{minipage}
+\end{tabular}
+\end{center}
+\vskip -1.0em
+\underline{\makebox[\textwidth]\hfill}
+%\vskip 1.5em
+%\vspace{-0.8cm}
+\begin{center}
+\@TITLE
+\vskip 5pt
+\large
+\begin{tabular}{\COL}
+\Large \Wauthor \\
+% \Weauthor
+\end{tabular}\par
+{\Large D\"{u}rst研究室}
+\lineskip .5em
+% Aoyama Gakuin University, 16-1,Chitosedai 6-chome, Setagaya-ku, Tokyo\\
+% E-Mail : \EMAIL
+
+%\vskip 1.5em 
+\vskip 1.0em 
+\vspace{-4mm}
+%\@ifundefined{@abst}{}{ %
+% \small
+% \begin{quote} \@abst \end{quote}
+% \begin{quotation} \@abst \end{quotation}
+% \vskip 1.5em
+% \gdef\@abst{}}
+\vskip 1.5em
+\end{center}
+}
+
+
+
+\long\def\abst#1{\long\gdef\@abst{#1}}
+\def\MKTITLE{
+  \CHECK
+  \maketitle
+  \thispagestyle{empty}
+% \thispagestyle{presen}
+  \makeatletter    
+  \mark{{}{}}
+  \def\ps@presen{%
+    \let\@mkboth=\markboth
+    \def\@oddhead{%
+    %\makebox[\textwidth]{\hfill \bf \thepage/{\bf \pageref{Lastpage}}}}
+    \def\@oddfoot{%
+    \makebox[\textwidth]{\hfill \bf \thepage/{\bf \pageref{Lastpage}}}}
+    }
+  }
+  \makeatother         
+  \pagestyle{presen}
+  \thispagestyle{presen}
+  \normalsize 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 章，節の内部命令                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \def\section{%
+%   \@startsection%
+%     {section}%
+%     {1}
+%     {0.0cm}%ページ左端から見出しまでの距離
+%     {2.0 ex plus 2ex minus .2ex}
+%     {1.0 ex plus .2ex}
+%     {\normalsize\bf}
+%     }
+% \def\subsection{%
+%   \@startsection{subsection}{2}{\z@}%
+%   {0.0 ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+%   {\normalsize\bf}}
+% \def\subsubsection{%
+%   \@startsection{subsubsection}{3}{\z@}%
+%   {0.0 ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+%   {\normalsize\bf}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{1.1\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+{.1\Cvs \@plus.1\Cdp}%
+{\reset@font\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+{0.6\Cvs \@plus.05\Cdp \@minus.05\Cdp}%
+{0.01\Cvs \@plus.01\Cdp}%
+{\reset@font\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+{0.5\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+{0.01\Cvs \@plus.01\Cdp}%
+{\reset@font\normalsize\bfseries}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              参考文献の配置設定              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Bibpage{
+   \baselineskip 1.25zh}
+\def\endBibpage{\baselineskip 1.75zh
+\renewcommand{\baselinestretch}{1.0}}
+\def\thebibiliography#1{%
+   \vskip 1.0zh
+   \section*{参考文献\@mkboth{参考文献}{参考文献}}
+   \list{(\arabic{enumi})}
+      {\settowidth{\labelwidth}{[#1]}%
+      \leftmargin=\labelwidth
+      \advance \leftmargin by \labelsep
+      \usecounter{enumi}}
+   \def\newblock{\hskip .11em plus .33em minus .07em}
+   \sloppy
+   \clubpenalty=4000 \windowpenalty=4000
+   \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         cite(参考文献の参照コマンド)         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\@cite#1#2{$^{\mbox{\scriptsize[{#1\if@tempswa ,#2\fi}]}}$}
+

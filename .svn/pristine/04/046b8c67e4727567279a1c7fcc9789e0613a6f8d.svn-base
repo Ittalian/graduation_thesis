@@ -1,0 +1,89 @@
+@book{flanagan2008ruby,
+  title={The ruby programming language},
+  author={Flanagan, David and Matsumoto, Yukihiro},
+  year={2008},
+  publisher={" O'Reilly Media, Inc."}
+}
+@article{goto2010bioruby,
+  title={BioRuby: bioinformatics software for the Ruby programming language},
+  author={Goto, Naohisa and Prins, Pjotr and Nakao, Mitsuteru and Bonnal, Raoul and Aerts, Jan and Katayama, Toshiaki},
+  journal={Bioinformatics},
+  volume={26},
+  number={20},
+  pages={2617--2619},
+  year={2010},
+  publisher={Oxford Univ Press}
+}
+@misc{matsumoto2002ruby,
+  title={Ruby programming language},
+  author={Matsumoto, Yukio and Ishituka, K},
+  year={2002},
+  publisher={Addison Wesley Publishing Company}
+}
+@book{fulton2006ruby,
+  title={The ruby way: solutions and techniques in ruby programming},
+  author={Fulton, Hal},
+  year={2006},
+  publisher={Addison-Wesley Professional}
+}
+@inproceedings{sasada2005yarv,
+  title={YARV: yet another RubyVM: innovating the ruby interpreter},
+  author={Sasada, Koichi},
+  booktitle={Companion to the 20th annual ACM SIGPLAN conference on Object-oriented programming, systems, languages, and applications},
+  pages={158--159},
+  year={2005},
+  organization={ACM}
+}
+@book{richardson2008restful,
+  title={RESTful web services},
+  author={Richardson, Leonard and Ruby, Sam},
+  year={2008},
+  publisher={" O'Reilly Media, Inc."}
+}
+@misc{wikipedia:DonaldKnuth,
+   author = "Wikipedia",
+   title = "Donald Knuth --- Wikipedia{,} The Free Encyclopedia",
+   year = "2015",
+   url = "\url{http://en.wikipedia.org/w/index.php?title=Donald_Knuth&oldid=663430561}",
+   note = "[Online; accessed 25-May-2015]"
+ }
+@misc{wikipedia:LeslieLamport,
+   author = "Wikipedia",
+   title = "Leslie Lamport --- Wikipedia{,} The Free Encyclopedia",
+   year = "2015",
+   url = "\url{http://en.wikipedia.org/w/index.php?title=Leslie_Lamport&oldid=659502679}",
+   note = "[Online; accessed 25-May-2015]"
+}
+@article{Lamport:2015:BHW:2749359.2736348,
+author = {Lamport, Leslie},
+title = {Who Builds a House Without Drawing Blueprints?},
+journal = {Commun. ACM},
+issue_date = {April 2015},
+volume = {58},
+number = {4},
+ month = mar,
+year = {2015},
+issn = {0001-0782},
+pages = {38--41},
+numpages = {4},
+url = {http://doi.acm.org/10.1145/2736348},
+doi = {http://doi.acm.org/10.1145/2736348},
+acmid = {2736348},
+publisher = {ACM},
+address = {New York, NY, USA},
+} 
+@ARTICLE{KnuthRao1975, 
+author={Knuth, D.E. and , Rao, G.S.}, 
+journal={IEEE Transactions on Computers}, 
+title={Activity in an Interleaved Memory}, 
+year={1975}, 
+month={September}, 
+volume={C-24}, 
+number={9}, 
+pages={943--944}, 
+keywords={Index Terms-Incomplete gamma function, interleaved memory, random mapping.;Algebra;Bandwidth;Computer science;Computer science education;Context modeling;Convergence;Government;Interleaved codes;Random number generation;Scholarships;Index Terms-Incomplete gamma function, interleaved memory, random mapping.}, 
+doi={10.1109/T-C.1975.224344}, 
+ISSN={0018-9340},
+}
+
+

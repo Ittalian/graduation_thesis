@@ -1,0 +1,385 @@
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.11.7)  9 DEC 2024 12:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**form.tex
+(./form.tex
+pLaTeX2e <2023-02-14u04>+1, based on
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
+(c:/texlive/2024/texmf-dist/tex/uplatex/base/ujreport.cls
+Document Class: ujreport 2020/09/30 v1.8f-u00 Standard upLaTeX class
+\c@@paper=\count195
+(c:/texlive/2024/texmf-dist/tex/uplatex/base/ujsize12.clo
+File: ujsize12.clo 2020/09/30 v1.8f-u00 Standard upLaTeX file (size option)
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 28.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 28.
+)
+\c@part=\count196
+\c@chapter=\count197
+\c@section=\count198
+\c@subsection=\count199
+\c@subsubsection=\count266
+\c@paragraph=\count267
+\c@subparagraph=\count268
+\c@figure=\count269
+\c@table=\count270
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/mc/m/n --> JY2/gt/m/n on input line 705.
+\toclineskip=\dimen157
+\@lnumwidth=\dimen158
+\bibindent=\dimen159
+\heisei=\count271
+)
+(./sty/TitlePage.sty (c:/texlive/2024/texmf-dist/tex/generic/epsf/epsf.sty
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read2
+\epsfframemargin=\dimen160
+\epsfframethickness=\dimen161
+\epsfrsize=\dimen162
+\epsftmp=\dimen163
+\epsftsize=\dimen164
+\epsfxsize=\dimen165
+\epsfysize=\dimen166
+\pspoints=\dimen167
+)) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 106.
+
+(c:/texlive/2024/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2022/09/22 v5.0m Graphics/color driver for dvipdfmx
+))
+\Gin@req@height=\dimen168
+\Gin@req@width=\dimen169
+)
+(c:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(c:/texlive/2024/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+(c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+)
+(c:/texlive/2024/texmf-dist/tex/platex/japanese-otf/otf.sty
+Package: otf 2023/10/09 TeX JP org, v1.7b8 psitau, u0.30 ttk
+LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 345.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `normal'
+(Font)                  JY2/mc/m/n --> JY2/hmc/m/n on input line 345.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/gt/m/n --> JY2/hmc/m/n on input line 345.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/hmc/m/n --> JY2/hmc/bx/n on input line 347.
+LaTeX Font Info:    Redeclaring math alphabet \mathgt on input line 348.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `normal'
+(Font)                  JY2/gt/m/n --> JY2/hgt/m/n on input line 348.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
+(Font)                  JY2/gt/m/n --> JY2/hgt/m/n on input line 348.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
+(Font)                  JY2/hgt/m/n --> JY2/hgt/bx/n on input line 349.
+
+(c:/texlive/2024/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
+Package: ajmacros 2019/04/01 21:00 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp
+>
+\@tempcntc=\count272
+\@tempcntd=\count273
+\@tempcnte=\count274
+\@tempcntf=\count275
+))
+(c:/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count276
+\lst@gtempboxa=\box69
+\lst@token=\toks21
+\lst@length=\count277
+\lst@currlwidth=\dimen170
+\lst@column=\count278
+\lst@pos=\count279
+\lst@lostspace=\dimen171
+\lst@width=\dimen172
+\lst@newlines=\count280
+\lst@lineno=\count281
+\lst@maxwidth=\dimen173
+
+(c:/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+(c:/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count282
+\lst@skipnumbers=\count283
+\lst@framebox=\box70
+)
+(c:/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (./jlisting.sty
+Package: jlisting 2006/02/20 0.2 (Thor)
+\lst@nextchar=\count284
+\lst@inputfile=\read3
+)
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
+
+(c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: dvips.def on input line 149.
+
+(c:/texlive/2024/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+)
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
+(c:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(c:/texlive/2024/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(c:/texlive/2024/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(c:/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 100.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 100.
+
+(c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2024-05-08 L3 backend support: dvips
+\l__pdf_internal_box=\box71
+\l__pdf_backend_content_box=\box72
+\l__pdf_backend_model_box=\box73
+\g__pdf_backend_annotation_int=\count285
+\g__pdf_backend_link_int=\count286
+\g__pdf_backend_link_sf_int=\count287
+)
+(./form.aux)
+\openout1 = `form.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+\c@lstlisting=\count288
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 102.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 102.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 102.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 102.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 19.95642pt on input line 102.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 19.95642pt on input line 102.
+
+
+[1
+
+]
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <24.88> not available
+(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 105.
+LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 105.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <24.88> not available
+(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 105.
+LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 105.
+ (./form.toc
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <12> not available
+(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 1.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <12> not available
+(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 7.69775pt on input line 2.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 5.77332pt on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `form.toc'.
+
+ (./introduction.tex
+
+[1
+
+]
+第 1 章
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 8.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 8.
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 8.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
+(Font)              scaled to size 16.62714pt on input line 8.
+
+
+[2
+
+]
+File: img/rpa_rate.pdf Graphic file (type pdf)
+<img/rpa_rate.pdf>
+File: img/paper_media_survey.pdf Graphic file (type pdf)
+<img/paper_media_survey.pdf>
+) (./related_work.tex
+
+[3
+
+]
+
+[4]
+第 2 章
+
+
+[5
+
+]
+
+LaTeX Warning: Reference `rw_xxx' on page 6 undefined on input line 58.
+
+
+LaTeX Warning: Reference `rw_yyy ' on page 6 undefined on input line 59.
+
+) (./approach.tex
+
+[6]
+第 3 章
+File: img/sample.pdf Graphic file (type pdf)
+<img/sample.pdf>
+) (./experiment.tex
+
+[7
+
+]
+
+[8]
+
+[9]
+第 4 章
+
+
+[10
+
+]
+
+LaTeX Warning: Reference `exp_xxx' on page 11 undefined on input line 66.
+
+
+LaTeX Warning: Reference `exp_yyy ' on page 11 undefined on input line 67.
+
+
+LaTeX Warning: Reference `exp_zzz' on page 11 undefined on input line 68.
+
+) (./evaluation.tex
+
+[11]
+第 5 章
+
+
+[12
+
+]) (./conclusion.tex
+
+[13]
+第 6 章
+)
+
+[14
+
+] (./form.bbl
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 9.
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 14.
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 21.
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 29.
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 35.
+LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
+(Font)              No change on input line 42.
+)
+
+[15
+
+] (./form.aux)
+ ***********
+pLaTeX2e <2023-02-14u04>+1, based on
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5092 strings out of 474021
+ 73553 string characters out of 5739387
+ 650334 words of memory out of 5000000
+ 28150 multiletter control sequences out of 15000+600000
+ 573534 words of font info for 91 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 57i,8n,65p,955b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on form.dvi (16 pages, 38556 bytes).
