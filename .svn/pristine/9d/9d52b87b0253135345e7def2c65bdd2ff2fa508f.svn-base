@@ -10,18 +10,6 @@
 \section{今後の展望}
 \label{sec:con_future}
 
-% setsumei
-メタな記号
-$\$$, $\/$
-
-% setsumei
-数式
-
-$\sum_{k=0}^{100} (\lfloor x^k \rfloor + 1)$
-
-\ref{rw_xxx} 節 で述べた◯◯は黒い.
-特に \ref{rw_yyy }項 のはとても黒い.
-
 \section{研究のまとめ}
 \label{sec:con_fin}
 

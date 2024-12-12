@@ -2,7 +2,7 @@
 
 \usepackage{./sty/TitlePage}
 \usepackage[dvipdfmx]{graphicx}
-\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc} 
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage[uplatex]{otf}
@@ -104,7 +104,7 @@
 
 \tableofcontents
 
-\input{./introduction.tex}
+\input{./introduction.tex} 
 \input{./related_work.tex}
 \input{./approach.tex}
 \input{./experiment.tex}

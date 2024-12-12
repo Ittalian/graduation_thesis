@@ -2,18 +2,52 @@
 
 \bibitem{d-analyzer2019rpa}
 D-Analyzer.
-\newblock R{PA}にできないこと、不得意な業務はなにか？, 2019.
+\newblock R{PA}にできないこと,不得意な業務はなにか？.
+\newblock \url{https://tepss.com/danalyzer/column/rpa_can_not_do.html}, 2019.
 
-\bibitem{sasada2005yarv}
-Koichi Sasada.
-\newblock Yarv: yet another rubyvm: innovating the ruby interpreter.
-\newblock In {\em Companion to the 20th annual ACM SIGPLAN conference on
-  Object-oriented programming, systems, languages, and applications}, pages
-  158--159. ACM, 2005.
+\bibitem{kurahashi2007k-means}
+Kazuko kurahashi.
+\newblock 分割・併合機能を有する k-means
+  アルゴリズムによるクラスタリング.
+\newblock 2007.
+
+\bibitem{ohnishi2018ocr}
+{Ohnishi yoshimasa}.
+\newblock {文字認識 API
+  を用いた講義アーカイブシステムの設計}.
+\newblock 2018.
+
+\bibitem{unsupervised}
+{Sony}.
+\newblock
+  {機械学習における教師なし学習とは？ディープラーニングとの関係と応用}.
+\newblock
+  \url{https://dl.sony.com/ja/deeplearning/about/unsupervised_learning.html}.
+
+\bibitem{takahashi2013rails}
+{Takahashi asuka}.
+\newblock {フレームワークを用いた Web
+  アプリケーション開発における変更容易性の評価}.
+\newblock 2013.
+
+\bibitem{takeuchi2019wordnet}
+Koichi Takeuchi.
+\newblock 日本語wordnet における語義・概念の分散表現獲得.
+\newblock 2019.
 
 \bibitem{yasuhiro2017rpa}
 yasuhiro sasaki.
 \newblock R{PA}({R}obotics {P}rocess {A}utomation)の可能性.
 \newblock {\em 2017年春季全国研究発表大会}, 2017.
+
+\bibitem{ruby2023}
+{まつもと ゆきひろ}.
+\newblock {オブジェクト指向スクリプト言語 Ruby}.
+\newblock \url{http://www.ruby-lang.org/ja/}, 2023.
+
+\bibitem{2023hierar}
+{東京工業大学情報理工学院}.
+\newblock {階層的クラスタリング}.
+\newblock \url{https://chokkan.github.io/mlnote/unsupervised/02hac.html}, 2021.
 
 \end{thebibliography}
