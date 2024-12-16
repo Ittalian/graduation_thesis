@@ -2,71 +2,228 @@
 \label{ch:app}
 \quad
 
-アノテーションの定義と，アノテーションの内部データ構造を説明する~\cite{flanagan2008ruby}．
+本研究で活用する手法、それに対するアプローチをはじめ、テーブルの構造や内容などのシステム設計を示す.
+また、WordNetとの連携方法に加えて、ドキュメントをどのようにカテゴリ分けするかを具体的に示す.
 
 \section{提案する手法 ・ アプローチ}
-\label{sec:app_xx}
+\label{sec:app_method}
 
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる~\cite{goto2010bioruby}．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる~\cite{matsumoto2002ruby}．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる~\cite{fulton2006ruby}．
+本研究での手法は、以下のステップで構成されます.
+\begin{enumerate}
+    \item \textbf{ドキュメントファイルをアップロード}
+    \item \textbf{OCRによってドキュメントの内容を取得}
+    \item \textbf{それぞれの単語の定義の取得}
+    \item \textbf{定義ごとにカテゴライズ、ラベリング}
+    \item \textbf{ラベリング結果から文章のカテゴリを決定}
+\end{enumerate}
 
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-図~\ref{fig:rectangle}の長方形に角は四つである.
-本文中から必ず参照する.オプションについても調べた.
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
+\subsection{ドキュメントファイルをアップロード}
+\label{subsec:app_upload}
 
-PowerPoint で図を作るときは，スライドサイズを先に指定すると余白が少なくなる．
+Web上で動くRuby on Railsのシステムに対して、カテゴライズしたいドキュメントのファイルをアップロードする.
+\clearpage
+\begin{lstlisting}[language=HTML, caption=フロントエンドの ERB]
+    <div class="result">
+        <div class="result_content">この文書のカテゴリは<%= @result_category %>です</div>
+        <div class="result_labels">参考データ：<%= @category_labels %></div>
+    </div>
 
-% setsumei
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=10cm]{img/sample.pdf}
-\caption{PowerPoint 上での矩形}
-\label{fig:rectangle}
-\end{figure}%
+    <style>
+        .result {
+            background-color: grey;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+        .result_content {
+            font-size: 30px;
+            font-weight: bold;
+        }
 
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
-モゲという概念を用いる．モゲという概念を用いる．モゲという概念を用いる．
+        .result_labels {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    </style>
+\end{lstlisting}
 
+\subsection{OCRによってドキュメントの内容を取得}
+\label{subsec:app_ocr}
+
+Google Vision API の OCR 機能を用いて、ドキュメントの内容を取得し、単語ごとに分割する.
+\clearpage
+\begin{lstlisting}[language=Ruby, caption=Ruby による OCR の実装]
+    require "google/cloud/vision/v1"
+
+    class VisionOcrService
+        def initialize(image_path)
+            @image_path = image_path
+            @vision = Google::Cloud::Vision::V1::ImageAnnotator::Client.new
+        end
+
+        def detect_text
+            image_content = File.binread(@image_path)
+            response = @vision.text_detection(image: {content: image_content})
+
+            response.resources.flat_map do |res|
+            res.text_annotations.map(&:description)
+            end
+
+        rescue StandardError => e
+            Rails.logger.error "Vision API Error: #{e.message}"
+            []
+        end
+    end
+\end{lstlisting}
+
+\subsection{それぞれの単語の定義の取得}
+\label{sebsec:app_synset}
+
+WordNetのデータベースと連携し、入力された単語の定義を取得する.
+\clearpage
+\begin{lstlisting}[language=Ruby, caption=ActiveRecord による WordNet との連携]
+    class AnalyzeController < ApplicationController
+        before_action :set_words, only: [:analyze]
+
+        def analyze
+            @category_labels = Hash.new(0)
+
+            @words.each do |word|
+            analyze_word = Word.includes(:synsets).find_by(lemma: word)
+            return showNoCategoryError if analyze_word.nil?
+
+            result_words = analyze_word.synsets.pluck(:name)
+            current_labels = label_category(result_words)
+
+            current_labels.each do |category, count|
+                @category_labels[category] += count
+            end
+            end
+            @result_category = get_category(@category_labels)
+        end
+
+        private
+        def set_words
+            @words = @ocr_response
+        end
+    end
+\end{lstlisting}
+
+\subsection{単語ごとにカテゴライズ、ラベリング}
+\label{sebsec:app_categolize}
+
+取得した単語の定義から、該当するカテゴリに対してラベル付けを行う.
+\clearpage
+\begin{lstlisting}[language=Ruby, caption=カテゴリのラベリングメソッド]
+    def label_category(words)
+        words_set = words.to_set
+
+        categories = Category.all
+        words_with_synsets = Word.where(lemma: categories.pluck(:value)).includes(:synsets)
+
+        synsets_by_category = words_with_synsets.each_with_object({}) do |word, hash|
+        hash[word.lemma] = word.synsets.map(&:name)
+        end
+
+        categories.each_with_object({}) do |category, category_labels|
+        synset_names = synsets_by_category[category.value] || []
+        label_count = synset_names.count { |name| words_set.include?(name) }
+        category_labels[category.value] = label_count
+        end
+    end
+\end{lstlisting}
+
+\subsection{ラベリング結果から文章のカテゴリを決定}
+\label{subsec:app_classify}
+
+全ての単語をカテゴライズした後、最もラベリングの数が多いカテゴリを文章のカテゴリとして決定する.
+\clearpage
+\begin{lstlisting}[language=Ruby, caption=文書のカテゴリを決定するメソッド]
+    def get_category(labels)
+        max_label = labels.max_by { |_, value| value }
+        if max_label[1] == 0
+        showNoCategoryError
+        else
+        return max_label[0]
+        end
+    end
+
+    def showNoCategoryError
+        return 'no category'
+    end
+\end{lstlisting}
 \section{システム設計}
-\label{subsec:app_yy}
+\label{sec:app_design}
+本研究のシステムのバックエンドに当たる部分を具体的に示す.
+\subsection{テーブル構造}
+\label{subsec:table}
 
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる~\cite{richardson2008restful}．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-表~\ref{tab:情テク}は豹ではなく表である.
-本文中から必ず参照する.オプションについては解説しない.
+本研究で使用するテーブルには3種類ある.
+単語を格納するWordテーブル、単語の定義を格納するSynsetテーブル、前述した2つのテーブルの中間テーブルとなるSenseテーブルである.
+以下に、これらを表す ER 図を示す
 
-% setsumei
-\begin{table}[htbp]
- \caption{情報テクノロジー学科線路側研究室○○情報}
- \label{tab:情テク}
- \centering
-  \begin{tabular}{l|lr}
-  \hline
-  研究室 & 場所 & 人数\\
-  \hline
-  佐久田研 & O-YYY & 5 \\
-  原田研 & O-XXX & 7 \\
-  D\"urst 研 & O-527 & 3\\
-  大原研 & O-ZZZ & 2 \\
-  \hline
- \end{tabular}
-\end{table}
+\begin{center}
+\begin{tikzpicture}
 
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる~\cite{sasada2005yarv}．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
-模気という構造を用いる．模気という構造を用いる．模気という構造を用いる．
+\node (word) [entity] {Word};
+\node (sense) [entity, below=3cm of word] {Sense};
+\node (synset) [entity, below=3cm of sense] {Synset};
+
+\node (wordid) [attribute, left=of word] {int wordid (PK)};
+\node (lang) [attribute, above left=1cm and 1cm of word] {string lang};
+\node (lemma) [attribute, above right=1cm and 1cm of word] {string lemma};
+
+\node (synsetfk) [attribute, left=of sense] {string synset (FK)};
+\node (wordidfk) [attribute, right=of sense] {int wordid (FK)};
+\node (senselang) [attribute, below left=1cm and 1cm of sense] {string lang};
+
+\node (synsetid) [attribute, left=of synset] {string synset (PK)};
+\node (name) [attribute, right=of synset] {string name};
+
+\node (r1) [relationship, below=1cm of word] {has};
+\node (r2) [relationship, below=1cm of sense] {has};
+
+\draw[line] (wordid) -- (word);
+\draw[line] (lang) -- (word);
+\draw[line] (lemma) -- (word);
+
+\draw[line] (synsetfk) -- (sense);
+\draw[line] (wordidfk) -- (sense);
+\draw[line] (senselang) -- (sense);
+
+\draw[line] (synsetid) -- (synset);
+\draw[line] (name) -- (synset);
+
+\draw[line] (word) -- (r1);
+\draw[line] (r1) -- (sense);
+
+\draw[line] (sense) -- (r2);
+\draw[line] (r2) -- (synset);
+
+\node at (0, -10) {\Large \textbf{WordNet テーブルの ER 図}};
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{モデル設計}
+\label{sunsec:model}
+
+\paragraph{Wordモデル}
+一対多の関係で、複数のSenseモデルへのリレーションを持っており、Senseモデルを経由して、Synsetモデルへのリレーションを辿ることで、単語からその定義を取得する.
+場合に応じて適切な言語のレコードを活用するため、言語での絞り込みを行うメソッドを持つ.
+
+\paragraph{Synsetモデル}
+一対多の関係で、複数のWordモデルへのリレーションを持っており、Senseモデルを経由して、Wordモデルへのリレーションを辿ることで、特定の定義をもつ単語を取得する.
+Wordモデルと同様に、言語での絞り込みを行うメソッドを持つ.
+
+\paragraph{Senseモデル}
+Senseモデル、Synsetモデル両社と一対多のリレーションを持っており、二つのモデルの中間テーブルの役割を担う.
+
+
+
+
+
+
+

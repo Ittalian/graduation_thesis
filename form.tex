@@ -1,4 +1,4 @@
-\documentclass[uplatex,12pt,a4j]{ujreport}
+\documentclass[uplatex,dvipdfmx,12pt,a4j]{ujreport}
 
 \usepackage{./sty/TitlePage}
 \usepackage[dvipdfmx]{graphicx}
@@ -9,6 +9,29 @@
 \usepackage{listings,jlisting} % ソースコード読み込み用
 \usepackage{color,url}
 \usepackage{cite}
+\usepackage{listings}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning, shapes.geometric, arrows}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    frame=single,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny,
+    backgroundcolor=\color{white},
+    tabsize=2,
+    captionpos=b,
+}
+
+\tikzstyle{entity} = [rectangle, draw, minimum width=4cm, minimum height=1cm, text centered, node distance=2cm]
+\tikzstyle{attribute} = [ellipse, draw, text centered, minimum width=3cm, font=\small]
+\tikzstyle{relationship} = [diamond, draw, text centered, minimum width=2cm, font=\small]
+\tikzstyle{line} = [draw, -latex]
 
 \setlength {\oddsidemargin}{10.4mm}
 \setlength {\evensidemargin}{10.4mm}
