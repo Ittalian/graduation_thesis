@@ -2,25 +2,25 @@
 \label{ch:app}
 \quad
 
-本研究で活用する手法,それに対するアプローチをはじめ,テーブルの構造や内容などのシステム設計を示す.
-また,WordNetとの連携方法に加えて,ドキュメントをどのようにカテゴリ分けするかを具体的に示す.
+本研究で活用する手法、それに対するアプローチをはじめ、テーブルの構造や内容などのシステム設計を示す.
+また、WordNetとの連携方法に加えて、ドキュメントをどのようにカテゴリ分けするかを具体的に示す.
 
 \section{提案する手法 ・ アプローチ}
 \label{sec:app_method}
 
-本研究での手法は,以下のステップで構成されます.
+本研究での手法は、以下のステップで構成されます.
 \begin{enumerate}
     \item \textbf{ドキュメントファイルをアップロード}
     \item \textbf{OCRによってドキュメントの内容を取得}
     \item \textbf{それぞれの単語の定義の取得}
-    \item \textbf{定義ごとにカテゴライズ,ラベリング}
+    \item \textbf{定義ごとにカテゴライズ、ラベリング}
     \item \textbf{ラベリング結果から文章のカテゴリを決定}
 \end{enumerate}
 
 \subsection{ドキュメントファイルをアップロード}
 \label{subsec:app_upload}
 
-Web上で動くRuby on Railsのシステムに対して,カテゴライズしたいドキュメントのファイルをアップロードする.
+Web上で動くRuby on Railsのシステムに対して、カテゴライズしたいドキュメントのファイルをアップロードする.
 \clearpage
 \begin{lstlisting}[language=HTML, caption=フロントエンドの ERB]
     <div class="result">
@@ -52,7 +52,7 @@ Web上で動くRuby on Railsのシステムに対して,カテゴライズした
 \subsection{OCRによってドキュメントの内容を取得}
 \label{subsec:app_ocr}
 
-Google Vision API の OCR 機能を用いて,ドキュメントの内容を取得し,単語ごとに分割する.
+Google Vision API の OCR 機能を用いて、ドキュメントの内容を取得し、単語ごとに分割する.
 \clearpage
 \begin{lstlisting}[language=Ruby, caption=Ruby による OCR の実装]
     require "google/cloud/vision/v1"
@@ -81,7 +81,7 @@ Google Vision API の OCR 機能を用いて,ドキュメントの内容を取�
 \subsection{それぞれの単語の定義の取得}
 \label{sebsec:app_synset}
 
-WordNetのデータベースと連携し,入力された単語の定義を取得する.
+WordNetのデータベースと連携し、入力された単語の定義を取得する.
 \clearpage
 \begin{lstlisting}[language=Ruby, caption=ActiveRecord による WordNet との連携]
     class AnalyzeController < ApplicationController
@@ -111,10 +111,10 @@ WordNetのデータベースと連携し,入力された単語の定義を取得
     end
 \end{lstlisting}
 
-\subsection{単語ごとにカテゴライズ,ラベリング}
+\subsection{単語ごとにカテゴライズ、ラベリング}
 \label{sebsec:app_categolize}
 
-取得した単語の定義から,該当するカテゴリに対してラベル付けを行う.
+取得した単語の定義から、該当するカテゴリに対してラベル付けを行う.
 \clearpage
 \begin{lstlisting}[language=Ruby, caption=カテゴリのラベリングメソッド]
     def label_category(words)
@@ -138,7 +138,7 @@ WordNetのデータベースと連携し,入力された単語の定義を取得
 \subsection{ラベリング結果から文章のカテゴリを決定}
 \label{subsec:app_classify}
 
-全ての単語をカテゴライズした後,最もラベリングの数が多いカテゴリを文章のカテゴリとして決定する.
+全ての単語をカテゴライズした後、最もラベリングの数が多いカテゴリを文章のカテゴリとして決定する.
 \clearpage
 \begin{lstlisting}[language=Ruby, caption=文書のカテゴリを決定するメソッド]
     def get_category(labels)
@@ -161,8 +161,8 @@ WordNetのデータベースと連携し,入力された単語の定義を取得
 \label{subsec:table}
 
 本研究で使用するテーブルには3種類ある.
-単語を格納するWordテーブル,単語の定義を格納するSynsetテーブル,前述した2つのテーブルの中間テーブルとなるSenseテーブルである.
-以下に,これらを表す ER 図を示す
+単語を格納するWordテーブル、単語の定義を格納するSynsetテーブル、前述した2つのテーブルの中間テーブルとなるSenseテーブルである.
+以下に、これらを表す ER 図を示す
 
 \begin{center}
 \begin{tikzpicture}
@@ -211,15 +211,15 @@ WordNetのデータベースと連携し,入力された単語の定義を取得
 \label{sunsec:model}
 
 \paragraph{Wordモデル}
-一対多の関係で,複数のSenseモデルへのリレーションを持っており,Senseモデルを経由して,Synsetモデルへのリレーションを辿ることで,単語からその定義を取得する.
-場合に応じて適切な言語のレコードを活用するため,言語での絞り込みを行うメソッドを持つ.
+一対多の関係で、複数のSenseモデルへのリレーションを持っており、Senseモデルを経由して、Synsetモデルへのリレーションを辿ることで、単語からその定義を取得する.
+場合に応じて適切な言語のレコードを活用するため、言語での絞り込みを行うメソッドを持つ.
 
 \paragraph{Synsetモデル}
-一対多の関係で,複数のWordモデルへのリレーションを持っており,Senseモデルを経由して,Wordモデルへのリレーションを辿ることで,特定の定義をもつ単語を取得する.
-Wordモデルと同様に,言語での絞り込みを行うメソッドを持つ.
+一対多の関係で、複数のWordモデルへのリレーションを持っており、Senseモデルを経由して、Wordモデルへのリレーションを辿ることで、特定の定義をもつ単語を取得する.
+Wordモデルと同様に、言語での絞り込みを行うメソッドを持つ.
 
 \paragraph{Senseモデル}
-Senseモデル,Synsetモデル両社と一対多のリレーションを持っており,二つのモデルの中間テーブルの役割を担う.
+Senseモデル、Synsetモデル両社と一対多のリレーションを持っており、二つのモデルの中間テーブルの役割を担う.
 
 
 

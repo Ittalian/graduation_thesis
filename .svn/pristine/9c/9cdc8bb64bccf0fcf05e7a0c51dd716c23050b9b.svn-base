@@ -1,11 +1,11 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  19 DEC 2024 14:45
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.11.7)  16 DEC 2024 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **form.tex
 (./form.tex
 pLaTeX2e <2023-02-14u04>+1, based on
-LaTeX2e <2024-11-01> patch level 1
+LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (c:/texlive/2024/texmf-dist/tex/uplatex/base/ujreport.cls
 Document Class: ujreport 2020/09/30 v1.8f-u00 Standard upLaTeX class
@@ -36,8 +36,18 @@ LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 \bibindent=\dimen159
 \heisei=\count271
 )
-(./sty/TitlePage.sty)
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+(./sty/TitlePage.sty (c:/texlive/2024/texmf-dist/tex/generic/epsf/epsf.sty
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read2
+\epsfframemargin=\dimen160
+\epsfframethickness=\dimen161
+\epsfrsize=\dimen162
+\epsftmp=\dimen163
+\epsftsize=\dimen164
+\epsfxsize=\dimen165
+\epsfysize=\dimen166
+\pspoints=\dimen167
+)) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
@@ -58,8 +68,8 @@ Package graphics Info: Driver file: dvipdfmx.def on input line 106.
 (c:/texlive/2024/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 File: dvipdfmx.def 2022/09/22 v5.0m Graphics/color driver for dvipdfmx
 ))
-\Gin@req@height=\dimen160
-\Gin@req@width=\dimen161
+\Gin@req@height=\dimen168
+\Gin@req@width=\dimen169
 )
 (c:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
@@ -102,14 +112,14 @@ Package: ajmacros 2019/04/01 21:00 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp
 \lst@gtempboxa=\box69
 \lst@token=\toks21
 \lst@length=\count277
-\lst@currlwidth=\dimen162
+\lst@currlwidth=\dimen170
 \lst@column=\count278
 \lst@pos=\count279
-\lst@lostspace=\dimen163
-\lst@width=\dimen164
+\lst@lostspace=\dimen171
+\lst@width=\dimen172
 \lst@newlines=\count280
 \lst@lineno=\count281
-\lst@maxwidth=\dimen165
+\lst@maxwidth=\dimen173
 
 (c:/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
@@ -127,7 +137,7 @@ Package: listings 2024/09/23 1.10c (Carsten Heinz)
  (./jlisting.sty
 Package: jlisting 2006/02/20 0.2 (Thor)
 \lst@nextchar=\count284
-\lst@inputfile=\read2
+\lst@inputfile=\read3
 )
 (c:/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
@@ -155,8 +165,8 @@ Package: cite 2015/02/27  v 5.5
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks22
-\pgfutil@tempdima=\dimen166
-\pgfutil@tempdimb=\dimen167
+\pgfutil@tempdima=\dimen174
+\pgfutil@tempdimb=\dimen175
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box71
@@ -180,18 +190,18 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 de.tex
 \pgfkeys@tmptoks=\toks25
 ))
-\pgf@x=\dimen168
-\pgf@y=\dimen169
-\pgf@xa=\dimen170
-\pgf@ya=\dimen171
-\pgf@xb=\dimen172
-\pgf@yb=\dimen173
-\pgf@xc=\dimen174
-\pgf@yc=\dimen175
-\pgf@xd=\dimen176
-\pgf@yd=\dimen177
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\pgf@xd=\dimen184
+\pgf@yd=\dimen185
 \w@pgf@writea=\write3
-\r@pgf@reada=\read3
+\r@pgf@reada=\read4
 \c@pgf@counta=\count285
 \c@pgf@countb=\count286
 \c@pgf@countc=\count287
@@ -245,7 +255,7 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen178
+\pgfmath@dimen=\dimen186
 \pgfmath@count=\count293
 \pgfmath@box=\box72
 \pgfmath@toks=\toks29
@@ -276,32 +286,32 @@ etics.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen179
-\pgf@picmaxx=\dimen180
-\pgf@picminy=\dimen181
-\pgf@picmaxy=\dimen182
-\pgf@pathminx=\dimen183
-\pgf@pathmaxx=\dimen184
-\pgf@pathminy=\dimen185
-\pgf@pathmaxy=\dimen186
-\pgf@xx=\dimen187
-\pgf@xy=\dimen188
-\pgf@yx=\dimen189
-\pgf@yy=\dimen190
-\pgf@zx=\dimen191
-\pgf@zy=\dimen192
+\pgf@picminx=\dimen187
+\pgf@picmaxx=\dimen188
+\pgf@picminy=\dimen189
+\pgf@picmaxy=\dimen190
+\pgf@pathminx=\dimen191
+\pgf@pathmaxx=\dimen192
+\pgf@pathminy=\dimen193
+\pgf@pathmaxy=\dimen194
+\pgf@xx=\dimen195
+\pgf@xy=\dimen196
+\pgf@yx=\dimen197
+\pgf@yy=\dimen198
+\pgf@zx=\dimen199
+\pgf@zy=\dimen256
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.cod
 e.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen193
-\pgf@path@lasty=\dimen194
+\pgf@path@lastx=\dimen257
+\pgf@path@lasty=\dimen258
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.te
 x
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen195
-\pgf@shorten@start@additional=\dimen196
+\pgf@shorten@end@additional=\dimen259
+\pgf@shorten@start@additional=\dimen260
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -313,14 +323,14 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen197
+\pgflinewidth=\dimen261
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.c
 ode.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen198
-\pgf@pt@y=\dimen199
-\pgf@pt@temp=\dimen256
+\pgf@pt@x=\dimen262
+\pgf@pt@y=\dimen263
+\pgf@pt@temp=\dimen264
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -334,11 +344,11 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen257
+\pgfarrowsep=\dimen265
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen258
+\pgf@max=\dimen266
 \pgf@sys@shading@range@num=\count296
 \pgf@shadingcount=\count297
 )
@@ -370,8 +380,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.st
 y
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen259
-\pgf@nodesepend=\dimen260
+\pgf@nodesepstart=\dimen267
+\pgf@nodesepend=\dimen268
 )
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.st
 y
@@ -383,8 +393,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen261
-\pgffor@skip=\dimen262
+\pgffor@iter=\dimen269
+\pgffor@skip=\dimen270
 \pgffor@stack=\toks32
 \pgffor@toks=\toks33
 ))
@@ -395,16 +405,16 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 de.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@plot@mark@count=\count298
-\pgfplotmarksize=\dimen263
+\pgfplotmarksize=\dimen271
 )
-\tikz@lastx=\dimen264
-\tikz@lasty=\dimen265
-\tikz@lastxsaved=\dimen266
-\tikz@lastysaved=\dimen267
-\tikz@lastmovetox=\dimen268
-\tikz@lastmovetoy=\dimen269
-\tikzleveldistance=\dimen270
-\tikzsiblingdistance=\dimen271
+\tikz@lastx=\dimen272
+\tikz@lasty=\dimen273
+\tikz@lastxsaved=\dimen274
+\tikz@lastysaved=\dimen275
+\tikz@lastmovetox=\dimen276
+\tikz@lastmovetoy=\dimen277
+\tikzleveldistance=\dimen278
+\tikzsiblingdistance=\dimen279
 \tikz@figbox=\box78
 \tikz@figbox@bg=\box79
 \tikz@tempbox=\box80
@@ -444,7 +454,7 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen272
+\arrowsize=\dimen280
 )) (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
@@ -562,31 +572,33 @@ File: img/rpa_rate.pdf Graphic file (type pdf)
 <img/rpa_rate.pdf>
 File: img/paper_media_survey.pdf Graphic file (type pdf)
 <img/paper_media_survey.pdf>
-LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 43.
-LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 43.
-LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 43.
-LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 43.
-
+) (./related_work.tex
 
 [4
 
-]) (./related_work.tex
+]
 
 [5]
 第 2 章
-) (./approach.tex
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 11.
+LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 11.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 11.
+LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 11.
+
 
 [6
 
-]
+]) (./approach.tex
+
+[7]
 第 3 章
 
 
-[7
+[8
 
 ] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -602,7 +614,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 26.
 
 
-[8
+[9
 
 ] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -611,15 +623,15 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 File: lstlang2.sty 2024/09/23 1.10c listings language file
 )
 
-[9
-
-]
-
 [10
 
 ]
 
 [11
+
+]
+
+[12
 
 ]
 Overfull \hbox (9.42834pt too wide) in paragraph at lines 207--208
@@ -628,53 +640,49 @@ Overfull \hbox (9.42834pt too wide) in paragraph at lines 207--208
 
 
 
-[12
+[13
 
 ]) (./experiment.tex
 
-[13]
+[14]
 第 4 章
 ) (./evaluation.tex
 
-[14
+[15
 
 ]
 第 5 章
 ) (./conclusion.tex
 
-[15
+[16
 
 ]
 第 6 章
 )
 
-[16
+[17
 
 ] (./form.bbl
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 12.
-LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
-(Font)              No change on input line 28.
 LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
 (Font)              No change on input line 41.
 )
 
-[17
+[18
 
 ] (./form.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
-LaTeX2e <2024-11-01> patch level 1
+LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17374 strings out of 475436
- 335631 string characters out of 5771435
- 948742 words of memory out of 5000000
- 40105 multiletter control sequences out of 15000+600000
+ 17459 strings out of 474021
+ 336905 string characters out of 5739387
+ 954711 words of memory out of 5000000
+ 40282 multiletter control sequences out of 15000+600000
  575996 words of font info for 98 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 84i,6n,102p,892b,1517s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 929 hyphenation exceptions out of 8191
+ 84i,5n,102p,892b,1517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on form.dvi (18 pages, 72688 bytes).
+Output written on form.dvi (19 pages, 71460 bytes).
