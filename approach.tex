@@ -3,165 +3,16 @@
 \quad
 
 本研究で活用する手法,それに対するアプローチをはじめ,テーブルの構造や内容などのシステム設計を示す.
-また,WordNetとの連携方法に加えて,ドキュメントをどのようにカテゴリ分けするかを具体的に示す.
+また, WordNet データベースとの連携方法に加えて,ドキュメントをどのようにカテゴリ分けするかを具体的に示す.
 
-\section{提案する手法 ・ アプローチ}
-\label{sec:app_method}
-
-本研究での手法は,以下のステップで構成されます.
-\begin{enumerate}
-    \item \textbf{ドキュメントファイルをアップロード}
-    \item \textbf{OCRによってドキュメントの内容を取得}
-    \item \textbf{それぞれの単語の定義の取得}
-    \item \textbf{定義ごとにカテゴライズ,ラベリング}
-    \item \textbf{ラベリング結果から文章のカテゴリを決定}
-\end{enumerate}
-
-\subsection{ドキュメントファイルをアップロード}
-\label{subsec:app_upload}
-
-Web上で動くRuby on Railsのシステムに対して,カテゴライズしたいドキュメントのファイルをアップロードする.
-\clearpage
-\begin{lstlisting}[language=HTML, caption=フロントエンドの ERB]
-    <div class="result">
-        <div class="result_content">この文書のカテゴリは<%= @result_category %>です</div>
-        <div class="result_labels">参考データ：<%= @category_labels %></div>
-    </div>
-
-    <style>
-        .result {
-            background-color: grey;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
-        }
-        .result_content {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .result_labels {
-            margin-top: 10px;
-            font-size: 20px;
-        }
-    </style>
-\end{lstlisting}
-
-\subsection{OCRによってドキュメントの内容を取得}
-\label{subsec:app_ocr}
-
-Google Vision API の OCR 機能を用いて,ドキュメントの内容を取得し,単語ごとに分割する.
-\clearpage
-\begin{lstlisting}[language=Ruby, caption=Ruby による OCR の実装]
-    require "google/cloud/vision/v1"
-
-    class VisionOcrService
-        def initialize(image_path)
-            @image_path = image_path
-            @vision = Google::Cloud::Vision::V1::ImageAnnotator::Client.new
-        end
-
-        def detect_text
-            image_content = File.binread(@image_path)
-            response = @vision.text_detection(image: {content: image_content})
-
-            response.resources.flat_map do |res|
-            res.text_annotations.map(&:description)
-            end
-
-        rescue StandardError => e
-            Rails.logger.error "Vision API Error: #{e.message}"
-            []
-        end
-    end
-\end{lstlisting}
-
-\subsection{それぞれの単語の定義の取得}
-\label{sebsec:app_synset}
-
-WordNetのデータベースと連携し,入力された単語の定義を取得する.
-\clearpage
-\begin{lstlisting}[language=Ruby, caption=ActiveRecord による WordNet との連携]
-    class AnalyzeController < ApplicationController
-        before_action :set_words, only: [:analyze]
-
-        def analyze
-            @category_labels = Hash.new(0)
-
-            @words.each do |word|
-            analyze_word = Word.includes(:synsets).find_by(lemma: word)
-            return showNoCategoryError if analyze_word.nil?
-
-            result_words = analyze_word.synsets.pluck(:name)
-            current_labels = label_category(result_words)
-
-            current_labels.each do |category, count|
-                @category_labels[category] += count
-            end
-            end
-            @result_category = get_category(@category_labels)
-        end
-
-        private
-        def set_words
-            @words = @ocr_response
-        end
-    end
-\end{lstlisting}
-
-\subsection{単語ごとにカテゴライズ,ラベリング}
-\label{sebsec:app_categolize}
-
-取得した単語の定義から,該当するカテゴリに対してラベル付けを行う.
-\clearpage
-\begin{lstlisting}[language=Ruby, caption=カテゴリのラベリングメソッド]
-    def label_category(words)
-        words_set = words.to_set
-
-        categories = Category.all
-        words_with_synsets = Word.where(lemma: categories.pluck(:value)).includes(:synsets)
-
-        synsets_by_category = words_with_synsets.each_with_object({}) do |word, hash|
-        hash[word.lemma] = word.synsets.map(&:name)
-        end
-
-        categories.each_with_object({}) do |category, category_labels|
-        synset_names = synsets_by_category[category.value] || []
-        label_count = synset_names.count { |name| words_set.include?(name) }
-        category_labels[category.value] = label_count
-        end
-    end
-\end{lstlisting}
-
-\subsection{ラベリング結果から文章のカテゴリを決定}
-\label{subsec:app_classify}
-
-全ての単語をカテゴライズした後,最もラベリングの数が多いカテゴリを文章のカテゴリとして決定する.
-\clearpage
-\begin{lstlisting}[language=Ruby, caption=文書のカテゴリを決定するメソッド]
-    def get_category(labels)
-        max_label = labels.max_by { |_, value| value }
-        if max_label[1] == 0
-        showNoCategoryError
-        else
-        return max_label[0]
-        end
-    end
-
-    def showNoCategoryError
-        return 'no category'
-    end
-\end{lstlisting}
 \section{システム設計}
 \label{sec:app_design}
 本研究のシステムのバックエンドに当たる部分を具体的に示す.
-\subsection{テーブル構造}
+\subsection{データベース設計}
 \label{subsec:table}
 
 本研究で使用するテーブルには3種類ある.
-単語を格納するWordテーブル,単語の定義を格納するSynsetテーブル,前述した2つのテーブルの中間テーブルとなるSenseテーブルである.
+単語を格納する Word テーブル,単語の定義を格納する Synset テーブル,前述した2つのテーブルの中間テーブルとなる Sense テーブルである.
 以下に,これらを表す ER 図を示す
 
 \begin{center}
@@ -202,28 +53,186 @@ WordNetのデータベースと連携し,入力された単語の定義を取得
 \draw[line] (sense) -- (r2);
 \draw[line] (r2) -- (synset);
 
-\node at (0, -10) {\Large \textbf{WordNet テーブルの ER 図}};
-
 \end{tikzpicture}
 \end{center}
 
 \subsection{モデル設計}
 \label{sunsec:model}
 
-\paragraph{Wordモデル}
-一対多の関係で,複数のSenseモデルへのリレーションを持っており,Senseモデルを経由して,Synsetモデルへのリレーションを辿ることで,単語からその定義を取得する.
+\paragraph{Word モデル}
+一対多の関係で,複数の Sense モデルへのリレーションを持っており, Sense モデルを経由して, Synset モデルへのリレーションを辿ることで,単語からその定義を取得する.
 場合に応じて適切な言語のレコードを活用するため,言語での絞り込みを行うメソッドを持つ.
 
-\paragraph{Synsetモデル}
-一対多の関係で,複数のWordモデルへのリレーションを持っており,Senseモデルを経由して,Wordモデルへのリレーションを辿ることで,特定の定義をもつ単語を取得する.
+\paragraph{Synset モデル}
+一対多の関係で,複数の Word モデルへのリレーションを持っており, Sense モデルを経由して, Word モデルへのリレーションを辿ることで,特定の定義をもつ単語を取得する.
 Wordモデルと同様に,言語での絞り込みを行うメソッドを持つ.
 
-\paragraph{Senseモデル}
-Senseモデル,Synsetモデル両社と一対多のリレーションを持っており,二つのモデルの中間テーブルの役割を担う.
+\paragraph{Sense モデル}
+Sense モデル, Synset モデル両社と一対多のリレーションを持っており,二つのモデルの中間テーブルの役割を担う.単語から定義を取得する処理は, Synset テーブルを経由して行う.
+
+\section{提案する手法 ・ アプローチ}
+\label{sec:app_method}
+
+本研究での手法の流れを以下に示す.始めに,カテゴライズしたいドキュメントファイルをシステムにアップロードする.その後,ファイルに対して Google Vision API を使用した OCR を行い,内容の単語群を取得する.
+OCR と親和性のある代表的なプログラミング言語として Python が挙げられるが, http リクエストによって言語を問わず簡単に利用できる点や, OCR 処理に対するオプションの豊富さから,本研究で使用する.
+その後, WornNetデータベースと連携し,単語ごとの定義を取得する. WordNet は日本語,英語双方に対応した対規模な語彙データベースであるため,言語の入り混じったドキュメントに対しても問題なく処理を行うことができるため,対応可能な語彙の量と汎用性を加味し,本研究で使用する.
+各々の定義を元に単語がどのカテゴリに属するかを判別し,単語ごとにラベリングを行う.ラベリング結果から,最終的なドキュメントのカテゴリを決定する.
 
 
+\subsection{ドキュメントファイルをアップロード}
+\label{subsec:app_upload}
+
+Web上で動くRuby on Railsのシステムに対して,カテゴライズしたいドキュメントのファイルをアップロードする.
+ファイルのアップロード用のアップローダークラスを定義し,詳しいオプションの設定を行う.
+アップロードされた画像ファイルのインスタンスをサービスクラスに渡し, OCR 等の処理を行う.
+
+\begin{lstlisting}[language=HTML, caption=フロントエンドの ERB]
+    <div class="result">
+        <div class="result_content">この文書のカテゴリは
+        <%= @result_category %>です</div>
+        <div class="result_labels">参考データ：
+        <%= @category_labels %></div>
+    </div>
+\end{lstlisting}
 
 
+\clearpage
+
+\subsection{OCRによってドキュメントの内容を取得}
+\label{subsec:app_ocr}
+
+Google Vision API の OCR 機能を用いて,ドキュメントの内容を取得し,単語ごとに分割する.
+API リクエストを送信し,外部とやり取りをするためのサービスクラスを定義し,その中で処理を行う.
+detect\_textクラスの初期化時に画像認識用のインスタンスを生成し,画像のパスを取得する.
+認識した画像に対しての処理を行い, OCR の結果を単語の配列として返す.
+API のレスポンスは,オブジェクトによって形成されているため, OCR の結果を保持した文字列を格納したプロパティを取得する.
+最後に http のネットワークエラー処理を記述している.
+
+\begin{lstlisting}[language=Ruby, caption=Ruby による OCR の実装]
+    require "google/cloud/vision/v1"
+
+    class VisionOcrService
+        def initialize(image_path)
+            @image_path = image_path
+            @vision = Google::Cloud::Vision::V1::
+            ImageAnnotator::Client.new
+        end
+
+        def detect_text
+            image_content = File.binread(@image_path)
+            response = @vision.text_detection(image: {content:
+            image_content})
+
+            response.resources.flat_map do |res|
+            res.text_annotations.map(&:description)
+            end
+
+        rescue StandardError => e
+            Rails.logger.error "Vision API Error: #{e.message}"
+            []
+        end
+    end
+\end{lstlisting}
 
 
+\clearpage
+
+\subsection{それぞれの単語の定義の取得}
+\label{sebsec:app_synset}
+
+WordNet のデータベースと連携し,入力された単語の定義を取得する.
+アクションの実行前に,OCR によって取得した単語の配列を,インスタンス変数に格納する.
+取得するラベルを格納するインスタンス変数を定義する. WordNet の Word テーブル内で,その単語に該当する定義を取得し,カテゴリが存在しない場合はカテゴリ無しとして取得する.
+取得した Synset テーブルの一覧から,該当するカテゴリを判別する.上記の処理を、前の処理で取得した OCR 結果の単語の配列の全ての要素に対して行う.
+
+\begin{lstlisting}[language=Ruby, caption=ActiveRecord による WordNet との連携]
+    class AnalyzeController < ApplicationController
+        before_action :set_words, only: [:analyze]
+
+        def analyze
+            @category_labels = Hash.new(0)
+
+            @words.each do |word|
+            analyze_word = Word.includes(:synsets).find_by(lemma:
+            word)
+            return showNoCategoryError if analyze_word.nil?
+
+            result_words = analyze_word.synsets.pluck(:name)
+            current_labels = label_category(result_words)
+
+            current_labels.each do |category, count|
+                @category_labels[category] += count
+            end
+            end
+            @result_category = get_category(@category_labels)
+        end
+
+        private
+        def set_words
+            @words = @ocr_response
+        end
+    end
+\end{lstlisting}
+
+
+\clearpage
+
+\subsection{単語ごとにカテゴライズ,ラベリング}
+\label{sebsec:app_categolize}
+
+取得した単語の定義から,該当するカテゴリに対してラベル付けを行う.
+どの定義がどのカテゴリに該当するかは, Category テーブルに記述してある.
+前の処理で取得した Synset の一覧に対して,該当するカテゴリが見つかった際にラベルのカウントを増やす仕組みになっている.
+ラベリングを行ったハッシュを次の処理に渡し,最終的なドキュメントのカテゴリを決定する.
+
+\begin{lstlisting}[language=Ruby, caption=カテゴリのラベリングメソッド]
+    def label_category(words)
+        words_set = words.to_set
+
+        categories = Category.all
+        words_with_synsets = Word.where(lemma:
+        categories.pluck(:value)).includes(:synsets)
+
+        synsets_by_category = words_with_synsets
+        .each_with_object({}) do |word, hash|
+        hash[word.lemma] = word.synsets.map(&:name)
+        end
+
+        categories.each_with_object({}) do |category,
+        category_labels|
+        synset_names = synsets_by_category[category.value] || []
+        label_count = synset_names.count { |name| words_set
+        .include?(name) }
+        category_labels[category.value] = label_count
+        end
+    end
+\end{lstlisting}
+
+
+\clearpage
+
+\subsection{ラベリング結果から文章のカテゴリを決定}
+\label{subsec:app_classify}
+
+全ての単語をカテゴライズした後,最もラベリングの数が多いカテゴリを文章のカテゴリとして決定する.
+受け取ったハッシュに対して,ラベルの数が最も多いカテゴリを判別し,そのカテゴリをドキュメントの最終的なカテゴリとして決定する.
+なお,カテゴリが存在しない場合は,現在はエラーをスローされるシステムにしている.
+
+\begin{lstlisting}[language=Ruby, caption=文書のカテゴリを決定するメソッド]
+    def get_category(labels)
+    max_label = labels.max_by { |_, value| value }
+    if max_label[1] == 0
+    showNoCategoryError
+    else
+    return max_label[0]
+    end
+    end
+
+    def showNoCategoryError
+    return 'no category'
+    end
+\end{lstlisting}
+
+
+\clearpage
 
