@@ -1,0 +1,62 @@
+\begin{thebibliography}{10}
+
+\bibitem{d-analyzer2019rpa}
+D-Analyzer.
+\newblock R{PA}にできないこと,不得意な業務はなにか？.
+\newblock \url{https://tepss.com/danalyzer/column/rpa_can_not_do.html}, 2019.
+
+\bibitem{rubybook2024}
+Dave~Thomas Noel~Rappin.
+\newblock {\em Programming Ruby 3.3: The Pragmatic Programmers' Guide
+  (Pragmatic Programmers; Facets of Ruby)}.
+\newblock Pragmatic Bookshelf, 5th edition, 2024.
+
+\bibitem{unsupervised}
+{Sony}.
+\newblock
+  {機械学習における教師なし学習とは？ディープラーニングとの関係と応用}.
+\newblock
+  \url{https://dl.sony.com/ja/deeplearning/about/unsupervised_learning.html}.
+\newblock 参照日2024年12月12日.
+
+\bibitem{ruby2023}
+{まつもと ゆきひろ}.
+\newblock {オブジェクト指向スクリプト言語 Ruby}.
+\newblock \url{http://www.ruby-lang.org/ja/}, 2023.
+
+\bibitem{kurahashi2007k-means}
+倉橋 和子.
+\newblock 分割・併合機能を有する k-means
+  アルゴリズムによるクラスタリング.
+\newblock 2007.
+
+\bibitem{ohnishi2018ocr}
+{大西 淑雅}.
+\newblock {文字認識 API
+  を用いた講義アーカイブシステムの設計}.
+\newblock 2018.
+
+\bibitem{takeuchi2019wordnet}
+竹内 孔一.
+\newblock 日本語wordnet における語義・概念の分散表現獲得.
+\newblock 2019.
+
+\bibitem{yasuhiro2017rpa}
+佐々木 康浩.
+\newblock R{PA} ({R}obotics {P}rocess {A}utomation)の可能性.
+\newblock 2017.
+\newblock 参照日2024年12月12日.
+
+\bibitem{2023hierar}
+東埜 淳哉.
+\newblock
+  階層的クラスタリングを用いたクラスタ数の自動推定に関する検討.
+\newblock 2022.
+
+\bibitem{takahashi2013rails}
+{高橋 明日香}.
+\newblock {フレームワークを用いた Web
+  アプリケーション開発における変更容易性の評価}.
+\newblock 2013.
+
+\end{thebibliography}
