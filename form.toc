@@ -29,11 +29,11 @@
 \contentsline {section}{\numberline {4.1}様々なドキュメントでの実験}{15}{}%
 \contentsline {section}{\numberline {4.2}精度の分析}{16}{}%
 \contentsline {subsection}{\numberline {4.2.1}タイトルごとの精度}{16}{}%
-\contentsline {subsection}{\numberline {4.2.2}カテゴリごとの精度}{16}{}%
-\contentsline {chapter}{\numberline {第5章}考察}{17}{}%
-\contentsline {section}{\numberline {5.1}ドキュメントごとの結果の解釈}{17}{}%
-\contentsline {section}{\numberline {5.2}改善点}{17}{}%
-\contentsline {chapter}{\numberline {第6章}おわりに}{18}{}%
-\contentsline {section}{\numberline {6.1}今後の展望}{18}{}%
-\contentsline {section}{\numberline {6.2}研究のまとめ}{18}{}%
-\contentsline {chapter}{参考文献}{19}{}%
+\contentsline {subsection}{\numberline {4.2.2}カテゴリごとの精度}{17}{}%
+\contentsline {chapter}{\numberline {第5章}考察}{18}{}%
+\contentsline {section}{\numberline {5.1}ドキュメントごとの結果の解釈}{18}{}%
+\contentsline {section}{\numberline {5.2}改善点}{18}{}%
+\contentsline {chapter}{\numberline {第6章}おわりに}{19}{}%
+\contentsline {section}{\numberline {6.1}今後の展望}{19}{}%
+\contentsline {section}{\numberline {6.2}研究のまとめ}{19}{}%
+\contentsline {chapter}{参考文献}{20}{}%

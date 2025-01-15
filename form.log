@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  10 JAN 2025 11:43
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  15 JAN 2025 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -660,7 +660,7 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 ]) (./experiment.tex
 第 4 章
 
-Overfull \hbox (192.63062pt too wide) in paragraph at lines 38--57
+Overfull \hbox (33.67876pt too wide) in paragraph at lines 40--59
  [][][][] 
  []
 
@@ -669,26 +669,30 @@ Overfull \hbox (192.63062pt too wide) in paragraph at lines 38--57
 [15
 
 
-]) (./evaluation.tex
+]
 
-[16]
+[16]) (./evaluation.tex
+
+[17
+
+]
 第 5 章
 ) (./conclusion.tex
 
-[17
+[18
 
 ]
 第 6 章
 )
 
-[18
+[19
 
 ] (./form.bbl
 LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
 (Font)              No change on input line 10.
 )
 
-[19
+[20
 
 ] (./form.aux)
  ***********
@@ -696,14 +700,18 @@ pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 17449 strings out of 475436
- 336874 string characters out of 5771435
- 944772 words of memory out of 5000000
- 40176 multiletter control sequences out of 15000+600000
+ 17451 strings out of 475436
+ 336917 string characters out of 5771435
+ 944824 words of memory out of 5000000
+ 40178 multiletter control sequences out of 15000+600000
  575996 words of font info for 98 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 84i,8n,102p,543b,1517s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,102p,714b,1517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on form.dvi (20 pages, 79696 bytes).
+Output written on form.dvi (21 pages, 83472 bytes).
