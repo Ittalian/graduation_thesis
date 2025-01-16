@@ -73,7 +73,7 @@
 \def\@day{#3}
 \newcounter{YEAR}\setcounter{YEAR}{#1}
 \newcounter{JYEAR}\setcounter{JYEAR}{#1}
-\addtocounter{JYEAR}{-1989}%
+\addtocounter{JYEAR}{-2019}%
 }
 
 \gdef\Ptype{卒業論文}
@@ -106,7 +106,7 @@
   \gdef\@TITLE{{\huge{\@title} \\ \LARGE{\@subtitle}  \par}}
   }
   {
-  \gdef\@TITLE{{\huge \@title \\ \LARGE{\@subtitle} \par} 
+  \gdef\@TITLE{{\huge \@title \\ \LARGE{\@subtitle} \par}
   \vskip 5pt {\bf \LARGE{\@etitle} \\ \Large{\@subetitle} \par}}
   }
 
@@ -147,7 +147,7 @@
 \begin{center}
 \begin{tabular}{c}
 \Large 青山学院大学理工学部情報テクノロジー学科\\
-\Large \theYEAR \ (平成 \theJYEAR) 年度 卒業論文要旨\\
+\Large \theYEAR \ (令和 \theJYEAR) 年度 卒業論文要旨\\
 %\begin{minipage}{1.5cm}
 %\includegraphics[width=1.5cm]{\FigHome/agu.eps}
 %\end{minipage}
@@ -170,8 +170,8 @@
 % Aoyama Gakuin University, 16-1,Chitosedai 6-chome, Setagaya-ku, Tokyo\\
 % E-Mail : \EMAIL
 
-%\vskip 1.5em 
-\vskip 1.0em 
+%\vskip 1.5em
+\vskip 1.0em
 \vspace{-4mm}
 %\@ifundefined{@abst}{}{ %
 % \small
@@ -191,7 +191,7 @@
   \maketitle
   \thispagestyle{empty}
 % \thispagestyle{presen}
-  \makeatletter    
+  \makeatletter
   \mark{{}{}}
   \def\ps@presen{%
     \let\@mkboth=\markboth
@@ -201,10 +201,10 @@
     \makebox[\textwidth]{\hfill \bf \thepage/{\bf \pageref{Lastpage}}}}
     }
   }
-  \makeatother         
+  \makeatother
   \pagestyle{presen}
   \thispagestyle{presen}
-  \normalsize 
+  \normalsize
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 章，節の内部命令                            %
