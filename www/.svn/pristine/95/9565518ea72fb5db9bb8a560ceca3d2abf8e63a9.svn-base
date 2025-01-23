@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="text/html; charset=UTF-8" />
+  <title>Exploring Better Source Editing for Bidirectional XHTML and XML
+  (IUC28)</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center;"><strong>Exploring Better Source Editing for
+Bidirectional XHTML and XML</strong></h1>
+
+<p style="text-align: center;"><a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> (duerst@it.aoyama.ac.jp)<br />
+with Shiro Horie and Yusaku Wada<br />
+</p>
+
+<p style="text-align: center;"><a
+href="http://www.global-conference.com/iuc28/">28th Internationalization and
+Unicode Conference</a>,<br />
+September 2005, Orlando, Florida, USA</p>
+
+<p style="text-align: center;">This talk and related material is available
+at:<br />
+<a
+href="http://www.sw.it.aoyama.ac.jp/2005/pub/IUC28-bidi">http://www.sw.it.aoyama.ac.jp/2005/pub/IUC28-bidi</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/en/">Aoyama Gakuin
+University</a></p>
+
+<h1>The Problem</h1>
+
+<p>HTML and XML source is easily readable:</p>
+<pre>&lt;p&gt;Hello, &lt;img scr='foo.jpg'
+   alt="abcd efgh"&gt; IJKLM!&lt;/p&gt;</pre>
+
+<p>HTML and XML source with Arabic or Hebrew gets garbled:</p>
+<pre>&lt;p&gt;Hello, &lt;img scr='foo.jpg'
+   alt="ابةتث جحخد"&gt; ذرزسش!&lt;/p&gt;</pre>
+<pre>&lt;p&gt;Hello, &lt;img scr='foo.jpg'
+   alt="אבגד הוזח"&gt; טיךכ!&lt;/p&gt;</pre>
+
+<h1>The Reason</h1>
+<ul>
+  <li>Arabic and Hebrew is written right-to-left</li>
+  <li>Unicode Bidirectional Algorithm (<a
+    href="http://www.unicode.org/reports/tr9/">UAX #9</a>, bidi algorithm):
+    <ul>
+      <li>defines how bidi text is rendered</li>
+      <li>designed for free text, not markup</li>
+      <li>uses special character for tweaking when necessary</li>
+      <li>punctuation is 'weak'</li>
+    </ul>
+  </li>
+  <li>Markup source:
+    <ul>
+      <li>uses 'weak' punctuation as syntactic delimiters</li>
+      <li>gets confused by bidi control characters</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>The Solution</h1>
+<ul>
+  <li>The bidi algorithm allows 'higher level protocols' to affect
+  rendering</li>
+  <li>Modern 'plain-text' editors do syntax highlighting</li>
+  <li>Make better bidi source rendering part of syntax highlighting</li>
+  <li>Make it as easy and natural as possible</li>
+</ul>
+
+<h1>Methodology: Prototyping</h1>
+<ul>
+  <li>Prototyping using HTML as output</li>
+  <li>Use HTML bidi markup to control bidi behaviour</li>
+  <li>User browser for bidi rendering</li>
+  <li>Start with one line, expand to multi-line</li>
+  <li>Use a lot of coloring</li>
+  <li>World-wide test and feedback with Web form</li>
+</ul>
+
+<h1>The Importance of Source</h1>
+
+<p>Why is surce important?</p>
+<ul>
+  <li>Most HTML and XML produced by tools, but</li>
+  <li>Copy-paste allowed quick grow of HTML and the Web</li>
+  <li>The 'real thing'</li>
+  <li>Bootstrapping and tooling</li>
+  <li>Education</li>
+</ul>
+
+<h1>Background</h1>
+<ul>
+  <li>XML</li>
+  <li>(X)HTML</li>
+  <li>Bidi</li>
+  <li>CSS</li>
+</ul>
+
+<p>(see paper or ask)</p>
+
+<h1>What has to happen:</h1>
+<ul>
+  <li>Syntax characters have to be strengthened</li>
+  <li>LRM and RLM (characters): show as icons, make behave as themselves</li>
+  <li>LRE, RLE, LRO, RLO, PDF: show as <span style="color: red">red</span>
+    icons (strongly discouraged), no effect (yet)</li>
+  <li><code>&amp;lrm;</code>, <code>&amp;rlm;</code> (entities, (X)HTML
+    only): protecting weak characters, making behave as themselves</li>
+  <li><code>&lt;bdo&gt;</code> with <code>dir</code> attribute in (X)HTML:
+    Make content display with forced direction</li>
+  <li>Other elements with <code>dir</code> attribute in (X)HTML: Make content
+    display as embedding</li>
+  <li>URI values in (X)HTML: impose LTR context</li>
+</ul>
+
+<h1>Implementation Details: Parsing</h1>
+
+<p>Three different kinds of structures:</p>
+<ul>
+  <li>Low-level syntactic units:<br />
+    element names, tag start characters,...: State machine</li>
+  <li>Higher-level syntactic units:<br />
+    elements,...: Stack</li>
+  <li>Output units:<br />
+    lines</li>
+</ul>
+
+<p>The main problem: mismatch between XML syntactic units and lines. Even an
+attribute value can cover more than one line.</p>
+
+<h1>Prototype Demo</h1>
+
+<p><a
+href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test</a></p>
+
+<h1>Prototype Configuration Options</h1>
+<ul>
+  <li>Privacy: allow to test on text/data you don't want anybody else to
+  see</li>
+  <li>New line: make input easier</li>
+  <li>Markup language: tag nesting, bidi-specific markup in (X)HTML</li>
+  <li>Global direction: overall direction for markup and content</li>
+  <li>Color: we have some source coloring, but it's not well worked out and
+    probably too detailled</li>
+</ul>
+
+<h1>Conclusions</h1>
+
+<p>Please <a href="/cgi-bin/bidi-source-test">test prototype</a> and provide
+feedback!</p>
+
+<h1>Future Work</h1>
+<ul>
+  <li>Improve and polish prototype:
+    <ul>
+      <li>'upper-case as RTL'</li>
+      <li>more sophisticated nesting</li>
+      <li>LRE/RLE/.../PDF, e.g. in attributes</li>
+      <li>HTML4 (missing end tags,...)</li>
+      <li>error resilency</li>
+      <li>Support file upload</li>
+    </ul>
+  </li>
+  <li>Implement in actual editor(s): emacs? scintilla/notepad2? others?</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>言語理論とコンパイラ: 第三回</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+    </style>
+</head>
+
+<body>
+<h1
+style="text-align: center"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center"><strong>第三</strong><strong>回:</strong>
+有限オートマトンと線形文法</p>
+
+<p style="text-align: center">2005年 5月 6日</p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>宿題 (5月12日 11:00 まで提出)</h1>
+
+<p>提出は A4 の紙一枚 (裏も使ってよい)</p>
+<ol>
+  <li>次のプログラムの一行の字句解析の結果
+    (トークンの列)、構文解析の結果 (構文木)、出力
+    (マシーンへの命令) を書きなさい<br />
+    <code>total = number * unitprice * (100 + tax) / 100;</code></li>
+  <li>(提出なしだが、出来なかった人は次回ノートパソコンを持ってきてください。)<br
+    />
+    自分のノートパソコンに cygwin を<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_download.html">ダウンロード</a>、<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_install.html">インストール</a>してください。インストールの手順で必ず
+    <strong>flex</strong> と <strong>bison</strong>
+    を選んでください。(家にダイアルアップ回線しかなかったら学校でやった方がよい。)</li>
+</ol>
+
+<h1>先週の終わり</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>文法</th>
+      <th>Type</th>
+      <th>言語</th>
+      <th>オートマトン</th>
+    </tr>
+    <tr>
+      <td>句構造文法</td>
+      <td>0</td>
+      <td>句構造言語</td>
+      <td>チューリング機械</td>
+    </tr>
+    <tr>
+      <td>文脈依存文法</td>
+      <td>1</td>
+      <td>文脈依存言語</td>
+      <td>線形拘束オートマトン</td>
+    </tr>
+    <tr>
+      <td>文脈自由文法</td>
+      <td>2</td>
+      <td>文脈自由言語</td>
+      <td>プッシュダウンオートマトン</td>
+    </tr>
+    <tr>
+      <td><strong>正規文法</strong></td>
+      <td><strong>3</strong></td>
+      <td><strong>正規言語</strong></td>
+      <td><strong>有限オートマトン</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>正規言語は字句解析の時に使う。</p>
+
+<h1>今週の展望</h1>
+<ul>
+  <li>有限オートマトン (finite state automaton, FSA)
+    <ul>
+      <li>決定性有限オートマトン (deterministic finite automaton,
+        DFA)</li>
+      <li>非決定性有限オートマトン (non-deterministic finite
+        automaton, NFA)</li>
+    </ul>
+  </li>
+  <li>正規文法 (regular grammar)
+    <ul>
+      <li>左線形文法 (left linear grammar)</li>
+      <li>右線形文法 (right linear grammar)</li>
+    </ul>
+  </li>
+  <li>正規表現 (regular expression)
+    <ul>
+      <li>単一規則の拡張 BNF</li>
+    </ul>
+  </li>
+</ul>
+
+<p>これらは全て同じ力を持って、正規言語を定義・受理する</p>
+
+<h1>有限オートマトン</h1>
+<ul>
+  <li>スタート状態から始まる</li>
+  <li>入力の語を繰り返して一字読んで、これによって状態を遷移する</li>
+  <li>語を読み終わった時に受理状態にいるとこの語が受理される</li>
+  <li>語を読み終わった時に受理状態にいない、もしくは途中で動作ができない場合に語が受理されない</li>
+  <li>状態の数が有限である
+    (すなわち、メモリは制限されている)</li>
+</ul>
+
+<p>(automaton はギリシア語で、複数は automata)</p>
+
+<h1>有限オートマトンの状態遷移図</h1>
+
+<p><img alt="有限オートマトンの状態遷移図" src="lec3img1.png"
+/></p>
+
+<h1>有限オートマトンの遷移表</h1>
+
+<p>(≈動作関数=状態遷移関数)</p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td></td>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+    <tr>
+      <th>→A</th>
+      <td>B</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>C</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>*C</th>
+      <td>C</td>
+      <td>A</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>有限オートマトンに必要な物</h1>
+<ul>
+  <li>状態の有限集合 (<var>Q</var>、図の円)</li>
+  <li>入力記号の有限集合
+  (<var>Σ</var>、図の矢印のラベル)</li>
+  <li>動作関数 (<var>δ</var>、図のラベル付き矢印)</li>
+  <li>初期状態 (<var>q</var><sub>0</sub> ∈ <var>Q</var>、図の
+    (二重) 矢印)</li>
+  <li>受理状態の有限集合 (<var>F</var> ⊆
+    <var>Q</var>、図の二重円)</li>
+</ul>
+
+<p>有限オートマトンは (Q, Σ, δ, q<sub>0</sub>, F)
+の五字組で定義できる。</p>
+
+<h1>決定性と非決定性有限オートマトン</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>決定性</td>
+      <td>非決定性</td>
+    </tr>
+    <tr>
+      <td>同時に</td>
+      <td>一つの状態</td>
+      <td>複数の状態</td>
+    </tr>
+    <tr>
+      <td>受理条件</td>
+      <td>状態が受理状態</td>
+      <td>状態の一つ以上が受理状態</td>
+    </tr>
+    <tr>
+      <td>ε 遷移</td>
+      <td>不可</td>
+      <td>可能</td>
+    </tr>
+    <tr>
+      <td>動作関数の型</td>
+      <td><var>δ</var>: <var>Q</var> × <var>Σ</var> → <var>Q</var></td>
+      <td><var>δ</var>: <var>Q</var> × (<var>Σ</var> ∪ {ε}) →
+        2<sup>Q</sup></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>(決定性) 有限オートマトンの例</h1>
+<ul>
+  <li>ある一個の語だけ受理できる</li>
+  <li>ある記号の数が奇数、偶数、3で割れば余りが
+  2、等</li>
+  <li>語の先頭に決まった記号列がある</li>
+  <li>語の終わりに決まった記号列がある</li>
+  <li>語の真ん中に・どこかに決まった記号列がある</li>
+  <li>語の中にある記号列が潜んでいる</li>
+  <li>二つ以上の条件を同時に満たすもの</li>
+</ul>
+
+<h1>NFA から同等の DFA への変換</h1>
+
+<p>アルゴリズムの原理:</p>
+<ul>
+  <li>NFA の状態の集合が DFA の状態に</li>
+  <li>NFA の初期状態とそこから ε
+    遷移でいける状態の集合が DFA の初期状態</li>
+  <li>NFA の受理状態を一つ以上含まれる DFA
+    の状態が受理状態</li>
+</ul>
+
+<p>全ての DFA は NFA でもある。全ての NFA は同等の DFA
+に変換できる。</p>
+
+<p>よって、DFA と NFA の受理能力が等しい。</p>
+
+<p>実装は DFA
+の方が簡単が、テーブルは大きくなる可能性がある。</p>
+
+<h1>NFA から同等の DFA への変換の一例</h1>
+
+<p><img alt=" " src="lec3img4.png" /></p>
+
+<table border="1">
+  <caption>動作関数</caption>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>ε</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>{A}</td>
+      <td>{}</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>{}</td>
+      <td>{A,C}</td>
+      <td>{B}</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>{A}</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>{}</td>
+      <td>{}</td>
+      <td>{}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>DFA の最小化</h1>
+
+<p>ある DFA から同等の最小の DFA を次の通りに作れる:</p>
+<ol>
+  <li>状態を受理状態と非受理状態の二つの集合に分ける</li>
+  <li>それそれの状態からどの記号でどの集合に遷移するかを調べる</li>
+  <li>現在の集合を、どの記号でも同じ集合に遷移する状態の部分集合に分ける</li>
+  <li>3. で変更がない時まで 2. から繰り返す</li>
+</ol>
+
+<p>最小化によって効率よい実装ができるし、二つの有限オートマトンが同等であるかどうかも簡単に調べられる。</p>
+
+<h1>DFA の最小化の一例</h1>
+
+<p><img alt=" " src="lec3img5.png" /></p>
+
+<h1>文法の定義</h1>
+<ul>
+  <li>非終端記号の有限集合 <var>N</var></li>
+  <li>終端記号の有限集合 <var>Σ</var></li>
+  <li>書換規則の有限集合 <var>P</var> (生成規則ともいう)</li>
+  <li>開始記号 <var>S</var> (<var>S</var> ∈ <var>N</var>,
+    初期記号とも言う)</li>
+</ul>
+
+<p>文法は (Q, Σ, δ, q<sub>0</sub>, F)
+の四字組で定義できる。</p>
+
+<p>書換規則は一般には悲終端記号と終端記号の列から悲終端記号と終端記号の列への規則になっている。</p>
+
+<h1>線形文法</h1>
+
+<table border="1">
+  <caption>文法の簡単な書換規則</caption>
+  <tbody>
+    <tr>
+      <td>規則の形</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>A → aB</td>
+      <td><del>左</del><ins>右</ins>線形規則</td>
+    </tr>
+    <tr>
+      <td>A → Ba</td>
+      <td><del>右</del><ins>左</ins>線形規則</td>
+    </tr>
+    <tr>
+      <td>A → a</td>
+      <td>定数規則</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>左線形文法: 左線形規則と定数規則しか含まない文法</p>
+
+<p>右線形文法: 右線形規則と定数規則しか含まない文法</p>
+
+<p>左・右線形文法はともに線形文法と言い、正規文法とも言う</p>
+
+<h1>(左) 線形文法と有限オートマトン</h1>
+
+<p>左線形文法と NFA の対応 (ε が考慮外):</p>
+<ul>
+  <li>状態は非終端記号と対応</li>
+  <li>初期状態は初期記号と対応</li>
+  <li>受理状態に遷移する動作は定数規則と対応</li>
+  <li>全ての動作は左線形規則と対応</li>
+</ul>
+
+<p>右線形文法も同様
+(語を右から読み込むと考えられる)</p>
+
+<h1>左線形文法と有限オートマトンの一例</h1>
+
+<p><img alt="有限オートマトンの状態遷移図" src="lec3img1.png"
+/></p>
+
+<p>A → aB | bA</p>
+
+<p>B → bA | a | aC</p>
+
+<p>C → bA | a | aC</p>
+
+<h1>正規表現の例</h1>
+
+<p>計算機実習 I の演習問題: ある文章中に
+<code>&amp;amp;</code>, <code>&amp;quot;</code>, <code>&amp;apos;</code>,
+<code>&amp;lt;</code>, <code>&amp;gt;</code> を見つけて、それぞれ
+<code>&amp;</code>, <code>"</code>, <code>'</code>, <code>&lt;</code>,
+<code>&gt;</code> に変換せよ。</p>
+
+<p>Perl で書くと次のようになる:</p>
+<pre>s/&amp;quot;/"/g;
+s/&amp;apos;/'/g;
+s/&amp;lt;/&lt;/g;
+s/&amp;gt;/&gt;/g;
+s/&amp;amp;/&amp;/g;</pre>
+
+<h1>正規表現の形式定義</h1>
+
+<table border="1">
+  <caption>アルファベットΣ 上の正規表現と表す言語</caption>
+  <tbody>
+    <tr>
+      <th>正規表現</th>
+      <th>条件</th>
+      <th>言語</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>ε, a</td>
+      <td>a ∈ Σ</td>
+      <td>{ε} 又は {a}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>r|s</td>
+      <td>r, s が正規表現</td>
+      <td>L(r|s) = L(r) ∪ L(s)</td>
+      <td>集合和</td>
+    </tr>
+    <tr>
+      <td>rs</td>
+      <td>r, s が正規表現</td>
+      <td>L(rs) = L(r)L(s)</td>
+      <td>連結</td>
+    </tr>
+    <tr>
+      <td>r*</td>
+      <td>r が正規表現</td>
+      <td>L(r*) = (L(r))*</td>
+      <td>閉含</td>
+    </tr>
+    <tr>
+      <td>(r)</td>
+      <td>r が正規表現</td>
+      <td>L((r)) = L(r)</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>L(r) は r
+によって表されている言語。優先度は下の方が強い。</p>
+
+<p>正規表現を定義する言語は文法で書けるが、正規表現は文法と違って規則は一つしか使わない。</p>
+
+<h1><strong></strong>実用化された正規表現</h1>
+
+<p>正規表現の便利な追加機能</p>
+<ul>
+  <li>.: 字一個 (a|b|c|...)</li>
+  <li>r+: 一個以上の r (rr*)</li>
+  <li>r?: r の有無 (r|ε, その代わり ε は使わない)</li>
+  <li>r{m,n}: m 個以上 n 個以下の r (r...rr?...r?)</li>
+  <li>[b-f]: b から f の字 (b|c|d|e|f)</li>
+  <li>\* 等: \ はエスケープに使われる</li>
+</ul>
+
+<p>正規表現の使い方による変更</p>
+<ul>
+  <li>語全体のではなくその一部をマッチ</li>
+  <li>^ と $ で語の先頭と最後をマッチ</li>
+  <li>括弧に相当する部分語を変数に代入</li>
+</ul>
+
+<h1>正規表現から NFA へ (1)</h1>
+
+<p>正規表現に対応する NFA
+は正規表現の部分表現から再帰的に作られる。</p>
+
+<p>ε と a に対応する NFA
+は初期状態一つと受理状態一つとそれを結ぶ ε 又は a
+と書かれた矢印。</p>
+
+<p>r|s の NFA は r の NFA と s の NFA から次のようにつくる:</p>
+
+<p><img
+alt="全体の初期状態から r と s の初期状態へと、r と s の受理状態から全体の受理状態へ ε で結ぶ"
+src="lec3img2.png" /></p>
+
+<h1>正規表現から NFA へ (2)</h1>
+
+<p>rs の NFA は r の受理状態と s の初期状態を ε
+で結んで、r の初期状態は rs の初期状態、s の受理状態は
+rsの受理状態。</p>
+
+<p>r* の NFA は次のようにつくる:</p>
+
+<p><img
+alt="全体の初期状態と r の初期状態、r の受理状態と全体の受理状態、全体の初期状態と全体の受理状態、そして r の受理状態と初期状態 (逆!) を ε で結ぶ。"
+src="lec3img3.png" /></p>
+
+<p>NFA や DFA から正規表現を作るのも可能だが、複雑。</p>
+
+<h1>今週のまとめ</h1>
+<ul>
+  <li>正規表現、線形・正規文法、有限オートマトンは皆同じ表現・受理能力を持つ。</li>
+  <li>DFA による効率良い受理プログラムが作れる。</li>
+  <li>正規表現のコンパクトな定義方法がある。</li>
+  <li>これらは字句解析に有効に使える。</li>
+  <li>しかし、これらに表現できない言語がある。状態の有限な数によって、例えば一般の括弧の対応する言語は判定できない。</li>
+</ul>
+</body>
+</html>

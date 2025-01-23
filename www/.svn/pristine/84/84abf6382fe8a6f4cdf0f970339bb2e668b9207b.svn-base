@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>言語理論とコンパイラ: 参考文献</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1>言語理論とコンパイラ の参考文献</h1>
+
+<p>(値段は税別、年は手元の最新の刷)</p>
+
+<p>電子情報通信レクチャーシリーズ B-6:
+オートマントン・言語と計算理論、岩間一雄、コロナ社、2003年
+(、170 p.、3000円)</p>
+
+<p>新コンピュータサイエンス講座、中田育男、オーム社、2004年
+(、~190 p.、3200円)</p>
+
+<p>ソフトウェア実践講座≪2≫
+コンパイラ入門、冨沢高明、SoftBank Creative、2006年 (、~270
+p.、2200円)</p>
+
+<p>コンパイラとバーチャルマシン、今城哲二、布広永示、岩澤京子、千葉雄司、オーム社、2004年
+(、~200 p.、2800円)</p>
+
+<p>コンピューター サイエンス・ライブラリー
+コンパイラ、中田育男、産業図書、2003年 (、~270
+p.、3200円)</p>
+
+<p>コンパイラの仕組み、渡邊坦、朝倉書店、2004年 (、~180
+p.、3500円)</p>
+
+<p>情報系教科書シリーズ弟９巻
+コンパイラ、湯淺太一、昭晃堂、2004年 (、~240
+p.、3300円)</p>
+
+<p>形式言語と有限オートマトン入門-例題を中心とした情報の離散数学-、小倉久和、コロナ社、2004年
+(、~210 p.、2800円)</p>
+
+<p>形式言語の理論、西野哲郎、石坂裕毅、丸善株式会社、1999年
+(、~200 p.、3200円)</p>
+
+<p>オートマトン・言語理論の基礎、米田政明、広瀬貞樹、大里延康、大川知、近代科学社、2003年
+(、~250 p.、2500円)</p>
+
+<p>Grundlagen und Techniken des Compilerbaus、Niklaus Wirth、ADDISON-WESLEY
+(ドイツ語; 下向き構文解析中心、~190 p.)</p>
+
+<p>Mastering Regular Expression、Jeffrey E. E Friedl、O'REILLY
+(正規表現の隅々までの細かい説明; 日本語訳もある、~340
+p.)</p>
+
+<p>Compilers Principles, Techniques, and Tools、Alfred V. Aho、Ravi
+Sethi、Jeffrey D. Ullman、ADDISON-WESLEY (世界的定番;
+日本語訳もある、~790 p.)</p>
+
+<p>Introduction to Automata Theory, Languages, and Computation、John E.
+Hopcroft、Rajeev Motwani、Jefrey D. Ullman、Addison-Wesley (定番、~520
+p.)</p>
+</body>
+</html>

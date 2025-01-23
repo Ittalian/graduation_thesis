@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="text/html; charset=UTF-8" />
+  <title>第九回: yacc 系ツールの演習</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center;"><strong>言語理論とコン
+パイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第</strong><strong>九回: yacc
+系ツールの演習</strong></p>
+
+<p style="text-align: center;"></p>
+
+<p><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Language%20Theory%20and%20Compilers/lecture9.html">http://www.sw.it.aoyama.ac.jp/2005/Language%20Theory%20and%20Compilers/lecture9.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>bison とは</h1>
+<ul>
+  <li>yacc: yet another compiler compiler</li>
+  <li>Unix の普及とともに広がった</li>
+  <li>compiler compiler: コンパイラを作るコンパイラ</li>
+  <li>yet another: もう一つ、できた当時に compiler compiler
+    が流行りで、他に名前が浮かんで来なかった</li>
+  <li>bison: yacc の gnu 版</li>
+</ul>
+
+<h1>flex と bison の資料</h1>
+<ul>
+  <li><a href="../../system/flex_bison/">インストール方法</a></li>
+  <li>flex のマニュアル (日本語):<br />
+    <a
+    href="http://guppy.eng.kagawa-u.ac.jp/~kagawa/2000/SysProg/flex-2.5.4/flex_toc.html">http://guppy.eng.kagawa-u.ac.jp/~kagawa/2000/SysProg/flex-2.5.4/flex_toc.html</a></li>
+  <li>bison のマニュアル (日本語):<br />
+    <a
+    href="http://guppy.eng.kagawa-u.ac.jp/~kagawa/2001/SysProg/bison-1.2.8/bison-ja_toc.html">http://guppy.eng.kagawa-u.ac.jp/~kagawa/2001/SysProg/bison-1.2.8/bison-ja_toc.html</a></li>
+</ul>
+
+<h1>bison の関連ファイル</h1>
+<ul>
+  <li><a href="bison/simple.y"><var>simple</var>.y</a>:
+  入力ファイル</li>
+  <li><var>simple</var>.tab.c: 出力ファイル</li>
+  <li><a href="bison/simple.output"><var>simple</var>.output</a>:
+    構文解析についての情報 (テーブルなど)</li>
+</ul>
+
+<h1>演習の進み方</h1>
+<ul>
+  <li>simple.y をダウンロード</li>
+  <li>simple.y を bison で処理、simple.tab.c を作る</li>
+  <li>simple.tab.c をコンパイル、実行</li>
+  <li>bison -v simple.y で simple.output を作って、観察</li>
+  <li>simple.y で <code>#define YYDEBUG</code> を 1 に変更</li>
+  <li>再び bison とコンパイルを実行、出力と simple.output
+    を比べる</li>
+</ul>
+
+<h1>環境依存項目</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>GnuWin32</td>
+      <td>cygwin</td>
+    </tr>
+    <tr>
+      <td>シェル</td>
+      <td>コマンドプロンプト (アクセサリ)</td>
+      <td>Cygwin Bash Shell (Cygwin)</td>
+    </tr>
+    <tr>
+      <td>作業フォールダ</td>
+      <td>例えば C:\Program Files\GnuWin32\bin</td>
+      <td>任意</td>
+    </tr>
+    <tr>
+      <td>コンパイラ</td>
+      <td>Microsoft Visual C++</td>
+      <td>gcc <var>simple.tab.c</var></td>
+    </tr>
+    <tr>
+      <td>コンパイラの呼び方</td>
+      <td>GUI</td>
+      <td>シェル: gcc </td>
+    </tr>
+    <tr>
+      <td>実行</td>
+      <td>メニューかボタン</td>
+      <td>シェル: ./a.exe</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>宿題 (次回提出)</h1>
+
+<p>簡単なプログラム言語を bison で実現して、bison の
+<code>.y</code> ファイルを印刷して<strong></strong>提出:</p>
+<ul>
+  <li>データ型は整数のみ</li>
+  <li>変数の識別子は一文字 (A-Za-z), 初期値は 0</li>
+  <li>多くの C の演算子を実現する</li>
+  <li>演算子の優先度、結合規則を文法で定義する (%left,
+    %right など使わないこと)</li>
+  <li>文は <code>;</code> で区切る。制御文 (<code>if</code>
+    等)、関数 は無し</li>
+  <li><code>@ (<var>式</var>)</code>
+    は「式」の結果を改行付きに印刷する。</li>
+</ul>
+
+<h1>宿題のヒント</h1>
+<ul>
+  <li>変数の値のために配列を前もって定義する</li>
+  <li>変数の使用と変数への代入を文法で区別する</li>
+  <li>文法を少しづつ拡張しながら念入りにテストする</li>
+  <li>テストファイルを作る。文法を拡張するたびにテストを追加する。</li>
+  <li>関心の項目 (優先順位、結合規則)
+    を仕分けるテストを使う。</li>
+  <li>テストの結果を取っておいて、次のテストの結果と比較</li>
+</ul>
+
+<h1>使う演算子の優先度と結合規則</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>優先順位</td>
+      <td>演算子 (必修)</td>
+      <td>演算子 (発展)</td>
+      <td>結合規則</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><code>()</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>単項の <code>-</code></td>
+      <td>前置の <code>++</code>; 前置の <code>--</code></td>
+      <td>←</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>←</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code>*</code>; <code>/</code>; <code>%</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code>+</code>; <code>-</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td></td>
+      <td><code>&lt;&lt;</code>; <code>&gt;&gt;</code></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code>&lt;</code>; <code>&gt;</code></td>
+      <td><code>&lt;=</code>; <code>&gt;=</code></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td></td>
+      <td><code>==</code>; <code>!=</code></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><code>&amp;</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><code>^</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><code>|</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td></td>
+      <td><code>&amp;&amp;</code></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td></td>
+      <td><code>||</code></td>
+      <td>→</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><code>?:</code></td>
+      <td></td>
+      <td>←</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><code>=</code></td>
+      <td><code>+=</code> など</td>
+      <td>←</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td><code>,</code></td>
+      <td></td>
+      <td>→</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

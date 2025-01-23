@@ -1,0 +1,4 @@
+/* * Created by Hiroyuki Abe */@charset "utf-8";div.slide h1 {	margin: 0 0 1em 0;	padding: 4px 0;	background: transparent;	border-bottom: 3px solid #3366FF;	color: #3366FF;}li.none {	list-style-type: none;}*.center {	text-align: center;}*.emphasis {	background-color: #CCFFFF;	/*background-color: #CC99FF;	background-color: #FF3399;*/}*.ws {	visibility: hidden;}*.fade {	color: #C9C9C9;}div.left {	float: left;
+}
+div.right {	float: right;
+}div.handout p {	display: none;}/* * */div.slide {	padding-left: 100px;	padding-right: 100px;}div.slide h2 {	margin: ;	padding: ;}div.slide.cover {	padding-left: 100px;	padding-right: 100px;}

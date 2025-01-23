@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"> 
+<head>
+<title>青山学院大学理工学部情報テクノロジー学科 Martin Dürst研究室</title>
+
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+
+</head>
+
+<body>
+
+<h1>氏名:　池谷　武</h1>
+
+<h2>興味あること</h2>
+<p>
+教育関係に興味があるので、それに関する研究をしてみたいと思っています。
+</p>
+
+<h2>研究目標</h2>
+<p>
+本学の履修科目に計算機実習Ⅰというプログラミングを学ぶ授業があります、これはC言語を用いて教科書の演習問題を解いていくものです。この授業は、約100名の生徒と数名の講師で行われるもので、講義と演習の時間があります。演習では生徒一人で作業をし、質問や問題点が生じた場合に講師を呼ぶ方式をとっています。評価方法は、生徒が演習の達成度を報告し、講師がそれを確認して評価を行っていきます。
+しかし、この方法では、様々な問題が考えられます。よって、このような問題を解決し、授業を円滑に進めるための支援システムについて考えていきたいと思います。
+</p>
+
+</body>
+</html>

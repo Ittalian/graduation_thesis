@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>第六回: 字句解析と構文解析</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center;"><strong>言
+語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第 六</strong><strong>回:</strong>
+字句解析と構文解析</p>
+
+<p style="text-align: center;">2006 年 6月 2日</p>
+
+<p style="text-align: center;"><a
+href="http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture6.html">http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture6.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週の試験</h1>
+
+<h1>(理論の) 正規表現の復習</h1>
+<ul>
+  <li>一般の文字は自分を表す</li>
+  <li>横並びは続きを表す</li>
+  <li>| は選択を表す</li>
+  <li>* は 0 以上の繰り返しを表す</li>
+  <li>() は組み合わせを明解にする</li>
+  <li><strong>優先順位は高い方から *, 横並び、|</strong></li>
+</ul>
+
+<h1>正規表現の例</h1>
+<ul>
+  <li>efg: efg</li>
+  <li>e*fg: fg, efg, eefg, eeefg,...</li>
+  <li>ef*g: eg, efg, effg, efffg, effffg,...</li>
+  <li>e(fg)*: e, efg, efgfg, efgfgfg,...</li>
+  <li>e|f|g: e, f, g</li>
+  <li>ef|g: ef, g</li>
+  <li>e(f|g): ef, eg</li>
+  <li>e(f|g)*: e, ef, eg, eff, efg, egf, egg, efff, effg,...</li>
+  <li>e|(fg)*: e, fg, fgfg, fgfgfg,...</li>
+  <li>e|(f|g)*: e, f, g, ff, fg, gf, gg,...</li>
+  <li>e|fg*: e, f, fg, fgg, fggg, fgggg,...</li>
+</ul>
+
+<h1>flex の演習</h1>
+
+<p>演習 2</p>
+
+<p>演習 3: <a href="FlexExample3.xml.txt">テスト入力の例</a>、<a
+href="FlexExample3.out.txt">テスト出力の例</a></p>
+
+<h1>コンパイラの段階</h1>
+
+<p>字句解析 (lexical analysis)</p>
+
+<p>構文解析 (parsing; syntax analysis)</p>
+
+<p>意味解析 (semantic analysis)</p>
+
+<p>最適化 (optimization)</p>
+
+<p>コード生成 (code generation)</p>
+
+<h1>形式言語の表</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>文法</td>
+      <td>grammar</td>
+      <td>Type</td>
+      <td>言語</td>
+      <td>オートマトン</td>
+    </tr>
+    <tr>
+      <td>句構造文法</td>
+      <td>phrase structure grammar (psg)</td>
+      <td>0</td>
+      <td>句構造言語</td>
+      <td>チューリング機械</td>
+    </tr>
+    <tr>
+      <td>文脈依存文法</td>
+      <td>context-sensitive grammar (csg)</td>
+      <td>1</td>
+      <td>文脈依存言語</td>
+      <td>線形拘束オートマトン</td>
+    </tr>
+    <tr>
+      <td>文脈自由文法</td>
+      <td>context-free grammar (cfg)</td>
+      <td>2</td>
+      <td>文脈自由言語</td>
+      <td>プッシュダウンオートマトン</td>
+    </tr>
+    <tr>
+      <td>正規文法</td>
+      <td>regular grammar (rg)</td>
+      <td>3</td>
+      <td>正規言語</td>
+      <td>有限オートマトン</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>正規表現・正規文法・有限オートマトンの限界</h1>
+
+<p>次のような言語が正規表現などで表せるのか:</p>
+<ul>
+  <li>記号 <code>a</code>, <code>b</code>, <code>c</code>
+    からなる左右対象の語の言語</li>
+  <li>記号 <code>(</code> と <code>)</code>
+    からなる、式等のように入れ子になっている語の言語</li>
+  <li>記号 <code>0</code> と <code>1</code> からなる、<var>n</var>
+    個の <code>0</code> の後 <var>n</var> 個の <code>1</code>
+    の語の言語</li>
+</ul>
+
+<p>これらは全て有限オートマトンの有限のメモリの制約によって受理不可能である。</p>
+
+<h1>字句解析と構文解析</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>字句解析</td>
+      <td>構文解析</td>
+    </tr>
+    <tr>
+      <td>解析対象</td>
+      <td>定数、識別子、予約語、演算子など</td>
+      <td>式、文、関数など</td>
+    </tr>
+    <tr>
+      <td>要点</td>
+      <td>速さ</td>
+      <td>能力</td>
+    </tr>
+    <tr>
+      <td>記述方法</td>
+      <td>正規表現</td>
+      <td>文脈自由文法</td>
+    </tr>
+    <tr>
+      <td>(自動) 解析手段</td>
+      <td>有限オートマトン</td>
+      <td>プッシュダウンオートマトン</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>正規文法と文脈自由文法</h1>
+
+<p>正規文法 (regular grammar):</p>
+<ul>
+  <li>右線形文法か左線形文法</li>
+</ul>
+
+<p>文脈自由文法 (context free grammar):</p>
+<ul>
+  <li>文法の導出規則の左側は全て非終端記号一つ</li>
+  <li>導出規則の右側は制限なし
+    (非終端記号も終端記号も何個も使ってよい)</li>
+  <li>例: A → aBb, B → aaB, S → aBaAb 等</li>
+  <li>｢自由」の意味:
+    依存しない、左右されない、関係ない</li>
+  <li>プログラム言語の構文は周りが関係なくてその場で正しいかどう
+    か判断できる</li>
+  <li>(意味解析も含まれると文脈自由ではなくなる)</li>
+</ul>
+
+<h1>文脈自由文法の一例</h1>
+
+<p>S → aSa | bSb | c</p>
+
+<p>生成する言語: 真ん中に c が一個、周りに a と b が 0
+以上対照的に自由な順番に並ぶ</p>
+
+<p>生成する語の例: c, aca, bcb, abaabcbaaba 等</p>
+
+<p>こういう風な言語を受理するのはメモリがないため有限オートマトンで
+は不可能</p>
+
+<p>オートマトンの機能拡張が必要</p>
+
+<p>オートマトンにプッシュダウンスタックをつけよう</p>
+
+<h1>文法と正規表現の違い</h1>
+
+<p>文法:</p>
+<ul>
+  <li>複数の規則</li>
+  <li>非終端記号、左から右へ導出</li>
+  <li>*, (), | は純粋な場合には使わない</li>
+</ul>
+
+<p>正規表現:</p>
+<ul>
+  <li>一つの規則だけ</li>
+  <li>非終端記号なし、「右側」だけ</li>
+  <li>*, (), | 以外も実用的な物にはもっと機能がある</li>
+</ul>
+
+<p>正規表現の (簡単な) 規則は文法の (複雑な)
+規則一つに相当する</p>
+
+<h1>宿題 (提出不要)</h1>
+<ul>
+  <li>C
+    プログラム言語など知っている言語やデータ形式の文法を調べなさい。<br
+    />
+  </li>
+</ul>
+</body>
+</html>

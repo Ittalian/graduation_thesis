@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第十回 - 総合復習</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計<acronym></acronym>算機実習 I</h1>
+
+<h2 style="text-align: center">第九回 (2005年 6月 16日)</h2>
+
+<h2 style="text-align: center">総合復習</h2>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Computer%20Practice%20I/lecture10.html"
+style="margin-left: auto; margin-right: auto">http://www.sw.it.aoyama.ac.jp/2005/Computer%20Practice%20I/lecture10.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>授業への心構え</h1>
+<ul>
+  <li>A1, A2 ぐらいでは全然ダメ!</li>
+</ul>
+
+<h1>ポインタの用途</h1>
+<ul>
+  <li>低レベルのアドレス操作 (デバイス割り当てなど)</li>
+  <li>動的メモリの管理</li>
+  <li>配列の処理の効率化</li>
+  <li>参照 (関数への渡しなど)</li>
+  <li>間接 (indirection)</li>
+</ul>
+
+<h1>配列からポインタへの変換</h1>
+
+<p>方程式の適合:</p>
+<ul>
+  <li>a[i] → *(a+i)</li>
+  <li>a[i][j] → *(*(a+i)+j)</li>
+  <li>遊び: a[i][j] → i[a][j]→ j[i[a]]</li>
+</ul>
+
+<p>array2pointer.c, matrix2pointer.c を参照</p>
+
+<h1>動的メモリの使い方</h1>
+
+<p>fullrevert.c と simplelist.c を参照</p>
+
+<h1>浮動小数点数の仕組み</h1>
+
+<p>浮動小数点数は次の物からなる:</p>
+<ul>
+  <li>符号 (sign)</li>
+  <li>指数 (exponent)</li>
+  <li>仮数 (mantissa)</li>
+</ul>
+
+<p>十進数の例: <code>-3.987E20</code> → -3.987 × 10<sup>20</sup></p>
+
+<h1>二進数の浮動小数点数の特徴</h1>
+<ul>
+  <li>符号は 1ビット</li>
+  <li>指数には符号があるように思われるがゲタが使われている</li>
+  <li>二進数の小数点の前は (0 以外) 必ず 1
+    なので実際にメモリを使わない</li>
+</ul>
+
+<p>Intel 等 little endian の特徴:</p>
+<ul>
+  <li>バイトの順番は予想と逆になっている (<code>int</code>,
+    <code>short</code> も同様)</li>
+</ul>
+
+<h1>07C1 について</h1>
+<ul>
+  <li><code>scanf("%s", string)</code> は空白文字など読まない</li>
+  <li>その文字を <code>getchar()</code>
+    で飛ばしたいと思うと読みすぎる</li>
+  <li><code>ungetc(c, stdin)</code> で一文字だけ入力に返せる</li>
+</ul>
+
+<h1>演習について</h1>
+<ul>
+  <li>第 1回から第 9回でまだできてない問題をやる</li>
+  <li>できるだけ多くの問題をやる</li>
+  <li>効率よくできるところからやる</li>
+</ul>
+
+<h1>課題について</h1>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今まで作ったプログラムを絶対なくさないこと</li>
+  <li>全体の復習。来週二個目の中間テストがある。</li>
+  <li>新訂新 C 言語入門の第 10-12 章 (ポインタ、pp. 247-303)
+    を読む。12<ins></ins>章を落とさずに。</li>
+</ul>
+</body>
+</html>

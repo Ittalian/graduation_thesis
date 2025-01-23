@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>青山学院大学理工学部情報テクノロジー学科 Martin Dürst 研究室 阿部 裕行 (Hiroyuki Abe)</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="author" lang="ja" content="阿部裕行" />
+	<meta name="author" content="Hiroyuki Abe" />
+	<link rel="stylesheet" href="./css/index.css" type="text/css" media="all" />
+	<script type="text/javascript" src="./javascript/prototype.js"></script>
+	<script type="text/javascript" src="./javascript/hiroyuki.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	//]]>
+	</script>
+</head>
+
+<body>
+	<div id="container">
+
+		<div id="header">
+			<h1>阿部裕行 (Hiroyuki Abe)</h1>
+		</div>
+
+		<div id="content">
+			<h3>国内学会（査読あり）</h3>
+
+			<p>阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: アノテーションを活用した教材コンテンツ作成環境の構築，<a href="http://ce.eplang.jp/index.php?SSS2007">第9回情報教育シンポジウム (SSS2007)</a>，2007年8月．<a href="./presentation/SSS2007">発表資料</a>, <span id="SSS2007" class="abstract">abstract</span>, <a href="papers.xml#SSS2007" class="bibtex">BibTeX</a></p>
+
+			<p>阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: <a href="http://www.ieice.org/~de/DEWS/DEWS2006/doc/1A-i5.pdf">アノテーション処理のための基盤ライブラリの構築</a>，<a href="http://www.ieice.org/iss/de/DEWS/DEWS2006/">電子情報通信学会第17回データ工学ワークショップ/第4回日本データベース学会年次大会 (DEWS2006)</a>，2006年3月．<span id="DEWS2006" class="abstract">abstract</span>, <a href="papers.xml#DEWS2006" class="bibtex">BibTeX</a></p>
+
+			<h3>国内学会（査読なし）</h3>
+				
+			<p>阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: アノテーションを活用した学習教材のリッチコンテンツ化に関する検討，<a href="http://www.ipsj.or.jp/09sig/kaikoku/2006/CE88.html">情報処理学会 コンピュータと教育研究会
+第88回研究会</a>，2007年2月．<span id="CE88" class="abstract">abstract</span>, <a href="papers.xml#CE88" class="bibtex">BibTeX</a></p>
+
+			<p>阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: ピクトグラムを用いた放送コンテンツの内容理解支援方式の検討，<a href="http://www.ieice.org/iss/de/DBWS/dbws2006/">データベースワークショップ2006 (DBWS2006)</a>，2006年7月．<span id="DBWS2006ipsj" class="abstract">abstract</span>, BibTeX (<a href="papers.xml#DBWS2006ipsj" class="bibtex">ipsj</a>, <a href="papers.xml#DBWS2006ieice" class="bibtex">ieice</a>)</p>
+
+			<p><a href="http://www.sw.it.aoyama.ac.jp/2005/mochi/mochi.xhtml">望月英樹</a>，阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: Google API 用いた関連文生成の一手法，<a href="http://www.ipsj.or.jp/10jigyo/taikai/68kai/index.html">情報処理学会 第68回全国大会</a>，2006年3月．<a href="papers.xml#ipsj68mochi" id="ipsj68mochi" class="bibtex">BibTeX</a></p>
+
+			<p>阿部裕行，<a href="http://www.sw.it.aoyama.ac.jp/kaz/">伊藤一成</a>，<a href="http://www.sw.it.aoyama.ac.jp/Dürst">Martin J. Dürst</a>: アノテーションの構造化とその処理の提案，<a href="http://www.ipsj.or.jp/10jigyo/taikai/68kai/index.html">情報処理学会 第68回全国大会</a>，2006年3月．<a href="papers.xml#ipsj68" id="ipsj68" class="bibtex">BibTeX</a></p>
+			
+			<h3>学内</h2>
+			<p>阿部裕行: アノテーションを活用した Web 教材のリッチコンテンツ化手法の実装とその評価, 青山学院大学大学院, 2008年．<a href="papers.xml#Master" id="Master" class="bibtex">BibTeX</a></p>
+
+			<p>阿部裕行: アノテーション処理のための基盤ライブラリの構築，学士論文, 青山学院大学, 2006年．<a href="papers.xml#Bachelor" id="Bachelor" class="bibtex">BibTeX</a></p>
+		</div>
+
+		<div id="sidebar">
+			<div>
+				<p>2007年度</p>
+				<p>e-Learning</p>
+				<p>2006年度</p>
+				<p>e-Learning</p>
+				<p><a href="http://xn--4gq1yt07bgz7a.jp/project/hbf/">ピクトグラムを用いた動画像理解支援のための基礎研究</a></p>
+				<p><a href="http://www.sw.it.aoyama.ac.jp/2005/hiroyuki/2005.html">2005年度</a></p>
+			</div>
+
+			<div class="wrapper">abstract
+				<div id='abstract'>
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<hr />
+		</div>
+
+		<p><a href="http://www.sw.it.aoyama.ac.jp/">Laboratory Top Page</a></p>
+		<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a></p>
+	</div>
+</body>
+</html>

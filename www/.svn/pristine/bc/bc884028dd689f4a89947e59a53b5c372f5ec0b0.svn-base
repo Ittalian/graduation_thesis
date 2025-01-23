@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"> 
+<head>
+<title>アノテーション付与てすと</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+<style type="text/css">
+	h1	{color:#008800;}
+	b	{color:#0088FF;}
+</style>
+</head>
+<body>
+
+<h1>ももたろう</h1>
+
+<h2>さぶたいとる</h2>
+<p>
+ないよう
+</p>
+
+<h2>桃太郎</h2>
+<p>
+むかしむかしあるところに，おじいさんとおばあさんが住んでいました．<br/>
+ある日，おじいさんは山へ芝刈りに，おばあさんは川へ洗濯に行きました.<br/>
+おばあさんが川で洗濯をしていると，<br/>
+どんぶらこどんぶらこと<b>大きな桃</b>が流れてきました．<br/>
+家に持ち帰って桃を割ると，中から男の子が産まれ<b>桃太郎</b>と名付けられました．<br/>
+</p>
+
+<h2>かじょうがき</h2>
+<ul>
+<li>いぬ</li>
+<li>きじ</li>
+</ul>
+
+
+<p>
+<a href="http://www.sw.it.aoyama.ac.jp/2005/nanako/nanako.html">［戻る］</a>
+</p>
+</body>
+</html>

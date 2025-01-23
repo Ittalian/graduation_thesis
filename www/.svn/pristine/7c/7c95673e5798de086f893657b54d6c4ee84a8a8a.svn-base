@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"> 
+<head>
+<title>青山学院大学理工学部情報テクノロジー学科 Martin Dürst研究室 米川和宏</title>
+
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+</head>
+<body>
+<h1>米川 和宏</h1>
+<h1>題名: IRI テスト環境構築のための枠組み提供及びその応用</h1>
+<h2>概要</h2>
+<p>
+IRI は，Web アドレスである URI の国際化のための標準化提案（Proposed Standard）である．今後，IRIの仕様の確立にむけて，多くのテストが必要とされている．そこで本研究では，IRI のテスト環境を容易に構築するための拡張性の高い枠組みを提供する．また，枠組みを利用して HTML 及び CSS における IRI のテスト環境を構築する．
+</p>
+
+<h3>卒業論文</h3>
+<p>米川和宏: IRI テスト環境構築のための枠組み提供及びその応用，2006．</p>
+
+<h3>研究会口頭発表</h3>
+<p>米川和宏，伊藤一成，Martin J. Dürst: HTML 及び CSS における IRI テスト環境の提供，情報処理学会第68回全国大会，2006．</p>
+
+  <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-xhtml10"
+        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* Common style for slides
+ *
+ * Use this stylesheet in other stylesheets, e.g. for different media.
+ * Add this line:
+ *
+ *   @import url(slide-common.css);
+ *
+ * Created by Martin Durst 2005/05/01
+ */
+
+pre, tt, code { 
+  color: #081; /* #4a5 */
+  font-weight: bold;
+  font-family: "Courier New", courier, monospace;
+}

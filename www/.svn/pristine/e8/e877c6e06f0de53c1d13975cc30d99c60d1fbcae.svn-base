@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+h1, p.img {
+	text-align: center;
+}
+
+span.keyword {
+	color: #DC143C;
+	background-color: #ffffff;
+}
+
+span.code { 
+  color: #081; /* #4a5 */
+  font-weight: bold;
+  font-family: "Courier New", courier, monospace;
+}

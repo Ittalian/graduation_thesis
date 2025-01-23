@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>第七回: 上向き構文解析と下向き構文解析</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center;"><strong>言語理論とコン
+パイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第七</strong><strong>回:</strong>
+上向き構文解析と下向き構文解析</p>
+
+<p style="text-align: center;">2005 年 6月 3日</p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先先週の試験: 第五問と第六問</h1>
+
+<p><strong>第五問</strong>: アルファベット Σ = {a, b, c}
+、状態の集合 Q = {S, R, T}、初期状態 S、受理状態の集合 F =
+{T}
+と次の状態遷移表で定義されているの非決定性有限オートマトンと同等な決定性有限オートマトンを作って、その状態遷移表
+(20 点) と状態遷移図 (20点) を書け。</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+      <td>ε</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>S, R</td>
+      <td>S</td>
+      <td>-</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>-</td>
+      <td>-</td>
+      <td>T</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+<pre> 
+</pre>
+
+<p><strong>第六問</strong>:
+第五問の有限オートマトンが受理する言語を再生する文法を書け
+(10 点)。</p>
+
+<p> </p>
+
+<p></p>
+
+<h1>構文解析の方法</h1>
+
+<p>解析木に対しての方向</p>
+<ul>
+  <li>下向き構文解析
+    <ul>
+      <li>文法の初期記号からスタートして解析木を展開してみる</li>
+    </ul>
+  </li>
+  <li>上向き構文解析
+    <ul>
+      <li>トーケンを読みながら解析木を下から少しづつ作り上げる</li>
+    </ul>
+  </li>
+</ul>
+
+<p>入力に対しての分析方法:
+左から、右から、全体を「見渡し」ながら</p>
+
+<p>どのぐらい前を見るか:
+一個のトーケンだけか複数のトーケンか</p>
+
+<h1>解析木と構文木</h1>
+
+<p>文法:</p>
+
+<p><code>E → T '+' T | T</code>    (expression, 式)</p>
+
+<p><code>T → F '*' F | F</code>    (term, 項)</p>
+
+<p><code>F → integer</code>    (factor, 因数)</p>
+
+<p>入力の例:</p>
+
+<p><code>5 + 3 * 7</code></p>
+
+<h1>文法規則と構文図式と EBNF</h1>
+
+<p></p>
+
+<h1>文法の整理: 解析木は一つだけにする</h1>
+
+<p>問題の例:</p>
+
+<p><code>E → E '+' E | integer</code></p>
+
+<p>入力 <code>4 + 5 + 7</code>
+に対して複数の解析木が作れる</p>
+
+<p>'+'
+の場合には計算は同じ結果ですが、他の演算子の場合にはそうとも限らない</p>
+
+<p>解決方法: 文法の書き換え</p>
+
+<p><code>E → E '+' integer | integer</code></p>
+
+<h1>下向き解析の一般概要</h1>
+<ul>
+  <li>文法を初期記号から展開する</li>
+  <li>選択肢があれば順番に試してみる</li>
+  <li>終端記号まで展開したらこれを入力と比べる
+    <ul>
+      <li>合ったら続く</li>
+      <li>合わなかったら戻って
+        (バックトラック)、違う選択を試す</li>
+    </ul>
+  </li>
+</ul>
+
+<p>バックトラックは時間がかかる上、解析と同時に処理するのは難しい</p>
+
+<p>次のトーケンしか見なくて良い文法に限定したい</p>
+
+<h1>再帰的下向き構文解析</h1>
+<ul>
+  <li>下向き構文解析は非終端記号ごとに関数一つ使える</li>
+  <li>文法に再帰的な要素がある<br />
+    例: <code>E → E '+' integer | integer</code><br />
+    例: <code>F → integer | '(' E ')'</code></li>
+</ul>
+
+<p>問題点: 左再帰</p>
+
+<h1>左再帰の解消法</h1>
+
+<p>左再帰の例:</p>
+
+<p><code>E → E '+' integer | integer</code></p>
+
+<p>間違った解消 (結合規則が違う):</p>
+
+<p><code>E → integer '+' E | integer</code></p>
+
+<p>解消の結果:</p>
+
+<p><code>E → integer EE</code></p>
+
+<p><code>EE → '+' integer EE | ε</code></p>
+</body>
+</html>

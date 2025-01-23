@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第一回 - 環境、エラー対策</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第一回: 演習環境の使い方<br />
+簡単なプログラムの作成<br />
+エラーの場合の対応</h2>
+
+<h3 style="text-align: center">Martin J. Dürst (テュールスト
+マーティン ヤコブ)</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a>, O 棟
+529号室</p>
+
+<h1>授業全体の目標</h1>
+<ul>
+  <li>充実したプログラミングの実習</li>
+  <li>C の正確な知識</li>
+</ul>
+
+<p>去年からの変更:</p>
+<ul>
+  <li>章の順番の入れ替え</li>
+  <li>ポインタを二回に拡大</li>
+  <li>演習問題の変更・充実化</li>
+</ul>
+
+<h1>プログラミングの心構え</h1>
+<ul>
+  <li>要求を見つけるところから動くプログラムまで</li>
+  <li>プログラムを書くスタイルは色々:
+    <ul>
+      <li>早く書き下ろして、後で修正する</li>
+      <li>丁寧に正しく計画的に</li>
+    </ul>
+  </li>
+  <li>体調に左右されがち</li>
+</ul>
+
+<h1>C 言語の位置づけ</h1>
+<ul>
+  <li>「高級プログラム言語」とか「第三世代プログラム言語」の一つ</li>
+  <li>FORTRAN や COBOL より体系的にできている</li>
+  <li>Unix の開発のために作られている</li>
+  <li>現在膨大な役割を果たしている:
+    <ul>
+      <li>Unix/Linux, Windows, MacOS,...</li>
+      <li>Java, C#, Perl, Python, Ruby,...</li>
+      <li>Web Server,...</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>各講義の構成</h1>
+<ul>
+  <li>ミニテスト (10分程度)</li>
+  <li>説明 (40分程度)</li>
+  <li>実習 (残り、場合によって延長)</li>
+</ul>
+<ul>
+  <li>ミニテストの代りに復習テストがある</li>
+  <li>途中一回と最後の二回は演習のみ</li>
+  <li>レポートもある</li>
+  <li>最終試験もある</li>
+</ul>
+
+<h1>演習の環境</h1>
+<ul>
+  <li>一般的に最低の環境:
+    <ul>
+      <li>エディタ (メモ帳、vi、emacs 等)</li>
+      <li>シェル (MS Windows で cmd)</li>
+      <li>コンパイラ</li>
+    </ul>
+  </li>
+  <li>使う環境: Microsoft Visual C++
+    <ul>
+      <li>C++ の機能は使わない</li>
+      <li>自分のパソコンにインストール希望の場合には B
+        棟 418 号室ヘ</li>
+    </ul>
+  </li>
+  <li>環境のデモ: C の簡単なプログラム</li>
+</ul>
+
+<h1>C の簡単なプログラム</h1>
+<pre><span style="color: #0000A0; background-color: #FFFFFF">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #008000; background-color: #FFFFFF">int</span> main (void)
+{
+    printf ("Hello World!<span style="color: #800040; background-color: #FFFFFF">\n</span>");
+
+    <span style="color: #008000; background-color: #FFFFFF">return 0;</span>
+}</pre>
+
+<h1>Edit - Compile - Go</h1>
+
+<p>プログラミングは三つの作業の繰返しである:</p>
+<ol>
+  <li>Edit: プログラムを書く、修正する</li>
+  <li>Compile:
+    人間の読めるプログラムから機械が実行できるプログラムへ</li>
+  <li>Go: プログラムを実行してみる</li>
+</ol>
+
+<p>コンパイラではなくてインタプリタを使う言語を使うと
+2. と 3. がまとめて実行</p>
+
+<p>F5
+でほぼインタプリタの感覚でプログラミングできる</p>
+
+<h1>ファイル・フォルダの三つの見方</h1>
+<ul>
+  <li>Visual C++ から</li>
+  <li>エクスプローラから</li>
+  <li>コマンドラインから
+    <ul>
+      <li>「ファイル名を指定して実行」で <code>cmd</code>
+        を入力</li>
+      <li>フォルダーを変更したい場合には <code>cd</code>
+        <em>folder</em> を使う</li>
+      <li>一つ上のフォルダーに行くためには <code>cd ..</code>
+        を使う</li>
+      <li>フォルダー内のファイルのリストは <code>dir</code>
+        でできる</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>ファイルの種類</h1>
+<ul>
+  <li>ワークスペースファイル: .dsw</li>
+  <li>プロジェクトファイル: .dsp</li>
+  <li>ソースファイル: .c, .cpp</li>
+  <li>ヘッダファイル: .h</li>
+  <li>オブジェクトファイル: .obj</li>
+  <li>実行可能ファイル: .exe</li>
+</ul>
+
+<h1><code>\</code> と <code>¥</code> の話し</h1>
+<ul>
+  <li>"<code>\</code>" (backslash, reverse solidus)
+    は日本語のシステムでよく"<code>¥</code>" (yen sign)
+    と見える</li>
+  <li>7bit/8bit 文字コードの次代からの残り物</li>
+  <li>Unicode の場合には別文字:
+    <ul>
+      <li>U+005C REVERSE SOLIDUS</li>
+      <li>U+00A5 YEN SIGN</li>
+    </ul>
+  </li>
+  <li>対策:
+    <ul>
+      <li>文法的に使う "<code>¥</code>" を頭の中で
+        "<code>\</code>" に置き換える</li>
+      <li>「円」等の意味で使う場合にはできるだけ U+00A5
+        や全角の <code>¥</code> を使う</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>識別子 (identifier, 名前) の制限</h1>
+<ul>
+  <li>英字 (<code>A-Z</code>, <code>a-z</code>, <code>_</code>)
+    から始まる</li>
+  <li>英字か数字 (<code>0-9</code>) で続く</li>
+  <li>長さには制限がない
+    <ul>
+      <li>最初の少なくとも 31 文字が有効である</li>
+      <li>但し、最初の 6
+        文字だけを有効にする処理系もある</li>
+    </ul>
+  </li>
+  <li>大文字と小文字は区別される
+    <ul>
+      <li>但し、区別しない処理系もある</li>
+    </ul>
+  </li>
+  <li>キーワード (予約語、reserved words) は使えない</li>
+</ul>
+
+<h1>識別子の選び方</h1>
+<ul>
+  <li>分かりやすい</li>
+  <li>短いが、短すぎない</li>
+  <li>ローマ字の日本語より英語がいい
+    <ul>
+      <li><code>mojiretu</code> より <code>string</code> がよい</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>今日の演習</h1>
+<ul>
+  <li>01A1 はとばしてよい</li>
+  <li>01B2 は初心者はやらなくてよい</li>
+  <li>01C2 を 01C3 の後にやった方がいいかも</li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今日の復習</li>
+  <li>初心者: 01B2 を完成する</li>
+  <li>新訂新 C 言語入門の 2.7 節と 3 章 (pp. 38-73) を読む</li>
+</ul>
+</body>
+</html>

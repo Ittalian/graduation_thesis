@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: 関係</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第六回: 関係</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture6.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture6.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>資料の修正</h1>
+
+<p>10月7日の宿題の正解で NAND と NOR が間違っていた。<a
+href="lecture3.html#twoValues">修正</a>を確認しなさい。</p>
+
+<h1>部分集合とベキ集合</h1>
+<ul>
+  <li>部分集合 (subset): ある集合の元からなる集合<br />
+    <var>A</var> ⊂ <var>B</var> (<var>A</var> は <var>B</var>
+    の部分集合)</li>
+  <li>空集合 (empty set): 一つも元を含まない集合: {} 又は
+  ∅</li>
+  <li>ベキ集合 (power set):
+    ある集合の全ての部分集合の集合: <i
+    style="font-family: cursive">P</i>(<var>A</var>)</li>
+  <li>空集合と集合 <var>A</var> そのものも <var>A</var>
+    の部分集合である</li>
+  <li>集合 <var>A</var> の元の数を |<var>A</var>| = <var>n</var>
+    とするとベキ集合の元の数は |<i
+    style="font-family: cursive">P</i>(<var>A</var>)| =
+    2<var><sup>n</sup></var></li>
+</ul>
+
+<h1>集合の演算 (その一)</h1>
+<ul>
+  <li>和集合 (sum, union): <var>A</var> ∪ <var>B</var><br />
+    <var>A</var> ∪ <var>B</var> = {<var>x</var> |
+    <var>x</var>∈<var>A</var> ∨ <var>x</var>∈<var>B</var>}</li>
+  <li>積集合 (product, intersection): <var>A</var> ∩ <var>B</var><br />
+    <var>A</var> ∩ <var>B</var> = {<var>x</var> |
+    <var>x</var>∈<var>A</var> ∧ <var>x</var>∈<var>B</var>}</li>
+  <li>差集合 (difference set): <var>A</var> - <var>B</var><br />
+    <var>A</var> - <var>B</var> = {<var>x</var> | <var>x</var>∈<var>A</var>
+    ∧ ¬(<var>x</var>∈<var>B</var>)}</li>
+</ul>
+
+<h1>集合演算 (その二)</h1>
+<ul>
+  <li>普遍集合 (全体集合、universal set, <var>U</var>):
+    議論の対象にされている全体の要素の集合<br />
+    例: 整数、正数、など</li>
+  <li>補集合 (complement, complementary set): <var>A</var><sup>c</sup><br
+    />
+    <var>A</var><sup>c</sup> = U - <var>A</var><br />
+    <var>A</var><sup>c</sup> = {<var>x</var> |
+    ¬(<var>x</var>∈<var>A</var>)}</li>
+</ul>
+
+<h1>関係の情報テクノロジーでの役割</h1>
+<ul>
+  <li>関係データベース (relational database)</li>
+  <li>関係とグラフ</li>
+  <li>関係と論理演算</li>
+</ul>
+
+<h1>順序対、<var>n</var> 項組</h1>
+<ul>
+  <li>順序対 (ordered pair) は二つのもの <var>a</var> と
+    <var>b</var> を順序付けたもので、(<var>a</var>, <var>b</var>)
+    で表す</li>
+  <li>二つの集合 <var>A</var> と <var>B</var> の直積集合
+    (Cartesian product set) <var>A</var> × <var>B</var>
+    は次のように定義されている:<br />
+    <var>A</var> × <var>B</var> = {(<var>x</var>, <var>y</var>) |
+    <var>x</var> ∈ <var>A</var>, <var>y</var> ∈ <var>B</var>}<br />
+    |<var>A</var> × <var>B</var>| = |<var>A</var>|·|<var>B</var>|</li>
+  <li><var>A</var> × <var>A</var> の代わりに <var>A</var><sup>2</sup>
+    と書くこともある</li>
+  <li><var>n</var> 項組は順序対の拡張。<var>n</var>
+    字組とも言う。</li>
+  <li>英語で一般的に <var>n</var>-tupple
+    と言うが、数が固定されていると triple (三字組),
+    quadruple, quintuple, sextuple, septuple, octuple, nonuple
+  と言います</li>
+</ul>
+
+<h1>関係の定義</h1>
+<ul>
+  <li>二つの集合 <var>A</var> と <var>B</var> の関係 <var>R</var>
+    (<var>A</var> から <var>B</var> への関係とも言う) は
+    <var>A</var> × <var>B</var> の部分集合</li>
+  <li>例: <var>A</var> = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, B = {3,
+    4},「割り切れる」対を <var>R</var> の元とすると<br />
+    <var>R</var> = {(3, 3), (6, 3), (9, 3), (4, 4), (8, 4)}</li>
+  <li>(a, <var>b</var>) ∈ <var>R</var> を a<var>R</var><var>b</var>
+    とも書く</li>
+  <li><var>A</var> = <var>B</var> の場合には 「<var>A</var>
+    の中の関係」、「<var>A</var> の上の関係」や「<var>A</var>
+    における関係」という</li>
+  <li>二つの集合の関係は 2 項関係 (binary relation) と言う。3
+    項関係などもある</li>
+</ul>
+
+<h1>関係の表現</h1>
+<ul>
+  <li>行列表現:<br />
+    <var>A</var> を縦、<var>B</var> を横
+    にして、関係のある場合に 1、そうでない場合に 0
+    を書く</li>
+  <li>表としての表現:<br />
+    一列目を <var>A</var>、二列目を <var>B</var>
+    にして、行ごとに関係の元を列挙する</li>
+  <li>有向グラフ表現:<br />
+    <var>A</var> 等の元を節として、(<var>a</var>, <var>b</var>)
+    が関係に即する場合に <var>a</var> から <var>b</var>
+    への矢印を書く</li>
+</ul>
+
+<h1>逆関係</h1>
+
+<p>(inverse relation)</p>
+<ul>
+  <li>(二項) 関係の逆関係は順序対を逆にした関係</li>
+  <li><var>R</var> の逆関係を <var>R</var><sup>-1</sup> と書く</li>
+  <li><var>xR</var><var>y</var> ⇔ y<var>R</var><sup>-1</sup>x</li>
+</ul>
+
+<h1>関係の合成</h1>
+<ul>
+  <li><var>A</var> から <var>B</var> への関係
+    <var>P</var>、<var>B</var> から<var>C</var> への関係 <var>Q</var>
+    に対して <var>P</var> と <var>Q</var> の合成 (composition)
+    が定義されている</li>
+  <li><var>P</var> と <var>Q</var> の合成 <var>R</var> の場合
+    <var>R</var> = <var>P</var>∘<var>Q</var> と書く</li>
+  <li><var>R</var> = {(<var>x</var>, <var>y</var>) | (<var>x</var>,
+    <var>z</var>) ∈ <var>P</var>, (<var>z</var>, <var>y</var>) ∈
+    <var>Q</var>}</li>
+  <li>行列表現では合成は通常の行列の積と相当。但し、掛け算と足し算の代わりに論理積と論理和を使う</li>
+</ul>
+
+<h1><a name="relationProperties"
+id="relationProperties">関係の種類</a></h1>
+
+<p><var>A</var> の中の関係 <var>R</var>
+に対して次の性質がありうる:</p>
+<ol>
+  <li>反射的 (reflexive): <var>xRx</var>; <var>x</var>∈<var>A</var> ⇒
+    (<var>x</var>, <var>x</var>) ∈ <var>R</var></li>
+  <li>対称的 (symmetric): <var>xRy</var> ⇒ <var>yRx</var>;
+    (<var>x</var>, <var>y</var>) ∈ <var>R</var> ⇒ (<var>y</var>,
+    <var>x</var>) ∈ <var>R</var></li>
+  <li>推移的 (transitive): <var>xRy</var> ∧ <var>yRz</var> ⇒
+    <var>xR</var><var>z</var></li>
+  <li>反対称的 (asymmetric): <var>xRy</var> ∧ <var>yRx</var> ⇒
+    <var>x</var>=<var>y</var></li>
+</ol>
+
+<h1>同値関係と同値類</h1>
+<ul>
+  <li>反射的、対称的、かつ推移的な関係を同値関係
+    (equivalence relation) と言う。</li>
+  <li>同値関係によってある元 <var>a</var>
+    の関係する元の全ての集合を <var>a</var> の同値類
+    (equivalence class) と言う、[<var>a</var>]
+    とも書く。<var>a</var> は [<var>a</var>]
+  の代表元と言う。</li>
+  <li>同値関係によって <var>A</var> の分割 (partition)
+    ができる。</li>
+</ul>
+
+<h1>推移的閉包</h1>
+
+<p>(transitive closure)</p>
+<ul>
+  <li>ある関係 <var>R</var>
+    を結果が変わらなくなるまで自分と合成する結果を推移的閉包と言う。</li>
+</ul>
+
+<h1>来週への宿題</h1>
+
+<p>(提出不要)</p>
+
+<p>関係の性質の組み合わせ (計16個)
+のそれぞれの可能性と(可能な場合) 例を考える</p>
+
+<h1>来週の予定</h1>
+<ul>
+  <li>来週は30分間の第一回ミニテストを行う</li>
+  <li>今までの授業の内容の範囲</li>
+  <li>問題の例:
+    <ul>
+      <li>用語の説明と使い方 (英語を含む)</li>
+      <li>論理式の単純化</li>
+      <li>集合と関係</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

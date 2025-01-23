@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html      xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"> 
+<head>
+<title>青山学院大学理工学部情報テクノロジー学科 Martin Dürst研究室　村田</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"
+/>
+<style type="text/css">
+	h1	{color: #008080}
+	div.box	{border: thin gray ridge;
+			 margin: 0.5em 0 0.5em 0.5em;
+			 padding: 0.5em;
+			 float: right;
+			 width: 30%;
+			 background: #88ffff}
+</style>
+</head>
+<body>
+<h1>村田　菜々子</h1>
+<h1>効果的な視覚表現が可能な Web アノテーションシステム Annoplus</h1>
+
+<h2>アノテーションって何？</h2>
+<p>
+アノテーションとは，直訳すると“注釈”のことです．
+注釈は，本のページの隅っこに言葉の意味や参考文献なんかが書いてあったりするアレのことを指しますが，
+ここでいうアノテーションは，Webページに注釈を付けるという話です．
+テキストや画像などWeb上のコンテンツに裏情報を付け加える，とイメージしてください．
+例えば，この文章はいつ誰が書いたものなのかとか，
+この画像は何という映画の誰がどうしているシーンである，といったような情報が，
+画面上では表示されていないけれど隠されているものです．
+このような情報によって，文章の要約がすばやくできたり，難しい検索でも欲しい情報だけ手に入れられたり，
+色々と利便性が向上していくわけです．
+</p>
+
+<h2>背景</h2>
+<div class='box'>
+	<h3><a href="http://www.w3.org/2001/Annotea/">Annotea</a></h3>
+	Webコンテンツにアノテーション（注釈）をつけるための仕組みで，主にRDFを使用して実現される．
+</div>
+<p>
+近年WWWの普及に伴って膨大な量のWebページが転がっています．
+そんな中，Web自身が意味を表現する「セマンティック・ウェブ」実現のための様々なプロジェクトが開発されています．
+先の話もセマンティックウェブを目指すものです．
+そのプロジェクトのひとつにAnnoteaというアノテーション技術があります．
+これにより他人のWebコンテンツにアノテーションをつけたり，
+誰かがつけたアノテーションを見たりすることができます．
+</p>
+
+<h2>研究成果</h2>
+<div class="box">
+	<h3><a href="http://wema.sourceforge.jp/">wema</a></h3>
+	Web画面上に付箋を絵馬のように貼り並べることができ，マウスでドラックして自由に動かすこともできる．
+</div>
+<p>
+私はこのアノテーションに興味を持ち，視覚表現に特化して研究を進めました．
+成果として，
+ブラウザに依存せずにアノテーションを表示できるインタフェースと，
+ユーザの目的に合わせたより効果的な視覚表現を提案しました．
+まず Annotea の仕組みを利用した perl モジュールプログラム Annoprox を用い，
+CGI プログラムとして本システム Annoplus を実装しました．
+そして CSS を利用し様々な視覚表現を提案しました．<br/>
+デモサイト <a href="http://annoplus.sw.it.aoyama.ac.jp">Annoplus</a> で公開中です．<br/>
+
+</p>
+
+<p>
+<b>卒業論文</b><br/>
+村田菜々子: 効果的な視覚表現が可能な Web アノテーションシステム Annoplus，2006<br/>
+<br/>
+<b>研究会口頭発表</b><br/>
+村田菜々子，伊藤一成，Martin J. Dürst: Web アノテーションの効果的な視覚表現手法，情報処理学会第68回全国大会，2006
+</p>
+
+<p>
+研究のためのサンプルページです．<br/>
+意味は無いけどなぜか桃太郎です．<br/>
+→<a href="http://www.sw.it.aoyama.ac.jp/2005/nanako/sample.html">さんぷる</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第五回 -
+  関数の作り方と使い方</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計<acronym></acronym>算機実習 I</h1>
+
+<h2 style="text-align: center">第五回 (2005年 5月18日)</h2>
+
+<h2 style="text-align: center">関数の作り方と使い方</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今日の予定</h1>
+<ul>
+  <li>総合復習テスト (30 分)</li>
+  <li>授業への心構え</li>
+  <li>先週の演習の例</li>
+  <li>関数の作り方と使い方</li>
+  <li>再起</li>
+</ul>
+
+<h1>総合復習テスト</h1>
+
+<h1>授業への心構え</h1>
+
+<h1>先週の演習の例</h1>
+
+<h1>関数の考え方の基本</h1>
+<ul>
+  <li>プログラムの区分けによってプログラムの簡単化</li>
+  <li>関数の作る方と使う方を全く別のこととして考える
+    <ul>
+      <li>使う方は関数は名前、引数の型、戻り値の型だけで考える</li>
+      <li>グローバル変数は使わない</li>
+      <li>使う方の変数の名前と関数の引数の名前を別にした方が良い</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>宣言と定義</h1>
+
+<p>関数とグローバル変数の場合区別される</p>
+<ul>
+  <li>宣言
+    <ul>
+      <li>物の存在、名前、型の知らせ</li>
+    </ul>
+  </li>
+  <li>定義
+    <ul>
+      <li>実態の存在、場所の確保、初期化、操作の記述</li>
+      <li>定義は宣言の役割も果たす</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>変数定義とブロック</h1>
+<ul>
+  <li>関数の内容を囲む { } はブロックである</li>
+  <li>ブロックは単文の代わりにどこでも使える</li>
+  <li>変数の定義はブロックの先頭にできる<br />
+
+    <pre>{
+    ...
+    {
+        int temp;
+        temp = a; a = b; b = temp;
+    }
+    ...
+}</pre>
+  </li>
+</ul>
+
+<h1>翻訳ユニット</h1>
+<ul>
+  <li>一つのソースファイル (.c/.cpp)
+    が一つのオブジェクトファイル (.obj) ファイルに翻訳
+    (コンパイル) される</li>
+  <li>これを翻訳ユニットと呼ぶ</li>
+  <li>プログラムは複数の翻訳ユニットからなる (例: main,
+    stdio)</li>
+  <li>関数とグローバル変数は普通プログラム全体に同じ名前の物は一つ
+    (外部結合)</li>
+  <li><code>static</code>
+    指定子を使えば翻訳ユニット別に局所的にも定義できる
+    (内部結合)</li>
+</ul>
+
+<h1>変数の宣言と定義の種類</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>例</td>
+      <td>記述場所</td>
+      <td>宣言・定義</td>
+      <td>存在期間</td>
+      <td>自動初期化</td>
+      <td>初期化</td>
+      <td>使用・識別範囲</td>
+    </tr>
+    <tr>
+      <td>int i;</td>
+      <td>ブロック先頭</td>
+      <td>定義</td>
+      <td>関数</td>
+      <td>不定</td>
+      <td>式</td>
+      <td>ブロック</td>
+    </tr>
+    <tr>
+      <td>static int i;</td>
+      <td>ブロック先頭</td>
+      <td>定義</td>
+      <td>プログラム</td>
+      <td>0</td>
+      <td>定数式</td>
+      <td>ブロック</td>
+    </tr>
+    <tr>
+      <td>static int i;</td>
+      <td>関数外、.c/.cpp</td>
+      <td>定義</td>
+      <td>プログラム</td>
+      <td>0</td>
+      <td>定数式</td>
+      <td>翻訳ユニット</td>
+    </tr>
+    <tr>
+      <td>int i;</td>
+      <td>関数外、.c/.cpp</td>
+      <td>定義</td>
+      <td>プログラム</td>
+      <td>0</td>
+      <td>定数式</td>
+      <td>プログラム</td>
+    </tr>
+    <tr>
+      <td>extern int i;</td>
+      <td>.h</td>
+      <td>宣言</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>プログラム</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>関数の宣言と定義の種類</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>例</td>
+      <td>記述場所</td>
+      <td>宣言・定義</td>
+      <td>存在期間</td>
+      <td>使用・識別範囲</td>
+    </tr>
+    <tr>
+      <td>static int f(int i) {...}</td>
+      <td>.c/.cpp</td>
+      <td>定義</td>
+      <td>プログラム</td>
+      <td>翻訳ユニット</td>
+    </tr>
+    <tr>
+      <td>static int f(int i);</td>
+      <td>.c/.cpp</td>
+      <td>宣言</td>
+      <td>プログラム</td>
+      <td>翻訳ユニット</td>
+    </tr>
+    <tr>
+      <td>int f(int i) {...}</td>
+      <td>.c/.cpp</td>
+      <td>定義</td>
+      <td>プログラム</td>
+      <td>プログラム</td>
+    </tr>
+    <tr>
+      <td>int f(int i);</td>
+      <td>.h (.c/.cpp)</td>
+      <td>宣言</td>
+      <td>-</td>
+      <td>プログラム</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>値呼び出しと参照呼び出し</h1>
+<ul>
+  <li>値呼び出し
+    <ul>
+      <li>値を渡す (定数でも良い)</li>
+      <li>コピーに処理が必要
+        (大きな物の場合負担が増える)</li>
+      <li>呼び出し側と切り離されて処理される</li>
+    </ul>
+  </li>
+  <li>参照呼び出し
+    <ul>
+      <li>参照だけ渡すのでコピーなしで済む</li>
+      <li>実態は一つしかないので変更が反映される</li>
+      <li>C でポインタ (アドレス) を使って行われる</li>
+      <li>今までの例: 配列、<code>scanf</code> 等での
+        <code>&amp;</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h1>多次元配列の定義</h1>
+
+<p>引数か初期化の二次元配列の場合には最初の角括弧だけが空で良い</p>
+
+<p>例: <code>matrix[][4]</code>, <code>tensor[][2][2]</code></p>
+
+<h1>関数の自己・お互い呼び出し</h1>
+
+<p>すごく単純な例: 1 から n までの合計:</p>
+<pre>int sum (int n) {
+   if (n &lt;= 0)
+       return 0;
+   else
+       return n + sum (n-1);
+}</pre>
+
+<h1>再帰的関数のもう一例</h1>
+
+<p>ある数を n 進数で出力する:</p>
+<pre>char letters[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+void printNary (int i, int n) {
+    if (i &gt;= n) {
+        printNary (i/n, n);
+        putchar (letters[i%n]);
+    }
+    else
+        putchar (letters[i]);  
+}</pre>
+
+<h1>再帰的関数の要点</h1>
+<ul>
+  <li>問題を分担、簡単化できる</li>
+  <li>引数と <code>auto</code>
+    変数は呼び出しごと別に存在する</li>
+  <li><code>while</code>
+  と適切なデータ構造と置き換えられる</li>
+  <li>暴走に注意 (stack overflow)</li>
+</ul>
+
+<h1>演習についての補助</h1>
+
+<p>05C3 について:</p>
+<ul>
+  <li>どういう状態が出そうなのか紙に (例えば表の形に)
+    書いておく</li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>今日の復習</li>
+  <li>残った演習を宿題として完成させる</li>
+  <li>教科書の第 9 章 (配列, pp. 206-240) と第10章 (構造体, pp.
+    242-279) を読む</li>
+</ul>
+</body>
+</html>

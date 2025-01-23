@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta content="text/html; charset=UTF-8" />
+  <title>第十回: yacc 系ツールの演習
+  (続き)・意味解析と中間表現</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1
+style="text-align: center;"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第十</strong><strong>回:</strong>
+yacc 系ツールの演習 (続き)・意味解析と中間表現</p>
+
+<p style="text-align: center;">2005 年 6月30日</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture10.html">http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture10.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>補講の日程</h1>
+
+<p>7月11日 (火曜日) 4限 E202</p>
+
+<p><a href="index.html">全体の日程</a></p>
+
+<h1>演習例: 簡単な電卓</h1>
+
+<p>途中経過のファイル: <a href="calc/makefile">makefile</a>, <a
+href="calc/calc.y">calc.y</a>, <a href="calc/calc.lex">calc.lex</a></p>
+
+<p>今回の改善:</p>
+<ul>
+  <li>複数の計算を可能にする (文の導入)</li>
+  <li>負の数の扱い</li>
+  <li>整数から浮動小数点数への変更 (<code>YYSTYPE</code>
+    の変更, 正規表現の変更など)</li>
+  <li>自動テスト (<code>makefile</code> の変更など)</li>
+</ul>
+
+<h1>bison の仕組みとデバッグ</h1>
+<ul>
+  <li><code>bison -v</code>
+    で作った機械の明細のファイルを作成 (例: <a
+    href="calc/calc.output">calc.output</a>)</li>
+  <li><code>#define YYDEBUG 1</code> でデバッグを ON</li>
+</ul>
+
+<h1>宿題: 複素数の電卓</h1>
+
+<p>提出: 再来週の金曜日 (7月7日) 10時45分、O 棟
+529号室の前</p>
+
+<p>簡単な電卓を複素数の電卓に拡張してください。複素数の表し方は
+<code>5i</code> で虚数を表し、<code>[実部,虚部]</code>
+で複素数を表すようにして下さい。[]
+内には実数演算は許されるが <code>5i</code>
+みたいなものが使えないように文法を設計してください。</p>
+
+<p>complex.lex と complex.y を提出ください。紙の大きさは
+A4。複数の紙はホチキスで止めること。</p>
+
+<h1>宿題のヒント</h1>
+<ul>
+  <li>YYSTYPE を構造体にする</li>
+  <li>NUM とかは虚部が0の複素数として扱った方がいい</li>
+  <li>式、項、因子は複素数のものと実数のものを別々用意する</li>
+  <li><code>i</code> は掛け算として扱った方がやりやすい (i
+    は *√-1 として扱う)</li>
+  <li><a href="complex/test.in">入力の一例</a></li>
+</ul>
+
+<h1>言語理論のまとめ</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>文法</td>
+      <td>Type</td>
+      <td>言語</td>
+      <td>オートマトン</td>
+    </tr>
+    <tr>
+      <td>句構造文法</td>
+      <td>0</td>
+      <td>句構造言語</td>
+      <td>チューリング機械</td>
+    </tr>
+    <tr>
+      <td>文脈依存文法</td>
+      <td>1</td>
+      <td>文脈依存言語</td>
+      <td>線形拘束オートマトン</td>
+    </tr>
+    <tr>
+      <td>文脈自由文法</td>
+      <td>2</td>
+      <td>文脈自由言語</td>
+      <td>プッシュダウンオートマトン</td>
+    </tr>
+    <tr>
+      <td>正規文法</td>
+      <td>3</td>
+      <td>正規言語</td>
+      <td>有限オートマトン</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>構文エラー処理</h1>
+<ul>
+  <li>エラー処理の難しさ</li>
+  <li>エラー処理の要点</li>
+  <li>エラーの技法</li>
+</ul>
+
+<h1>エラー処理の難しさ</h1>
+<ul>
+  <li>一つの正しいプログラムに対してエラーのプログラムは多数ある</li>
+  <li>人間にとって間違いやすいものと間違いにくいものはプログラムに区別できない</li>
+  <li>構文解析には理論があるが、エラー処理には理論がない</li>
+</ul>
+
+<h1>エラー処理の要点</h1>
+<ul>
+  <li>分かりやすいエラーメッセージを出す</li>
+  <li>一つだけではなく、複数のエラーを見つける</li>
+  <li>二次エラーをできるだけ出さない</li>
+  <li>正しいプログラムの処理を遅くさせない</li>
+  <li>コンパイラを複雑しすぎない</li>
+</ul>
+
+<h1>エラー処理の技法</h1>
+<ul>
+  <li>文法に合ったトーケンを見つけるまでにトーケンを捨てる
+    (panic mode)</li>
+  <li>少数のトーケンを追加又は入れ替え</li>
+  <li>文法にエラーをキャッチする規則を追加</li>
+  <li>入力に一番近い正しいプログラムを探す</li>
+</ul>
+
+<h1>bison でのエラー処理</h1>
+<ul>
+  <li><code>error</code> トーケンを文法に追加できる</li>
+  <li>エラーが起こると bison が一番近い <code>error</code>
+    トーケンの含まれる規則までエラー前のトーケンや非終端記号を捨てる</li>
+  <li>その規則の <code>error</code>
+    トーケンの後に来るトーケンが来る入力も捨てる</li>
+</ul>
+
+<h1>コンパイラの段階</h1>
+
+<p>字句解析 (lexical analysis)</p>
+
+<p>構文解析 (parsing; syntax analysis)</p>
+
+<p>意味解析 (semantic analysis)</p>
+
+<p>最適化 (optimization)</p>
+
+<p>コード生成 (code generation)</p>
+
+<h1>中間表現: 名前表</h1>
+<ul>
+  <li>提供する機能:
+    <ul>
+      <li>名前の検索</li>
+      <li>名前の登録と取り消し</li>
+      <li>名前についてのデータの管理</li>
+    </ul>
+  </li>
+  <li>要点:
+    <ul>
+      <li>使うことが多く、名前の数が多いので効率が大切</li>
+      <li>同じ名前が複数ある可能性があるので区別が必要</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>名前表が扱うデータ</h1>
+<ul>
+  <li>名前の種類 (変数、関数、型など)</li>
+  <li>定義か宣言だけか</li>
+  <li>変数、関数などの型</li>
+  <li>名前が有効な領域 (例えば関数、ブロック)</li>
+  <li>変数などの場合: 大きさ (必要なメモリ)</li>
+  <li>関数、変数などの (相対) アドレス</li>
+</ul>
+
+<h1>中間表現: 構文木</h1>
+
+<p>簡単なプログラム言語と簡単なマシーン・アーキテクチャの場合
+(例えば Pascal からスタック・マシーン)
+には構文解析しながらコード生成を行う
+(すなわち構文木を生成しない) こともある</p>
+
+<p>構文木の生成: 構文規則ごとの処理で生成。例:</p>
+
+<p><code>expression: expression '+' term { $$ = $1 + $3; }</code></p>
+
+<p>を次に変える:</p>
+<pre>expression: expression '+' term<code><br /></code>            { $$ = newnode(PLUS, $1, $3; }</pre>
+
+<p>(<code>YYSTYPE</code> も変更)</p>
+
+<p>構文木は普通二分木が、関数の引数などに特別な措置が必要</p>
+
+<h1>意味解析</h1>
+<ul>
+  <li>主に型の処理:
+    <ul>
+      <li>型が合うかどうかのチェック</li>
+      <li>必要に応じて型の自動変換
+        (構文木に新たなノードの追加)</li>
+    </ul>
+  </li>
+  <li>構文木の生成の時に行うか後に行うか</li>
+</ul>
+
+<p>型が同じかどうか複数の定義がある:</p>
+<ul>
+  <li>同じ名前の型が同じ
+  (簡単だが利用者にとって不便)</li>
+  <li>同じ中身の型が同じ (複雑)</li>
+</ul>
+</body>
+</html>

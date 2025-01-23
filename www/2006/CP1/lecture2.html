@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第三回 -
+  演算子の種類、使い方、優先度</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/bert-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第二回 (2005年 4月20日)</h2>
+
+<h2 style="text-align: center">演算子の種類、使い方、優先度</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今日の予定</h1>
+<ul>
+  <li>Moodle のログインとミニテスト</li>
+  <li>ビデオの撮影</li>
+  <li>先週の課題</li>
+  <li>cygwin と gcc</li>
+  <li>演算子</li>
+  <li>演習について</li>
+</ul>
+
+<h1>ビデオ撮影</h1>
+
+<p>理工学部と情報テクノロジー学科を高校など紹介する
+DVD のために今日の演習の一部をビデオで撮影する。</p>
+
+<p>遠慮したい学生がいるかどうか</p>
+
+<h1>ミニテスト</h1>
+
+<h1>先週の課題について</h1>
+
+<p>演習の開始に宿題をチェックしてもらって、まだアップしなかった課題をアップする</p>
+
+<p>プログラムがどんどん変更される課題の場合は当面どのバージョンをアップしてもよい。</p>
+
+<p><a
+href="http://moo.sw.it.aoyama.ac.jp/mod/assignment/view.php?id=6"><strong>01A2</strong></a>:
+2147483647+1 ⇒ -2147483648 はなぜ<br />
+整数の場合に、その方で表現できる一番大きい整数から一気に表現できる一番小さい整数に回る。0
+が正数として扱われるので表現できる負の最大数は正の最大数より一つ大きい。</p>
+
+<p><strong><a
+href="http://moo.sw.it.aoyama.ac.jp/mod/assignment/view.php?id=9">01C1</a></strong>:
+[エラー08] の回答は \n を \t (タブ)
+に変えることでした。</p>
+
+<h1>cygwin と gcc のインストール</h1>
+<ul>
+  <li>cygwin のセットアップツールの<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_download.html">ダウンロード</a></li>
+  <li>cygwin のダウンロードと<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_install.html">インストール</a>
+    <ul>
+      <li>gcc を選んで下さい (gcc: C compiler upgrade helper
+        で十分の筈)</li>
+      <li>他に余りいっぺんに沢山のものを選ばない方がよい</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>cygwin と gcc の使い方のヒント</h1>
+<ul>
+  <li>学校では cygwin のホームディレクトリが Z:
+    ドライブなので便利</li>
+  <li>一般のインストールの場合には cygwin
+    専用のモームディレクトリができて、そこからなかなか出られない<br
+    />
+    ⇒ <code>cd /cygdrive/c</code> で Windows の C:
+    ドライブへ移動できる</li>
+  <li>gcc で <code>a.exe</code> のファイルが上書きされる<br />
+    ⇒ <code>gcc <strong>-o example</strong> example.c</code> で
+    <code>example.exe</code> のファイルが作れる</li>
+</ul>
+
+<h1>演算子</h1>
+<ul>
+  <li>種類</li>
+  <li>対応できるデータ型</li>
+  <li>項の数</li>
+  <li>同型多義</li>
+  <li>優先度</li>
+  <li>連結 (左からか右からか)</li>
+  <li>評価の有無と順序</li>
+</ul>
+
+<h1>演算子の種類</h1>
+<ul>
+  <li>算術演算子</li>
+  <li>関係演算子</li>
+  <li>理論演算子</li>
+  <li>インクリメントとデクリメント</li>
+  <li>代入演算子</li>
+  <li>型変換</li>
+  <li>条件演算子と順次演算子</li>
+  <li>配列、ポインタ、構造体の演算子</li>
+</ul>
+
+<h1>剰余演算子</h1>
+
+<p>(modulo operator)</p>
+
+<p><code>%</code>
+の演算子で整数の割り算の余りを計算できる。</p>
+
+<p>例: <code>22 % 5</code> ⇒ 2</p>
+
+<p>応用:
+暗号化、繰り返しの高度な組み合わせ、表の形成など
+(プログラマの数学第3章)</p>
+
+<h1>代入演算子</h1>
+
+<p>代入と演算の組み合わせ</p>
+
+<p>例: <code>a = a + b;</code> ⇔ <code>a += b;</code></p>
+
+<p>他に <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>,
+<code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>, <code>&amp;=</code>,
+<code>|=</code>, <code>^=</code> がある。</p>
+
+<p>「言い回し」として <code>a += b</code>
+の方が完結で分かりやすいので使うことにすること。</p>
+
+<p>代入演算子は右から結合します。例:</p>
+
+<p><code>a * b / c ⇔ (a*b) / c</code> (左から結合)</p>
+
+<p><code>a *= b /= c ⇔ a *= (b/=c)</code> (右から結合)</p>
+
+<h1>インクリメント・デクリメント</h1>
+
+<p>(increment/decrement)</p>
+
+<p><code>a = a + 1;</code> ⇔ <code>a += 1;</code> ⇔ <code>++a;</code> ⇔
+<code>a++;</code> (インクリメント)</p>
+
+<p>前置インクレメント: <code>b = a += 1;</code> ⇔ <code>b =
+++a;</code></p>
+
+<p>後置インクレメント: <code>b = a; a += 1; ⇔ b = a++;</code></p>
+
+<p>デクレメントは「--」で同様。</p>
+
+<h1>参考: 副作用</h1>
+
+<p>(side effect)</p>
+<ul>
+  <li>式の値の計算以外の式の作用</li>
+  <li>次の場合に起こる:
+    <ul>
+      <li>関数の実行</li>
+      <li>代入</li>
+      <li>インクリメント、デクリメント</li>
+    </ul>
+  </li>
+  <li>副作用 が効果的な場合が多いが、要注意</li>
+  <li>副作用を許さないプログラム言語もある
+  (関数型言語)</li>
+</ul>
+
+<h1>ビット毎演算子</h1>
+<ul>
+  <li>低レベルで高速な処理、集合の表現・処理、設定項目の表現などに
+    C 言語にビット毎演算子とシフト演算子がある</li>
+  <li>「<code>|</code>」: ビット毎又は
+    (論理又はは「<code>||</code>」)</li>
+  <li>「<code>&amp;</code>」: ビット毎かつ
+    (論理かつは「<code>&amp;&amp;</code>」)</li>
+  <li>「<code>^</code>」:
+    ビット毎「排他的又は」(論理排他的又ははない)</li>
+  <li>「<code>~</code>」: ビット毎否定
+    (論理否定は「<code>!</code>」)</li>
+  <li>「<code>&lt;&lt;</code>」: 左シフト (left shift)</li>
+  <li>「<code>&gt;&gt;</code>」: 右シフト (right shift)</li>
+</ul>
+
+<h1>ビット毎 OR の例</h1>
+
+<p>(bitwise or)</p>
+
+<p>(16ビット (<code>short</code>) の例。<code>int</code>
+は現多くの PC で 32ビット、一部の高性能</p>
+
+<p>PC で 64ビット)</p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>b</code></td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>a|b</code></td>
+      <td>58</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>ビット毎 AND の例</h1>
+
+<p>(bitwise and)</p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>b</code></td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>a&amp;b</code></td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>ビット毎 XOR の例</h1>
+
+<p>(bitwise exclusive or)</p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>b</code></td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>a^b</code></td>
+      <td>50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>ビット毎否定の例</h1>
+
+<p>(bitwise not)</p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>~a</code></td>
+      <td>-32758 または 65525</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>左シフトの例</h1>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>a&lt;&lt;5</code></td>
+      <td>320</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>右シフトの例</h1>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>変数・式</th>
+      <th>十進数</th>
+      <th colspan="16">ビット</th>
+    </tr>
+    <tr>
+      <td><code>b</code></td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code>a&gt;&gt;5</code></td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>参考: 同形多義の演算子や記号</h1>
+<ul>
+  <li><code>()</code>:
+    関数、キャスト、演算のまとめ、<code>if</code>
+  文など</li>
+  <li><code>,</code>: 引数の区切り、順序演算</li>
+  <li><code>-</code>: 単項引き算、二項引き算</li>
+  <li><code>+</code>: 単項 ((型変換以外) 効果なし</li>
+  <li><code>*</code>: 掛け算、ポインタ</li>
+  <li><code>&amp;</code>: ビット積、ポインタ</li>
+</ul>
+
+<h1>今週の演習の補足</h1>
+<ul>
+  <li><a
+    href="http://moo.sw.it.aoyama.ac.jp/mod/assignment/view.php?id=16">02B1</a>:
+    <ul>
+      <li>出来るだけいろいろな演算子を使う</li>
+      <li>演算子ごとの出力の二行を分かりやすいよう区別する</li>
+      <li>発展問題: #define でもっと完結にしましょう</li>
+    </ul>
+  </li>
+  <li><a
+    href="http://moo.sw.it.aoyama.ac.jp/mod/assignment/view.php?id=17">02B2</a>:
+    <ul>
+      <li>出力には十進数より十六進数 (<code>%d</code>
+        の代りに <code>%x</code> か <code>%X</code>)
+        が分かりやすいかも</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>演習題が残ったら宿題としてやって、早いうちに
+    Moodle にアップして下さい。</li>
+  <li>今日の復習</li>
+  <li>参考書の第四章、第五章を読むこと (75p.-122p.)</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I:
+  情報テクノロジーでの数学の役割と重要性</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第一回:
+情報テクノロジーでの数学の役割と重要性</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture1.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture1.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今週の目的</h1>
+<ul>
+  <li>授業全体の構成と進み方について</li>
+  <li>始めのテーマ: 命題</li>
+</ul>
+
+<h1>自己紹介</h1>
+<ul>
+  <li>スイス チューリッヒ生まれ</li>
+  <li><a
+    href="http://www.unizh.ch/index.en.html">チューリッヒ大学</a>で
+    lic.oec.publ.
+    (修士相当、情報科学専攻、経営学と日本学副専攻)</li>
+  <li>文部省奨学金で来日、<a
+    href="http://www.u-tokyo.ac.jp/index_j.html">東京大学</a>で理学博士
+    (<a href="http://www.is.s.u-tokyo.ac.jp/">情報科学</a>専攻)</li>
+  <li><a
+    href="http://www.unizh.ch/index.en.html">チューリッヒ大学</a><a
+    href="http://www.ifi.unizh.ch/IFIE.html">情報科学科</a><a
+    href="http://www.ifi.unizh.ch/mml/">マルチメディア研究室</a>主任助手</li>
+  <li><a href="http://www.keio.ac.jp/">慶應義塾大学</a><a
+    href="http://www.sfc.keio.ac.jp/visitors/aboutmag/">政策・メディア研究科</a>特別研究助教授
+    (W3C プロジェクト)</li>
+  <li><a
+    href="http://www.mit.edu/">米マサチューセッツ工科大学</a>客員研究員</li>
+  <li><a href="http://www.w3.org/">World Wide Web Consortium</a> (W3C) <a
+    href="http://www.w3.org/International/">国際化活動</a>責任者</li>
+  <li>今年度から<a
+    href="http://www.agnes.aoyama.ac.jp/cgi-bin/WebObjects/f921c2aea8/">理工学部</a><a
+    href="">情報テクノロジー</a>学科助教授</li>
+</ul>
+
+<h1>授業の位置づけ</h1>
+<ul>
+  <li>基礎科目</li>
+  <li>正式には選択必修だが、事実上必修と考えてください</li>
+  <li>情報テクノロジーの初めての本格的な授業</li>
+</ul>
+
+<h1>情報数学とは</h1>
+<ul>
+  <li>｢物理数学」や｢生物数学」などと同様に、情報数学は一般の数学とかけ離れた別のものではない</li>
+  <li>情報テクノロジーの様々な分野において様々な数学の分野が基礎となる</li>
+  <li>情報数学と言われるのは:
+    <ul>
+      <li>情報テクノロジー全般で特に基礎と思われるもの</li>
+      <li>一般の数学の授業であまり教えられてないもの</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>情報テクノロジーの分野と数学の分野の関係 (例)</h1>
+<ul>
+  <li>確率: 情報通信、自然言語処理</li>
+  <li>フーリエ解析: 画像処理、音声処理</li>
+  <li>幾何学、線形代数:
+    コンピュータグラフィクス、ロボット工学</li>
+  <li>言語理論: プログラム言語、コンパイラ</li>
+  <li>整数論: 暗号学</li>
+</ul>
+
+<h1>情報数学 I と情報数学 II</h1>
+<ul>
+  <li>情報数学 I:
+    <ul>
+      <li>論理</li>
+      <li>集合と関係など</li>
+      <li>計算可能論</li>
+    </ul>
+  </li>
+  <li>情報数学 II:
+    <ul>
+      <li>確率と情報理論</li>
+      <li>グラフ理論</li>
+      <li>その他</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>数学の考え方</h1>
+<ul>
+  <li>数学は言語である</li>
+  <li>数学は道具である</li>
+  <li>数学は考え方である</li>
+</ul>
+
+<h1>言語としての数学</h1>
+<ul>
+  <li>言葉もあるが、記号が多い</li>
+  <li>他の言語に比べて、正確で簡潔である</li>
+  <li>使う記号に若干方言もある</li>
+  <li>他に情報テクノロジーに大事な言語?</li>
+</ul>
+
+<h1>授業の進み方</h1>
+<ul>
+  <li>資料はウェブに載せてある</li>
+  <li>資料は完全なものではなくて、書き込みが必要</li>
+  <li>分からない時いつでも質問してよい</li>
+  <li>宿題の種類:
+    <ul>
+      <li>提出不要: やると必ず勉強になる</li>
+      <li>提出必要: 次回の授業の始めに提出</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>成績評価方法</h1>
+
+<p>おおよその割合:</p>
+<ul>
+  <li>授業中のミニテスト: 20%</li>
+  <li>演習課題: 30%</li>
+  <li>期末試験: 50%</li>
+</ul>
+
+<h1>命題</h1>
+
+<p>(proposition 又は statement)</p>
+
+<p>正しいか正しくないかが客観的に決められる文。</p>
+
+<p>命題の例:</p>
+<ul>
+  <li>2 掛ける 2 が 4 である。</li>
+  <li>10 が 5 より小さい。</li>
+  <li>明日 (2005/10/1) は淵野辺に雨が降る</li>
+</ul>
+
+<p>反例 (命題ではない):</p>
+<ul>
+  <li>彼女の誕生日は今日 (2005/9/30) である。</li>
+  <li>今朝いつ起きましたか。</li>
+  <li>納豆は美味しいです。</li>
+</ul>
+
+<h1>命題の真偽</h1>
+
+<p>命題は正しいか正しくないかである。</p>
+
+<p>「正しい」は「真」(しん、true) とも言って、1、T や ⊤
+とも書く</p>
+
+<p>「正しくない」は「偽」(ぎ、false) とも言って、0、F や
+⊥ とも書く</p>
+
+<h1>命題の組み合わせ: 「かつ」</h1>
+
+<p>二つの命題 <var>A</var> と <var>B</var>
+があるとすると次の命題が作れる:</p>
+
+<p><var>A</var> かつ <var>B</var>。(<var>A</var> AND <var>B</var>)</p>
+
+<p>これは「<var>A</var> ∧ <var>B</var>」と書く。</p>
+
+<h1>真偽表</h1>
+
+<p>命題の真偽を定義したり、証明したり、調べたりするには真偽表がよく使われている:</p>
+
+<table border="1">
+  <caption>「かつ」の真偽表</caption>
+  <tbody>
+    <tr>
+      <td><var>A</var></td>
+      <td><var>B</var></td>
+      <td><var>A</var> ∧ <var>B</var></td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>次回までの宿題 (提出不要)</h1>
+<ul>
+  <li>命題の例と命題ではない文の例をそれぞれ五つを作ってください。「かつ」も含めてよい。</li>
+  <li>「かつ」の真偽表を完成させてみて下さい。一般論ではなくて、複数の例を使って考えてください。</li>
+</ul>
+
+<p></p>
+</body>
+</html>

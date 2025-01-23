@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta content="text/html; charset=UTF-8" />
+  <title>第九回: yacc 系ツールの演習</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1
+style="text-align: center;"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第九</strong><strong>回:</strong>
+yacc 系ツールの演習</p>
+
+<p style="text-align: center;">2005 年 6月23日</p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>下向き構文解析の実装: 簡単な手作りコンパイラ</h1>
+
+<p>プログラム: <a href="prog.simple/scanner.h">scanner.h</a>, <a
+href="prog.simple/scanner.c">scanner.c</a>, <a
+href="prog.simple/parser.c">parser.c</a></p>
+
+<h1>下向き構文解析の問題点</h1>
+<ul>
+  <li>効率良い構文解析のためにはかなり限られた文法が必要</li>
+  <li>例:<br />
+
+    <pre>factor → functioncall | variable | arrayelement
+functioncall → identifier '(' parameters ')'
+variable → identifier
+arrayelement → identifier '[' expression ']'</pre>
+  </li>
+  <li><code>factor</code>
+    でどこの規則を選べば良いのか分からない</li>
+</ul>
+
+<h1>上向き構文解析の概要</h1>
+<ul>
+  <li>解析を下から上へ向いて作成</li>
+  <li>それぞれの文法規則に合わせて小さいオートマトンを活用</li>
+  <li>複数の可能性があるときに、複数のオートマトンを組み合わせる</li>
+  <li>下向き解析より対応できる文法が多い</li>
+  <li>それでも対応できる文法に限界がある</li>
+  <li>手作りが無理で、プログラムで作るしかない</li>
+</ul>
+
+<h1>最左導出と最右導出</h1>
+
+<p>簡単な例:</p>
+
+<p><code>E → F '+' F<br />
+F → integer</code></p>
+
+<p>最左導出の場合にはいつもできるだけ左の終端記号が置き換えられている</p>
+
+<h1>文法の種類の呼び方</h1>
+<ul>
+  <li>LL: 左から入力を読んで、最左導出</li>
+  <li>LR: 左から入力を読んで、最右導出</li>
+  <li>LL(1): LL で、一つトークンを先読み</li>
+  <li>LR(1): LR で、一つトークンを先読み</li>
+  <li>LALR: LR (1) の一種で、yacc など幅広く使われる</li>
+</ul>
+
+<h1>LALR 構文解析の原理</h1>
+
+<p>スタックを使って読んだトークンや途中の非終端記号を蓄積</p>
+
+<p>オートマトンを使って出来るだけ簡単な操作で次のステップを決める</p>
+
+<p>(LA)LR 構文解析の二つのオペレーション</p>
+<ul>
+  <li>shift:
+    トークンを一個読んで、そのトークンをスタックにステートと一緒に詰める</li>
+  <li>reduce:
+    スタックの上部にあるトークンや非終端記号を文法規則を使って一つの終端記号に変換する</li>
+</ul>
+
+<h1>属性文法</h1>
+
+<p>(attribute(d) grammar(s))</p>
+<ul>
+  <li>解析木の葉と節に属性を追加</li>
+  <li>文法規則に、葉の属性から節の属性を計算する規則を追加</li>
+  <li>例 1:
+    電卓みたいな直接計算する文法の場合、属性は式の評価の値</li>
+  <li>例 2:
+    一般のプログラムの場合、属性は構文木や型情報</li>
+</ul>
+
+<h1>bison とは</h1>
+<ul>
+  <li>yacc: yet another compiler compiler</li>
+  <li>Unix の普及とともに広がった</li>
+  <li>compiler compiler: コンパイラを作るコンパイラ</li>
+  <li>yet another: もう一つ、できた当時に compiler compiler
+    が流行りで、他に名前が浮かんで来なかった</li>
+  <li>bison: yacc の gnu 版</li>
+</ul>
+
+<h1>flex と bison の資料</h1>
+<ul>
+  <li><a href="../../system/flex_bison/">インストール方法</a></li>
+  <li>flex のマニュアル (日本語):<br />
+    <a
+    href="http://www.linux.or.jp/JM/html/flex/man1/flex.1.html">http://www.linux.or.jp/JM/html/flex/man1/flex.1.html</a></li>
+  <li>bison のマニュアル (英語):<br />
+    <a
+    href="http://www.gnu.org/software/bison/manual/html_mono/bison.html">http://www.gnu.org/software/bison/manual/html_mono/bison.html</a></li>
+</ul>
+
+<h1>flex と bison の使い方の概要</h1>
+<ul>
+  <li>bison でトークンの種類を記述:<br />
+    <code>%token NUM PLUS ASTERISK</code> ...</li>
+  <li>bison で属性値の型の定義<br />
+    <code>#define YYSTYPE int</code></li>
+  <li>flex でそれぞれのトークン用のルールの定義</li>
+  <li>bison で文法規則の定義</li>
+  <li>bison で文法の属性の規則の定義</li>
+  <li>コンパイルとテスト
+    (全項目と合わせて行った方がよい)</li>
+</ul>
+
+<h1>make の活用</h1>
+<ul>
+  <li>flex, bison, gcc などを忘れす使うのが難しい</li>
+  <li>make コマンドは makefile
+    の指定に従い、必要最小限の処理を実行</li>
+  <li>必要に応じて、make コマンドを cygwin で追加</li>
+  <li>make ファイルの書き方 (→はタブの意味):<br />
+    <code><var>target</var>: <var>input1</var> <var>input2</var>
+    <var>input3</var> ...<br />
+    →target 作成命令</code></li>
+  <li>make だけ打つと makefile 内の最初の target
+  が作られる</li>
+</ul>
+
+<h1>演習例: 簡単な電卓</h1>
+
+<p>スタートのためのファイル: <a
+href="calc/makefile">makefile</a>, <a href="calc/calc.y">calc.y</a>, <a
+href="calc/calc.lex">calc.lex</a></p>
+
+<h1>宿題: 複素数の電卓</h1>
+
+<p>提出: 再来週の金曜日 (7月7日) 10時45分、O 棟
+529号室の前</p>
+
+<p>簡単な電卓を複素数の電卓に拡張してください。複素数の表し方は
+<code>5i</code> で虚数を表し、<code>[実部,虚部]</code>
+で複素数を表すようにして下さい。[]
+内には実数演算は許されるが <code>5i</code>
+みたいなものが来ないように文法を設計してください。</p>
+
+<p>complex.lex と complex.y を提出ください。</p>
+</body>
+</html>

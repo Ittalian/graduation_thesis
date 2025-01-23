@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 II: 復習</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 II</h1>
+
+<h2 style="text-align: center">第十二回: 復習</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture12.html">http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture12.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>期末試験</h1>
+<dl>
+  <dt>日付</dt>
+    <dd>2006年 1月23日 (月曜日)</dd>
+  <dt>時間</dt>
+    <dd>13:10-14:10 (60分間)</dd>
+  <dt>試験範囲</dt>
+    <dd>授業全体。授業で習ってない C
+      の機能は範囲に含まない。</dd>
+  <dt>問題の種類</dt>
+    <dd>概念についての質問
+      (列挙、定義、説明)。式やプログラムの結果。プログラムやその一部の修正、変更、完成、説明など。</dd>
+</dl>
+
+<h1>先回の演習題</h1>
+<ol>
+  <li>今までの作ったプログラムから一つ選んで、キーボードと画面の入出力の代わりにリダイレクトを試してみて下さい。</li>
+  <li>今までの演習題で一回の計算があったところを、繰り返しを使って複数の入力を使うようにする。その入力をファイルで用意し、リダイレクトで操作して下さい。</li>
+  <li>複数のファイルからの入力が必要なプログラムを作って下さい。<br
+    />
+    例:
+    今日までの提出宿題で縦の数と横の数を別にして、別のファイルから読み込んで下さい。</li>
+</ol>
+
+<h1>今回の演習</h1>
+
+<p>演習問題の共通点:
+複数の関連項目を一行にした複数の行からなる入力ファイルを入力し、出力にもファイルを使う。計算に関数を使う。</p>
+<ol>
+  <li>体重と身長と名前を入力として、BMI
+    の値を計算して、名前と判定 (痩せすぎ、肥満など)
+    と一緒に出力する。</li>
+  <li>二つの整数 <var>a</var> と <var>b</var>
+    を入力して、最大公約数と最小公倍数を出力する。<var>a</var>
+    と <var>b</var> が互いに素 (もしくは同じ)、<var>a</var> が
+    <var>b</var> の倍数 (もしくは逆)
+    の場合にこのことを出力で明記する。</li>
+  <li>(発展問題、情報テクノロジや他の理工学部の学生は是非挑戦してください)
+    2.
+    の問題の入力の数を二つに限定しなくて、三つ以上も可能にする。出力はできるだけ特徴を全て記述する一方、無駄に長くならないようにしてください。</li>
+  <li>自分の勉強・研究・興味の分野に関するプログラムを作って下さい。
+    <p></p>
+  </li>
+</ol>
+</body>
+</html>

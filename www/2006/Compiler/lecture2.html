@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>言語理論とコンパイラ第二回:
+  形式言語の重要性、種類、定義</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1
+style="text-align: center"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center"><strong>第二回</strong> (2006年
+4月21日)</p>
+
+<p style="text-align: center">形式言語の重要性、種類、定義</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture2.html">http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture2.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>授業日程の変更</h1>
+<ul>
+  <li>来週の授業は都合により休講となる</li>
+  <li>次の授業は 5月12日に行われる</li>
+  <li>休講した授業の分は補講する</li>
+  <li><a href="index.html">現時点での日程</a></li>
+</ul>
+
+<h1>先週からの宿題</h1>
+<ol>
+  <li>XML について調べる</li>
+  <li>次の文法で導出できる記号列を五つ見つける<br />
+    S → a S o<br />
+    S → A<br />
+    A → y a</li>
+</ol>
+
+<h1>授業全体の内容</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <th>理論</th>
+      <td>コンパイラ</td>
+      <td>他の応用</td>
+    </tr>
+    <tr>
+      <td>フロント<strong></strong>エンド</td>
+      <td><strong>言語理論、オートマトン</strong></td>
+      <td>字句解析、構文解析</td>
+      <td>正規表現, XML</td>
+    </tr>
+    <tr>
+      <td>バックエンド</td>
+      <td></td>
+      <td>最適化、コード生成</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>言語理論の重要性</h1>
+<ul>
+  <li>データ形式、プログラム言語のモデル</li>
+  <li>計算、認識のモデル</li>
+</ul>
+
+<h1>言語の基本用語</h1>
+
+<p>自然言語 (natural language)
+の場合は文はある規則によって語から構成される</p>
+
+<p>形式言語 (formal language) の場合は用語の使い方が違う:</p>
+<ul>
+  <li>語 (word) がある規則によって記号 (symbol)
+    から構成される</li>
+  <li>語は記号の列 (string of symbols)</li>
+  <li>例: 記号 a, b, c を元に例えば a, abc, aaabbb, abcba,
+    等の語がある</li>
+  <li>空語 (empty word) ε も語の一例</li>
+</ul>
+
+<h1>語の定義</h1>
+
+<p>ある語や言語はある記号の有限集合 Σ
+を元に定義される</p>
+
+<p>Σ はアルファベット (alphabet) という</p>
+
+<p>Σ 上の語 (word over Σ) は Σ に属する 0
+以上の記号の列である</p>
+
+<p>記号の数は語の長さ (length of the word) といって、語 w
+の長さは |w| で表す</p>
+
+<p>例: |abcba| = 5; |ε| = 0</p>
+
+<p>記号は長さ 1 の語である</p>
+
+<h1>語の連結演算</h1>
+
+<p>二つの語を続いて並ぶと新しい語ができる</p>
+
+<p>これは語の連結演算 (concatenation operation) という</p>
+
+<p>連結演算は演算子なしで書く</p>
+
+<p>例: 語 w と v の連結は wv と書く</p>
+
+<p>応用例: w = abc で v = cba の時に wv = abccba である</p>
+
+<p>同じ語 (や記号) の連結は乗数で書く: ww =
+w<sup>2</sup>、aaaaa = a<sup>5</sup> 等</p>
+
+<h1>連結演算の性質</h1>
+
+<p>結合法則: 語 w, v, u の時 (wv)u = w(vu)</p>
+
+<p>単位元は ε: wε = εw = w</p>
+
+<p>可換法則は成り立たない: wv ≠ vw</p>
+
+<p>連結の語の長さは連結される語の長さの和</p>
+
+<h1>言語の定義</h1>
+
+<p>Σ 上の言語 (language over Σ) は Σ 上の語の集合である</p>
+
+<p>例 (Σ ={a,b,c}):</p>
+<ul>
+  <li>空集合: {}</li>
+  <li>空言語の集合: {ε}</li>
+  <li>Σ (Σ 上の長さ 1 の語の集合)</li>
+  <li>長さ 3 の (Σ 上の) 語の集合</li>
+  <li>Σ 上の全ての語の集合</li>
+  <li>a と始まる (Σ 上の) 語の集合</li>
+  <li>a を晴、b を曇、c
+    を雨・雪にして、来週の都道府県庁の一日づつの天気を表す語の集合</li>
+</ul>
+
+<h1>言語の演算</h1>
+
+<p>言語の演算は集合の演算と語の演算の組み合わせ</p>
+<ul>
+  <li>言語の和集合</li>
+  <li>言語の積集合</li>
+  <li>言語の差集合</li>
+  <li>言語の結合演算: 言語 A と B の場合、結合 AB = { wv |
+    w∈A, v∈B }
+    <p>語と同じく言語でも LL を L<sup>2</sup> 等で表す</p>
+  </li>
+  <li>クリーン閉包 (閉含) ((Kleene) closure): 0
+    以上の同じ言語の連結
+    <p>L<sup>*</sup> と書く</p>
+    <p>例: L = { a, b } =&gt; L<sup>*</sup> = { ε, a, b, aa, ab, ba, bb,
+    aaa, ... }</p>
+  </li>
+</ul>
+
+<h1>オートマトンと文法と言語</h1>
+<ul>
+  <li>オートマトンは言語を受理 (認識、識別)
+    する機械のモデルである</li>
+  <li>文法は言語を生成する規則である</li>
+  <li>オートマトンと文法には色々な種類があります</li>
+  <li>種類によって受理・生成する言語が異なる</li>
+  <li>言語理論では主に四種類の言語を区別する</li>
+  <li>この四種類の言語は順番に部分集合である</li>
+  <li>この四種類の言語にはそれぞれオートマトンと文法の種類が対応している</li>
+</ul>
+
+<h1>形式言語の表</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>文法</td>
+      <td>grammar</td>
+      <td>Type</td>
+      <td>言語</td>
+      <td>オートマトン</td>
+    </tr>
+    <tr>
+      <td>句構造文法</td>
+      <td>phrase structure grammar (psg)</td>
+      <td>0</td>
+      <td>句構造言語</td>
+      <td>チューリング機械</td>
+    </tr>
+    <tr>
+      <td>文脈依存文法</td>
+      <td>context-sensitive grammar (csg)</td>
+      <td>1</td>
+      <td>文脈依存言語</td>
+      <td>線形拘束オートマトン</td>
+    </tr>
+    <tr>
+      <td>文脈自由文法</td>
+      <td>context-free grammar (cfg)</td>
+      <td>2</td>
+      <td>文脈自由言語</td>
+      <td>プッシュダウンオートマトン</td>
+    </tr>
+    <tr>
+      <td>正規文法</td>
+      <td>regular grammar (rg)</td>
+      <td>3</td>
+      <td>正規言語</td>
+      <td>有限オートマトン</td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+  <li>チューリング機械は一般の計算機のモデルである</li>
+  <li>文脈自由言語は構文解析の時に使う</li>
+  <li>正規言語は字句解析の時に使う</li>
+</ul>
+
+<h1>宿題 (5月12日 11:00 まで提出)</h1>
+
+<p>提出は A4 の紙一枚 (裏も使ってよい)</p>
+<ol>
+  <li>次のプログラムの一行の字句解析の結果
+    (トークンの列)、構文解析の結果 (構文木)、出力
+    (マシーンへの命令) を書きなさい<br />
+    <code>total = number * unitprice * (100 + tax) / 100;</code></li>
+  <li>(提出なしだが、出来なかった人は次回ノートパソコンを持ってきてください。)<br
+    />
+    自分のノートパソコンに cygwin を<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_download.html">ダウンロード</a>、<a
+    href="http://www.sw.it.aoyama.ac.jp/system/flex_bison/cygwin_install.html">インストール</a>してください。インストールの手順で必ず
+    <strong>flex</strong> と <strong>bison</strong>
+    を選んでください。(家にダイアルアップ回線しかなかったら学校でやった方がよい。)</li>
+</ol>
+</body>
+</html>

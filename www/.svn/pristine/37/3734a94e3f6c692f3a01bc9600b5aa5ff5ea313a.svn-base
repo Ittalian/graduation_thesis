@@ -1,0 +1,257 @@
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" >
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-1">
+    <dc:description>How to Define Java Class?</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-1-1">
+    <dc:description>Java class is defined with using class keyword</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-1-2">
+    <dc:description>Class name follows the keyword, and by convention starts with capital letter</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-1-3">
+    <dc:description>For example Policy, Client, House, etc.</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-1-4">
+    <dc:description>Class access level must be specified before the class keyword</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-2">
+    <dc:description>.java Files</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-2-1">
+    <dc:description>Java classes are contained in .java files</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-2-2">
+    <dc:description>One file can contain one public class</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-2-3">
+    <dc:description>One file can contain more than one non-public classes</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-2-4">
+    <dc:description>The file name is the same as the class name contained in the file</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3">
+    <dc:description>Fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-1">
+    <dc:description>What are Fields?</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-2">
+    <dc:description>Object state is implemented through fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-3">
+    <dc:description>Fields are defined at the class level</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-4">
+    <dc:description>All instances of the same class have the same fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-5">
+    <dc:description>Fields values can be different from instance to instance</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-6">
+    <dc:description>Fields are also knows as instance variables</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-7">
+    <dc:description>Defining Fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-8">
+    <dc:description>A field definition consists of access modifier, field type and field name</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-9">
+    <dc:description>Initializing Fields Explicitly</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-10">
+    <dc:description>Not commonly used, possible when declaring fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-3-11">
+    <dc:description>Constructors are generally used for initializing fields</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4">
+    <dc:description>Methods</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-1">
+    <dc:description>What are Methods?</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-2">
+    <dc:description>Methods represent behavior of an object</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-3">
+    <dc:description>All instances of the same class have same methods defined and understand same messages</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-4">
+    <dc:description>When a message is sent to an object, method that corresponds to that message is executed</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-5">
+    <dc:description>Methods represent implementation of messages</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-6">
+    <dc:description>Methods and Encapsulation</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-7">
+    <dc:description>To allow access to private fields, getter and setter methods are commonly used</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-8">
+    <dc:description>Getters return fields values, Setters set fields values to passed parameters</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-9">
+    <dc:description>Getters and setters enforce encapsulation</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-10">
+    <dc:description>Method represents an object’s response to a message</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-11">
+    <dc:description>Defining Methods</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-4-12">
+    <dc:description>Methods are defined with access modifier, same as for fields, return type, method name, parameters, identified with type and name</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-5">
+    <dc:description>Constructors</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-5-1">
+    <dc:description>What are Constructors?</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-5-2">
+    <dc:description>Special methods used for creating instances of a class: access modifier, same name as the class</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-5-3">
+    <dc:description>manipulate new instance</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-5-4">
+    <dc:description>Using Constructors</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-6">
+    <dc:description>Policy Class Implementation</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-7">
+    <dc:description>Messages and Objects</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-7-1">
+    <dc:description>Objects send messages to other objects</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-8">
+    <dc:description>Expressions</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-8-1">
+    <dc:description>Statements are the basic Java expressions</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-8-2">
+    <dc:description>Semicolon (;) indicates end of a statement</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-9">
+    <dc:description>Literals</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-9-1">
+    <dc:description>Represent hardcoded values that do not change</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-9-2">
+    <dc:description>Typical example are string literals</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-10">
+    <dc:description>Comments</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-10-1">
+    <dc:description>Single line comment starts with // and ends at the end of the line</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-10-2">
+    <dc:description>Multiple line comment starts with /* and ends with */</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-10-3">
+    <dc:description>Javadoc comment used by Javadoc program for generating Java documentation starts with /** and ends with */</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-10-4">
+    <dc:description>Comments Example</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11">
+    <dc:description>Java and Types</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11-1">
+    <dc:description>There are two different types in Java:</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11-2">
+    <dc:description>Primitive data type</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11-3">
+    <dc:description>Reference type</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11-4">
+    <dc:description>It is said that Java is strongly typed language</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-11-5">
+    <dc:description>Fields, variables, method parameters and returns must have a type</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-12">
+    <dc:description>Creating Objects in Java</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-12-1">
+    <dc:description>Objects are, in Java, created by using constructors</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-12-2">
+    <dc:description>Constructors are methods that have same name as the class</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-12-3">
+    <dc:description>They may accept arguments mainly used for fields initialization</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-12-4">
+    <dc:description>If constructor is not defined, the default constructor is used</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-13">
+    <dc:description>Reference Types and Variables</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-14">
+    <dc:description>Type Casting on Objects</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-14-1">
+    <dc:description>Allows for messages to be sent to subtype</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-14-2">
+    <dc:description>Variables declared as type of superclass</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-14-3">
+    <dc:description>The declared type of the variable stays the same</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-14-4">
+    <dc:description>In the example variable policy stays of type Policy after casting</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-15">
+    <dc:description>Assignment</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-15-1">
+    <dc:description>Assigning an object to a variable binds the variable to the object</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-16">
+    <dc:description>Identical Objects</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-16-1">
+    <dc:description>Operand == is used for checking if two objects are identical.  Objects are identical if they occupy same memory space</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-16-2">
+    <dc:description>Variables that reference objects are compared by value</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-16-3">
+    <dc:description>Objects are identical if their memory addresses are the same</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-16-4">
+    <dc:description>Variables are identical if they refer to exactly same instance of the class</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-17">
+    <dc:description>Equal Objects</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-17-1">
+    <dc:description>Determined by implementation of the equals() method</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-17-2">
+    <dc:description>Usually overridden in subclasses to provide criteria for equality</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-18">
+    <dc:description>null</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-18-1">
+    <dc:description>Object is automatically garbage collected if it does not have references</dc:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/2006/ITPRO1/lecture3.html#lec3-18-2">
+    <dc:description>When a variable of object type is declared it is assigned null as a value</dc:description>
+  </rdf:Description>
+</rdf:RDF>

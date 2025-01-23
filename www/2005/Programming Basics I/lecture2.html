@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 I: 初めての Perl</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/bert-print.css" rel="stylesheet"
+    type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 I</h1>
+
+<h2 style="text-align: center">第二回: 初めての Perl</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>目次</h1>
+<ul>
+  <li>プログラミングの心構え</li>
+  <li>コマンド・シェルの使い方</li>
+  <li>簡単なプログラムの作成</li>
+</ul>
+
+<h1>プログラミングの心構え</h1>
+<ul>
+  <li>正確さが大切
+    <ul>
+      <li>一文字でも間違ったらコンピュータは分からなくなる</li>
+    </ul>
+  </li>
+  <li>エラーがでたときはあわてないように
+    <ul>
+      <li>複数や複雑なエラーメッセージでも意外と簡単な原因が多い</li>
+    </ul>
+  </li>
+  <li>個人、気分によって色々なやりかたがある:
+    <ul>
+      <li>慎重で正確に</li>
+      <li>とりあえず試してみる</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>準備: コマンド・シェルを開く</h1>
+<ul>
+  <li>MS Windows のコマンド・シェル:
+    <p>「スタート」から「ファイル名を指定して実行」を選んで、<code>cmd</code>
+    を入力して「OK」を押す</p>
+  </li>
+  <li>Cygwin Bash shell:
+    <p>「スタート」から「プログラム」で「Cygwin Bash
+    Shell」を選ぶ</p>
+  </li>
+</ul>
+
+<h1>シェルの仕組み</h1>
+<ul>
+  <li>人間がコンピュータに命令を書く</li>
+  <li>コンピュータは命令を実行して返事を書く</li>
+  <li>人間の番の場合にシェルがプロンプトを書く
+    <ul>
+      <li>cmd の場合に最後に <code>&gt;</code></li>
+      <li>cygwin の場合に <code>$</code></li>
+      <li>変更が可能なので注意</li>
+    </ul>
+  </li>
+  <li>人間がプログラムの途中で更に入力が認められる場合もある</li>
+  <li>シェルはエクスプローラと同様に常に「現在のフォルダ」がある
+    <ul>
+      <li>cmd の場合、プロンプトの一部として表示</li>
+      <li>cygwin の場合、窓のタイトルに表示</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>シェルでフォルダを歩き渡る</h1>
+<ul>
+  <li>フォルダ (folder) はディレクトリ (directory)
+  ともいう</li>
+  <li>シェルの現在のフォルダを変えるには <code>cd</code>
+    (change directory) を使う</li>
+  <li>「<code>cd <em>mysubfolder</em></code>」 で
+    <code><em>mysubfolder</em></code> へ移動</li>
+  <li>「<code>cd ..</code>」で上のフォルダに移動</li>
+  <li>始めはエクスプローラで平行に移動すると分かりやすいかも</li>
+  <li>フォルダの間に cmd は "\" ("¥" にも見える)、cygwin は
+    "/" を使う</li>
+  <li>フォルダにあるものを表示するには cmd には
+    <code>dir</code>、 cygwin には <code>ls</code> を使う</li>
+</ul>
+
+<h1>シェルの便利な機能</h1>
+<ul>
+  <li>コマンドの「歴史」の記録
+    <ul>
+      <li>↑ と ↓
+        で前に入力したコマンドを辿ることができる</li>
+    </ul>
+  </li>
+  <li>コマンドの修正機能
+    <ul>
+      <li>←と→でコマンドの中で移動、Del や Backspace
+        で修正</li>
+    </ul>
+  </li>
+  <li>コマンドを補助する機能
+    <ul>
+      <li>Tab でファイル名などを補助することができる</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>Perl の呼び出し方</h1>
+<ul>
+  <li><code>perl -v</code>
+    <p>バージョンの確認</p>
+  </li>
+  <li><code>perl</code>
+    <p>プログラムの直接入力</p>
+  </li>
+  <li><code>perl</code> <em><code>myprogram.pl</code></em>
+    <p>ファイルに書いたプログラムを実行する</p>
+  </li>
+  <li><code>perl -e
+    "</code><em><code>ミニプログラム</code></em><code>"</code>
+    <p>小さいプログラムをその場で実行</p>
+  </li>
+  <li><em><code>myprogram.pl</code></em>
+    <p>プログラムを直接実行</p>
+  </li>
+</ul>
+
+<h1>Perl のプログラムの基本要素</h1>
+<ul>
+  <li>コメント (comment):
+    <ul>
+      <li>"#" から行の終わりまで</li>
+      <li>人間のための説明、perl は無視する</li>
+    </ul>
+  </li>
+  <li>文 (statement):
+    <ul>
+      <li>Perl にやって欲しい一つの仕事</li>
+      <li>必ず ";" で終わる</li>
+    </ul>
+  </li>
+  <li>定数 (constants):
+    <ul>
+      <li>数: <code>3</code>, <code>42</code>, <code>5.8735</code> 等</li>
+      <li>文字列: <code>"my string"</code></li>
+    </ul>
+  </li>
+  <li>演算子 (operators):
+    <ul>
+      <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>
+      等</li>
+    </ul>
+  </li>
+  <li>「動詞」: <code>print</code> 等</li>
+</ul>
+
+<h1>文字列</h1>
+
+<p>(character string, string)</p>
+<ul>
+  <li>二重引用符 (double quote) で囲む</li>
+  <li>特殊文字には <code>\</code> (<code>¥</code>) を使う:
+    <ul>
+      <li><code>\n</code>: 改行 (new line)</li>
+      <li><code>\t</code>: タブ (tab)</li>
+      <li><code>\"</code>: " そのもの</li>
+      <li><code>\\</code>: \ そのもの</li>
+    </ul>
+  </li>
+</ul>
+
+<h1><code>\</code> と <code>¥</code> の話し</h1>
+<ul>
+  <li>"<code>\</code>" (backslash, reverse solidus)
+    は日本語のシステムでよく"<code>¥</code>" (yen sign)
+    と見える</li>
+  <li>7bit/8bit 文字コードの時代からの残り物</li>
+  <li>Unicode の場合には別文字:
+    <ul>
+      <li>U+005C REVERSE SOLIDUS</li>
+      <li>U+00A5 YEN SIGN</li>
+    </ul>
+  </li>
+  <li>対策:
+    <ul>
+      <li>文法的に使う "<code>¥</code>" を頭の中で
+        "<code>\</code>" に置き換える</li>
+      <li>「円」等の意味で使う場合にはできるだけ U+00A5
+        や全角の <code>¥</code> を使う</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>今回使う「動詞」</h1>
+<ul>
+  <li><code>print</code>: 何かを出力する
+    <ul>
+      <li>複数の出力は <code>,</code> (コンマ) で並ぶ</li>
+    </ul>
+  </li>
+  <li><code>shift</code>:
+  プロンプトからの入力を取り寄せる</li>
+  <li>動詞の対象になるもの (目的語) を <code>(</code> と
+    <code>)</code> で囲む (一部省略可)</li>
+</ul>
+
+<h1>応用例: °C から °F を計算</h1>
+<ul>
+  <li>華氏 (Fahrenheit) と摂氏 (Celsius) は温度の単位</li>
+  <li>米国は華氏、他のところは殆ど摂氏を使う</li>
+  <li>摂氏 <em>c</em> から華氏 <em>f</em> への変換:
+    <p><em>f</em> = <em>c</em> · 9/5 + 32</p>
+  </li>
+  <li>華氏 f から摂氏 c への変換:
+    <p>c = (f-32) · 5/9</p>
+  </li>
+  <li>摂氏から華氏を計算するプルグラム
+    <pre># calculate degrees Fahrenheit from degrees Celsius
+print "degrees Fahrenheit is: ", shift()*9/5 + 32, "\n";</pre>
+  </li>
+</ul>
+
+<h1>演習問題・宿題</h1>
+<ol>
+  <li>華氏から摂氏への変換を行うプログラムを作る</li>
+  <li>[任意]
+    ケルビンの温度の単位もある。摂氏や華氏とケルビンの変換のプログラムを作る</li>
+  <li>[任意]
+  他の簡単な計算を考えて、プログラムを作る</li>
+</ol>
+
+<p></p>
+</body>
+</html>

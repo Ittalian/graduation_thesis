@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I 日程</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1>計算機実習 I </h1>
+
+<p>青山学院大学 2006 年前期: 授業の内容は <a
+href="http://moo.sw.it.aoyama.ac.jp">Moodle</a> に移りました。</p>
+<!--<dl>
+  <dt>4月13日</dt>
+    <dd><a
+      href="lecture1.html">演習環境の使い方、簡単なプログラムの作成、エラーの場合の対応</a></dd>
+  <dt>4月21日</dt>
+    <dd><a
+      href="lecture2.html">定数の記述、基本的なデータ型、変数の定義と使い方
+      (数値、文字列)</a></dd>
+  <dt>4月28日</dt>
+    <dd><a
+    href="lecture3.html">演算子の種類、使い方、優先度</a></dd>
+  <dt>5月 5日</dt>
+    <dd>(こどもの日)</dd>
+  <dt>5月12日</dt>
+    <dd><a href="lecture4.html">制御文</a></dd>
+  <dt>5月19日</dt>
+    <dd><a href="lecture5.html">コンソール入出力</a></dd>
+  <dt>5月26日</dt>
+    <dd><a href="lecture6.html">関数の作り方と使い方</a></dd>
+  <dt>6月 2日</dt>
+    <dd><a href="lecture7.html">構造体 (struct)、共用体
+      (union)、列挙型 (enum)</a></dd>
+  <dt>6月 9日</dt>
+    <dd><a href="lecture8.html">ポインターの基礎</a></dd>
+  <dt>6月16日</dt>
+    <dd><a href="lecture9.html">ポインターの応用</a></dd>
+  <dt>6月23日</dt>
+    <dd><a href="lecture10.html">総合復習</a> (演習のみ)</dd>
+  <dt>6月30日</dt>
+    <dd><a
+      href="lecture11.html">標準ライブラリーの使い方、ファイル入出力</a></dd>
+  <dt>7月 7日</dt>
+    <dd><a href="lecture12.html">総合演習 I</a></dd>
+  <dt>7月14日</dt>
+    <dd><a href="lecture13.html">総合演習 II</a></dd>
+  <dt>7月19日から7月30日まで</dt>
+    <dd>試験期間</dd>
+</dl>-->
+</body>
+</html>

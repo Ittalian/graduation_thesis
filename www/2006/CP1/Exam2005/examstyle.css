@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import "commonstyle.css";
+/* style sheet for examinations without answers */
+
+/* make sure solutions don't show (in print) */
+  .solution { visibility: hidden; }
+  ins.solution { display: none; font-size: inherit; line-height: inherit; }
+  del.solution { text-decoration: none; color: black; visibility: visible;
+                 font-size: inherit; line-height: inherit; }

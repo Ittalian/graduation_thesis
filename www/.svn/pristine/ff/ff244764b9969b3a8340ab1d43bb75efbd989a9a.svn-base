@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>言語理論とコンパイラ: 第五回: flex の演習</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+    </style>
+</head>
+
+<body>
+<h1
+style="text-align: center"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center"><strong>第四</strong><strong>回:</strong>
+中間テスト、flex の演習</p>
+
+<p style="text-align: center">2005年 5月 20日</p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今日の内容</h1>
+<ul>
+  <li>中間テスト</li>
+  <li>flex の使い方と演習</li>
+</ul>
+
+<h1>flex の使い方 (1)</h1>
+<ul>
+  <li>拡張子 <code>.l</code> で終わる flex 入力ファイルを作る
+    (例: test.l)</li>
+  <li>flex で test.l ファイルから lex.yy.c ファイルを作る:<br />
+    &gt;<code>flex test.l</code></li>
+  <li>lex.yy.c を (他のファイルと一緒に) コンパイルする</li>
+</ul>
+
+<h1>flex の使い方 (2)</h1>
+<ul>
+  <li>独自のファイル処理に使う
+    (正規表現によるファイルの一部の認識・変更):
+    <p><code>main</code> から <code>yylex()</code> 関数を一回呼ぶ</p>
+  </li>
+  <li>構文解析から使う:
+    <p>構文解析から <code>yylex()</code>
+    を繰り返し読んで、トーケンを返すようにする</p>
+  </li>
+</ul>
+
+<h1>flex の勉強の仕方</h1>
+<ul>
+  <li>マニュアルを読む</li>
+  <li>flex の出力 (lex.yy.c) を読む</li>
+  <li>違う入力に対する flex の出力を比較</li>
+  <li>flex のソースを読む (flex そのものの字句解析は flex
+    形式で書かれている)</li>
+</ul>
+
+<h1>flex の入力の形式</h1>
+
+<p>flex 専用の指示と C プログラムの一部が両方ある</p>
+
+<p>主に三つの <code>%%</code>
+で区切られている部分からなる:</p>
+<ul>
+  <li>前文
+  (変数の定義と初期化、良く使う字句の定義など)</li>
+  <li>字句規則とその場合に実行するプログラムの部分</li>
+  <li>そのほかの関数など</li>
+</ul>
+
+<h1>flex の入力の形式の一例</h1>
+<pre>            int num_lines = 0, num_chars = 0;
+    %%
+    \n      ++num_lines; ++num_chars;
+    .       ++num_chars;
+    %%
+    main()
+            {
+            yylex();
+            printf( "# of lines = %d, # of chars = %d\n",
+                    num_lines, num_chars );
+            }
+
+    int yywrap () { return 1; }</pre>
+
+<h1>flex の演習・宿題</h1>
+<ol>
+  <li>一般のテキストを XML
+    の要素の内容に入れたい場合には次の変換を行う必要がある。flex
+    でその変換と逆変換を行うプログラムを書け。
+
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>テキスト</td>
+          <td>XML</td>
+        </tr>
+        <tr>
+          <td><code>'</code></td>
+          <td><code>&amp;apos;</code></td>
+        </tr>
+        <tr>
+          <td><code>"</code></td>
+          <td><code>&amp;quot;</code></td>
+        </tr>
+        <tr>
+          <td><code>&amp;</code></td>
+          <td><code>&amp;amp;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;</code></td>
+          <td><code>&amp;lt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&gt;</code></td>
+          <td><code>&amp;gt;</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>C 言語 (もしくは他に好きなプログラム言語)
+    用の字句解析 (C の場合にプレプロセッサ指示無し)
+    を行って、字句ごと一行で出力するプログラムを flex
+    で作れ。(ある規則に認識された文字列は変数
+    <code>yytext</code> にある。)</li>
+</ol>
+</body>
+</html>

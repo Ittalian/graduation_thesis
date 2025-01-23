@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SSS2007 アノテーションを活用した教材コンテンツ作成環境の構築</title>
+	<meta name="copyright" content="Copyright &copy; 2007 Hiroyuki Abe all rights reserved" />
+	<meta name="author" content="阿部裕行" />
+	<meta name="description" content="SSS2007発表資料" />
+	<link rel="stylesheet" href="show.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+	<link rel="stylesheet" href="SSS2007.css" type="text/css" media="screen, projection" />
+	<script src="slidy.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="slide cover">
+		<h1>アノテーションを活用した<br />教材コンテンツ作成環境の構築</h1>
+		
+		<p>
+			2007-08-27 <a href="http://ce.eplang.jp/index.php?SSS2007">SSS2007</a> <br/>
+			<a href="http://www.aoyama.ac.jp/">青山学院大学</a> <a href="http://www.sw.it.aoyama.ac.jp/2005/hiroyuki/">阿部裕行</a>、<a href="http://伊藤一成.jp/">伊藤一成</a>、<a href="http://www.sw.it.aoyama.ac.jp/Dürst/">Martin J. Dürst</a>
+		</p>
+		
+		<h2 class="ws"></h2>
+		<h2 class="ws"></h2>
+		
+		<h5 style="text-align: center"><a href="http://www.sw.it.aoyama.ac.jp/2005/hiroyuki/presentation/SSS2007">http://www.sw.it.aoyama.ac.jp/2005/hiroyuki/presentation/SSS2007</a></h5>
+	</div>
+	
+	<div class="slide">
+		<h1>発表の流れ</h1>
+	
+		<ol>
+			<li><h3>はじめに</h3></li>
+			<li><h3>アノテーションを活用した教材コンテンツ</h3></li>
+			<li><h3>教材コンテンツ作成環境の概要</h3></li>
+			<li><h3>デモ</h3></li>
+			<li><h3>まとめ</h3></li>
+		</ol>
+	</div>
+	
+	<div class="handout">
+		<p>このような流れで発表を行っていきます。はじめに本研究を行うにあたっての背景と目的、アノテーションの概念に基づいた教材コンテンツについて説明します。次にその教材コンテンツを作成、管理するために今回構築した環境について説明し、デモを行いまとめたいと思います。</p>
+	</div>
+	
+	<div class="slide">
+		
+		<h1>研究の背景</h1>
+		
+		<h3>教育方法の多様化</h3>
+		
+		<dl>
+			<dt>今まで</dt>
+			<dd>
+				<h4>対面的な授業</h4>
+				<h4>紙、黒板など</h4>
+			</dd>
+			<dt>現在</dt>
+			<dd>
+				<h4>e-Learning</h4>
+				<h4>Web コンテンツ、パワーポイントなど</h4>
+			</dd>
+		</dl>
+		
+		<h2 class="ws"></h2>
+
+		<h2 class="incremental center emphasis" style="background-color: #CCFFFF">Web コンテンツを教材コンテンツとして活用</h2>
+	</div>
+	
+	<div class="handout">
+		<p>近年様々なものがデジタル化されていますが、これは教育にとっても同様で、それにより教育方法が多様化してきています。今までは紙や、黒板をベースとした教材を利用した対面的な授業が主流でしたが、現在は、e-Learnig の普及により Web コンテンツやパワーポイントなどを利用した教材も多くなっています。特に Web 上には膨大なコンテンツがあふれている現状や、いつでも、どこからでもという Web の利便性を考えると、今までの教材より多くのメリットを Web コンテンツがもっていると言えるかもしれません。今後の教育では Web コンテンツを教材コンテンツとしてうまく活用していくことが求められてくると考えられます。</p>
+	</div>
+
+	<div class="slide">
+		<h1>研究の背景</h1>
+		
+		<h3>現在の問題点</h3>
+		
+		<dl>
+			<dt>教師側</dt>
+			<dd>
+				<h4>教師のスキルは様々なので教材コンテンツ作成は高コスト</h4>
+				<h4>作れたとしても単純にデジタル化された教材コンテンツ</h4>
+			</dd>
+			<dt>学生側</dt>
+			<dd>
+				<h4>日常的にゲーム、インターネットなど洗練化されたコンテンツを使用</h4>
+				<h4>魅力的なコンテンツでなければモチベーション低下</h4>
+			</dd>
+		</dl>
+		
+		<h2 class="ws"></h2>
+
+		<h2 class="incremental center emphasis" style="background-color: #CCFFFF">教師、学生双方を満足させることが必要</h2>
+	</div>
+
+	<div class="handout">
+		<p>しかし、Web コンテンツを教材とするのは簡単ではありません。まず、教師は必ずしもそのようなコンテンツを作る専門家ではないのでその作成コストは高いと考えられます。いろいろな編集ツールを使うことで、そのコストは軽減されると思われますが、既存のツールはワープロ感覚のものが多くを占めるため、作成されたコンテンツの多くは、本来紙や、黒板で提供されていた情報を単にデジタル化したものとなってしまいます。となるとそれは学生にとって問題です。最近の学生は、テレビ、ゲーム、インターネットなどを使って育ってきているので、そのような形式を変換しただけの色や動きのないコンテンツを提供しても、ただでさえ高くないモチベーションをさらに下げてしまうとかもしれません。今後の教材の電子化を考えた場合、両方の側を満足させるための仕組みが必要になってくるのではないのでしょうか？</p>
+	</div>
+
+	<div class="slide">
+		<h1>研究の目的</h1>
+		
+		<dl>
+			<dt>教師側</dt>
+			<dd>
+				<h4>教材コンテンツ作成にかかる負担の低減</h4>
+			</dd>
+			<dt>学生側</dt>
+			<dd>
+				<h4>魅力的な教材コンテンツの享受</h4>
+			</dd>
+		</dl>
+
+		<h2 class="ws"></h2>
+
+		<h2 class="center emphasis" style="background-color: #CCFFFF">簡単に魅力的な教材コンテンツを作成</h2>
+
+		<ul>
+			<li>アノテーションを活用した教材コンテンツ</li>
+			<li>教材コンテンツ作成環境の構築</li>
+		</ul>
+	</div>
+	
+	<div class="handout">
+		<p>両者を満足させるには、教師の負担は少ないままで、学生のやる気を引き出す教材を作成できることが必要になると考えます。そこで本研究ではこの問題に対して、簡単に魅力的な教材コンテンツを作成するための環境を提案します。教材コンテンツとして我々が以前から検討してきたアノテーションの概念を活用したリッチコンテンツを利用し、その教材コンテンツをオープンソースのシステムを連携することで簡単に作成・管理する環境を構築しました。簡単に魅力的な教材コンテンツを作成することで、教師，学生双方に有益な学習環境を提供します。</p>
+	</div>
+	<div class="slide">
+		<h1>発表の流れ</h1>
+	
+		<ol>
+			<li class="fade"><h3>はじめに</h3></li>
+			<li><h3>アノテーションを活用した教材コンテンツ</h3></li>
+			<li class="fade"><h3>教材コンテンツ作成環境の概要</h3></li>
+			<li class="fade"><h3>デモ</h3></li>
+			<li class="fade"><h3>まとめ</h3></li>
+		</ol>
+	</div>
+	
+	<div class="handout">
+		<p>それでは、今回作成される教材について、アノテーションを活用した教材とはどのようなものなのかということについて説明したいと思います。</p>
+	</div>
+	<div class="slide">
+		<h1>アノテーションを活用した教材コンテンツ</h1>
+		
+		<dl>
+			<dt>一般的なアノテーション</dt>
+			<dd>コンテンツに対する明示的な情報の付与</dd>
+		</dl>
+		
+		<h2 class="ws"></h2>
+
+		<dl class="incremental">
+			<dt>教材におけるアノテーション</dt>
+			<dd>
+				<p>教師の説明 （人）</p>
+				<p>学生の書き込み （人）</p>
+				<p>教師と学生のやりとり （人）</p>
+				<p><span class="incremental emphasis" style="font-style: italic">外部からの関連した情報 （Web サービス）</span></p>
+			</dd>
+		</dl>
+		
+		<h2 class="ws"></h2>
+
+		<h2 class="incremental center emphasis" style="color: black; background-color: #CCFFFF">人だけでなく計算機によるアノテーションを<br/>融合した教材コンテンツ</h2>
+
+	</div>
+	
+	<div class="handout">
+		<p>まず、アノテーションがどういう意味かというと、アノテーションは一般的にコンテンツに対して明示的に付与された情報のことを指します。今回コンテンツというのは教材となるので、教材の説明となるような情報の付与が教材へのアノテーションになると考えられます。実際に行われるようなことを考えてみますと、まず教師による説明というものが考えられます。そしてその説明に対して学生は自分が思ったり、考えたことをノートなどに書き込んだりします。またその過程での教師と学生のやりとりもアノテーションとみなせます。教材がデジタル化されるのであれば、これらのアノテーションもデジタル化し、教材コンテンツに付与できるようにしていくべきだと思いますし、また、実際このような人によるアノテーションを適用している研究も最近では増えてきています。本研究ではさらに、教材をデジタル化したメリットを活かすために教材に関連する情報を Web サービスから獲得しアノテーションとして活用します。これは参考文献を調べるなど外部から情報を獲得する行動を一種の教材への情報の付与と考えデジタル化したもので、この教材コンテンツのの一つの特徴となるものです。本研究ではこのように教師、学生のアノテーションだけでなく、教材に関連した情報を Web サービスを利用し教材に融合します。実際の教材についてはこの後のデモでご紹介します。</p>
+	</div>
+
+	<div class="slide">
+		<h1>発表の流れ</h1>
+
+		<ol>
+			<li class="fade"><h3>はじめに</h3></li>
+			<li class="fade"><h3>アノテーションを活用した教材コンテンツ</h3></li>
+			<li><h3>教材コンテンツ作成環境の概要</h3></li>
+			<li class="fade"><h3>デモ</h3></li>
+			<li class="fade"><h3>まとめ</h3></li>
+		</ol>
+	</div>
+
+	<div class="handout">
+		<p>続いて、この簡単に魅力的な教材コンテンツを作成、管理するために構築したシステム、実際に教材コンテンツを作成する手順について簡単に説明します。</p>
+	</div>
+
+	<div class="slide">
+		<h1>システム概要</h1>
+		
+		<img src="./img/System.bmp" alt="システム構成図" />
+	</div>
+	
+	<div class="handout">
+		<p>この図が構築したシステムになります。今回はこの中の枠で囲まれている3つの部分について説明します。</p>
+	</div>
+
+	<div class="slide">
+		<h1>既存のシステムの利用・拡張</h1>
+		
+		<dl>
+			<dt><a href="http://moodle.org/">Moodle</a></dt>
+			<dd>
+				<h4>教育用のコンテンツ管理システム</h4>
+				<h4><span class="emphasis" style="font-style: italic">"ウェブページの作成"機能を拡張</span></h4>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><a href="http://www.w3.org/2001/Annotea/">Annotea</a></dt>
+			<dd>
+				<h4><a href="http://www.w3.org/">W3C</a> で開発されている アノテーションシステム</h4>
+				<h4><span class="emphasis" style="font-style: italic"><a href="http://moodle.org/">Moodle</a> のアカウント情報を <a href="http://www.w3.org/2001/Annotea/">Annotea</a> のアカウント情報として利用</span></h4>
+			</dd>
+		</dl>
+
+		<h2 class="ws"></h2>
+		
+		<h4><a href="http://moodle.org/">Moodle</a> で教材コンテンツを作成・管理</h4>
+		<h4><a href="http://www.w3.org/2001/Annotea/">Annotea</a> で教材コンテンツに付与されるアノテーションを管理</h4>
+		
+		<h2 class="ws"></h2>
+
+		<h2 class="incremental　center"><span class="non-incremental emphasis">簡単に</span>教材作成・管理</h2>
+
+		<!--h2 class="incremental center emphasis" style="color: black; background-color: #CCFFFF">人だけでなく計算機によるアノテーションを<br/>融合した教材コンテンツ</h2-->
+	</div>
+
+	<div class="handout">
+		<p>まずは、簡単にという教師側にとってうれしい部分について説明します。一つ目は教材コンテンツ作成に Moodle を利用しました。Moodele にはもともとウェブページ作成というモジュールがあり、教材作成用に WYSIWYG エディタが用意されていますので、これを拡張したものを使って、教材コンテンツ作成に利用します。拡張といってもエディタはそのままなので、ワードを作るのと同じくらいの感覚で作成できますし、教師、学生データの管理のためにもそのまま利用できます。次にアノテーションの管理に利用するのが W3C で開発されている　Annotea です。Annotea は Web コンテンツにアノテーションを付与する仕組みでアカウント情報に基づいてアノテーションを管理します。先日の研究会でもアノテーションの管理についてご指摘を受けましたが、今回は人だけではなく Web サービスの情報もアノテーションとみなしているのでその管理にはかなりのコストがかかりますが、Annotea の利用によりアノテーションの管理コストをかなり減らすことができます。また、今回は Moodle のアカウントと Annotea のアカウントを連携させることでアノテーションを利用する際の認証にかかる手間を省いています。既存のシステムを活用することで管理コストも削減、教師の負担がかなりなくなり、簡単に教材コンテンツを作成できます。が、これだけでは、作成される教材コンテンツはまだ単純にデジタル化されたままのものです。続いてこの付加価値のない教材コンテンツを学生にとって魅力的なものにするための仕組みについて説明します。</p>
+	</div>
+
+	<div class="slide">
+		<h1>教材コンテンツのリッチコンテンツ化</h1>
+
+		<h3>単純なデジタル化以上の教材コンテンツが必要</h3>
+
+		<h2 class="ws"></h2>
+		
+		<dl>
+			<dt><a href="http://evia.biz">HTML リッチコンテンツ化サービス</a></dt>
+			<dd>任意の HTML をリッチコンテンツに変換する Web サービス
+				<ul>
+					<li>インタフェースの機能追加 (JavaScript、<a href="http://www.w3.org/Style/CSS/">CSS</a> の埋め込み)</li>
+					<li>言語情報埋め込み</li>
+					<li>Web サービスから獲得した情報の活用</li>
+				</ul>
+			</dd>
+		</dl>
+
+		<h2 class="ws"></h2>
+
+		<h2 class="incremental　center">Web の特徴を活かした<span class="non-incremental emphasis">魅力的な</span>教材コンテンツ</h2>
+	</div>
+
+	<div class="handout">
+		<p>それは HTML リッチコンテンツ化サービスになります。これは我々が公開している Web サービスで、任意の HTML に対して JavaScript、CSS　の埋め込みによるインタフェース面での機能の追加や、その Web コンテンツに言語情報の埋め込み、Web サービスから獲得した情報などを一種の情報の付与、Web コンテンツへのアノテーションとして付与し、リッチコンテンツ化するサービスです。先ほど説明した Moodle 上のエディタを利用するのもそうなのですが、単に Web コンテンツを作るということは特に難しくはありません。ただ、それ以上のものを作るということになるとやはり、ある程度の知識を習得する必要があります。</p>
+	</div>
+
+	<div class="slide">
+		<h1>教材コンテンツ作成手順</h1>
+		
+		<div class="left" style="width: 68%">
+			<img src="./img/SystemFlow.bmp" alt="システム構成図" style="width: 100%" />
+		</div>
+		
+		<div class="right" style="width: 27%">
+			<ol>
+				<li><a href="http://moodle.org/">Moodle</a> の WYSIWYG エディタで教材コンテンツを作成</li>
+				<li>Web サービスを利用して教材コンテンツをリッチコンテンツ化</li>
+				<li>教材コンテンツを <a href="http://moodle.org/">Moodle</a> に登録</li>
+				<li>アノテーションは <a href="http://www.w3.org/2001/Annotea/">Annotea</a> で管理</li>
+			</ol>
+		</div>
+		
+		<h2 class="incremental center emphasis" style="color: black; background-color: #CCFFFF; clear: both">システムを導入し、エディタで教材を作るだけ</h2>
+	</div>
+	
+	<div class="handout">
+		<p>まとめます。</p>
+	</div>
+	<div class="slide">
+		<h1>発表の流れ</h1>
+	
+		<ol>
+			<li class="fade"><h3>はじめに</h3></li>
+			<li class="fade"><h3>アノテーションを活用した教材コンテンツ</h3></li>
+			<li class="fade"><h3>教材コンテンツ作成環境の概要</h3></li>
+			<li><h3>デモ</h3></li>
+			<li class="fade"><h3>まとめ</h3></li>
+		</ol>
+	</div>	
+	<div class="handout">
+		<p>リソース編集。エディタをそのまま使うとどうなるのか。単純にHTML化されますが、このシステムを導入すると今までどおりエディタは使うけど、こんなことができます。はじめに機能をいろいろ使えるようにしておいて、このような機能を使えますとしておいて、その後必要に応じてそれをなくしたり、制御できます。現在はわかりやすいようにこのようなウインドウを用意している。授業資料もできて発表資料もできる。</p>
+	</div>
+
+	<div class="slide">
+		<h1>発表の流れ</h1>
+	
+		<ol>
+			<li class="fade"><h3>はじめに</h3></li>
+			<li class="fade"><h3>アノテーションを活用した教材コンテンツ</h3></li>
+			<li class="fade"><h3>教材コンテンツ作成環境の概要</h3></li>
+			<li class="fade"><h3>デモ</h3></li>
+			<li><h3>まとめ</h3></li>
+		</ol>
+	</div>	
+	<div class="handout">
+		<p>まとめます。</p>
+	</div>
+		<div class="slide">
+		<h1>まとめ</h1>
+				<ul>
+			<li><h2 style="color: black; border-style: none; margin-bottom: 0">アノテーションを活用した<br />教材コンテンツ作成環境の構築</h2>
+				<ul>
+					<li class="none"><h3><a href="http://moodle.org/">Moodle</a> と <a href="http://www.w3.org/2001/Annotea/">Annotea</a> の利用により教材作成・管理コストを削減</h3></li>
+					<li class="none"><h3>教材コンテンツのリッチコンテンツ化によるモチベーションの促進</h3></li>
+				</ul>
+			</li>
+			<li><h2 style="color: black; border-style: none; margin-bottom: 0">今後の予定</h2>
+				<ul>
+					<li class="none"><h3>授業での利用実験</h3></li>
+					<li class="none"><h3>公開</h3></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+		<div class="handout">
+		<p>本研究では、アノテーションを活用した教材コンテンツを簡単に作成、管理する環境を構築しました。オープンソースのシステムである Moodle、Annotea を連携することで、教材コンテンツを作成、管理する教師にかかるコストが大幅に削減されました。また、教材コンテンツをリッチコンテンツ化したことにより、学生のモチベーションを促進することを期待しています。今後は、今年度後期に本学で行われる授業での利用による有用性の検証し、このシステムの公開を予定しています。</p>
+	</div></body>
+</html>

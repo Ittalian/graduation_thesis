@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第一回</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第一回</h2>
+
+<h3 style="text-align: center">Martin J. Dürst (<small>テュールスト
+マーティン ヤコブ</small>)</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a>, O 棟
+529号室</p>
+
+<h1>今日の内容</h1>
+<ul>
+  <li>目的などの説明</li>
+  <li>Moodle の説明・設定</li>
+  <li>ミニテスト</li>
+  <li>講義</li>
+  <li>休憩: 教科書の購入</li>
+  <li>演習環境の説明</li>
+  <li>演習</li>
+</ul>
+
+<h1>位置づけ</h1>
+<ul>
+  <li>大学の一年は「ゆっくりなれる」</li>
+  <li>大学の二年は「本業の基礎を確実に」</li>
+  <li>プログラミングが IT の中心技能</li>
+  <li>この授業で本格的にやります</li>
+  <li>これからの授業、演習、卒論などに必ず役に立つ</li>
+  <li>残念ながら単位は 2 点しかでない</li>
+</ul>
+
+<h1>決まり事</h1>
+<ul>
+  <li>全員完走</li>
+  <li>独力</li>
+  <li>一人一質問毎</li>
+  <li>時刻通りログイン済み</li>
+  <li>私語禁止</li>
+  <li>飲食禁止</li>
+  <li>脱帽</li>
+</ul>
+
+<h1>成功するには</h1>
+<ul>
+  <li>自覚</li>
+  <li>睡眠
+  (疲れたらプログラミングの効率は極端落ちる)</li>
+  <li>準備 (教科書を前もって読む)</li>
+  <li>環境 (机の整備など)</li>
+  <li>血糖補給</li>
+</ul>
+
+<h1>おすすめ</h1>
+<ul>
+  <li>月曜日 3 限の「プログラミング基礎 I ・II」
+    <ul>
+      <li>青山スタンダードなので簡単</li>
+      <li>XML なので役に立つ</li>
+    </ul>
+  </li>
+  <li>研究室に是非遊びに来て下さい</li>
+</ul>
+
+<h1>去年からの変更</h1>
+<ul>
+  <li>C
+  の細かいところよりプログラミングそのものが中心</li>
+  <li>Moodle の導入</li>
+  <li>教科書の変更</li>
+  <li>ポインタを三回に拡大</li>
+  <li>一部の演習問題の修正・変更</li>
+</ul>
+
+<h1>Moodle</h1>
+
+<p><a
+href="http://moo.sw.it.aoyama.ac.jp">http://moo.sw.it.aoyama.ac.jp</a></p>
+
+<h1>C 言語の位置づけ</h1>
+<ul>
+  <li>「高級プログラム言語」とか「第三世代プログラム言語」の一つ</li>
+  <li>FORTRAN や COBOL より体系的にできている</li>
+  <li>Unix の開発のために作られている</li>
+  <li>現在膨大な役割を果たしている:
+    <ul>
+      <li>Unix/Linux, Windows, MacOS,...</li>
+      <li>Java, C#, Perl, Python, Ruby,...</li>
+      <li>Web Server,...</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>各講義の構成</h1>
+<ul>
+  <li>ミニテスト (10分程度)</li>
+  <li>説明 (40分程度)</li>
+  <li>実習 (残り、場合によって延長)
+    <ul>
+      <li>演習プログラムを作る</li>
+      <li>担当の助手に見せて、OK をもらう</li>
+      <li>Moodle にアップロード</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>ミニテストの代りに復習テストがある</li>
+  <li>途中一回と最後の二回は演習のみ</li>
+  <li>レポートもある</li>
+  <li>最終試験もある</li>
+</ul>
+
+<h1>識別子 (identifier, 名前) の制限</h1>
+<ul>
+  <li>英字 (<code>A-Z</code>, <code>a-z</code>, <code>_</code>)
+    から始まる</li>
+  <li>英字か数字 (<code>0-9</code>) で続く</li>
+  <li>長さには制限がない
+    <ul>
+      <li>最初の少なくとも 31 文字が有効である</li>
+      <li>但し、最初の 6
+        文字だけを有効にする処理系もある</li>
+    </ul>
+  </li>
+  <li>大文字と小文字は区別される
+    <ul>
+      <li>但し、区別しない処理系もある</li>
+    </ul>
+  </li>
+  <li>キーワード (予約語、reserved words) は使えない</li>
+</ul>
+
+<h1>識別子の選び方</h1>
+<ul>
+  <li>分かりやすい</li>
+  <li>短いが、短すぎない</li>
+  <li>ローマ字の日本語より英語がいい
+    <ul>
+      <li><code>mojiretu</code> より <code>string</code> がよい</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>C のデータ型の基本</h1>
+<ul>
+  <li>整数、0 以上の整数 (integer): 1, 3, 234578, -345 など</li>
+  <li>浮動小数点数 (floating point): 1.234, 7E-13 など</li>
+</ul>
+
+<h1><code>\</code> と <code>¥</code> の話し</h1>
+<ul>
+  <li>"<code>\</code>" (backslash, reverse solidus)
+    は日本語のシステムでよく"<code>¥</code>" (yen sign)
+    と見える</li>
+  <li>7bit/8bit 文字コードの次代からの残り物</li>
+  <li>Unicode の場合には別文字:
+    <ul>
+      <li>U+005C REVERSE SOLIDUS</li>
+      <li>U+00A5 YEN SIGN</li>
+    </ul>
+  </li>
+  <li>対策:
+    <ul>
+      <li>文法的に使う "<code>¥</code>" を頭の中で
+        "<code>\</code>" に置き換える</li>
+      <li>「円」等の意味で使う場合にはできるだけ U+00A5
+        や全角の <code>¥</code> を使う</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>教科書</h1>
+
+<p>改訂第 2 版 ANSI 対応</p>
+
+<p>C 言語プログラミングレッスン 入門編</p>
+
+<p>結城 浩 著</p>
+
+<p>ISBN 4-7973-0757-9 定価 本体 2,000円+税</p>
+
+<h1>演習の環境</h1>
+<ul>
+  <li>エディタ (メモ帳、秀丸、vi、emacs 等)</li>
+  <li>シェル (Cygwin Bash Shell)</li>
+  <li>コンパイラ (gcc)</li>
+</ul>
+<ul>
+  <li>環境のデモ: C の簡単なプログラム</li>
+</ul>
+
+<h1>C の簡単なプログラム</h1>
+<pre><span style="color: #0000A0; background-color: #FFFFFF">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #008000; background-color: #FFFFFF">int</span> main (void)
+{
+    printf ("Hello World!<span style="color: #800040; background-color: #FFFFFF">\n</span>");
+
+    <span style="color: #008000; background-color: #FFFFFF">return 0;</span>
+}</pre>
+
+<h1>Edit - Compile - Go</h1>
+
+<p>プログラミングは三つの作業の繰返しである:</p>
+<ol>
+  <li>Edit: プログラムを書く、修正する</li>
+  <li>Compile:
+    人間の読めるプログラムから機械が実行できるプログラムへ</li>
+  <li>Go: プログラムを実行してみる</li>
+</ol>
+
+<p>コンパイラではなくてインタプリタを使う言語を使うと
+2. と 3. がまとめて実行</p>
+
+<p>F5
+でほぼインタプリタの感覚でプログラミングできる</p>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>作ったプログラムを忘れずに Z: ドライブに移す</li>
+  <li>今日の復習</li>
+  <li>教科書の第三章まで (p. 74 まで) 読む</li>
+</ul>
+</body>
+</html>

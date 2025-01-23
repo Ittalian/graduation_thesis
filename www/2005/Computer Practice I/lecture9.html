@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第九回 - ポインタの応用</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計<acronym></acronym>算機実習 I</h1>
+
+<h2 style="text-align: center">第九回 (2005年 6月 16日)</h2>
+
+<h2 style="text-align: center">ポインタの応用</h2>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Computer%20Practice%20I/lecture9.html"
+style="margin-left: auto; margin-right: auto">http://www.sw.it.aoyama.ac.jp/2005/Computer%20Practice%20I/lecture9.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>プログラミングへの心構え</h1>
+<ul>
+  <li>sleep well! (but not during the class!!!)</li>
+  <li>関数を作るときに一般的な使い方を考える</li>
+</ul>
+
+<h1>ポインタの用途</h1>
+<ul>
+  <li>低レベルのアドレス操作 (デバイス割り当てなど)</li>
+  <li>動的メモリの管理</li>
+  <li>配列の処理の効率化</li>
+  <li>参照 (関数への渡しなど)</li>
+  <li>間接 (indirection)</li>
+</ul>
+
+<h1>メモリの使い方</h1>
+
+<p>メモリは変数などの種類によってに分けられ、使用領域が違う。典型例:</p>
+
+<table border="1" style="font-size: 70%">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td>FFFFFFFF</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>スタック:
+        ローカル変数、引数、関数呼び出しに必要なもの</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>↓↓↓↓↓↓↓↓ <span
+        style="text-align: center">下方向に伸び、使用後縮む</span>
+        ↑↑↑↑↑↑↑↑</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> <br />
+        空き領域<br />
+         </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>↑ ↑ ↑ ↑ ↑ ↑ およそ上方向に伸びる ↑ ↑ ↑
+        ↑ ↑ ↑</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ヒープ: プログラム中任意に必要なメモリ</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>初期値を持たないグローバル変数</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>初期値を持つグローバル変数</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>関数などプログラムそのもの</td>
+    </tr>
+    <tr>
+      <td>00000000</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>ヒープの使い方</h1>
+<ul>
+  <li>プログラムの途中にメモリを使いたいが、どのぐらい必要か予想できない</li>
+  <li>主な用途:
+    <ul>
+      <li>要素数が予想できない配列 (文字列を含めて)</li>
+      <li>要素の数が予想できないデータ構造
+        (木、リスト等)</li>
+    </ul>
+  </li>
+  <li>使い方:
+    <ul>
+      <li>メモリが必要なとき、メモリを用意する関数
+        (malloc 等) を呼ぶ</li>
+      <li>メモリが要らなくなったとき、領域を解放する関数
+        (free) を呼ぶ</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>動的メモリの定石</h1>
+<ul>
+  <li>ヘッダファイルのインクルード:<br />
+    <code>#include &lt;stdlib.h&gt;</code></li>
+  <li>ポインタの定義:<br />
+    <code>struct x *pX;</code></li>
+  <li>メモリ領域の用意:
+    <pre>if (!(pX = (struct x*) malloc(sizeof(struct x))))
+    printf("Not enough memory!\n"), exit(1);</pre>
+  </li>
+  <li>使用:<br />
+    <code>pX-&gt;a = 500;</code></li>
+  <li>メモリ領域の解放:<br />
+    <code>free (pX);</code></li>
+</ul>
+
+<h1>定石の説明</h1>
+<pre>if (!(           /* メモリが足りるかのテスト */
+     pX =        /* * 新しいメモリへのポインタの代入 */
+     (struct x*) /* 適切なポインタ型への変換 */
+     malloc(sizeof(struct x))) /* メモリの大きさの計算と関数の呼び出し */
+{
+    printf("Not enough memory!\n"); /* エラー処理 */
+    exit(1);
+}</pre>
+
+<h1>動的メモリの関数</h1>
+<ul>
+  <li>malloc:
+    メモリブロックの確保、初期化なし、メモリが足りないときに
+    (void*)0 を返す</li>
+  <li>calloc: メモリブロックの確保、 0000 で初期化</li>
+  <li>realloc: メモリブロックの再確保<br />
+    <code>新場所 = realloc(旧場所、新サイズ);<br />
+    pNew = realloc(pOld, 10);</code> <br />
+  </li>
+  <li>free: メモリブロックの解放</li>
+</ul>
+
+<h1>動的メモリの注意</h1>
+<ul>
+  <li>realloc, free
+    にはブロックの先端のアドレスしか使えない</li>
+  <li>解放後、再確保後の使用は禁物</li>
+  <li>確保と解放の責任を決める必要がある</li>
+  <li>要らなくなった領域を解放し忘れない (memory leak)</li>
+</ul>
+
+<h1><code>void *</code> と <code>NULL</code></h1>
+<ul>
+  <li>ポインタの型が関係ないときには <code>void *</code>
+    を使う</li>
+  <li>普通のポインタ型から又は普通のポインタ型への変換が可能</li>
+  <li>ポインタがどこにも指してないときは <code>NULL</code>
+    (0) を使う</li>
+  <li>NULL
+    のポインタを参照するのはエラーになるので必要に応じて使う前にチェック</li>
+</ul>
+
+<h1>ポインタで配列処理の効率化</h1>
+<ul>
+  <li>配列記述を処理するには (掛け算一つと)
+    足し算一つが必要</li>
+  <li>動くポインタを使えばその演算は要らない</li>
+  <li>配列の処理の終了も指数ではなくて、配列の終わりのアドレス
+    (配列の後に次の要素が来れる場所) を使える</li>
+  <li>同じ型のポインタは比較可能</li>
+</ul>
+
+<h1>ポインタと配列の組み合わせ</h1>
+<ul>
+  <li>配列の配列: a[10][10]; a[][5]</li>
+  <li>ポインタの配列: *p[20], *p[];</li>
+</ul>
+
+<h1>ポインタと配列の違い</h1>
+
+<p>(<code>int a[20], *p;</code> を想定する)</p>
+<ul>
+  <li>確保されたメモリが違う</li>
+  <li><code>sizeof</code> の結果が違う</li>
+  <li>配列のアドレスは配列と同じ (<code>a == &amp;a</code>)</li>
+  <li>関数に渡すと区別が分からなくなる</li>
+</ul>
+
+<h1>ポインタと構造体</h1>
+<ul>
+  <li>構造体へのポインタは非常に多い</li>
+  <li>ポインタからの構造体メンバの参照には
+    <code>-&gt;</code> 演算子が使える</li>
+  <li>方程式:
+    <p><code><var>p</var>-&gt;<var>m</var>
+    ≡(*<var>p</var>).<var>m</var></code></p>
+  </li>
+</ul>
+
+<h1>構造体をポインタでつなぐ</h1>
+
+<p>構造体をポインタでつなぐことがよくある
+(リスト、ツリー等)</p>
+
+<p>構造体のメンバの一つを構造体へのポインタにする</p>
+
+<p>その場合には無名の構造体が使えない。</p>
+
+<p>例:<br />
+</p>
+<pre>typedef struct line {
+    char *s;
+    struct line *next;
+} line;</pre>
+
+<h1>ポインタと関数</h1>
+<ul>
+  <li>関数へのポインタも取れる (関数ポインタと呼ぶ)</li>
+  <li>こういうポインタを関数に渡すことが出来る</li>
+  <li>定義:<br />
+    <code>int (*kanp)(int a, int b);</code></li>
+  <li>実際の関数のアドレスを取るときには <code>&amp;</code>
+    はあってもなくても良い:<br />
+    <code>kanp = max; /* &amp; 無し */<br />
+    kanp = &amp;min; /* &amp; 有り */</code></li>
+  <li>呼び出す時には必ず <code>*</code> が必要:<br />
+    <code>result = (*kanp)(2, 3);</code></li>
+  <li>複雑な定義の場合は使い方を見よう!</li>
+</ul>
+
+<h1>演習について</h1>
+<ul>
+  <li>09A1: 06C2
+    を出来てない人は先週配ったプログラムを使う。用意された入力ファイルを使う。</li>
+  <li>09A2: 関数へのポインタも出力</li>
+  <li>09B2: alignement (アラインメント、メモリの最適配置)</li>
+  <li>09B3: 今日はあるメモリ領域 (void * と長さ)
+    をバイトごと二進数で出力するプログラムだけを作る。来週追加説明がある。</li>
+  <li>09C1、09C2
+    は来週に回してもよい。逆に、今まで残された問題があれば速めにやる。</li>
+</ul>
+
+<h1>課題について</h1>
+<ul>
+  <li>09B3 のための関数を使える可能性がある</li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今日の復習。来週もミニテストがある。</li>
+  <li>新訂新 C 言語入門の第 8 章 (ポインタ、pp. 203-228)
+    を必要に応じて読み直す。</li>
+</ul>
+</body>
+</html>

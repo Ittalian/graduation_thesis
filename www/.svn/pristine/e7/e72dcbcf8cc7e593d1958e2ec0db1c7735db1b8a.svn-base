@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: 述語論理</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第十一回: 述語論理</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture11.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture11.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>記号論理</h1>
+
+<p>(symbolic logic)</p>
+<ul>
+  <li>論理のモデルを作って、記号演算だけで論理ができるようにする。</li>
+  <li>論理にはいくつかの種類がある。例えば:
+    <ul>
+      <li>二値論理 (真と偽だけ)</li>
+      <li>多値論理 (真と偽以外の値がある)</li>
+      <li>ファジィ論理 (曖昧さの計算を含む)</li>
+      <li>命題論理 (propositional logic, 命題だけを使う)</li>
+      <li>述語論理 (predicate logic, 一階 (first order) 等)</li>
+      <li>時間など他の要素を取り入れた論理</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>命題の制限と述語</h1>
+
+<p>各々の事実は別物として表わされてる</p>
+
+<p>例: 今日は晴れ、明日は晴れ、明後日は晴れ、2
+が偶数、5 が偶数</p>
+
+<p>「今日は晴なら明日も晴れ」とか「2が偶数なら3が偶数ではない」のは書けますが、「ある日が晴なら次の日も晴れ」とか「x
+が偶数なら x+2 も偶数」のは書けません。</p>
+
+<h1>述語の例</h1>
+
+<p>晴 (今日)、 晴 (明日) 、偶数 (2)、偶数 (5) 等</p>
+
+<p>述語によって以前書けなかったものが書けるようになる:</p>
+
+<p>晴 (x) → 晴 (x の次の日)</p>
+
+<p>偶数 (x) → 偶数 (x+2)</p>
+
+<p>述語は性質とか関係を表す</p>
+
+<p>述語は命題と同じように真か偽であることもあるが、命題と違って未定であることもありうる。</p>
+
+<p>一個の述語が未定であってもそれを含む論理式は未定ではないこともある。</p>
+
+<h1>述語と関数</h1>
+
+<p>関数の例: parent (<var>x</var>) = <var>y</var></p>
+
+<p>命題の例: Parent (<var>y</var>, <var>x</var>)</p>
+
+<h1><a name="quantifier" id="quantifier">全称限量子</a></h1>
+
+<p>(全称記号、universal quantifier)</p>
+
+<p>ある論理式式がある変数の対称とする全ての値 (固体)
+に対して記述したいときに使う。</p>
+
+<p>記号の由来: "for <strong>A</strong>ll" の A を逆さまにした</p>
+
+<p>例: ∀<var>x</var>: P (<var>x</var>)</p>
+
+<h1>存在限量子</h1>
+
+<p>(存在記号、existential quantifier)</p>
+
+<p>ある論理式がある変数の少なくとも一つの値 (固体)
+について記述したいときに使う。</p>
+
+<p>記号の由来: "there <strong>E</strong>xists" の E
+を逆さまにした</p>
+
+<p>例: ∃<var>y</var>: P (<var>y</var>)</p>
+
+<h1>量記号の組み合わせ</h1>
+
+<p>素数の数が無限である:</p>
+
+<p>∀<var>x</var>: ∃<var>y</var>: (<var>y</var> &gt; <var>x</var> ∧
+素数 (<var>y</var>))</p>
+
+<h1>宿題</h1>
+
+<p>提出: 1 月13日 (月曜日)、授業前、A4 一枚</p>
+
+<p>father(<var>x</var>, <var>y</var>) が <var>x</var> が <var>y</var>
+の父であると同じように、mother, parent, grandparent, grandfather,
+grandmother
+等の述語を使って、次のことを記述してください:</p>
+<ol>
+  <li>誰にも親がいる</li>
+  <li>誰かの父であるならその人の親である</li>
+  <li>同じ人は父と母ではありえない</li>
+  <li>父の母は祖母である</li>
+</ol>
+
+<p>それ以外にも恒真であることを四つ記述して、何を記述したのかを説明してください。</p>
+</body>
+</html>

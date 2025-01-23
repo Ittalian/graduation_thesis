@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<title> gb2312 Test_10 词典 </title>
+</head>
+<body>
+<h1> This page is gb2312 Test_10 词典 </h1>
+<p>
+This is a studium in England, Manchester.<br>
+<del cite="http://www.example.com">
+It still constructs though it was scheduled to complete it in 2002. 
+</del>
+<ins cite="http://www.example.com">
+It completed it in November, 2003. 
+</ins>
+</p>
+</body>
+</html>

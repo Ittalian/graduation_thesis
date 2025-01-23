@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: ミニテスト</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/exambase.css" />
+<!--  <style type="text/css">
+  @media print {
+     .solution { color: white; }
+  }
+  </style> -->
+</head>
+
+<body>
+<h2 class='pagenumber'>情報数学 I: ミニテスト 1 ・ 2005 年 11 月 18 日 2 時限 ・ ページ 1</h2>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>氏名</td>
+      <td class='solution'>青山 太郎&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>学科</td>
+      <td class='solution'>情テク&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>学生番号</td>
+      <td class='solution'>12345678&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- English terms -->
+<div class='problem'>
+<h2>第 1 問 次の概念に相当する日本語の用語と簡単な説明を記述しなさい (10 点)</h2>
+<dl>
+  <dt class="subproblem">1.1 exclusive&nbsp;&nbsp;or</dt>
+    <dd class="solution">排他的又は。A と B の排他的又はは A か B のどちらか一つだけ真の場合のみ真。</dd>
+  <dt class="subproblem">1.2 difference&nbsp;&nbsp;set</dt>
+    <dd class="solution">差集合。集合 A と B の差集合 A - B は A に含まれるが B に含まれない元の集合。</dd>
+  <dt class="subproblem">1.3 implication</dt>
+    <dd class="solution">含意。A ならば B の論理演算。A が真で B が偽の時だけ偽。例: A → B</dd>
+  <dt class="subproblem">1.4 tautology</dt>
+    <dd class="solution">恒真。常に真である論理式。</dd>
+  <dt class="subproblem">1.5 triple</dt>
+    <dd class="solution">三項組、三字組。三つのものの順序月の組み合わせ。例: (a,b,c)</dd>
+</dl>
+</div>
+
+<!-- simplification -->
+<div class='problem'>
+<h2>第 2 問 論理関数の標準形と単純化 (合計 20 点)</h2>
+<p>次の二次元の真理表が四つの論理変数 A, B, C, D の論理関数を定義する。</p>
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td colspan="2" rowspan="2"></td>
+      <th>A</th>
+      <th>T</th>
+      <th>T</th>
+      <th>F</th>
+      <th>F</th>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>T</th>
+      <th>F</th>
+      <th>T</th>
+      <th>F</th>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>D</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <th>T</th>
+      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <th>F</th>
+      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <th>T</th>
+      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <th>F</th>
+      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+<!-- normal form -->
+<p class='subproblem'>2.1 以上の論理関数を標準形で表しなさい
+(ヒント: 加法標準形か乗法標準形か短い方を選んだ方がいい) (10 点)</p>
+<p class='solution'>(A∨¬B∨C∨D) ∧
+<br />(A∨B∨¬C∨¬D) ∧
+<br />(A∨B∨¬C∨D) ∧
+<br />(A∨B∨C∨¬D) ∧
+<br />(A∨B∨C∨D)</p>
+<!-- simplification -->
+<p class='subproblem'>2.2 以上の論理関数に相当する式を単純化しなさい
+(ヒント: カルノー図表を使っても良いが、その結果をできればもっと単純にしなさい) (10 点)</p>
+<p class='solution'>(A∨¬B∨C∨D) ∧ (A∨B∨¬C∨¬D) ∧ (A∨B∨¬C∨D) ∧ (A∨B∨C∨¬D) ∧ (A∨B∨C∨D)
+<br />(A∨¬B∨C∨D) ∧ (A∨B∨¬C∨¬D) ∧ (A∨B∨¬C∨D) ∧ (A∨B∨C)
+<br />(A∨¬B∨C∨D) ∧ (A∨B∨¬C) ∧ (A∨B∨C)
+<br />(A∨¬B∨C∨D) ∧ (A∨B)<br />           A ∨ ((¬B∨C∨D) ∧ B)
+<br />もっと単純: A ∨ (B ∧ (C ∨ D))</p>
+</div>
+
+<h2 class='pagenumber' style='page-break-before: always'>情報数学 I: ミニテスト 1 ・ 2005 年 11 月 18 日 2 時限 ・ ページ 2</h2>
+<div class='problem'>
+<h2>第 3 問 関係の表現、性質と組み合わせ (合計 24 点)</h2>
+<p>次の行列で関係 <var>R</var> が定義される。</p> 
+<table border="1">
+  <tbody>
+    <tr>
+      <td></td>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+<p class='subproblem'>3.1 <var>R</var> を有向グラフで表現しなさい (8 点)</p>
+<img class='solution' src='MathMini1.gif'>
+
+<p class='subproblem'>3.2 <var>R</var>∘<var>R</var> を計算して、行列として表しなさい (8 点)</p>
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td></td>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td class='solution'>T&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class='solution'>T&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class='solution'>T&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class='solution'>F&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td class='solution'>F</td>
+      <td class='solution'>T</td>
+      <td class='solution'>T</td>
+      <td class='solution'>F</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+      <td class='solution'>F</td>
+    </tr>
+  </tbody>
+</table>
+<p class='subproblem'>3.3 <var>R</var> と <var>R</var>∘<var>R</var>
+の二つの関係について性質の真偽を判断し、記述しなさい (8 点)</p>
+<table>
+<tr><th>関係</th>
+    <th>反射的</th>
+    <th>対称的</th>
+    <th>推移的</th>
+    <th>反対称的</th>
+</tr>
+<tr><th><var>R</var></th>
+    <td class='solution'>F</td>
+    <td class='solution'>F</td>
+    <td class='solution'>F</td>
+    <td class='solution'>T</td>
+</tr>
+<tr><th><var>R</var>∘<var>R</var></th>
+    <td class='solution'>F</td>
+    <td class='solution'>F</td>
+    <td class='solution'>T</td>
+    <td class='solution'>T</td>
+</tr>
+</table>
+</div>
+
+<div class='problem'>
+<h2>第 4 問 命題の定義 (6 点)</h2>
+<p>次の文がそれそれ命題であるかどうかとその理由を簡単に記述しなさい。</p>
+<dl>
+  <dt class="subproblem">4.1 今日 (2005年11月18日) はいい天気です。</dt>
+    <dd class="solution">命題。答えがはっきりして、誰でも合意できる。</dd>
+  <dt class="subproblem">4.2 あなたは何歳ですか。</dt>
+    <dd class="solution">命題ではない。質問だから。</dd>
+  <dt class="subproblem">4.3 学生食堂の食事がおいしいです。</dt>
+    <dd class="solution">命題ではない。意見が分かれるから。</dd>
+</dl>
+</div>
+
+</body>
+</html>

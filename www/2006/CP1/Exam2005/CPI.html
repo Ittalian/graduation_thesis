@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 期末試験</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link rel="stylesheet" href="examstyle.css" title="problems"/>
+  <link rel="alternate stylesheet" href="answerstyle.css" title="solutions"/>
+  <style>
+    /* show stylesheet switch, to make sure people are aware
+       of alternate stylesheet */
+    @media screen {
+      .stylesheet-switch { position: absolute; left: 0%; top: 0%;
+                           font-size: 90%; color: blue;
+                           background-color: skyblue; }
+      .stylesheet-switch p { text-align: center; padding: 0 1em;
+                             line-height: 110%; }
+      .stylesheet-switch button { color: blue;
+                                  background-color: skyblue; }
+    }
+    @media print { .stylesheet-switch { display: none; } }
+  </style>
+  <script type='text/javascript' src="/scripts/styleswitch.js"></script>
+</head>
+
+<body>
+
+<div class='note'>
+<p>問題の番号などが見えるようには最新のブラウザ (例えば
+<a href='http://www.opera.com/'>Opera</a>) が必要。
+回答 (例) を見るにはスタイルシートを切り替える必要がある。</p>
+</div>
+<div class="pagehead first">
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- find errors -->
+<div class="problem">
+<h2>エラーを探す (12点)</h2>
+
+<p>あるプログラムの想定されている出力は次のとおりである。</p>
+<pre>1 番目の学生の平均: 4.500000
+2 番目の学生の平均: 4.500000
+3 番目の学生の平均: 5.000000
+4 番目の学生の平均: 4.500000
+5 番目の学生の平均: 3.500000
+全体の平均:        4.400000</pre>
+<p>このプログラムは以下のとおりであるが、現在 12 個のエラーがある (入れ代え、
+ずれは一つのエラーと<br />数える)。 エラーを見つけて直接プログラムに書き込んで修正しなさい。</p>
+<pre>#include &lt;stdio.h>
+
+int grades[<del class='solution'>5][2</del><ins class='solution'>2][5</ins>] = { { 5, 6, 4, 4, 3<del class='solution'>, 4 }, {</del><ins class='solution'> }, { 4,</ins> 3, 6, 5, 4 }};
+<del  class='solution'>int</del><ins class='solution'>double</ins> sum1 = 0.0, sum2;
+int i, j;
+
+int main (void) {
+    for (i=0; i&lt;<del class='solution'>=</del>5; i++) {
+        sum2 = 0;
+        for (j=0<del class='solution'>:</del><ins class='solution'>;</ins> j&lt;2; j++)<del class='solution'>;</del>
+            sum2 += grades[j][i];
+        pri<del class='solution'>p</del><ins class='solution'>n</ins>tf ("%<del class='solution'>f</del><ins class='solution'>d</ins> 番目の学生の平均: %f\n", i<ins class='solution'>+1</ins>, sum2/2);
+        sum1 += sum2;
+    }
+    printf ("全体の平均:         %f<del class='solution'>/</del><ins class='solution'>\</ins>n", sum1/<del class='solution'>5</del><ins class='solution'>10</ins>);
+<ins class='solution'>}</ins>
+</pre>
+</div>
+
+
+<!-- calculate result of expriessions -->
+<div class="problem">
+<h2>式の値 (10点)</h2>
+
+<p>次のテーブルの式の値を計算しなさい。(優先度: + が &lt;&lt; より優先)</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>番号</td>
+      <td>式</td>
+      <td>値</td>
+      <td>番号</td>
+      <td>式</td>
+      <td>値</td>
+    </tr>
+    <tr>
+      <td>例</td>
+      <td><code>2+3*5</code></td>
+      <td><code>17</code></td>
+      <td>例</td>
+      <td><code>2+3*5</code></td>
+      <td><code>17</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>10000 - 5000-3000</code></td>
+      <td><code class='solution'>2000</code></td>
+      <td class='subproblem'></td>
+      <td><code>(int)(0.9*1.2)</code></td>
+      <td><code class='solution'>1</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>5 > 7 &amp;&amp; 4 &lt; 5</code></td>
+      <td><code class='solution'>0</code></td>
+      <td class='subproblem'></td>
+      <td><code>3 > 5 ? 3 : 5</code></td>
+      <td><code class='solution'>5</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>4 &lt;&lt; 3 + 1</code></td>
+      <td><code class='solution'>64</code></td>
+      <td class='subproblem'></td>
+      <td><code>(int) 3.2e3</code></td>
+      <td><code class='solution'>3200</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>'E'-'B'</code></td>
+      <td><code class='solution'>3</code></td>
+      <td class='subproblem'></td>
+      <td><code>7777 ^ ~7777</code></td>
+      <td><code class='solution'>-1</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>i=23, i++, i+20</code></td>
+      <td><code class='solution'>44</code></td>
+      <td class='subproblem'></td>
+      <td><code>(i=5) || (i=7), i*i</code></td>
+      <td><code class='solution'>25</code></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- rewrite code avoiding some constructs -->
+<div class="problem">
+<h2>文法の変更 (16点)</h2>
+
+<p>次のプログラムの部分を｢使用禁止」欄に書いたものを使わずに記述しなさい。「...」は任意の部分を表す。</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>番号</td>
+      <td>変更前</td>
+      <td>使用禁止物</td>
+      <td>答え</td>
+    </tr>
+    <tr>
+      <td>例</td>
+      <td><code>i++;</code></td>
+      <td><code>++</code></td>
+      <td>i += 1;</td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>for (i=0; i&lt;10; i++) { ...; }</code></td>
+      <td><code>for</code></td>
+      <td><code class='solution'>i=0; while (i&lt;10) { ...; i++; } </code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>if (a &lt; 2 &amp;&amp; b &lt; 3) { ...; }</code></td>
+      <td><code>&amp;&amp;</code></td>
+      <td><code class='solution'>if (a &lt; 2) { if (b &lt; 3) { ...; } }</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>a[20]</code></td>
+      <td><code>[</code> と <code>]</code></td>
+      <td><code class='solution'>*(a+20)</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>t * 4</code> (<code>t</code> は <code>int</code> 型の変数)</td>
+      <td><code>*</code></td>
+      <td><code class='solution'>t &lt;&lt; 2</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>puts(s);</code></td>
+      <td><code>puts</code></td>
+      <td><code class='solution'>printf("%s", s);</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>if (*p != 0)</code></td>
+      <td><code>!=</code></td>
+      <td><code class='solution'>if (*p)</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>a[20][12]</code></td>
+      <td><code>[</code> と <code>]</code></td>
+      <td><code class='solution'>*(*(a+20)+12)</code></td>
+    </tr>
+    <tr>
+      <td class='subproblem'></td>
+      <td><code>if (a > b)  i = 7;</code></td>
+      <td><code>if</code></td>
+      <td><code class='solution'>(a>b)|| (i=7);</code></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<!-- explain #include (stdin.h) -->
+<div class="problem">
+<h2>プリプロセッサについて (5点)</h2>
+
+<p>殆ど全ての C プログラムのソースファイルの先頭に</p>
+<pre>#include &lt;stdio.h></pre>
+<p>の一行がある。これによってなにが起こるか、何のため必要なのか説明しなさい。</p>
+
+<p class="solution box">標準入出力ライブラリのヘッダーファイル
+stdio.h
+が読み込まれている。そのファイルに標準入出力に必要な方、定数、関数などの定義が入っています。それによってコンパイラが、printf
+などの関数が正しく使われているかどうかを (ある程度)
+チェックできます。&lt;&gt;
+文字によって、システムの標準ヘッダファイルのおいてあるディレクトリから探される。</p>
+
+</div>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- explain functions -->
+<div class="problem">
+<h2>関数の説明 (10点)</h2>
+<p>次の関数を簡単に説明しなさい。</p>
+<table>
+  <tr>
+    <td>番号</td>
+    <td>関数</td>
+    <td style='width: 88%'>説明</td>
+  </tr>
+  <tr>
+    <td>例</td>
+    <td><code>printf</code></td>
+    <td>複数の変数を書式などを含めて標準出力に出力</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>putc</code></td>
+    <td class='solution'>一文字を標準出力に出力</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>scanf</code></td>
+    <td class='solution'>一文字を標準入力から入力</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>fopen</code></td>
+    <td class='solution'>ファイルを名前を指定して開く</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>malloc</code></td>
+    <td class='solution'>指定した大きさのメモリをヒープから用意する</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>free</code></td>
+    <td class='solution'>malloc で用意されたメモリを返す</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>rand</code></td>
+    <td class='solution'>乱数を返す</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>fseek</code></td>
+    <td class='solution'>ファイルの位置を次の読み込みや書き出しの準備のためにずらす</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>fwrite</code></td>
+    <td class='solution'>ファイルにデータをそのまま (バイナリ) で書き出す</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>fgets</code></td>
+    <td class='solution'>指定したファイルから一行を、決まった文字数まで読み込む</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td><code>pow</code></td>
+    <td class='solution'>何の何乗の計算</td>
+  </tr>
+</table>
+</div>
+
+
+<!-- bitwise operands -->
+<div class="problem">
+<h2>ビットごと演算 (12点)</h2>
+<p>次の表を穴埋めしなさい (<code>&amp;</code> は <code>|</code> より優先)</p>
+<table style='width: 70%'>
+  <tr>
+    <th>番号</th>
+    <th><code style='width: 10%'>a</code></th>
+    <th><code style='width: 10%'>b</code></th>
+    <th><code style='width: 10%'>c</code></th>
+    <th><code>a | c</code></th>
+    <th><code>a &amp; b</code></th>
+    <th><code>c >> a</code></th>
+    <th><code>a | b &amp; c</code></th>
+  </tr>
+  <tr>
+    <td>例</td>
+    <td class='number'><code>2</code></td>
+    <td class='number'><code>3</code></td>
+    <td class='number'><code>4</code></td>
+    <td class='number'><code>6</code></td>
+    <td class='number'><code>2</code></td>
+    <td class='number'><code>1</code></td>
+    <td class='number'><code>2</code></td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td class='number'><code>3</code></td>
+    <td class='number'><code>2</code></td>
+    <td class='number'><code>7</code></td>
+    <td class='solution number'><code>7</code></td>
+    <td class='solution number'><code>2</code></td>
+    <td class='solution number'><code>0</code></td>
+    <td class='solution number'><code>3</code></td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td class='number'><code>5</code></td>
+    <td class='number'><code>23</code></td>
+    <td class='number'><code>65</code></td>
+    <td class='solution number'><code>69</code></td>
+    <td class='solution number'><code>5</code></td>
+    <td class='solution number'><code>2</code></td>
+    <td class='solution number'><code>5</code></td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td class='number'><code>7</code></td>
+    <td class='number'><code>15</code></td>
+    <td class='number'><code>256</code></td>
+    <td class='solution number'><code>263</code></td>
+    <td class='solution number'><code>7</code></td>
+    <td class='solution number'><code>1</code></td>
+    <td class='solution number'><code>7</code></td>
+  </tr>
+</table>
+</div>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- pointer usage -->
+<div class="problem">
+<h2>ポインタの用途 (5点)</h2>
+<p>ポインタの五つの用途を述べなさい。</p>
+<ol>
+<li><span class='solution'>低レベルのアドレス操作 (デバイス割り当てなど)</span></li>
+<li><span class='solution'>動的メモリの管理</span></li>
+<li><span class='solution'>配列の処理の効率化</span></li>
+<li><span class='solution'>参照 (関数への渡しなど)</span></li>
+<li><span class='solution'>間接 (indirection)</span></li>
+</ol>
+</div>
+
+<!--  -->
+<div class="problem">
+<h2>入力の定石 (5点)</h2>
+<p>C のプログラム中によく次の一句が見える (<code>c</code> は <code>int</code> 型の変数):</p>
+<pre>while ((c = getc()) != EOF)</pre>
+<p>この句の一つ一つの要素を説明しなさい。</p>
+<table>
+<tr><td>番号</td><td>要素</td><td>説明</td></tr>
+<tr><td>例</td><td>一番外側の <code>()</code></td>
+    <td><code>while</code> 文の条件の区切り</td></tr>
+<tr><td class='subproblem'></td><td><code>getc()</code></td>
+    <td class='solution'>一文字を読み込む関数</td></tr>
+<tr><td class='subproblem'></td><td><code>c =</code></td>
+    <td class='solution'><code>c</code> の変数に読み込んだ文字を代入</td></tr>
+<tr><td class='subproblem'></td><td><code>c = getc()</code> の外側の <code>()</code></td>
+    <td class='solution'>代入を <code>!=</code> より優先させるため</td></tr>
+<tr><td class='subproblem'></td><td><code>EOF</code></td>
+    <td class='solution'>ファイルの終わりを表す定数</td></tr>
+<tr><td class='subproblem'></td><td><code>!= EOF</code></td>
+    <td class='solution'><code>EOF でない場合に繰り返しを続く</code></td></tr>
+</table>
+</div>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- happy programming -->
+<div class="problem">
+<h2>プログラミングの心構え (5点)</h2>
+<p>効率よくプログラミングできるプログラマに必要な条件・準備・心構えを一つ取り上げて
+自分の経験に基づいて説明しなさい。</p>
+<p class='solution box'>この授業を通じて一番よく分かってきたのは「良く寝ること」
+です。他の作業の場合には、結構眠くてもそれほど効率が落ちないが、
+プログラミングの場合には少々眠くても効率が急に下がる。一日12時間頑張るより
+もっと寝て、6時間だけ集中した方が効率がよいことが多い。</p>
+</div>
+
+
+<!-- combination problem (struct, malloc) -->
+<div class="problem">
+<h2>構造体と動的メモリの使い方 (合計 15点)</h2>
+<p>教員氏名と部屋番号を登録し、一覧を表示するためのプログラムである。
+(プログラムは次のページに記載されている。)
+主な関数の説明は以下のとおりである:</p>
+<dl><dt>宣言:</dt><dd><code>void addMember(char *name, char *room);</code></dd>
+<dt>機能:</dt><dd>リストの先頭に新しく登録する人に関する情報を追加する。</dd>
+<dt>引数:</dt><dd><code>name</code> 新しく登録する人物の氏名</dd>
+      <dd><code>room</code> 新しく登録する人物の部屋番号</dd>
+</dl>
+
+<dl><dt>宣言:</dt><dd><code>void printAllMember();</code></dd>
+<dt>機能:</dt><dd>リストの先頭から順に走査することで、登録されている教員氏名と部屋番号の一覧を出力する。</dd>
+</dl>
+
+<h3>動的メモリのメモリ不足 (5点)</h3>
+<p>α の行において動的メモリ割付けを行っているが、割付けが失敗した場合の処理が考慮されていない。α の行を書き換えなさい。</p>
+<pre class='solution box'>if ((p = malloc(sizeof(PERSON))) == 0) {
+    printf ("Not enough memory.\n");
+    exit (1);}</pre>
+<h3>次ページに記載されているプログラムを実行した際の出力を記述しなさい。(4点)</h3>
+<pre class='solution box'>Name: Taro Yabuki  RoomNo: O526b
+Name: Kazunari Ito  RoomNo: O528b
+Name: Martin Dürst  RoomNo: O529</pre>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3>プログラムの穴埋め (6点)</h3>
+<p>関数の仕様を満たすようにプログラム中の空欄を埋めて、プログラムを完成させよ。</p>
+
+<p>プログラムそのものは次のとおりである:</p>
+<pre>#include &lt;stdio.h>
+#include &lt;stdlib.h>
+
+typedef struct person {
+    char *name;
+    char *room;
+    struct person *next;
+} PERSON;
+
+PERSON *root = NULL;
+
+/* リストの先頭に新しく登録する人に関する情報を追加する。*/
+void addMember(char *name, char *room) {
+    PERSON *p;
+    p = malloc(sizeof(PERSON));  /*  ←  α  */
+    p->name = name;
+    p->room = room;
+    if ( <span class='solution box'> root </span> ) {
+        p->next =  <span class='solution box'> root </span>;
+    } else {
+        p->next =  <span class='solution box'> NULL </span>;
+    }
+     root =  <span class='solution box'> p </span> ;
+}
+
+/* 登録されているすべての人の情報を表示する     */
+void printAllMember() {
+    PERSON *p = root;
+    while ( <span class='solution box'> p </span>) {
+        printf("Name: %s  RoomNo: %s\n", p->name, p->room);
+        p =  <span class='solution box'> p->next </span>;
+    }
+}
+
+void main() {
+    addMember("Martin Dürst", "O529");
+    addMember("Kazunari Ito", "O528b");
+    addMember("Taro Yabuki", "O526b");
+    printAllMember();
+}
+</pre>
+</div>
+
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<!-- explain terms -->
+<div class="problem">
+<h2>用語の説明 (5点)</h2>
+<p>次の用語を簡単に説明しなさい</p>
+<table>
+  <tr>
+    <td>番号</td>
+    <td>用語</td>
+    <td style=''>説明</td>
+  </tr>
+  <tr>
+    <td>例</td>
+    <td>配列</td>
+    <td>同じ型の要素をある一定の数納められるデータ型の種類</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td>宣言</td>
+    <td class='solution'>変数や関数の存在、名前、型を知らせる</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td>定義</td>
+    <td class='solution'>変数や関数の実際のメモリの用意、そして場合によって初期化</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td>共同体</td>
+    <td class='solution'>union で定義。構造体とにていますが、メンバーはメモリをシェアしているので、同時には使えな</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td>列挙体</td>
+    <td class='solution'>enum で定義。複数の値に名前をつけて、一つの型として使えるようにします</td>
+  </tr>
+  <tr>
+    <td class='subproblem'></td>
+    <td>構造体</td>
+    <td class='solution'>struct で定義します。複数の個となるデータ型のメンバーを一体に (一つの型として) 使えるようにします</td>
+  </tr>
+</table>
+</div>
+
+
+<!-- combination problem (text matching) -->
+<div class="problem">
+<h2>総合問題 (合計20点)</h2>
+<h3>文字配列照合関数 <code>isMatch</code> (3点)</h3>
+<p>関数 <code>isMatch</code> は文字列 <code>pattern</code> が文字列 <code>text</code> に含まれる場合は 1 を、
+含まれない場合は 0 を返す文字列照合関数である。
+仕様を満たすように空欄を埋め関数を完成しなさい。</p>
+<pre>int isMatch(char *text, char *pattern){
+    char *pi, *pj;
+
+    pi = text;
+    pj = pattern;
+    while ( <span class='solution box'> *pi != 0 &amp;&amp; *pj != 0 </span> ) {
+        if ( <span class='solution box'> *pi != *pj </span> ) {
+	    pi++;
+	    pj++;
+	} else {
+	    pi -= (int)( pj – pattern ) - 1;
+	    pj = pattern;
+	}
+    }
+    if ( <span class='solution box'> *pj == 0 </span> ) {
+        return 0;
+    }
+    return 1;
+}</pre>
+
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<p style="font-size: 1.5; font-weight: bold;">パターン検索プログラム</p>
+<p>標準入力ファイルから、コマンド行で指定されたパターン（文字列）を含むすべての行を出力するプログラム
+<code>find.exe</code> のプログラムソース <code>find.c</code> である。</p>
+<ol>
+<li><p>プログラムの仕様は以下のとおりである。</p>
+<ol>
+<li><code>–n</code> オプション機能が指定された場合には、行番号付きで出力するものである。</li>
+<li><code>-r</code> オプション機能が指定された場合には、パターン（文字列）を含まないすべての行が表示される。</li>
+<li><code>–n</code> オプションと <code>-r</code> オプションが同時に指定されてもよい。</li>
+</ol>
+</li>
+<li><p>プロンプトから <code>find.exe -n int &lt; find.c</code>と入力した場合の出力は、次のとおりである。</p>
+<pre> 7: int isMatch(char *text, char *pattern);
+ 9: int main(int argc, char *argv[]){
+11:     int lineno= 0; /* 行番号 */
+12:     int nflag = UNSET; /* -n オプション指定有無 */
+13:     int rflag = UNSET; /* -r オプション指定有無 */
+26:                     printf("find: illegal option\n");
+36:         printf("Usage: find -n -r pattern\n"); /* 使い方を表示 */
+44:                 printf("%5d: ", lineno);
+</pre>
+</li>
+<li>プログラム中で使用されている関数 <code>isMatch</code> は前に定義されているものである。</li>
+</ol>
+
+<h3>出力の予想 (2点)</h3>
+<p>プロンプトより <code>find.exe –r -n int &lt; find.c</code> と入力した場合の出力の最初の 2行を書きなさい。</p>
+<table>
+<tr><td>一行目</td><td class='solution' style='width: 90%'><code>#include &lt;stdio.h></code></td></tr>
+<tr><td>二行目</td><td class='solution'><code>#include &lt;string.h></code></td></tr>
+</table>
+
+<h3><code>argc</code> の値 (2点)</h3>
+<p>プロンプトより <code>find.exe –r -n int &lt; find.c</code> と入力した場合を考える。<code>main</code> 関数実行開始時における
+<code>argc</code> の値を書きなさい: <span class='solution box'>&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;</span></p>
+
+<h3><code>gets</code> の問題点 (5点)</h3>
+<p>プログラム中の α において標準ライブラリ関数 <code>gets</code> が用いられているがこれは好ましくない。理由を日本語で述べよ。</p>
+<p class='solution box'>
+gets は書き込める文字列の場所を指定するが、その長さを指定しない
+ので、入力する一行はそれより長いと別のものを上書きし、ビーラスの入り口になる可能性まである
+</p>
+<div class="pagehead" style='page-break-before: always'>
+<h1>青山学院大学</h1>
+
+<p class='pagenumber'>前期試験 ・ 2005 年 7 月 28 日 4 時限実施 ・ ページ </p>
+
+<table>
+  <tbody>
+    <tr class="h6">
+      <td rowspan="2" class="w9">授業<br />
+        科目</td>
+      <td rowspan="2" class="writein w50">計算機実習 I</td>
+      <td colspan="8">学生番号</td>
+      <td>学科</td>
+      <td>学年</td>
+      <td>組</td>
+      <td>番</td>
+      <td class="furigana">フリガナ</td>
+      <td> </td>
+      <td>評点</td>
+    </tr>
+    <tr class="h3">
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w3"> </td>
+      <td rowspan="2" class="w12"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w9"> </td>
+      <td rowspan="2" class="w6">氏名</td>
+      <td rowspan="2" class="w40"> </td>
+      <td rowspan="2" class="w12"> </td>
+    </tr>
+    <tr class="h9">
+      <td>担当者</td>
+      <td class="writein">DÜRST, Martin J.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<h3>プログラムの中の空欄を埋め仕様どおりにプログラム (ファイル名: <code>find.c</code>) を完成しなさい (8点)</h3>
+<pre style='font-size: 9pt'>#include &lt;stdio.h>
+#include &lt;string.h>
+#define MAXLINE 100+1
+#define UNSET 0 /* オプション指定なし */
+#define SET 1   /* オプション指定有り */
+
+int isMatch(char *text, char *pattern);
+
+int main(int argc, char *argv[]) {
+    char line[MAXLINE]; /* 入力行 */
+    int lineno= 0; /* 行番号 */
+    int nflag = UNSET; /* -n オプション指定有無 */
+    int rflag = UNSET; /* -r オプション指定有無 */
+
+    while (--argc > 0) {
+        if ((*++argv)[0] == <span class='solution box'> '-' </span> ) {
+            switch( <span class='solution box'> (*argv)[1] </span> ) {
+                case 'n':
+                    nflag = SET;
+                    break;
+                case 'r':
+                    <span class='solution box'> rflag = SET; </span> ;
+                    break;
+                default:
+                    printf("find: illegal option\n");
+                    argc = 0;
+                    break;
+            }
+        } else {
+            break;
+        }
+    }
+
+    if ( <span class='solution box'> argc != 1 </span> ) {
+        printf("Usage: find -n -r pattern\n"); /* 使い方を表示 */
+        return 1;
+    }
+
+    while (gets (line) != NULL) {          /* ←α */
+        lineno++;
+        if (isMatch( <span class='solution box'> line </span> , <span class='solution box'> *argv </span> ) ^ <span class='solution box'> rflag </span> ) {
+            if ( <span class='solution box'> nflag </span> ) {
+                printf("%5d: ", lineno);
+            }
+            puts(line);
+        }
+    }
+
+    return 0;
+}</pre>
+</div>
+</body>
+</html>

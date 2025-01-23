@@ -1,0 +1,55 @@
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:gda="http://i-content.org/gda/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" >
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/svn/lab/www/trunk/2005/mochi/data/test.rdf">
+    <dcterms:references rdf:resource="http://www.sw.it.aoyama.ac.jp/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp/">
+    <dc:creator></dc:creator>
+    <dc:date>2006-01-05T19:44:06+0900</dc:date>
+    <dc:title>税金は本当に大丈夫？</dc:title>
+    <dc:description rdf:parseType="Literal">
+		<gda:gda>
+			<gda:su>
+				<gda:adp>
+					<gda:np>
+						<gda:np bfm="最近" prn="サイキン" tf="1">最近</gda:np>，
+					</gda:np>
+					<gda:ad>
+						<gda:adp bfm="大きな" prn="オオキナ">大きな</gda:adp>
+					</gda:ad>
+					<gda:ad>
+						<gda:ajp bfm="問題" prn="モンダイ">問題</gda:ajp>
+						<gda:ad bfm="に" prn="ニ" sem="格助詞">に</gda:ad>
+					</gda:ad>
+					<gda:v>
+						<gda:vp bfm="なる" prn="ナッ">なっ</gda:vp>
+						<gda:v bfm="てる" prn="テル">てる</gda:v>
+					</gda:v>
+					<gda:ad>
+						<gda:np bfm="税金" prn="ゼイキン" tf="3">税金</gda:np>
+						<gda:ad bfm="の" prn="ノ" sem="連体化">の</gda:ad>
+					</gda:ad>
+						:				
+						:
+					<gda:ad>
+						<gda:np bfm="制度" prn="セイド" tf="1">制度</gda:np>
+						<gda:ad bfm="に" prn="ニ" sem="格助詞">に</gda:ad>
+					</gda:ad>
+					<gda:ad>
+						<gda:vp bfm="する" prn="シ">し</gda:vp>
+						<gda:ad bfm="て" prn="テ" sem="接続助詞">て</gda:ad>
+						<gda:aj bfm="ほしい" prn="ホシイ">ほしい</gda:aj>
+						<gda:ad bfm="と" prn="ト" sem="格助詞">と</gda:ad>
+					</gda:ad>
+				</gda:adp>
+				<gda:v>
+					<gda:vp bfm="思う" prn="オモウ">思う</gda:vp>．
+				</gda:v>
+			</gda:su>
+		</gda:gda>
+	</dc:description>
+  </rdf:Description>
+</rdf:RDF>

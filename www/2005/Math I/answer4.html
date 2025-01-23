@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: 論理回路と命題論理</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第四回の宿題の解答</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture4.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture4.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>第四回の宿題: 第一問</h1>
+
+<p>半加算器を NAND だけ (もしくは NOR だけ)
+で作って書いて下さい。</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td colspan="2">入力</td>
+      <td colspan="2">出力</td>
+      <td colspan="7">計算</td>
+    </tr>
+    <tr>
+      <td><var>A</var></td>
+      <td><var>B</var></td>
+      <td><var>S</var> (sum)</td>
+      <td><var>C</var> (carry)</td>
+      <td>NAND (<var>A</var>)</td>
+      <td>NAND (<var>B</var>)</td>
+      <td>NAND (A, <var>B</var>)</td>
+      <td>NAND (NAND (<var>A</var>,<var>B</var>)) = <var>C</var></td>
+      <td>NAND (NAND(<var>A</var>), NAND(<var>B</var>))</td>
+      <td>NAND (NAND (A, <var>B</var>), NAND (NAND(<var>A</var>),
+        NAND(<var>B</var>)))</td>
+      <td>NAND (NAND (NAND (A, <var>B</var>), NAND (NAND(<var>A</var>),
+        NAND(<var>B</var>)))) = <var>S</var></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td colspan="2">入力</td>
+      <td colspan="2">出力</td>
+      <td colspan="4">計算</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><var>A</var></td>
+      <td><var>B</var></td>
+      <td><var>S</var> (sum)</td>
+      <td><var>C</var> (carry)</td>
+      <td>NOR (<var>A</var>)</td>
+      <td>NOR (<var>B</var>)</td>
+      <td>NOR (<var>A</var>, <var>B</var>)</td>
+      <td>NOR (NOR(<var>A</var>), NOR(<var>B</var>)) = <var>C</var></td>
+      <td>NOR (NOR (<var>A</var>, <var>B</var>), NOR (NOR(<var>A</var>),
+        NOR(<var>B</var>))) = <var>S</var></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1><span style="page-break-before"></span>第四回の宿題: 第二問</h1>
+
+<p>三つの真理値 (真: T、偽: F、未定 (分からない): ?)
+を使う多値論理の基本的な真理表
+(かつ、又は、ではない) を作って下さい。</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td><var>A</var></td>
+      <td>¬<var>A</var></td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>?</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="1">
+</table>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>∧</th>
+      <th>T</th>
+      <th>?</th>
+      <th>F</th>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>T</td>
+      <td>?</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>?</th>
+      <td>?</td>
+      <td>?</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <th>∨</th>
+      <th>T</th>
+      <th>?</th>
+      <th>F</th>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>?</th>
+      <td>T</td>
+      <td>?</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <td>T</td>
+      <td>?</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

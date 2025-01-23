@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報テクノロジー輪講 I 日程</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1>Information Technology Seminar I: Schedule</h1>
+
+<p>Aoyama Gakuin University, Summer 2005, Martin J. Dürst (updated
+2005-06-01; ※: discussion notes)</p>
+<dl>
+  <dt>April 13th</dt>
+    <dd>Introduction (<span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Readin</em>g:
+      Foreword, pp. xxi-xxiii)</dd>
+  <dt>April 20th</dt>
+    <dd>a) Computer Programming as an Art (Donald E. Knuth 1974; «Literate
+      Programming», pp. 1-16): 川口 (※藤森)</dd>
+    <dd>b) Programming Pearls: Sampling (Jon Bentley, 1986; «Literate
+      Programming», pp. 137-149) + How to read a Web (Donald E. Knuth 1986;
+      «Literate Programming», pp. 179-184): 田島 (※中島)</dd>
+  <dt>April 27th</dt>
+    <dd>c) Literate Programming (Donald E. Knuth 1984; «Literate
+      Programming», pp. 99-136) [skip examples]: 梅田 (※川口)</dd>
+    <dd>e) An Example of <code>CWEB</code> (Silvio Levi, Donald E. Knuth
+      1990; «Literate Programming», pp. 341-348) [install; compare with
+      default <code>wc</code> implementation]: 千葉 (※田島)</dd>
+  <dt>May 4th</dt>
+    <dd>(holiday)</dd>
+  <dt>May 11th</dt>
+    <dd>g) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      2.1-2.8 Basic Programming Elements, pp. 19-45: 田村 (※梅田)</dd>
+    <dd>h) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      2.9-2.11, 3.2-3.3, 3.5, pp. 45-60 + 75-84 + 91-93: 林 (※田村)</dd>
+  <dt>May 18th</dt>
+    <dd>i) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>, 3
+      Advanced C Data Types: Pointers, memory allocation, pp. 61-75 + 84-90:
+      駒澤 (※吉川)</dd>
+    <dd>j) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      4.1-4.5 C Data Structures: Vectors-Sets, pp. 95-117: 長島
+    (※林)</dd>
+    <dd>k) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      4.6-4.9 C Data Structures: Linked Lists-Graphs, pp. 117-141: 武井
+      (※駒澤)</dd>
+  <dt>May 25th</dt>
+    <dd>m) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>, 8
+      Documentation, pp. 241-266: 藤森 (※千葉)</dd>
+    <dd>n) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>, 11
+      A Complete Example, pp. 379-398: 中島 (※会田)</dd>
+  <dt>June 1st</dt>
+    <dd>d) Programming Pearls, Continued: Common Words (Donald E. Knuth, M.D.
+      McIlroy 1986; «Literate Programming», pp. 151-177) [including
+      critique]: 吉川 (※武井)</dd>
+    <dd>f) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>, 1
+      Introduction, pp. 1-17: 会田 (※濱井)</dd>
+    <dd>a) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      5.1/5.3 Recursion, Parallelism, pp.143-150 + 154-165: 田島
+    (※川口)</dd>
+  <dt>June 8th</dt>
+    <dd>b) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      5.2/5.4-5.6 Exceptions, Signals,..., pp. 150-154 + 165-177: 田村
+      (※長島)</dd>
+    <dd>c) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      6.1-6.4 Tackling Large Projects, Build/Configuration,..., pp. 179-202:
+      藤森 (※会田)</dd>
+    <dd>d) tool: make/imake/automake: 千葉 (※田島)</dd>
+  <dt>June 15th</dt>
+    <dd>e) tool: ant: 吉川 (※田村)</dd>
+    <dd>l) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>, 7
+      Coding Standards and Convertions, pp. 225-240: 濱井 (※長島)</dd>
+    <dd>f) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      6.5-6.7 Revision Control, Testing, pp. 202-224: 中島 (※藤森)</dd>
+  <dt>June 22nd</dt>
+    <dd>g) tool: CVS (versioning system): 林 (※千葉)</dd>
+    <dd>h) tool: Subversion (versioning system): 駒澤 (※吉川)</dd>
+  <dt>June 29th</dt>
+    <dd>i) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      9.1-9.2 Architecture: System Structures, Control Models, pp. 267-292:
+      梅田 (※中島)</dd>
+    <dd>j) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      9.3 Element Packaging, pp. 292-328: 武井 (※林)</dd>
+  <dt>July 6th</dt>
+    <dd>k) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      9.4 Architecture Reuse, pp. 328-338 [expand]: 濱井 (※駒澤)</dd>
+    <dd>l) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      10.1-10.10.4 Tools, pp. 339-357 [incl. tool example(s)]: 川口
+      (※梅田)</dd>
+  <dt>July 13th</dt>
+    <dd>m) <span style="font-family: sans-serif">C<span
+      style="font-variant: small-caps">ode</span></span> <em>Reading</em>,
+      10.5-10.9 Tools, pp. 357-378 [incl. tool example(s)]: 長島
+    (※武井)</dd>
+    <dd>n) tool: Eclipse [for code reading]: 会田 (※濱井)</dd>
+  <dt>July 19th to July 30th</dt>
+    <dd>(end-of-term examinations)</dd>
+</dl>
+<dl>
+</dl>
+</body>
+</html>

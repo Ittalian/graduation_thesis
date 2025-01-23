@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I 日程</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="lecture3.html" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>情報数学 I の日程</h1>
+
+<p>青山学院大学 2005 年後期</p>
+
+<p><a href="biblio.html">参考文献</a></p>
+<dl>
+  <dt>9月30日</dt>
+    <dd><a
+      href="lecture1.html">情報テクノロジーでの数学の役割と重要性</a></dd>
+  <dt>10月 7日</dt>
+    <dd><a href="lecture2.html">命題と論理式</a></dd>
+  <dt>10月14日</dt>
+    <dd><a
+    href="lecture3.html">論理関数の単純化と論理回路</a></dd>
+  <dt>10月21日</dt>
+    <dd><a href="lecture4.html">論理回路と命題論理</a></dd>
+  <dt>10月28日</dt>
+    <dd>(青山祭)</dd>
+  <dt>11月 4日</dt>
+    <dd><a href="lecture5.html">集合</a></dd>
+  <dt>11月11日</dt>
+    <dd><a href="lecture6.html">関係</a></dd>
+  <dt>11月18日</dt>
+    <dd><a href="MathMini1.html">ミニテスト</a></dd>
+  <dt>11月25日</dt>
+    <dd><a href="lecture8.html">半順序とブール代数</a></dd>
+  <dt>12月 2日</dt>
+    <dd><a href="lecture9.html">ブール代数</a></dd>
+  <dt>12月 9日</dt>
+    <dd><a href="lecture10.html">2 進数とビット毎演算</a></dd>
+  <dt>12月16日</dt>
+    <dd><a href="lecture11.html">述語論理</a></dd>
+  <dt>12月23日</dt>
+    <dd>(天皇誕生日)</dd>
+  <dt>12月30日、2006年 1月 6日</dt>
+    <dd>(冬期休業)</dd>
+  <dt>1月13日</dt>
+    <dd><a href="lecture12.html">数学的帰納法</a></dd>
+  <dt>1月20日</dt>
+    <dd><a href="lecture13.html">復習</a></dd>
+  <dt>1月23日から 2月 4日</dt>
+    <dd>期末試験</dd>
+</dl>
+</body>
+</html>

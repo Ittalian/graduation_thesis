@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 II: 繰返し</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 II</h1>
+
+<h2 style="text-align: center">第七回: 繰返し</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture7.html">http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture7.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週の演習題</h1>
+<ol>
+  <li>二つの文字列を読み込んで、その二つが同じかどちらが大きいのかを調べるプログラムを作って下さい。(<a
+    href="prog/compare_strings.c">正解の例</a>)</li>
+  <li>何日何曜日なのかを入力して、次のルールを使ってその日どのようなゴミを出せるのかを出力するプログラムを作って下さい。(<a
+    href="prog/garbage_collection.c">正解の例</a>)<br />
+
+    <ul>
+      <li>燃えるゴミは毎週月曜日、水曜日、金曜日</li>
+      <li>段ボールは月の第一火曜日と第三火曜日</li>
+      <li>ビンと缶は偶数の木曜日</li>
+      <li>ペットボトルは第四土曜日</li>
+    </ul>
+  </li>
+  <li>自分の分野や身の回りの問題で条件文を使った面白いプログラムにして下さい。</li>
+</ol>
+
+<p>提出: 来週の授業 (11月 21日) までに 3
+番のプログラムと入出力経過を提出して下さい。</p>
+
+<h1>繰り返しとは</h1>
+<ul>
+  <li>同じ処理や似た処理を何回かやりたいときに使う</li>
+  <li>回数を指定するか (<code>for</code>
+    文)、続く条件を指定するか (<code>while</code> 文)</li>
+  <li>条件演算子などが使われる</li>
+  <li>繰り返しの入れ子や繰り返しと枝分かれの入れ子によって複雑なプログラムが作れる</li>
+</ul>
+
+<h1><code>for</code> 文の例</h1>
+
+<p>1 から 10 の 3乗を計算する</p>
+<pre>int n;
+for (n=1; n&lt;=10; n++) {
+    printf ("%d の 3乗 = %d.\n", n, n*n*n);
+}</pre>
+
+<h1><code>for</code> 文の文法</h1>
+<ul>
+  <li>基本的な形は <code>if</code> 文と同じ</li>
+  <li><code>( )</code>
+    内は一つの条件ではなくて三つの項目がある:
+    <ul>
+      <li>初期化: <code>for</code>
+      文が始まるときに実行される</li>
+      <li>続きの条件</li>
+      <li><code>for</code>
+        文の最後に行われる次の繰り返しへのステップ</li>
+    </ul>
+  </li>
+</ul>
+
+<h1><code>for</code> 文の実行</h1>
+
+<p><code>for</code> 文は次の通りに実行される:</p>
+<ol>
+  <li><code>(</code>初期化<code>;;)</code></li>
+  <li><code>(</code><code>;</code>条件<code>;)</code>:
+    合わないときに繰り返しを断念、<code>for</code>
+    文の後から続く</li>
+  <li><code>{ }</code> 内の文を実行</li>
+  <li><code>(</code><code>;</code><code>;</code>次の繰り返しへのステップ<code>)</code></li>
+  <li>2. から繰り返す</li>
+</ol>
+
+<h1><code>while</code> 文の例</h1>
+
+<p>ユーザが止めるまで入力した数の 3乗を計算する:</p>
+<pre>int n;
+printf ("Input a number, 0 to stop: ");
+scanf ("%d", &amp;n);
+while (n != 0) {
+    printf ("Cube of %d is %d.\n", n, n*n*n);
+    printf ("Input a number, 0 to stop: ");
+    scanf ("%d", &amp;n);
+}</pre>
+
+<h1><code>for</code> 文と <code>while</code> 文の関係</h1>
+
+<p><code>for</code> 文を <code>while</code>
+文で書けるし、逆も可能</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>変更前</th>
+      <th>変更後</th>
+    </tr>
+    <tr>
+      <td><pre>for (n=0;n&lt;10;n++) {
+    /* 処理 */
+}</pre>
+      </td>
+      <td><pre>n=0;
+while (n&lt;10) {
+    /* 処理 */
+    n++;
+}</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><pre>while (n != 0) {
+    /* 処理 */
+}</pre>
+      </td>
+      <td><pre>for (; n!=0; ) {
+    /* 処理 */
+}</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>繰り返しと配列</h1>
+
+<p>繰り返しは配列の処理によく使われる</p>
+
+<p>配列の長さが決った場合には <code>for</code> 文を使う</p>
+
+<p>20 個のデータの配列の場合に指数 (番号) は 0~19
+に注意<br />
+(<code>for (i=0; i&lt;20; i++) { ... }</code>)</p>
+
+<p>配列の長さが分からない場合に <code>while</code>
+文を使う<br />
+(例: 文字列: 終端マークまで処理する)</p>
+
+<h1>今週の演習題</h1>
+<ol>
+  <li>1 から 20
+    の整数の半径の円の面積を計算するプログラムを作りなさい。</li>
+  <li>先週のゴミ出しのプログラムをある月の一日の曜日だけを指定して、プログラムがその月の全ての日のゴミ出しを計算するように改造してください
+    (月が全て 31日間の想定で結構です)。</li>
+  <li>先週のゴミ出しのプログラムをユーザが何回も入力できる、しかも止めたいときには止める様に変更してください。</li>
+  <li>10~20 かける 10~20 の表を作って下さい。(ヒント:
+    <code>printf</code> で <code>%d</code> の代わりに <code>%3d</code>
+    を使うと数字が揃う)</li>
+  <li>ある入力した数字が素数かどうかを判断するプログラムを作って下さい。さらに、1
+    から n
+    までを素数かどうかのプログラムに変更してください。</li>
+  <li>自分の分野や身の回りの問題で繰り返しと条件文を使った面白いプログラムを作って下さい。</li>
+</ol>
+
+<h1>次回のための準備</h1>
+<ul>
+  <li>第十章 (pp. 130-144) を読む</li>
+  <li>余った演習題を完成する</li>
+</ul>
+</body>
+</html>

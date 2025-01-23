@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+
+<title> koi8-r Test_6 перевод </title>
+</head>
+<body>
+<h1> This page is koi8-r Test_6 перевод </h1>
+<p>
+<a>quote: http://www.tour-de-shinshu.com/hokkaido/2004/4/4th-02.mov<br></a>
+<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+ width="320" height="255"
+ codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+<param name="src" value="../ITEM/bike.mov"/>
+<param name="autoplay" value="false"/>
+</object>
+</p>
+</body>
+</html>

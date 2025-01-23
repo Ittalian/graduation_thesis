@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第四回 -
+  条件、枝分かれ、繰り返し</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第四回 (2005年 5月12日)</h2>
+
+<h2 style="text-align: center">制御文:
+条件、枝分かれ、繰り返し</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週の補習</h1>
+<dl>
+  <dt>皆さん利用する処理系で <code>int</code> は何バイト?</dt>
+    <dd>4 バイト (32ビット、<code>long</code> も 4バイト; Java は
+      <code>int</code> 4バイト; <code>long</code> 8バイト</dd>
+  <dt><code>int</code> で表現できる最大の値?</dt>
+    <dd>2<sup>31</sup>-1 (3.2 p. 51)</dd>
+  <dt><code>int a = 3.5, b = 5.5;<br />
+  printf("%d", a * b);</code> の出力は?</dt>
+    <dd>15 (<code>int</code> は整数)</dd>
+</dl>
+
+<h1>良くある間違い、解決策</h1>
+<ul>
+  <li>インデント (字下げ)
+    しないで質問したり、バグを修正したりする</li>
+  <li>ファイルの一部しか見ない</li>
+  <li>予期せぬ EOF
+    (エラーメッセージをよく読めば必ずヒントがある)</li>
+  <li>紙で小さいテーブルなどを作る</li>
+</ul>
+
+<h1>文の種類</h1>
+<ul>
+  <li>式文</li>
+  <li><code>if</code>-<code>else</code>, <code>switch</code>,
+    <code>while</code>, <code>for</code>, <code>do-while</code> 文</li>
+  <li><code>break</code>, <code>continue</code>, <code>return</code>,
+    <code>goto</code> 文</li>
+  <li>複文 (ブロック)</li>
+  <li>ラベル付き文 (<code>case</code>, <code>default</code>;
+    <code>goto</code> の行き先)</li>
+</ul>
+
+<h1>文と<code>;</code> (semicolon)</h1>
+<ul>
+  <li>式文など単文の後 (その間ではなく!): 有</li>
+  <li><code>do</code>-<code>while</code> の最後: 有</li>
+  <li>ブロックの後: 無</li>
+  <li><code>if</code>-<code>else</code>, <code>switch</code>,
+    <code>while</code>, <code>for</code> そのものにはない</li>
+  <li>単独の ; は空文:
+    <ul>
+      <li><code>if</code> の方が空で、<code>else</code>
+        の方だけ処理がある</li>
+      <li>処理が全部 <code>if</code>/<code>for</code>/<code>while</code>
+        の <code>()</code> 内にある</li>
+      <li>意識的な無限ループ</li>
+    </ul>
+  </li>
+</ul>
+
+<h1><code>if</code> と <code>else</code> の組み合わせ</h1>
+
+<p>else は可能な限り一番近い if
+との組み合わせになる。</p>
+
+<p>次のプログラムは字下げ通りには動かない:</p>
+<pre>if (a &gt; b)
+    if (a != 0)
+        z /= a;
+else
+    z += b;</pre>
+
+<h1><code>if</code> 文の代わりになる式 (1)</h1>
+
+<p>良くある一句:</p>
+<pre>if (m &gt; n)
+    r = m;
+else
+    r = n;</pre>
+
+<p>特に r がもう少し複雑な場合には次が有効:</p>
+
+<p><code>r = (m &gt; n) ? m : n;</code></p>
+
+<h1><code>if</code> 文の代わりになる式 (2)</h1>
+
+<p><code>||</code> や <code>&amp;&amp;</code> で if
+文のような物が作れる:</p>
+<pre>if (i &gt;= 0)
+    print ("%d は正である。\n");
+else
+    print ("%d は負である。\n");</pre>
+
+<p>の代わりに</p>
+
+<p><code>i&gt;=0 &amp;&amp; printf("%d は正である。\n",i) || printf
+("%d は負である。\n", i);</code></p>
+
+<h1><code>switch</code> 文の fallthrough</h1>
+<ul>
+  <li>case と default
+  を普通の半分しか下げない習慣がある</li>
+  <li>break を忘れないように注意</li>
+  <li>break を意識的に使わない時はコメント</li>
+</ul>
+<pre>switch (c) {
+  case '\n':
+    line++;
+    /* fallthrough */
+  case ' ': case '\t':
+    ...
+    break;
+  ...
+}</pre>
+
+<h1>goto 文</h1>
+<ul>
+  <li>1970
+    年代まで多く使われ、問題の多いプログラムにつながった
+    (スパゲティプログラム)</li>
+  <li>プログラムは全く goto 無しでも書ける</li>
+  <li>たまに goto を使うことによって分かりやすい:
+    <pre>  for (i=0; i&lt;aMax; i++)
+      for (j=0; j&lt;bMax; j++)
+          if (a[i]==b[j])
+              goto found;
+  /* 見つけなかったときの処理 */
+found:
+  /* 共通の処理 */</pre>
+  </li>
+</ul>
+
+<h1>プリプロセッサの枝分かれ</h1>
+
+<p>環境変数やプリプロセッサ変数の設定によってプログラムの一部になるかどうかを決める。</p>
+
+<p>典型例: <code>#include</code>
+ファイルの複数読み込みへの対応:</p>
+<pre>#ifndef _INC_STDIO
+#define _INC_STDIO
+    /* stdio.h の内容 */
+#endif</pre>
+
+<p><code>#ifndef _INC_STDIO</code> は<br />
+<code>#if !defined(_INC_STDIO)</code> でも書ける。</p>
+
+<h1>今週の演習の補足</h1>
+
+<p>A1:
+必ずやる。制御方法と判断方法それそれ三つあるので三つの組み合わせを使う。</p>
+
+<p>A2: 自信があればやらなくても良い。</p>
+
+<p>C2: 補足資料を参照のこと。</p>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今日の復習</li>
+  <li>新訂新 C 言語入門の第 6 章 (pp. 131-163) を読む</li>
+</ul>
+</body>
+</html>

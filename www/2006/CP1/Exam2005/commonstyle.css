@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* common style sheet for examinations
+   defines page headers, page and problem numbering,
+   and some other general stuff 
+*/
+  table { border-collapse: collapse; }
+  tr, th, td { border: 1px solid black; }
+  div.pagehead { page-break-before: auto; page-break-inside: avoid; text-align: center; }
+  .pagehead h1 { font-size: 18pt; letter-spacing: 12pt }
+  .pagehead table {  font-size: 12pt; text-align: center; vertical-align: middle; }
+  .pagehead { font-family: "MS 明朝", serif; }
+  .pagehead .writein { font-family: sans-serif; font-weight: bold }
+  .pagehead .furigana { font-size: 7pt; }
+  
+  div.problem * { page-break-before: avoid; page-break-inside: avoid; font-size: 12pt; }
+  div.problem { margin-top: 12pt; }
+  body { counter-reset: problem page; }
+  .problem h2 { counter-increment: problem; counter-reset: problem2; }
+  .problem h2:before { content: "第 " counter(problem, decimal) " 問 "; }
+  .problem h2, .problem h2:before { font-weight: normal; font-size: 15pt }
+  .problem h3, .subproblem { counter-increment: problem2; }
+  .problem h3:before, .subproblem:before { content: counter(problem, decimal) "." counter(problem2, decimal) " "; }
+  .pagenumber { counter-increment: page; }
+  .pagenumber:after { content: " " counter(page, decimal); }
+  .h3 { height: 3mm; }
+  .h6 { height: 6mm; }
+  .h9 { height: 9mm; }
+  
+  .w3 { width: 3mm; }
+  .w6 { width: 6mm; }
+  .w9 { width: 9mm; }
+  .w12 { width: 12mm; }
+  .w40 { width: 40mm; }
+  .w50 { width: 50mm; }
+  .number { text-align: right; }
+  .box { padding: 0pt; border: solid 1pt black; }
+  
+  
+/* show notes, to make sure people are aware of alternate stylesheet */
+  .note { position: absolute; left: 0%; top: 0%; right: 70%; font-size: 90%; }
+  .note p { color: red; background-color: #FDD; }
+  .note a { color: red; background-color: #FDD; text-decoration: underline; }
+  
+/* general properties for solution; makes sure things
+   look the same with and without solutions (except maybe
+   in case of del/ins) */
+  .solution { line-height: 24pt; font-size: 20pt; }
+
+  
+/* only one page header on screen */
+@media screen {
+  div.pagehead { display: none; }
+  div.pagehead.first { display: block; }
+}
+
+/* separate page headers for each page when printing */
+@media print {
+  div.pagehead { page-break-before: always; }
+  div.pagehead.first { page-break-before: avoid; }
+}
+
+/*** print at roughly 80% size ***/
+@media print {
+  tr, th, td { border: 1px solid black; }
+  .pagehead h1 { font-size: 15pt; letter-spacing: 10pt }
+  .pagehead table {  font-size: 10pt; }
+  .pagehead .furigana { font-size: 6pt; }
+  .pagenumber { font-size: 10pt; }
+  
+  div.problem * { font-size: 10pt; }
+  div.problem { margin-top: 10pt; }
+  .problem h2, .problem h2:before { font-size: 12pt }
+  .h3 { height: 2.4mm; }
+  .h6 { height: 4.8mm; }
+  .h9 { height: 7.2mm; }
+  
+  .w3 { width: 2.4mm; }
+  .w6 { width: 4.8mm; }
+  .w9 { width: 7.2mm; }
+  .w12 { width: 9.6mm; }
+  .w40 { width: 32mm; }
+  .w50 { width: 40mm; }
+  .box { padding: 0pt; border: solid 1pt black; }
+  
+/* general properties for solution; makes sure things
+   look the same with and without solutions (except maybe
+   in case of del/ins) */
+  .solution { line-height: 19pt; font-size: 16pt; }
+}
+

@@ -1,0 +1,12 @@
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:gda="http://i-content.org/gda/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" >
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp">
+    <dc:creator>Hiroyuki Abe</dc:creator>
+    <dc:date>2006-09-06T13:22:01+0900</dc:date>
+    <dc:title>@@</dc:title>
+    <dc:description rdf:parseType="Literal"><gda:gda><gda:su><gda:adp><gda:adp><gda:adp bfm="この" prn="コノ">この</gda:adp></gda:adp><gda:ad><gda:np bfm="授業" prn="ジュギョウ" tf="1">授業</gda:np><gda:n bfm="用" prn="ヨウ" tf="1">用</gda:n><gda:ad bfm="の" prn="ノ" sem="連体化">の</gda:ad></gda:ad><gda:ad><gda:adp bfm="を" prn="ヲ" sem="格助詞">を</gda:adp></gda:ad></gda:adp><gda:v><gda:np bfm="作成" prn="サクセイ" tf="1">作成</gda:np><gda:v bfm="する" prn="シ">し</gda:v><gda:v bfm="ます" prn="マショ">ましょ</gda:v><gda:v bfm="う" prn="ウ">う</gda:v>。</gda:v></gda:su><gda:su><gda:adp><gda:adp><gda:adp bfm="この" prn="コノ">この</gda:adp></gda:adp><gda:ad><gda:np bfm="資料" prn="シリョウ" tf="1">資料</gda:np><gda:ad bfm="で" prn="デ" sem="格助詞">で</gda:ad><gda:ad bfm="は" prn="ハ" sem="係助詞">は</gda:ad></gda:ad></gda:adp><gda:np><gda:np bfm="以後" prn="イゴ" tf="1">以後</gda:np></gda:np><gda:adp><gda:np bfm="c" prn="シー" tf="1">c</gda:np><gda:n bfm="l" prn="エル" tf="1">l</gda:n><gda:n bfm="e" prn="イー" tf="2">e</gda:n><gda:n bfm="c" prn="シー" tf="1">c</gda:n><gda:n bfm="t" prn="ティー" tf="2">t</gda:n><gda:n bfm="u" prn="ユー" tf="1">u</gda:n><gda:n bfm="r" prn="アール" tf="2">r</gda:n><gda:n bfm="e" prn="イー">e</gda:n><gda:n bfm="i" prn="アイ" tf="1">i</gda:n><gda:n bfm="t" prn="ティー">t</gda:n><gda:n bfm="p" prn="ピー" tf="1">p</gda:n><gda:n bfm="r" prn="アール">r</gda:n><gda:n bfm="o" prn="オー" tf="1">o</gda:n><gda:num bfm="1" prn="イチ">1</gda:num><gda:ad bfm="として" prn="トシテ" sem="格助詞">として</gda:ad></gda:adp><gda:v><gda:vp bfm="進める" prn="ススメ">進め</gda:vp><gda:ad bfm="て" prn="テ" sem="接続助詞">て</gda:ad><gda:v bfm="いく" prn="イキ">いき</gda:v><gda:v bfm="ます" prn="マス">ます</gda:v>。</gda:v></gda:su></gda:gda></dc:description>
+  </rdf:Description>
+</rdf:RDF>

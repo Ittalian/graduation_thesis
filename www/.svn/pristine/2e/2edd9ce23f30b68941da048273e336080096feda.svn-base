@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 I: 関数の作り方と使い方</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 I</h1>
+
+<h2 style="text-align: center">第十回 (2005年 6月 27日):
+関数の作り方と使い方</h2>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20I/lecture11.html"
+style="margin-left: auto; margin-right: auto">http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20I/lecture11.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週演習</h1>
+<ul>
+  <li>月名のハッシュを作って、使う (日本語の旧月名
+    (睦月など) とか外国語の月名を使う)</li>
+  <li>BMI
+    のデータのファイルを読み込んで、同じ人に複数の情報がある場合に警告を出す</li>
+  <li>同じファイルを二重ハッシュに読み込んで、ある人だけの
+    BMI を印刷する</li>
+  <li>自分の身の回りのデータをハッシュに納めて、面白い計算・処理に使う</li>
+</ul>
+
+<h1>関数の必要性</h1>
+<ul>
+  <li>計算機の特性: 速くて確実な処理</li>
+  <li>繰り返しで同じ処理を何回でもできた</li>
+  <li>しかし、違うところに同じ処理をしたいと思うと改めて書く必要がある</li>
+  <li>関数は同じ処理を違うところからできる仕組み</li>
+</ul>
+
+<h1>関数の定義</h1>
+<ul>
+  <li><code>sub</code> で関数を定義する:<br />
+
+    <pre>sub bmi {
+    my $weight = shift;
+    my $height = shift;
+    my $bmi = $weight / $height ** 2;
+    return $b;
+}</pre>
+  </li>
+  <li>関数内の変数を <code>my</code> で関数内に限定する
+    (他で同じ名前の変数が使われてもこの変数は別物)</li>
+</ul>
+
+<h1>関数の使い方</h1>
+<ul>
+  <li>名前を書いて、渡したいデータを括弧で囲む:<br />
+    <code>bmi (70, 1.70)</code></li>
+  <li>定義の前に使いたい場合には <code>&amp;</code>
+    の「関数冠詞」が必要:<br />
+    <code>&amp;bmi (70, 1.70)</code></li>
+  <li>今までも Perl
+    が既に定義してるたくさんの関数を使った</li>
+</ul>
+
+<h1>関数へデータを渡す</h1>
+<ul>
+  <li>渡すデータを「引数」(ひきすう) と言う</li>
+  <li>関数を使う方は括弧の中に書けば良い</li>
+  <li>関数内では引数は <code>@_</code>
+    という配列に入っている</li>
+  <li>関数内では <code>shift</code> は引数無しの場合
+    <code>@_</code> からデータを取り寄せている (関数の外は
+    <code>@ARGV</code> から):<br />
+    <code>my $weight = shift;</code></li>
+  <li>まとめての取り寄せも可能:<br />
+    <code>my ($weight, $height) = @_;</code></li>
+</ul>
+
+<h1>関数からデータを返す</h1>
+<ul>
+  <li>返されるデータは「戻り値」(もどりち) と言う</li>
+  <li><code>return</code> 文で戻り値が返せる:<br />
+    <code>return $bmi;</code></li>
+  <li><code>return</code>
+    文がない場合は関数の最後に実行される文の値が返される</li>
+</ul>
+
+<h1>Perl の関数の特徴</h1>
+<ul>
+  <li>引数の数が宣言できない。必要な場合に関数内でチェック。</li>
+  <li>引数の型は宣言できない。必要な場合に関数内でチェック。</li>
+  <li>引数の順番は宣言できない。できる場合に関数内でチェック。</li>
+  <li>引数と戻り値は「配列一個」となっているため、複数の配列を渡したい場合に工夫が必要。</li>
+</ul>
+
+<h1>関数の設計上の注意点</h1>
+<ul>
+  <li>ただプログラムで良くでてくる数行を関数とするのではなくて、できるだけ関係のあるまとまった処理を関数にする</li>
+  <li>関数内の変数を <code>my</code> もしくは <code>local</code>
+    で定義して、関数の外側の変数 (グローバル変数)
+    をできるだけ使わない</li>
+  <li>他人から使いやすい関数を目指す</li>
+</ul>
+
+<h1>演習</h1>
+<ul>
+  <li>BMI のプログラムを関数を使うように変更</li>
+  <li>他の今まで作ったプログラムを関数を使うように変更</li>
+  <li>年を渡されたら、個の年が閏年の場合に
+    1、そうでない場合に 0
+    を返す関数を作る。その関数を使う面白いプログラムを作る。<br
+    />
+    閏年の条件:
+    <ul>
+      <li>4 で割れる年は閏年</li>
+      <li>但し、100 で割れる年は閏年ではない</li>
+      <li>但し、400 で割れる年は閏年</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

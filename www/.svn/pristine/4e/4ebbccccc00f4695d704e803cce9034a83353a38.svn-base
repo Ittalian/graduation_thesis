@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第三回 -
+  演算子の種類、使い方、優先度</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/bert-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第三回 (2005年 4月28日)</h2>
+
+<h2 style="text-align: center">演算子の種類、使い方、優先度</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>目次</h1>
+<ul>
+  <li>授業全体の話</li>
+  <li>演算子について</li>
+  <li>マクロ</li>
+  <li>演習について</li>
+  <li>これからやること</li>
+</ul>
+
+<h1>先週の補習</h1>
+<dl>
+  <dt>ミニテスト:</dt>
+    <dd>[良くあった間違いの説明]</dd>
+  <dt>derived type (修正):</dt>
+    <dd>｢導出」データ型 → 派生型 <br />
+      関数型を追加</dd>
+</dl>
+
+<h1>授業のありかた</h1>
+<ul>
+  <li>早期完了者:
+    <ul>
+      <li>念入りな演習チェク</li>
+      <li>すべての問題をやる</li>
+      <li>必ず 4 限の終わりまで残る</li>
+      <li>追加・修正課題を必ずやる</li>
+    </ul>
+  </li>
+  <li>「職場」体制
+    <ul>
+      <li>場所が少ないから工夫する</li>
+    </ul>
+  </li>
+  <li>参考の方法
+    <ul>
+      <li>索引の活用</li>
+      <li>基本を暗記</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>演算子</h1>
+<ul>
+  <li>種類</li>
+  <li>対応できるデータ型</li>
+  <li>項の数</li>
+  <li>同型多義</li>
+  <li>連結 (左からか右からか)</li>
+  <li>優先度</li>
+  <li>評価の有無と順序</li>
+</ul>
+
+<h1>演算子の種類</h1>
+<ul>
+  <li>算術演算子</li>
+  <li>関係演算子</li>
+  <li>理論演算子</li>
+  <li>インクリメントとデクリメント</li>
+  <li>代入演算子</li>
+  <li>型変換</li>
+  <li>代入演算子</li>
+  <li>条件演算子と順次演算子</li>
+  <li>配列、ポインタ、構造体の演算子</li>
+</ul>
+
+<h1>演算子とデータ型</h1>
+<ul>
+  <li>実習テキスト付録 2.2にありますが</li>
+</ul>
+
+<h1>演算子の項の数</h1>
+<ul>
+  <li>単項演算子: <code>-</code>, <code>++</code>,
+  <code>--</code>,...</li>
+  <li>二項演算子: <code>+</code>, <code>-</code>, <code>*</code>,
+    <code>/</code>, <code>%</code>, [],...</li>
+  <li>三項演算子: <code>?:</code></li>
+</ul>
+
+<h1>同形多義の演算子や記号</h1>
+<ul>
+  <li><code>()</code>:
+    関数、キャスト、演算のまとめ、<code>if</code>
+  文など</li>
+  <li><code>,</code>: 引数の区切り、順序演算</li>
+  <li><code>-</code>: 単項引き算 (付録 2.1
+  に追加)、二項引き算</li>
+  <li><code>+</code>: 単項 ((型変換以外) 効果なし; 付録 2.1
+    に追加)</li>
+  <li><code>*</code>: 掛け算、ポインタ</li>
+  <li><code>&amp;</code>: ビット積、ポインタ</li>
+</ul>
+
+<h1>演算子の優先度</h1>
+
+<p>式に括弧がないところは演算子の優先度 (priority)
+の高いものから計算される</p>
+
+<p>各演算子の優先度は付録 2.1 に参照</p>
+
+<p>順序は一般的に括弧を少なめに使ってもいいようにできている<br
+/>
+<code>for (i=0; i&lt;max-1 &amp;&amp; (c=getchar()) != '\n' &amp;&amp; c !=
+EOF; ++i)</code></p>
+
+<p>== と != は &lt;, &gt;, &lt;=, &gt;= より優先度が低い<code><br />
+if (a1 &lt; a2 == b1 &lt; b2)</code></p>
+
+<p>但し、はまるところもある<code><span style="color: #E30000"><br
+/>
+c = a&lt;&lt;8 + b</span> /* a &lt;&lt; (8+b) ! */</code></p>
+
+<h1>演算子の連結規則</h1>
+
+<p>C の殆どの演算子は左から右に連結する</p>
+
+<p>右から左に連結するのは次の演算子である:</p>
+<ul>
+  <li>後置の <code>++</code> と <code>--</code>
+  以外の単項演算子</li>
+  <li>キャスト</li>
+  <li>条件演算子: ?:</li>
+  <li>単純な代入を含めてすべての代入演算子</li>
+</ul>
+
+<p>連結規則 (assoicativity)
+が数学的に影響がないときにもプログラムの結果に影響がある時がある</p>
+
+<p><code>i = 4 * 5 / 3; /* integer division */</code></p>
+
+<h1>副作用</h1>
+<ul>
+  <li>式の値の計算意外の式の作用</li>
+  <li>次の場合に起こる:
+    <ul>
+      <li>関数の実行</li>
+      <li>代入</li>
+      <li>インクリメント、デクリメント</li>
+    </ul>
+  </li>
+  <li>副作用 (side effect)
+  が効果的の場合が多いが、要注意</li>
+  <li>副作用を許せないプログラム言語もある
+  (関数型言語)</li>
+</ul>
+
+<h1>式の評価</h1>
+<ul>
+  <li><code>||</code>、 <code>&amp;&amp;</code> と <code>?:</code>
+    以外には全式のすべての部分が評価される
+    <p><code>x != 0 &amp;&amp; y / x &gt; 20</code></p>
+    <p><code>x = 0 * func(y)</code></p>
+  </li>
+  <li>式を評価するための前後関係がない限り順番は不定
+    <p><code>chars = printf("日") + printf("本")</code></p>
+    <p><code>a[i] = i++;</code></p>
+  </li>
+  <li>処理系だけではなくて最適化の程度などにも作用される</li>
+</ul>
+
+<h1>プリプロセッサによるマクロ</h1>
+
+<p>単純な置き換え:<code><br />
+#define ARRAYSIZE 20</code></p>
+
+<p>関数型マクロ (優先度のための括弧に注意):<code><br />
+#define MAX(A,B) ((A)&gt;(B)?(A):(B))</code></p>
+
+<p>型に関係ないので便利; しかし副作用に注意:<code><br />
+MAX(getchar(),x)</code> →
+<code>((getchar())&gt;(x)?(getchar()):(x))</code></p>
+
+<p>文字列化の機能:<code><br />
+#define PRI(i) (printf(#i " = %d\n", (i)))</code><code><br />
+PRI(a+b)</code> → <code>(printf("a+b" " = %d\n", (a+b)))</code></p>
+
+<h1>今週の演習の補足</h1>
+<ul>
+  <li>03A1 と 03A2 もやること</li>
+  <li>03B1:
+    <ul>
+      <li><code>#define</code> を使ってみる</li>
+      <li>可能な限りすべての演算子を使う</li>
+      <li>演算子ごとの出力の二行を区別できるようにする</li>
+    </ul>
+  </li>
+  <li>03B2:
+    <ul>
+      <li>文書の修正: 文字に与えられた番号は C
+        言語で決っているのではなくて、処理系依存
+        <p>IBM 大型計算機以外現在ほとんどの処理系は ASCII
+        コードを使う</p>
+      </li>
+      <li>出力には十進数より十六進数 (<code>%d</code>
+        の代りに <code>%x</code> か <code>%X</code>)
+        が分かりやすいかも</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今日の復習 (休暇中忘れないように)</li>
+  <li>新訂新 C 言語入門の第 5 章 (pp. 75-93) を読む</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:gda="http://i-content.org/gda/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" >
+  <rdf:Description rdf:about="http://www.sw.it.aoyama.ac.jp">
+    <dc:creator>Hiroyuki Abe</dc:creator>
+    <dc:date>2006-08-30T17:03:49+0900</dc:date>
+    <dc:title>@@</dc:title>
+    <dc:description rdf:parseType="Literal"><gda:gda><gda:su><gda:vp><gda:adp><gda:np bfm="日本語" prn="ニホンゴ" tf="1">日本語</gda:np><gda:ad bfm="を" prn="ヲ" sem="格助詞">を</gda:ad></gda:adp><gda:v><gda:vp bfm="含む" prn="フクム">含む</gda:vp></gda:v><gda:ad><gda:np bfm="パス" prn="パス" tf="1">パス</gda:np><gda:ad bfm="に" prn="ニ" sem="格助詞">に</gda:ad><gda:ad bfm="は" prn="ハ" sem="係助詞">は</gda:ad></gda:ad><gda:v><gda:np bfm="インストール" prn="インストール" tf="1">インストール</gda:np><gda:v bfm="する" prn="シ">し</gda:v><gda:v bfm="ない" prn="ナイ">ない</gda:v></gda:v></gda:vp><gda:n><gda:np bfm="こと" prn="コト" tf="2">こと</gda:np>。</gda:n></gda:su><gda:su><gda:adp><gda:np bfm="これ" prn="コレ" tf="1">これ</gda:np><gda:ad bfm="は" prn="ハ" sem="係助詞">は</gda:ad></gda:adp><gda:vp><gda:adp><gda:np bfm="今回" prn="コンカイ" tf="1">今回</gda:np><gda:ad bfm="に" prn="ニ" sem="格助詞">に</gda:ad></gda:adp><gda:v><gda:vp bfm="限る" prn="カギラ">限ら</gda:vp><gda:v bfm="ぬ" prn="ズ">ず</gda:v></gda:v><gda:ad><gda:np bfm="今後" prn="コンゴ" tf="1">今後</gda:np><gda:n bfm="別" prn="ベツ" tf="1">別</gda:n><gda:ad bfm="の" prn="ノ" sem="連体化">の</gda:ad></gda:ad><gda:ad><gda:np bfm="授業" prn="ジュギョウ" tf="1">授業</gda:np><gda:ad bfm="で" prn="デ" sem="格助詞">で</gda:ad><gda:ad bfm="も" prn="モ" sem="係助詞">も</gda:ad></gda:ad><gda:v><gda:vp bfm="守る" prn="マモル">守る</gda:vp></gda:v></gda:vp><gda:n><gda:np bfm="こと" prn="コト">こと</gda:np>。</gda:n></gda:su></gda:gda></dc:description>
+  </rdf:Description>
+</rdf:RDF>

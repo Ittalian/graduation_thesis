@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Exploring Better Source Editing for Bidirectional XHTML and
+  XML</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <style type="text/css">
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+  color: black;
+  background: #ffffff;
+  font-size: 12pt;
+  font-family: verdana, trebuchet, "Helvetica narrow", arial, helvetica, sans-serif;
+}
+small {
+  font-size: smaller;
+}
+img {
+  border: 0;
+}
+
+code {
+  font-family: "Courier New", courier, monospace;
+}
+
+a:link    { color: #21F }
+a:visited { color: #912 }
+a:active  { color: red }
+a.offsite { color: #291 }
+
+p.author  { 
+  font-size: 80%;
+  font-style: italic;
+}
+
+p.top { 
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+
+blockquote {
+  font-style: italic;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #224;
+}
+
+blockquote span.attribution {
+  font-style: normal;
+  font-weight: bold;
+}
+
+pre, tt { 
+  font-weight: bold;
+  font-family: "Courier New", courier, monospace;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-family: arial, helvetica, sans-serif;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+h1.slide { 
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+h1.slidelist { 
+  text-align: center;
+  font-size: 22px;
+}
+h1 {
+  display: block;
+  margin-top: 20pt;
+}
+h2 {
+  display: block;
+  margin-top: 20pt;
+  /* counter-increment: h2;
+  counter-reset: h3; */
+  font-family: arial, helvetica, sans-serif;
+}
+h3 {
+  display: block;
+  margin-top: 20pt;
+  /* counter-increment: h3;
+  counter-reset: h4; */
+  font-family: arial, helvetica, sans-serif;
+}
+h2:before {
+  /* content: counter(h2, decimal) " "; */
+  font-weight: bold;
+  margin-top: 6pt;
+}
+h3:before {
+  /* content: counter(h2, decimal)
+           "." counter(h3, decimal) " "; */
+  font-weight: bold;
+  margin-top: 6pt;
+}
+
+h4 {
+  font-family: arial, helvetica, sans-serif;
+}
+
+  </style>
+  <style type="text/css">
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+  color: black;
+  background: #ffffff;
+  font-size: 12pt;
+  font-family: verdana, trebuchet, "Helvetica narrow", arial, helvetica, sans-serif;
+}
+small {
+  font-size: smaller;
+}
+img {
+  border: 0;
+}
+
+code {
+  font-weight: bold;
+  font-family: "Courier New", courier, monospace;
+}
+
+a:link    { color: #21F }
+a:visited { color: #912 }
+a:active  { color: red }
+a.offsite { color: #291 }
+
+
+p.author  { 
+  font-size: 80%;
+  font-style: italic;
+}
+
+p.top { 
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+
+blockquote {
+  font-style: italic;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #224;
+}
+
+blockquote span.attribution {
+  font-style: normal;
+  font-weight: bold;
+}
+
+pre, tt { 
+  font-weight: bold;
+  font-family: "Courier New", courier, monospace;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-family: arial, helvetica, sans-serif; 
+}
+
+h1.slide { 
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+h1.slidelist { 
+  text-align: center;
+  font-size: 22px;
+}
+
+h2 {
+  font-family: arial, helvetica, sans-serif;
+}
+
+h3 {
+  font-family: arial, helvetica, sans-serif;
+}  
+
+h4 {
+  font-family: arial, helvetica, sans-serif;
+}
+
+  </style>
+</head>
+
+<body xml:lang="en" lang="en">
+
+<div style="text-align: center">
+<p><a href="http://www.global-conference.com/iuc28/">28th
+Internationalization and Unicode Conference</a>, September 2005, Orlando, FL,
+USA</p>
+
+<h1>Exploring Better Source Editing for Bidirectional XHTML and XML</h1>
+
+<p>Martin J. Dürst, Shiro Horie, and Yusaku Wada<br />
+Department of Integrated Information Technology,<br />
+<a
+href="http://www.agnes.aoyama.ac.jp/cgi-bin/WebObjects/f921c2aea8.woa/wa/read/f92c402cb3/">College
+of Science and Engineering</a>, <a href="http://www.aoyama.ac.jp/en/">Aoyama
+Gakuin University</a><br />
+Sagamihara, Kanagawa, Japan<br />
+<a href="mailto:duerst@it.aoyama.ac.jp">mailto:duerst@it.aoyama.ac.jp</a><br
+/>
+<a href="http://www.sw.it.aoyama.ac.jp/">http://www.sw.it.aoyama.ac.jp</a></p>
+</div>
+
+<p><strong>Keywords</strong>: Bidirectional text, Arabic, Hebrew, XML, XHTML,
+HTML, source editor, Unicode Bidirectional Algorithm</p>
+
+<h3>Abstract</h3>
+
+<p>(X)HTML and XML own a significant amount of their popularity and rapid
+adoption to the fact that they can be viewed and edited easily in source form
+with a plain-text editor. However, while this is true for all the scripts and
+languages written left-to-right, for scripts and languages written
+right-to-left, such as Arabic and Hebrew, there are very serious obstacles
+for source editing. The root of the problem is that syntax-significant
+characters, such as angle brackets and quotes, are weak or neutral, which may
+lead to very confusing display situations.</p>
+
+<p>This paper looks at ways to more easily edit the source of bidirectional
+XHTML and XML documents by exploring various simulated changes to the Unicode
+bidirectional algorithm. Examples include the change of syntax-significant
+characters to strong LTR (or RTL) type, and the embedding of overall elements
+and/or element content. These simulated changes are explored with respect to
+several types of documents, in particular documents with LTR or RTL element
+and attribute names and with different kinds of element and attribute
+content.</p>
+
+<p>We invite you to test the results described in this paper via the <a
+href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">Web
+interface</a> (at http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test). An
+<a href="http://www.sw.it.aoyama.ac.jp/2005/pub/IUC28-bidi/">up-to-date
+version</a> of this paper as well as slides used for the talk connected to
+this paper are available (at
+http://www.sw.it.aoyama.ac.jp/2005/pub/IUC28-bidi).</p>
+
+<h2>1 Introduction</h2>
+
+<h3>1.1 The Problem</h3>
+
+<p>Bidirectional text denotes text that is written in part left-to-right
+(LTR) and in part right-to-left (RTL, e.g. for Arabic and Hebrew). Such a
+mixture can be laid out on a line in various different ways. The Unicode
+Bidirectional Algorithm [<a href="#UAX9">UAX#9</a>] (hereafter simply called
+<em>bidi algorithm</em>) defines how to actually do this in a reproducible
+and therefore interoperable way.</p>
+
+<p>The bidi algorithm is carefully designed to produce the behavior generally
+expected by the user without intervention. Its design is aimed at the general
+bulk of natural-language <em>running text</em>, from personal notes and Web
+pages to novels and poems. It also allows controlled intervention when
+necessary. However, the bidi algorithm is not designed for structured text
+such as specific data formats or programming languages.</p>
+
+<p>In fact, when the bidi algorithm is applied to a structured format such as
+XML [<a href="#XML">XML</a>] or (X)HTML [<a href="#HTML4">HTML4</a>, <a
+href="#XHTML1">XHTL1</a>], some very strange and confusing artefact can
+appear. Running text has relatively little punctuation, and this punctuation
+follows the direction of the surrounding text. Structured formats, on the
+other hand, use punctuation to indicate the basic structure of the format. If
+this punctuation follows the direction of the surrounding text, the structure
+of the format can easily become obscured.</p>
+
+<p>Here is a simple example piece of XHTML to show what can happen. First, a
+purely left-to-right version:</p>
+<pre>&lt;p&gt;Hello, &lt;img scr='foo.jpg' alt="world icon"&gt; World!&lt;/p&gt;</pre>
+
+<p>Now let's replace the text in the alt attribute and after the image with
+some (meaningless) Arabic or Hebrew:</p>
+<pre>&lt;p&gt;Hello, &lt;img scr='foo.jpg' alt="ابةتث جحخد<span style="color: #D90000">"&gt;</span> ذرزسش!&lt;/p&gt;</pre>
+
+<p>As can be seen (marked red), the double quote character and the angle
+bracket at the end of the <code>img</code> element have been exchanged, and
+the angle bracket was turned around because it is one of the characters that
+get mirrored by the bidi algorithm. Not only that, but also the text intended
+as the alt attribute and the text before the exclamation mark have been
+exchanged.</p>
+
+<p>Even with this single, simple example, it it clear that editing marked-up
+documents with bidirectional text and data in this form would be very
+difficult. Rather than being able to concentrate on the content and the
+markup structure, users would be constantly confused by the unpredictable and
+inappropriate behavior of the bidi algorithm.</p>
+
+<p>This problem has been known for quite some time, but, as far as we are
+aware, has not been addressed or solved. It is only recently, with the event
+of otherwise Unicode-enabled XML editors, that this problem has really caught
+the necessary attention. For some recent draft proposal, see [<a
+href="#bidi-editing">bidi-editing</a>].</p>
+
+<h3>1.2 Goals</h3>
+
+<p>The overall goal of our research is the easy and natural reading and
+editing of XML and (X)HTML in source form. For element and attribute syntax,
+this can be broken down in more detail as follows. Syntactically significant
+characters (such as double quote and angle bracket above) should not be
+displaced in confusing ways. Quotes around attributes should delimit
+attribute values on both sides. The equal sign should separate attribute name
+and attribute value. White space should separate element name and attribute
+name/value pairs. The element name should appear at the start of a tag.
+Element content should appear between start tag and end tag. Elements should
+appear nested the way they are actually nested.</p>
+
+<p>Similar considerations apply to other syntactic constructs of XML syntax,
+such as entity references and numeric character references, CDATA marked
+sections, processing instructions, comments, and so on, as well as the
+components of the DTD. (For a short introduction to XML syntax, see Section
+2.1.)</p>
+
+<p>In the above paragraphs, we have used words such as <em>easy</em>,
+<em>natural</em>, or <em>start</em>. This does not in any way indicate a
+direction. This is on purpose. It is very much possible that when displaying
+a formatted text written entirely in Arabic or Hebrew, every single syntactic
+element is displayed right-to-left. The above example, and using UPPER CASE
+for right-to-left characters, could very well be displayed as follows:</p>
+<pre>&lt;P/&gt;!DLROW &lt;"NOCI DLROW"=TLA 'jpg.FOO'=CRS GMI&gt; ,OLLEH&lt;P&gt;</pre>
+
+<p>This points to another important goal: Not to change the actual source
+text, but only the way it is displayed. Some changes to the source would
+create syntax errors. Others could change the meaning of the document, in
+particular the display of the final text (which we call <em>target</em>
+here). It may be possible to introduce very specific, well-identified changes
+to the source that could be filtered out before parsing (a simple example
+would be the convention to use HTML bidi markup for indicating directionality
+of the target, and Unicode bidi control characters for indicating the
+directionality of the source). However, a separate filtering step complicates
+the simple edit-parse cycle, and virtually makes re-editing of processed data
+impossible because of the difficulty of re-introducing source-specific bidi
+indicators.</p>
+
+<p>Not to change the actual source text therefore leads to another, less
+well-defined goal: As much as possible, make the source display automatic,
+i.e. avoid the need for human invention and settings. This seems possible for
+documents that are virtually only right-to-left (the same way this is
+currently possible for completely left-to-right documents). But we think that
+for documents with mixed text, different individuals may have somewhat
+different preferences. This is one reason why we are collecting feedback via
+the <a href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">Web
+interface</a> (at http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test). We
+invite you to try it out.</p>
+
+<h3>1.3 Mixtures of LTR and RTL</h3>
+
+<p>Besides purely LTR documents and almost purely RTL documents (true
+RTL-only documents are very rare because numbers are always written LTR even
+in otherwise RTL texts), there is a wide range of mixtures of different
+directionality, such as the following.</p>
+<ul>
+  <li>Mostly LTR, some RTL content (e.g. examples or citations)</li>
+  <li>RTL content, but markup (element/attribute names, restricted attribute
+    values) is LTR</li>
+  <li>Mostly RTL for both content and markup, some LTR (e.g. examples or
+    citations)</li>
+  <li>Different mixtures in different parts of the document</li>
+</ul>
+
+<p>Ideally, display of XML source should adapt to these different mixtures in
+a way that feels natural to a wide range of users.</p>
+
+<h3>1.4 The Importance of Source</h3>
+
+<p>Some might argue that most HTML is edited in WYSIWYG (what you see is what
+you get) editors, rather than in source form. Various editing tools also
+offer intermediate views between source an WYSIWYG. Examples are the tagged
+view of XMetaL [<a href="#XMetaL">XMetaL</a>] (showing tags as little flags
+in the displayed text) or nvu [<a href="#nvu">nvu</a>] (showing tags as
+boxes, on the side for block-level elements), and other kinds of structured
+editors.</p>
+
+<p>However, there are several arguments that show that good source editing is
+important. A large percentage of authors are highly visually oriented.
+However, a small but significant part of authors to some extent or even
+completely prefer to work directly with the document source. Many of them are
+highly knowledgeable and sophisticated power users that drive the adoption
+and development of new technology.</p>
+
+<p>Even for users working mostly in a visually-oriented mode, occasionally
+viewing, and editing, source helps to understand the concepts underlying the
+format they use. It can also greatly simplify some editing operations such as
+the reorganization of nested structures. It also serves as a reminder that
+any visual display is only one of many different ways to display the document
+or data being worked on. In addition, source viewing and editing is very
+important for education.</p>
+
+<p>All the above arguments are related to the fact that the data that is
+actually exchanged, or being processed by all kinds of programs, is the
+source, and nothing but the source. The availability of Web pages in readable
+textual HTML source was also one of the major factors for the rapid growth of
+the World Wide Web in the mid 1990es, and its continuing popularity and
+growth since then.</p>
+
+<p>The success of HTML was repeated some years later with XML, which again
+grew extremely fast and became extremely popular. It also avoided the main
+problems of the HTML source code availability, namely the tendency to blindly
+copy and paste source code, leading to buggier and buggier code. Many other
+formats have also benefited from the availability of a textual or almost
+textual format, among them Internet (electronic) mail and protocols such as
+HTTP. In other cases, the availability of an alternate textual format has
+improved interoperability of applications. Examples include "comma separated
+values" (CSV) for spreadsheet-like data, or the RDF format for Microsoft Word
+documents.</p>
+
+<p>In one particular way, even despite the current problems, viewing source
+can be helpful for editing bidi text. This is due to the fact that with
+certain exceptions, source formats allow the addition of line breaks wherever
+white space (spaces, tabs, and so on) are allowed. Because bidi reordering is
+always restricted to a single line, putting text of different directionality
+on different lines can clarify the text and make it easier to edit while not
+affecting the (markup) structure. For more about dealing with the different
+paragraph/line structure of source and target, please see Section 4.6.</p>
+
+<p>Addressing the source display problem for bidirectional text will help to
+realize the potential of XML and similar formats for education, easy data
+interchange, and rapid development for all scripts and languages. It should
+also lead to greater understanding of how to deal with semistructured,
+structured, and WYSIWYG views of the same document or data.</p>
+
+<h3>1.5 Notation</h3>
+
+<p>U+hhhh (with hhhh being between four and six hexadecimal digits) is used
+to denote Unicode codepoints. For examples in Arabic and Hebrew, we are using
+artificial text, mostly letters in alphabetic order. Sometimes, we are using
+UPPER CASE to denote RTL characters.</p>
+
+<h3>1.6 Overview</h3>
+
+<p>The rest of this paper is organized as follows. First, we provides an
+overview of some base technology, in particular XML and the Unicode
+Bidirectional Algorithm (Section 2) and bidirectional features in HTML and
+CSS (Section 3). Section 4 is devoted to the components of our solution, and
+Section 5 to the simulation of our solution using HTML. Section 6 discussed
+conclusions and future work.</p>
+
+<h2>2 Background</h2>
+
+<p>This section gives background information on various topics related to
+bidirectional source editing of HTML and XML. Readers already familiar with
+these topics may skip the respective sections. We first introduce the basic
+components of XML syntax using a simple example. We then give an overview of
+the bidi algorithm.</p>
+
+<h3>2.1 XML Example</h3>
+
+<p>The following is a very small example of XML (Extensible Markup Language
+[<a href="#XML">XML</a>]) that gives a good impression of how XML source code
+looks, and shows XML's salient features:</p>
+<pre>&lt;authors&gt;
+  &lt;author position='associate professor'&gt;Martin J. Dürst&lt;/author&gt;
+  &lt;author position='senior student'&gt;堀江 史郎&lt;/author&gt;
+  &lt;author position='senior student'&gt;和田 雄策&lt;/author&gt;
+&lt;/authors&gt;
+ </pre>
+
+<p>The pieces between <code>&lt;</code> and <code>&gt;</code>, such as
+<code>&lt;authors&gt;</code> or <code>&lt;/author&gt;</code>, are called
+<em>tags</em>, which <em>mark up</em> the data or document. A tag starting
+with <code>&lt;/</code> is an <em>end tag</em>, a tag starting with
+<code>&lt;</code> only is a <em>start tag</em>. Start tags and end tags come
+in pairs, except in the case of <em>empty tags</em>, where the slash is put
+at the end of the tag (e.g. <code>&lt;authors/&gt;</code>, maybe to indicate
+that there are no authors). The first thing in a start tag (or empty tag),
+and the only thing in an end tag, is the <em>element name</em>. The element
+name may be followed by <em>attribute-name</em>=<em>attribute-value</em>
+pairs. In XML, attribute values always have to be quoted, either with single
+or double quotes. <em>Element content</em> comes between the start tag and
+the end tag. It can consist of elements only (with white space for easier
+reading) or of text only, or it can be mixed (both elements and text).
+Elements always have to be correctly nested, i.e.
+<code>&lt;i&gt;&lt;b&gt;&lt;/b&gt;&lt;/i&gt;</code> is allowed, but
+<code>&lt;i&gt;&lt;b&gt;&lt;/i&gt;&lt;/b&gt;</code> is not.</p>
+
+<p>XML allows quite a few other constructs, such as comments (started by
+<code>&lt;!--</code> and ended by <code>--&gt;</code>), processing
+instructions (started by <code>&lt;?</code> and ended by <code>?&gt;</code>),
+CDATA sections (started by <code>&lt;![CDATA[</code> and ended by
+<code>]]&gt;</code>) and a DTD (Document Type Definition), a complex
+construct defining the allowable element structure and attributes in a
+particular type of document. However, these constructs are less frequent than
+the XML workhorses, elements and attributes, and similar in syntactic
+structure so that the results of our work can easily be applied to them.</p>
+
+<p>XML documents can use arbitrary element and attribute names (not limited
+to the US-ASCII repertoire, i.e. also including Arabic and Hebrew). This
+makes XML very suited to create custom formats for all kinds of textual
+documents and data. With good element and attribute names, an XML document is
+in many ways self-documenting. An XML document that conforms to the basic
+syntactic rules of XML is called <em>well-formed</em> (a sequence of
+characters that is not well-formed, on the other hand, can't be an XML
+document, even if it looks similar to an XML document). An XML document that
+conforms to the allowable element structure and attributes given in the DTD
+included in or referenced from that XML document is said to be
+<em>valid</em>. Not all XML parsers perform validation, but all of them are
+required to perform well-formedness checking.</p>
+
+<p>For bidirectional display of XML source, well-formedness is important
+because it is the basic syntactic constructs that have to be displayed in an
+understandable way to the user. But please note that during source editing,
+there are often situations where for some time, a document is not
+well-formed, e.g. because the user is adding another element, and source
+editing doesn't allow to add both the start tag and the end tag at the same
+time. So one requirement of a solution to bidirectional display of XML source
+is a certain degree of robustness to temporary non-wellformedness.</p>
+
+<p>HTML, up to [<a href="#HTML4">HTML4</a>], predates XML; it was an
+application (a certain fixed set of elements and attributes, with defined
+ways to combine them) of SGML, the predecessor of XML. XHTML (1.0) [<a
+href="#XHTML1">XHTML1</a>] is a reformulation of HTML 4 in XML, introducing
+some minor syntax changes (backwards-compatible if following the relevant
+guidelines) to achieve XML well-formedness.</p>
+
+<h3>2.2 The Unicode Bidirectional Algorithm</h3>
+
+<p>Not all scripts are written in the same direction. The Latin script (used
+for English and many other languages) is written in horizontal lines left to
+right (LTR). The same applies for most other scripts of the world. In some
+cases, such as Chinese and Japanese, horizontal LTR lines are not the only
+possibility, but they are widely used, in particular in technical contexts
+and on computers. On the other hand, some widely used scripts, such as Arabic
+and Hebrew, are written in horizontal lines right to left (RTL). Combining
+LTR and RTL scripts in the same text, in particular in the same line, leads
+to various ambiguities that have to be resolved carefully for reproducible
+and interoperable results.</p>
+
+<p>The Unicode Bidirectional Algorithm [<a href="#UAX9">UAX#9</a>], here
+simply called <em>bidi algorithm</em>, defines how LTR and RTL scripts are
+combined. We provide a short explanation of the most important concepts. It
+is crucial to understand that the text is always stored in <em>logical
+order</em>, i.e. (roughly) the way it is spoken or typed. Storing text in
+visual order, as it was done at the advent of digital text processing in
+particular for Hebrew, can simplify some simple display cases. However,
+storing text in visual order makes non-visual rendering (text-to-speech
+conversion), more complex rendering operations such as paragraph reflow, and
+high-level text processing virtually impossible.</p>
+
+<p>Each character has a directionality, given as a property in the <a
+href="http://www.unicode.org/ucd/">Unicode Database</a>. This roughly can be
+strong, either L (left, for letters of scripts commonly written LTR) or R
+(right, for letters of scripts commonly written RTL), and weak or neutral for
+punctuation and similar characters that are used with many scripts. Both
+European-Arabic digits (123...) and Arabic-Indic digits (١٢٣...) are also
+L, which explains that the bidi algorithm is needed even for Arabic-only or
+Hebrew-only texts. Digits are also the main culprits for the complication of
+the bidi algorithm, which tries to make sure that things such as decimal
+fractions and monetary amounts are displayed naturally.</p>
+
+<p>The implicit part of the bidi algorithm, i.e. without any additional
+instructions, makes sure that (sequences of) words of L characters are
+displayed LTR, (sequences of) words of R characters are displayed RTL, and
+punctuation follows the surrounding characters that have their own direction.
+The implicit part of the algorithm needs one additional parameter: Whether to
+display a sequence of LTR and RTL segments starting at the left or at the
+right. This is called the <em>base directionality</em>. A base directionality
+of RTL is best for occasional LTR text fragments in an overall RTL text, and
+vice versa. The bidi algorithm takes the first strong letter to determine the
+base directionality but allows this to be overridden (see [<a
+href="#UAX9">UAX#9</a>, <a
+href="http://www.unicode.org/reports/tr9/#HL1">HL1</a>]). The main means at
+the disposition of an author to influence the implicit part of the bidi
+algorithm are the LEFT-TO-RIGHT MARK (LRM, U+200E) and the RIGHT-TO-LEFT MARK
+(RLM, U+200F). These (formatting) characters have a strong directionality and
+therefore can affect nearby weak or neutral characters, but otherwise have no
+width and are purely transparent for other operations.</p>
+
+<p>The explicit part of the bidi algorithm deals with two more complex
+situations: First, multiple <em>embeddings</em> (e.g. English in Arabic or
+Hebrew in English), and second, cases where even strong character
+directionality has to be <em>overridden</em> (e.g. for part numbers). Each
+embedding or override is introduced with a special formatting character, of
+which there are overall four, starting with LEFT-TO-RIGHT EBMEDDING (LRE,
+U+202A), and continuing, respectively, with RLE (U+202B), LRO (U+202D), and
+RLO (U+202E). These are ended with a POP DIRECTIONAL FORMATTING (PDF,
+U+202C), which ends the most recent still active override or embedding. This
+functionality is limited to a paragraph.</p>
+
+<h2>3 Bidirectionality in HTML and CSS</h2>
+
+<p>This section very shortly describes the solutions taken in HTML (see [<a
+href="#HTML4">HTML4</a>, <a
+href="http://www.w3.org/TR/html4/struct/dirlang.html#h-8.2">Section 8.2</a>],
+also applying to XHTML) and CSS (see [<a href="#CSS2">CSS2</a>, <a
+href="http://www.w3.org/TR/REC-CSS2/visuren.html#direction">Section
+9.10</a>]) to the problem of bidi text. The HTML solution goes back to
+[RFC2070]. An understanding of these solutions is helpful for three reasons:
+First, HTML is a prime example of the kind of formats for which we are trying
+to develop better bidirectional source editing. Second, it is helpful to
+understand how we have used HTML to explore and prototype different ways of
+displaying bidirectional source. Third, in particular CSS may be useful to
+indicate user display preferences to a source editor.</p>
+
+<h3>3.1 HTML: Named Character Entities</h3>
+
+<p>HTML provides the two named (character) entities <code>&amp;lrm;</code>
+(for LRM) and <code>&amp;rlm;</code> (for RLM) for easy visual identification
+and for use in encodings that do not include these characters. These
+characters can also appear directly in the source code. These named entities
+can be viewed as pure syntactic convenience, because they are replaced with
+the actual characters by an XML parser.</p>
+
+<h3>3.2 HTML: Base Directionality, Embeddings, and Overrides</h3>
+
+<p>The basic directionality of an element can be indicated by the
+<code>dir</code> attribute, with values <code>dir='rtl'</code> and
+<code>dir='ltr'</code> (the latter being the default). This attribute is
+inherited on the block level, i.e. paragraph and higher, to set the base
+directionality for a whole document or part of a document with a single
+setting on a high-level element. It serves both to indicate the base
+directionality of a paragraph (also called the paragraph embedding) as well
+as the embedding of inline (smaller than paragraph) elements.</p>
+
+<p>For overrides, HTML has the <code>bdo</code> (bidirectional override)
+element. The <code>dir</code> attribute is used to indicate the direction of
+the override.</p>
+
+<h3>3.3 HTML: Markup, not Formatting Characters</h3>
+
+<p>Why does HTML use markup, not formatting characters, for base
+directionality, embeddings, and overrides? First, this makes these settings
+visible and usable even in encodings that do not include the corresponding
+characters. Second, the structure of HTML can be used to inherit the base
+directionality, which simplifies settings. Simply setting the base
+directionality of a Web page is often all that is needed, besides a few marks
+(named character entities). Third, embeddings and overrides virtually always
+correspond to document structures (examples, citations, part numbers,...)
+that are marked up anyway. HTML very strongly discourages the use of
+formatting characters for embeddings and overrides because a mixture of
+markup and formatting characters can lead to very badly defined situations if
+the tags and characters are not properly nested. For additional background,
+see also [<a href="#bidi-markup">bidi-markup</a>].</p>
+
+<h3>3.4 CSS</h3>
+
+<p>If HTML defines markup for bidi rendering, why should CSS provide its own
+functionality? There are several reasons for this: First, to allow to define
+the rendering semantics of the HTML bidi markup (see [<a
+href="#CSS2">CSS2</a>, <a
+href="http://www.w3.org/TR/REC-CSS2/sample.html">sample HTML
+stylesheet</a>]). Second, to define the rendering semantics for other XML
+markup. Third, to tweak HTML rendering in special situations (such as when
+rendering Yiddish written in Hebrew with Latin letters and therefore with a
+different directionality). For further explanations, see also [<a
+href="#bidi-css">bidi-css</a>].</p>
+
+<p>CSS properties may also be used to describe settings or preferences for
+(certain types of) source documents. To define the directionality of
+start-tags and end-tags, additional pseudo-elements such as
+<code>:start-tag</code> and <code>:end-tag</code> may be necessary.</p>
+
+<p>CSS defines two properties to indicate bidirectional rendering:
+<code>direction</code>, with values of <code>ltr</code> or <code>rtl</code>
+(or <code>inherit</code>) to define the direction of some text, and
+<code>unicode-bidi</code>, with values <code>normal</code>,
+<code>embed</code>, or <code>bidi-override</code> (or <code>inherit</code>).
+A value of <code>normal</code> means no additional embedding level. A value
+of <code>embed</code> means an actual embedding; <code>bidi-override</code>
+an actual override. The reason for having two separate properties is that
+this makes it easier to define rendering behavior for cases such as HTML.</p>
+
+<h2>4 Solution Components</h2>
+
+<p>In this section, we describe the components of our solution for easy
+source editing of bidirectional text. When looking at source code including
+bidirectional text, there are several different levels of reordering problems
+that need to be addressed. The first level is the character level. Other
+levels are element content, tags including attribute structure, overall
+elements, specific data types, and a 'semantic level'.</p>
+
+<p>It is important to note that we do not change, nor intend to change, the
+bidi algorithm, but we are taking advantage of its provisions for applying a
+higher-level protocol. Indeed, the explanation in the relevant section of the
+bidi algorithm [<a href="#UAX9">UAX#9</a>, <a
+href="http://www.unicode.org/reports/tr9/#Higher-Level_Protocols">Higher-Level
+Protocols</a>] explicitly mention XML source editing as an example. On the
+other hand, in our discussion and in the implementation of our simulation
+(see Section 5) we sometimes prefer to talk about changing properties, or
+using bidirectional marks (LRM or RLM), rather than using embeddings, even
+though the bidi algorithm favors embeddings. This is done for simplicity and
+because the former can always be replaced by the latter.</p>
+
+<h3>4.1 Character Level</h3>
+
+<p>The largest number of confusions caused by displaying bidi source code
+directly using the bidi algorithm as designed for running text are due to
+syntactically significant characters being displaced because they are of some
+weak or neutral type. We therefore change the properties of the
+syntax-significant characters to be strong (LTR for a start, but later also
+RTL). What is a syntax significant character depends both on context and to
+some extent is a matter of choice.</p>
+
+<p>As an example, <code>&amp;</code> is syntax-significant (introducing an
+entity or a numeric character reference) in content and attribute values, and
+forbidden in many other contexts, but is not syntax-significant in comments,
+CDATA sections, and processing instructions. <code>#</code> is
+syntax-significant only after a <code>&amp;</code>, and <code>;</code> only
+the first time it appears thereafter. <code>&lt;</code> is syntax-significant
+in element content, but not in attribute values. The list goes on. A colon
+(<code>:</code>) as part of an element name may be seen as a
+syntax-significant separator for XML Namespaces [<a
+href="#Namespaces">Namespaces1.1</a>], or may be seen just as part of the
+element name. There are also syntax-significant white space characters that
+need to be considered, in particular in start tags.</p>
+
+<h3>4.2 Tag Level</h3>
+
+<p>A single tag, from the starting <code>&lt;</code> to the ending
+<code>&gt;</code>, can be rendered in different directions. While it is
+important that different attribute-value pairs are separated by white space,
+the attributes names and attribute values are separated by <code>=</code>,
+and the attribute values are quoted on both sides (none of it guaranteed!),
+and this can be achieved with the character level, if there is a high
+percentage of RTL characters, in particular in element and attribute names,
+it may be more natural to reorder a whole tag to read RTL rather than LTR.</p>
+
+<p>How to decide tag reading direction still needs some testing and
+experimentation. Approaches include to always use LTR, to use the
+directionality of (the first strong character of) the element name, or to use
+overall or per-element-name settings.</p>
+
+<h3>4.3 Element Level</h3>
+
+<p>Both the directionality of the element content as well as the
+directionality of the overall element including start and end tag need to be
+considered. For consistent editing, it is desirable that the element content
+always comes between start tag and end tag. However, there are situations
+where this is not automatically the case. Here a simple example. The
+following source:</p>
+
+<p><code>&lt;p&gt;hello &lt;span style='color: blue'&gt;world
+אבגדה&lt;/span&gt; ןנסעף&lt;/p&gt;</code></p>
+
+<p>is correctly rendered as follows:</p>
+
+<p>hello <span style="color: blue">world אבגדה</span> ןנסעף</p>
+
+<p>As can be seen, the span colored blue is separated into two pieces. It is
+totally unclear where the start and end tags should be placed, but on the
+other hand, it is preferable to somehow indicate such a situation, because it
+is most probably a consequence of inadequate markup (either an embedding
+should be used on the <code>&lt;span&gt;</code>, or the two pieces should be
+marked up separately).</p>
+
+<h3>4.4 Specific Datatypes</h3>
+
+<p>Some specific datatypes may require particular bidirectional treatment. A
+typical example are Web addresses. [<a href="#RFC3987">RFC3987</a>] defines
+in Section 4 that Internationalized Resource Identifiers (IRIs) are to be
+rendered as if in an LTR context. For (X)HTML, the elements and attributes
+that are Web addresses and have to be treated as IRIs if they contain
+non-ASCII characters are well known, and an editor can apply the necessary
+LTR context.</p>
+
+<p>For arbitrary XML formats, the information about which elements and
+attributes to treat as IRIs or otherwise in a special way has to be provided
+externally. For element content, it is easy to do this with CSS, but for
+attribute values, some additional CSS selector syntax would be needed.</p>
+
+<h3>4.5 Semantic Level</h3>
+
+<p>As discussed above, (X)HTML includes various means to influence the bidi
+behavior of the target using markup. Other formats may use similar features.
+For lack of a better term, we call this the semantic level. A good solution
+for bidirectional source editing should not only make the existing markup
+easily readable, but should also take into account the semantic level to help
+represent the textual content in a way that closely reflects the target
+behavior.</p>
+
+<p>As an example, in a simple rendering, an <code>&amp;rlm;</code> in the
+source code just rendered as a series of LTR characters, without any effect
+on its surroundings. Taking the example from [<a
+href="#bidi-inline">bidi-inline</a>], the original text without
+<code>&amp;rlm;</code> reads like this:</p>
+
+<p>The title is "مفتاح معايير الويب!" in Arabic.</p>
+
+<p>Here, the exclamation mark is at the wrong end of the Arabic text; the
+intended display looks as follows:</p>
+
+<p>The title is "مفتاح معايير الويب!‏" in Arabic.</p>
+
+<p>This can be achieved by inserting an &amp;rlm; after the exclamation mark.
+However, a straightforward display of the source will look as below, not
+showing to the author that the problem has been solved.</p>
+
+<p>The title is "مفتاح معايير الويب!&amp;rlm;" in Arabic.</p>
+
+<p>Only if the &amp;rlm; is actually made to behave like a RIGHT-TO-LEFT
+MARK, displaying as below, will it be easy to understand for the author.</p>
+
+<p>The title is "مفتاح معايير الويب!<span
+dir="rtl">‎&amp;rlm;‎</span>" in Arabic.</p>
+
+<p>Similar considerations apply for base directionality, embeddings, and
+overrides. Before we can discuss them in detail, we have to look at the issue
+of line separation (see next section).</p>
+
+<h3>4.6 Line Separation</h3>
+
+<p>For running text, line layout is taken into consideration only at the end
+of the bidi algorithm. [<a name="L1717" id="L1717"
+href="#Dür2004">Dür2004</a>, <a
+href="http://www.w3.org/2004/Talks/IUC26bidi/slide9-0.html">slide 9</a>]
+gives an overview of the steps of the bidi algorithm and the text units they
+apply to. However, this is different in the case of source code. On the one
+hand, source code does not know the concept of paragraphs; for the purpose of
+the bidi algorithm, each line of the source code is treated as a paragraph.
+Source code lines are also usually rather short, and in many editors are not
+wrapped even if they are wider than the available display width.</p>
+
+<p>So a simple solution to the rendering of bidi source code is to look only
+at single lines. However, this is not sufficient. Markup constructs and
+paragraphs of the target are usually spread over more than one line of
+source. One line of source can also contain pieces of several paragraphs of
+the target, although this is not good practice.</p>
+
+<p>Separating bidi source into many short lines with as much as possible a
+single directionality in each line is sometimes a good way to overcome
+various kinds of confusing artifacts, because vertically, text is always
+arranged in logical order. To take this into account, our <a
+href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">simulation</a>
+also offers a mode where only an empty line in the input is actually
+interpreted as a linebreak. Adding linebreaks (interpreted as spaces in the
+final display) however has to be done with care. Sometimes spaces
+inadvertently disappear in the final display [<a
+href="#bidi-space">bidi-space</a>].</p>
+
+<p>For the author, one of the problems of the line separation in source is
+that it is more difficult to understand the overall bidi structure of a
+paragraph. Even with editing tools for running text, this is a problem to
+some extent because the author works on a fixed width, but during editing,
+frequent reflow provides some visual experience of the bidi structure. On the
+other hand, in the case of source editing, explicit embeddings and overrides
+are visible. The author has to work more mentally than by hand-on experience
+to get the bidi structure right, but this applies to source editing in
+general.</p>
+
+<p>Parsing the source including semantic level information across lines and
+then mapping this information to a bidi structure including embeddings and
+overrides for a single line is the most difficult part of our solution. For
+the moment, we concentrate on a correct and easy-to-understand
+implementation, but for use in an actual editor, we will have to work on
+speed.</p>
+
+<h2>5 Simulation</h2>
+
+<p>To what extent a goal such as <em>easy and natural reading and
+editing</em> has been reached is difficult to judge without serious
+experimentation and testing. In order to get feedback from a wider audience
+with actual day-to-day experience with bidi scripts, we have created a
+simulation using XHTML.</p>
+
+<p>This simulation is available via the <a
+href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">Web
+interface</a> (at http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test).
+Interested readers are strongly encouraged to test the simulation both with
+(X)HTML and XML source that they already have as well as with new examples,
+and to provide feedback. In particular, we are looking for real-life examples
+with Arabic or Hebrew element and attribute names and examples with complex
+bidi markup, e.g. several nested embeddings or overrides. Hand-produced
+source code is preferred to automatically generated code (which is often
+needlessly complex). However, we understand that there is a chicken-and-egg
+problem, i.e. it is difficult to manually produce bidi source code with the
+current editors.</p>
+
+<h3>5.1 Using XHTML for Simulation</h3>
+
+<p>There are many reasons for using XHTML for the simulation. XHTML can be
+displayed anywhere, its bidi behavior is widely understood and widely
+implemented and it can be used for remote (over the Web) testing and
+feedback. XHTML's bidi behavior is easy influenced with markup, which means
+that debugging is easy (all the benefits of source availability apply). There
+are additional synergy benefits because intuitive display of (X)HTML source
+is also one of the goals of our project.</p>
+
+<p>The use of (X)HTML for the simulation also occasionally created some
+confusion (and may also confuse the reader). To avoid the confusion, we adopt
+distinctive terms. We call the source that is being simulated the <em>visible
+source</em>, and the source of the XHTML used for the simulation the
+<em>hidden source</em>. The following table shows a very simple example:</p>
+
+<table border="1">
+  <caption>Table 1: Terms for source editing and simulation</caption>
+  <tbody>
+    <tr>
+      <th>Term</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td><em>hello</em></td>
+    </tr>
+    <tr>
+      <td>visible source</td>
+      <td><code>&lt;em&gt;hello&lt;/em&gt;</code></td>
+    </tr>
+    <tr>
+      <td>hidden source</td>
+      <td><code>&amp;lt;em&gt;hello&amp;lt;/em&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The example only shows the change from formatted text to marked up text
+when moving from target to visible source, and the escaping necessary for the
+additional hidden source level. Our simulation essentially takes the visible
+source as input, and produces the hidden source. This hidden source is then
+displayed to look like the visible source. The above example does not include
+any bidi-related changes.</p>
+
+<h3>5.2 Implementing Bidi-related Changes</h3>
+
+<p>Implementing bidi-related simulation changes requires careful parsing of
+the source across lines, escaping of syntax-significant characters,
+surrounding of syntax significant characters with directionality marks to
+make them strong, and use of embeddings or overrides to conserve the overall
+markup structure as well as the information on the semantic level.</p>
+
+<p>As an example, we take the use of an <code>&amp;rlm;</code> in Section
+4.5, where the visible source should look as follows:</p>
+
+<p><code>The title is "مفتاح معايير الويب!</code><span
+dir="rtl"><code>‎&amp;rlm;‎</code></span><code>" in Arabic.</code></p>
+
+<p>A <code>&lt;span&gt;</code> element with <code>dir='rtl'</code> has to be
+used to make the <code>&amp;rlm;</code> text behave like itself, i.e. as a
+RTL component. The resulting hidden source looks as follows:</p>
+
+<p><code>The title is "مفتاح معايير الويب!&lt;span
+dir="rtl"&gt;‎&amp;amp;rlm;‎&lt;/span&gt;" in Arabic.</code></p>
+
+<p>For full generality, it is also necessary to surround the actual
+<code>&amp;rlm;</code> text with <code>&amp;lrm;</code>s, i.e. to change
+<code>&amp;amp;rlm;</code> to <code>&amp;lrm;&amp;amp;rlm;&amp;lrm;</code> to
+make sure that the weak characters <code>&amp;</code> and <code>;</code> are
+not displaced.</p>
+
+<h3>5.3 Configuration</h3>
+
+<p>We have contemplated several levels of configuration, and implemented some
+of them in our simulation. There is a switch for the base directionality of
+the overall source code. It affects the directionality of the
+syntax-significant characters as well as the base directionality of the
+source code lines. In an actual implementation, it could be a per-system
+option, a per-user option, or a per-document option.</p>
+
+<p>We are also working on allowing to use the directionality of the first
+strong character (of the element name for tags, and so on) to determine
+directions, and plan to look into using CSS (if necessary with some
+extensions) for configuration.</p>
+
+<h2>6 Conclusions and Future Work</h2>
+
+<p>We have explored better ways to display and edit bidirectional (X)HTML and
+XML sources. We have shown how it is possible to use the Unicode
+Bidirectional Algorithm with some higher-level settings to achieve a much
+more natural and easily readable source display. We have also described the
+use of XHTML for simulating our display improvements and making them testable
+over the Web.</p>
+
+<p>Interested parties are highly encouraged to use our <a
+href="http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test">simulation</a>
+(at http://www.sw.it.aoyama.ac.jp/cgi-bin/bidi-source-test). After evaluating
+our solution based on the feedback from the simulation, we plan to implement
+our solution in some actual editor(s). We also hope that our results can be
+used for other views of XML and (X)HTML, such as structured and tagged
+views.</p>
+
+<p>We are also thinking about working on other source code formats. Source
+code of programming languages in some cases allows non-ASCII text only in
+very limited contexts (character and string constants, for example). In that
+case, adaption may turn out to be a straightforward simplification. In other
+cases, where non-ASCII characters can be used as identifiers or even as
+keywords, the complexity may be higher than for XML because there may be more
+different syntactic constructs.</p>
+
+<h2>Acknowledgements</h2>
+
+<p>Lots of thanks go to Richard Ishida (outreach material on the W3C Web site
+and discussions), Yannis Haralambous (pointing out the problem years ago),
+the many contributors to the Unicode Bidirectional Algorithm, the first
+author's former colleagues at the W3C, and all the people who provide a great
+research environment at Aoyama Gakuin University.</p>
+
+<h2>References</h2>
+<dl>
+  <dt>[<a name="bidi-css" id="bidi-css">bidi-css</a>]</dt>
+    <dd>Richard Ishida, <cite><a
+      href="http://www.w3.org/International/questions/qa-bidi-css-markup">FAQ:
+      CSS vs. markup for bidi support</a></cite>, article available at
+      http://www.w3.org/International/questions/qa-bidi-css-markup.</dd>
+  <dt>[<a name="bidi-editing" id="bidi-editing">bidi-editing</a>]</dt>
+    <dd>Richard Ishida, <cite><a
+      href="http://people.w3.org/rishida/articles/bidi-editing.html">Editing
+      requirements for XML markup and RTL scripts</a></cite>, article (rough
+      draft) available at
+      http://people.w3.org/rishida/articles/bidi-editing.html.</dd>
+  <dt>[<a name="bidi-inline" id="bidi-inline">bidi-inline</a>]</dt>
+    <dd>Richard Ishida, <cite><a
+      href="http://www.w3.org/International/articles/inline-bidi-markup/">What
+      you need to know about the bidi algorithm and inline markup</a></cite>,
+      article available at
+      http://www.w3.org/International/articles/inline-bidi-markup.</dd>
+  <dt>[<a name="bidi-markup" id="bidi-markup">bidi-markup</a>]</dt>
+    <dd>Richard Ishida, <cite><a
+      href="http://www.w3.org/International/questions/qa-bidi-controls">FAQ:
+      Bidi formatting codes vs. markup in (X)HTML</a></cite>, article
+      available at
+    http://www.w3.org/International/questions/qa-bidi-controls.</dd>
+  <dt>[<a name="bidi-space" id="bidi-space">bidi-space</a>]</dt>
+    <dd>Richard Ishida, <cite><a
+      href="http://www.w3.org/International/questions/qa-bidi-space">FAQ:
+      Bidi space loss</a></cite>, article available at
+      http://www.w3.org/International/questions/qa-bidi-space.</dd>
+  <dt>[<a name="CSS2" id="CSS2">CSS2</a>]</dt>
+    <dd>Bert Bos, Håkon Wium Lie, Chris Lilley, and Ian Jacobs, <cite><a
+      href="http://www.w3.org/TR/REC-CSS2/">Cascading Style Sheets, level 2 -
+      CSS2 Specification</a></cite>, W3C Recommendation 12-May-1998,
+      available at http://www.w3.org/TR/REC-CSS2.</dd>
+  <dt>[<a name="Dür2004" id="Dür2004">Dür2004</a>]</dt>
+    <dd>Martin J. Dürst, <cite><a
+      href="http://www.w3.org/2004/Talks/IUC26bidi/">Fun with Regular
+      Expressions: An Implementation of the Unicode Bidi
+      Algorithm</a></cite>, <a href="http://www.unicode.org/iuc/iuc26/">26th
+      Internationalization &amp; Unicode Conference</a>, September 2004, San
+      Jose, CA, U.S.A., presentation only, available at
+      http://www.w3.org/2004/Talks/IUC26bidi.</dd>
+  <dt>[<a name="HTML4" id="HTML4">HTML4</a>]</dt>
+    <dd>Dave Raggett, Arnaud Le Hors, and Ian Jacobs, <a
+      href="http://www.w3.org/TR/html401"><cite>HTML 4.01
+      Specification</cite></a>, W3C Recommendation 24 December 1999,
+      available at http://www.w3.org/TR/html4.</dd>
+  <dt>[<a name="Namespaces" id="Namespaces">Namespaces1.1</a>]</dt>
+    <dd>Tim Bray,Dave Hollander, Andrew Layman, and Richard Tobin, <cite><a
+      href="http://www.w3.org/TR/xml-names11/">Namespaces in XML
+      1.1</a></cite>, W3C Recommendation 4 February 2004, available at
+      http://www.w3.org/TR/xml-names11.</dd>
+  <dt>[<a name="nvu" id="nvu">nvu</a>]</dt>
+    <dd><a href="http://www.nvu.com/">nvu</a>, see http://www.nvu.com/.</dd>
+  <dt>[<a name="RFC2070" id="RFC2070">RFC2070</a>]</dt>
+    <dd>François Yergeau, Gavin Nicol, Glenn Adams, and Martin Dürst,
+      <cite><a
+      href="http://www.ietf.org/rfc/rfc2070.txt">Internationalization of the
+      Hypertext Markup Language</a></cite>, RFC 2070 (historical, superseded
+      by [HTML4]), January 1997, available at
+      http://www.ietf.org/rfc/rfc2070.txt.</dd>
+  <dt>[<a name="RFC3987" id="RFC3987">RFC3987</a>]</dt>
+    <dd>Martin Dürst and Michel Suignard, <cite><a
+      href="http://www.ietf.org/rfc/rfc3987.txt">Internationalized Resource
+      Identifiers (IRIs)</a></cite>, RFC 3987, IETF Proposed Standard January
+      2005, available at http://www.ietf.org/rfc/rfc3987.txt.</dd>
+  <dt>[<a name="UAX9" id="UAX9">UAX#9</a>]</dt>
+    <dd>Mark Davis, <a href="http://www.unicode.org/reports/tr9/"><cite>The
+      Bidirectional Algorithm</cite></a>, Unicode Standard Annex #9,
+      1999-08-17 - 2005-03-25 (repeatedly updated), available at
+      http://www.unicode.org/reports/tr9/.</dd>
+  <dt>[<a name="XHTML1" id="XHTML1">XHTML1</a>]</dt>
+    <dd><a href="http://www.w3.org/TR/xhtml1">XHTML™ 1.0 The Extensible
+      HyperText Markup Language</a> (Second Edition) - Reformulation of HTML
+      4 in XML 1.0, W3C Recommendation 26 January 2000, revised 1 August
+      2002, available at http://www.w3.org/TR/xhtml1.</dd>
+  <dt>[<a name="XMetaL" id="XMetaL">XMetaL</a>]</dt>
+    <dd><a href="http://www.xmetal.com">XMetal</a>, see
+    http://www.xmetal.com.</dd>
+  <dt>[<a name="XML" id="XML">XML</a>]</dt>
+    <dd>Tim Bray, Jean Paoli, C. M. Sperberg-McQueen, Eve Maler, and
+      François Yergeau, <cite><a
+      href="http://www.w3.org/TR/REC-xml/">Extensible Markup Language (XML)
+      1.0 (Third Edition)</a></cite>, W3C Recommendation February 2004 (First
+      edition February 1998), available at http://www.w3.org/TR/REC-xml.</dd>
+</dl>
+
+<p></p>
+</body>
+</html>

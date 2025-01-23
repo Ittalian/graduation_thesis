@@ -1,0 +1,12 @@
+/* Style for editing and viewing slides
+ *
+ * Use this style in the all.htm file to define a style for editing/viewing.
+ * Add this line to the HEAD:
+ *
+ *   <link href="../../stylesheets/slide-screen.css" rel="stylesheet" type="text/css"
+ *     media="screen">
+ *
+ * Created by Martin Dürst 2005/05/01
+ */
+
+@import url(slide-common.css);

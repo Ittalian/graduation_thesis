@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- written by hand by Martin Duerst, 2006-05-29 -->
+<?xml-stylesheet href='nowhere.css' type='text/css' ?>
+<books>
+    <book><title>Compilers</title><!-- The classic! -->
+    <authors><author>Alfred V. Aho</author><author>Ravi Sethi</author>
+    <author>Jeffrey D. Ullman</author></authors>
+    </book>
+    <book><title>lex &amp; yacc</title>
+    <authors><author>Doug Brown</author><author>John Levine</author>
+    <author>tony Mason</author></authors>
+    </book>
+    <book><title>Bison Manual for Version 1.875</title>
+    <authors><author>Charles Donnelly</author><author>Richard M. Stallman</author></authors>
+    </book>
+</books>

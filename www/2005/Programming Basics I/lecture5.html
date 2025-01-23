@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 I: 繰り返し</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 I</h1>
+
+<h2 style="text-align: center">第四回 (2005年 5月 16日):
+繰り返し</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>演習問題・宿題</h1>
+<ol>
+  <li>東京ガスの値段表によってある月間使用量
+    (m<sup>3</sup>) から使用料金を計算する</li>
+  <li>摂氏と華氏とケルビンの変換プログラムを一般化して、値と単位の入力に対して残りの二つの単位を計算するようにする</li>
+  <li>他に面白い、役に立つ、興味のある計算をプログラムする</li>
+</ol>
+
+<h1>演習問題の要点</h1>
+<ul>
+  <li>入力、計算、出力に分ける</li>
+  <li>コメントを付ける</li>
+  <li>字下げによってプログラムの構造を見やすくする</li>
+  <li>共通の処理を <code>if</code>-<code>elsif</code>-<code>else</code>
+    文の外で一回だけ行う</li>
+  <li>値段表には 13,786.50 と書かれたが、Perl
+    ではコンマは書けない</li>
+  <li>出力を利用者が分かりやすいように丁寧に書く</li>
+</ul>
+
+<h1>繰り返し: <code>while</code> 文</h1>
+
+<p>1 から 10000 までの数を足し合せる</p>
+<pre>$sum = 0;
+$i = 1;
+while ($i &lt;= 10000) {
+    $sum += $i;
+    $i++;
+}
+print "Total from 1 to 10000 is $sum\n";</pre>
+
+<h1>簡単な <code>while</code> 文の演習</h1>
+<ul>
+  <li>足し算の途中結果も出力</li>
+  <li>途中結果を、繰り返し百回ごとに一回出力<br />
+    (<code>if</code> 文と余りの演算子 <code>%</code> を使う)</li>
+  <li>足し算を掛け算に変える (回数計算;
+    どの数字まで出来るか)</li>
+  <li>a の n 乗を掛け算だけで書く</li>
+  <li>fibonacci 数列を計算 (1, 1, 2, 3, 5, 8, 13,...)</li>
+</ul>
+
+<h1><code>for</code><code></code> 文の例</h1>
+
+<p><code>for</code> 文は <code>while</code> 文の典型例の簡潔化</p>
+<pre>for ($i=1; $i &lt;= 10; $i++) {
+    $sum += $i;
+}</pre>
+
+<p>(1 から 10 までの数字を足し合せる) は次の while
+文と同じ:</p>
+<pre>$i = 1;            # 初期化
+while ($i &lt;= 10) { # 条件
+    $sum += $i;
+    $i++;          # 次回繰り返し準備
+}</pre>
+
+<h1><code>while</code> 文の応用例: 最大公約数</h1>
+
+<p>ヒント:
+二つの数が同じの場合にこれが最大公約数。違う場合に最大公約数は小さい方の数と二つの数の差の最大公約数と同じ。</p>
+<pre>$aa = $a = shift;
+$bb = $b = shift;
+while ($a != $b) {
+    if ($a &lt; $b) {  $b = $b - $a;
+    } else {        $a = $a - $b;
+    }
+}
+print "The GCD of $aa and $bb is $a.\n";</pre>
+
+<h1>応用例の演習</h1>
+<ul>
+  <li>入力した数が 素数かどうかを判断する<br />
+    (ヒント: 数 <em>n</em> の場合、2 から <em>n</em>-1
+    までで割って、いずれも余りがでたら <em>n</em>
+  が素数)</li>
+  <li>1 から 1000 の間の素数を見つける (ヒント: 二重
+    <code>while</code>)</li>
+  <li>日本の現在の低利子で何年かかると元本が倍になるか計算する</li>
+  <li>ローンの払い戻し:
+    借りた額、利子、そして毎月や毎年の払い戻し額からローンは何年で払い戻せるかを計算する</li>
+  <li>ローンの逆計算: ある条件 (払い戻し期間と額、年利)
+    でいくら借りられるか等</li>
+</ul>
+</body>
+</html>

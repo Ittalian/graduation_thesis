@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: 数学的帰納法</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第十二回: 数学的帰納法</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture12.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture12.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週の宿題</h1>
+
+<p>提出: 1 月13日 (月曜日)、授業前、A4 一枚</p>
+
+<p>father(<var>x</var>, <var>y</var>) が <var>x</var> が <var>y</var>
+の父であると同じように、mother, parent, grandparent, grandfather,
+grandmother
+等の述語を使って、次のことを記述してください:</p>
+<ol>
+  <li>誰にも親がいる: ∀<var>x</var>: ∃<var>y</var>:
+    parent(<var>y</var>, <var>x</var>)</li>
+  <li>誰かの父であるならその人の親である: ∀<var>x</var>:
+    ∀<var>y</var>: father(<var>x</var>, <var>y</var>) →
+    parent(<var>x</var>, <var>y</var>)</li>
+  <li>同じ人は父と母ではありえない: ∀<var>x</var>:
+    ∀<var>y</var>: ¬father(<var>x</var>, <var>y</var>) ∨
+    ¬mother(<var>x</var>, <var>y</var>)</li>
+  <li>父の母は祖母である: ∀<var>x</var>: ∀<var>y</var>:
+    ∀<var>z</var>: mother(<var>x</var>, <var>y</var>) ∧
+    father(<var>y</var>, <var>z</var>) →grandmother(<var>x</var>,
+    <var>z</var>)</li>
+</ol>
+
+<p>それ以外にも恒真であることを四つ記述して、何を記述したのかを説明してください。</p>
+
+<h1>述語論理式と量記号の性質</h1>
+<ol>
+  <li>¬∀<var>x</var>: P(<var>x</var>) = ∃<var>x</var>: ¬P
+  (<var>x</var>)</li>
+  <li>¬∃<var>x</var>: P(<var>x</var>) = <var>∀x</var>: ¬P
+  (<var>x</var>)</li>
+  <li>∀<var>x</var>: P(<var>x</var>) → ∃<var>x</var>: P
+  (<var>x</var>)</li>
+  <li>(∀<var>x</var>: P(<var>x</var>)) ∧ Q(<var>y</var>) =
+    ∀<var>x</var>: (P(<var>x</var>) ∧ Q(<var>y</var>))</li>
+  <li>(∃<var>x</var>: P(<var>x</var>)) ∧ Q(<var>y</var>) =
+    ∃<var>x</var>: (P(<var>x</var>) ∧ Q(<var>y</var>))</li>
+  <li>(∀<var>x</var>: P(<var>x</var>)) ∨ Q(<var>y</var>) =
+    ∀<var>x</var>: (P(<var>x</var>) ∨ Q(<var>y</var>))</li>
+  <li>(∃<var>x</var>: P(<var>x</var>)) ∨ Q(<var>y</var>) =
+    ∃<var>x</var>: (P(<var>x</var>) ∨ Q(<var>y</var>))</li>
+  <li>∀<var>x</var>: P(<var>x</var>) ∧ ∀x: R(<var>x</var>) =
+    ∀<var>x</var>: (P(<var>x</var>) ∧ R(<var>x</var>))</li>
+  <li>∀<var>x</var>: P(<var>x</var>) ∨ ∀x: R(<var>x</var>) →
+    ∀<var>x</var>: (P(<var>x</var>) ∨ R(<var>x</var>))</li>
+  <li>∃<var>x</var>: P(<var>x</var>) ∨ ∃x: R(<var>x</var>) =
+    ∃<var>x</var>: (P(<var>x</var>) ∨ R(<var>x</var>))</li>
+  <li>∃<var>x</var>: P(<var>x</var>) ∧ ∃x: R(<var>x</var>) ←
+    ∃<var>x</var>: (P(<var>x</var>) ∧ R(<var>x</var>))</li>
+  <li>P(x) が恒真 ↔∀<var>x</var>: P(<var>x</var>) が恒真</li>
+</ol>
+
+<h1>変数の使い方</h1>
+<dl>
+  <dt>束縛変数 (bound variable):</dt>
+    <dd>量記号を伴っている変数</dd>
+  <dt>自由変数 (free variable):</dt>
+    <dd>量記号を伴っていない変数</dd>
+  <dt>閉論理式 (closed formula):</dt>
+    <dd>自由変数を含まない論理式</dd>
+  <dt>作用領域 (スコープ、scope)</dt>
+    <dd>束縛変数の影響範囲。束縛変数をスコープ内に書き換えてもよい。</dd>
+</dl>
+
+<h1>高階述語</h1>
+
+<p>1
+階述語と違って、高階述語は述語の引数として述語を許す。</p>
+
+<p>例: x は「y が z の父である」と知っている。<br />
+know (<var>x</var>, father(<var>y</var>, <bdo
+dir="ltr"><var>z</var></bdo>))</p>
+
+<h1>数学的帰納法</h1>
+
+<p>(mathematical induction)</p>
+
+<p>目的: 正の整数の全てについて何かを証明する</p>
+
+<p>述語論理でいうと正の整数において ∀<var>n</var>:
+P(<var>n</var>) を証明したい。</p>
+
+<p>帰納 (induction): 少数の事実から一般の原理を推測する</p>
+
+<p>演繹 (deduction): 一般の原理から特定な場合を推測する</p>
+
+<h1>数学的帰納法の二つのステップ</h1>
+<ol>
+  <li>P(0) が成り立つことを証明する (基底の証明)</li>
+  <li>P(<var>k</var>) が成り立てば P(<var>k</var>+1)
+    も成り立つことを証明する (帰納の証明)</li>
+</ol>
+
+<h1>数学的帰納法の種類・変更</h1>
+<ul>
+  <li>P(<var>n</var>+1) の証明に <var>k</var>≤<var>n</var>
+    の全てのP(<var>k</var>) の証明を使う</li>
+  <li>基底を P(0) ではなくて P(1) とか P(2) にする</li>
+  <li>一部の整数に限る
+    (例えば偶数だけ、2<sup><var>n</var></sup> など)</li>
+  <li>整数そのものではなくても、整数で整理できるものに応用する</li>
+  <li>枝分かれを許す</li>
+</ul>
+
+<h1>情報テクノロジーでの数学的帰納法の応用</h1>
+<ul>
+  <li>アルゴリズムやデータ構造の設計や性質の証明</li>
+  <li>プログラムについての証明</li>
+</ul>
+
+<h1>宿題</h1>
+
+<p>次の証明のどこがおかしいのかを見つけてください。</p>
+<ul>
+  <li>全てお互いに平行ではない平面上の直線 <var>n</var>
+    本は全て一つの点を共通する。
+    <p>証明:</p>
+    <ol>
+      <li>基底: <var>n</var>=1 と <var>n</var>=2
+        の場合に明らかである。</li>
+      <li>帰納: <var>n</var>+1 本の場合、最初の <var>n</var>
+        本にも、最後の <var>n</var>
+        本にも共通点があるので全ての <var>n</var>+1
+        本に共通点がある。</li>
+    </ol>
+  </li>
+</ul>
+</body>
+</html>

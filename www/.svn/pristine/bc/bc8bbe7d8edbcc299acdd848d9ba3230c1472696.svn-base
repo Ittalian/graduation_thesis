@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>言語理論とコンパイラ: 第四回:
+  字句解析の実装、flex の使い方</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+    </style>
+</head>
+
+<body>
+<h1
+style="text-align: center"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center"><strong>第四</strong><strong>回:</strong>
+字句解析の実装、lex 系ツールの使い方方</p>
+
+<p style="text-align: center">2005年 5月 13日</p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今日の内容</h1>
+<ul>
+  <li>先週の復習</li>
+  <li>字句解析の実装の概要</li>
+  <li>flex の役割と使い方</li>
+</ul>
+
+<h1>先週のまとめ</h1>
+<ul>
+  <li>有限オートマトン (finite state automaton, FSA)
+    <ul>
+      <li>決定性有限オートマトン (deterministic finite automaton,
+        DFA)</li>
+      <li>非決定性有限オートマトン (non-deterministic finite
+        automaton, NFA)</li>
+    </ul>
+  </li>
+  <li>正規文法 (regular grammar)
+    <ul>
+      <li>左線形文法 (left linear grammar)</li>
+      <li>右線形文法 (right linear grammar)</li>
+    </ul>
+  </li>
+  <li>正規表現 (regular expression)
+    <ul>
+      <li>単一規則の拡張 BNF</li>
+    </ul>
+  </li>
+</ul>
+
+<p>これらは全て同じ力を持って、正規言語を定義・受理する</p>
+
+<h1>先週の宿題 (提出不要)</h1>
+<ol>
+  <li>次の正規表現を NFA に変換して、NFA から DFA を作る。
+    <p><code>a(b|c)*a</code></p>
+  </li>
+  <li>1. の言語を定義する左線形文法を作る。</li>
+  <li>Σ = {0, 1} の 0 が偶数の語を受理する DFA を作る。</li>
+  <li>2. の言語の正規表現を作る。</li>
+</ol>
+
+<h1>先々週の宿題 (提出不要)</h1>
+<ul>
+  <li>XML について調べる</li>
+  <li>特に次のことを調べる:
+    <ul>
+      <li>DTD</li>
+      <li>(Element) Content Model ((要素)内容モデル)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>(Element) Content Model ((要素) 内容モデル) の定義: <a
+href="http://www.w3.org/TR/REC-xml/#sec-element-content">http://www.w3.org/TR/REC-xml/#sec-element-content</a></p>
+
+<p>XML の文法の完結なまとめ: <a
+href="http://www.mulberrytech.com/quickref/">http://www.mulberrytech.com/quickref/</a></p>
+
+<h1>XML の DTD の要素内容モデル</h1>
+
+<p>(Element) Content Model ((要素) 内容モデル) の例:</p>
+
+<p><code>&lt;!ELEMENT div1 (head, (p | list | note)*, div2*)&gt;</code></p>
+
+<p>この内容モデルに相当する XML の部分の一例:</p>
+<pre>&lt;div1&gt;&lt;head&gt;This is the Title&lt;/head&gt;
+&lt;p&gt;Short introduction...&lt;/p&gt;
+&lt;div2&gt;...&lt;/div2&gt;
+&lt;div2&gt;...&lt;/div2&gt;
+&lt;/div1&gt; </pre>
+
+<p>要素内容モデルは要素を字にした正規表現。</p>
+
+<h1>コンパイラの段階</h1>
+
+<p>字句解析 (lexical analysis)</p>
+
+<p>構文解析 (parsing; syntax analysis)</p>
+
+<p>意味解析 (semantic analysis)</p>
+
+<p>最適化 (optimization)</p>
+
+<p>コード生成 (code generation)</p>
+
+<h1>コンパイラの構造の実装</h1>
+
+<p>前半 (解析) もしくは全体は構文解析が中心</p>
+
+<p>構文解析は getNextToken()
+みたいな関数で字句解析から必要におおじてトーケンを取り寄せる</p>
+
+<p>構文解析は必要におおじて意味解析などを呼ぶ</p>
+
+<h1>字句解析の実装</h1>
+
+<p>主な要点:</p>
+<ul>
+  <li>細かい作業なので効率が大切</li>
+  <li>読み込みにバッファを使う</li>
+</ul>
+
+<p>選択肢:</p>
+<ul>
+  <li>自分で字句分析を書く</li>
+  <li>ツールを使う</li>
+</ul>
+
+<h1>「手書き」字句解析</h1>
+
+<p>簡単な文法の時に使う</p>
+
+<p>次の文字 (バイト) をいつも読み込んだ状態</p>
+
+<p>入力、トークン、次の文字にはグローバル変数を使うのが多い</p>
+
+<p>トークンは種類の他、数字、識別子のなどの場合追加情報が必要<ins></ins></p>
+
+<h1>ツールによる字句解析</h1>
+<ul>
+  <li>字句を正規表現で定義する</li>
+  <li>字句毎の処理をプログラムで書く</li>
+  <li>正規表現を DFA に直すツールを使う</li>
+</ul>
+
+<h1>来週の予定と準備</h1>
+
+<p>準備:</p>
+<ul>
+  <li>自分のノート PC に flex をインストール</li>
+  <li>PC を持ってくる</li>
+</ul>
+
+<p>予定:</p>
+<ul>
+  <li>ミニテスト (flex 以外今までの内容)</li>
+  <li>flex の演習</li>
+</ul>
+
+<h1>flex のインストール</h1>
+<ul>
+  <li>ソースもインストールする</li>
+  <li>同時に bison をインストールすると後で楽</li>
+  <li>MS Windows の場合二つの選択肢:
+    <ul>
+      <li>cygwin をインストール (されている場合、flex
+        の確認・追加): <a
+        href="http://www.cygwin.com/">http://www.cygwin.com/</a></li>
+      <li>gnuwin32: <a
+        href="http://sourceforge.net/projects/gnuwin32/">http://sourceforge.net/projects/gnuwin32/</a></li>
+    </ul>
+  </li>
+  <li>日本語のマニュアル:<br />
+    <a
+    href="http://guppy.eng.kagawa-u.ac.jp/~kagawa/2000/SysProg/flex-2.5.4/flex_toc.html">http://guppy.eng.kagawa-u.ac.jp/~kagawa/2000/SysProg/flex-2.5.4/flex_toc.html</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第二回 -
+  定数、変数、データ型</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+</head>
+
+<body>
+<h1 style="text-align: center">計算機実習 I</h1>
+
+<h2 style="text-align: center">第二回:
+定数の記述、基本的なデータ型、<br />
+変数の定義と使い方 (数値、文字列)<br />
+<br />
+</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a>, O 棟
+529号室</p>
+
+<h1>データ型 (data type)</h1>
+<ul>
+  <li>共通の性質を持つ値 (value) の集合</li>
+  <li>名前が付いている (無名も可)</li>
+  <li>可能な演算が決まる</li>
+  <li>変数、引数はデータ型を持つ</li>
+  <li>簡単なデータ型から複雑なデータ型が作れる</li>
+  <li>簡単な演算から複雑な演算が作れる (関数)</li>
+</ul>
+
+<h1>処理系</h1>
+<ul>
+  <li>C の仕様書の「処理系によって」が多い</li>
+  <li>C は計算機に近い高級プログラム言語</li>
+  <li>処理系とは:
+    <ul>
+      <li>機械 (バイトのビット数、レジスタの大きさ等)</li>
+      <li>オペレーティング・システム</li>
+      <li>コンパイラ</li>
+      <li>標準ライブラリ</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>C のデータ型</h1>
+
+<p>基本データ型 (simple types)</p>
+<ul>
+  <li>整数、0 以上の整数 (integer)</li>
+  <li>浮動小数点数 (floating point)</li>
+</ul>
+
+<p>｢導出」データ型 (derived types)</p>
+<ul>
+  <li>配列、ポインタ</li>
+  <li>構造体、共用体</li>
+</ul>
+
+<p>｢疑似」データ型 ("simulated" types)</p>
+<ul>
+  <li>文字 (character)、文字列 (character string, string)</li>
+  <li>ブール型 (boolean)</li>
+  <li>列挙型 (enumeration)</li>
+</ul>
+
+<h1>数学とプログラミングの違い</h1>
+<ul>
+  <li>数学に数は無限にあるが、大体のデータ型は有限</li>
+  <li>数学の変数は真に未定であるが、プログラムの変数は
+    (たとえゴミであっても) 常に値を持つ</li>
+  <li>数学の = は｢等しい」であるが、プログラムの =
+    は代入である</li>
+</ul>
+
+<h1>C の整数</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>signed char (char)</td>
+      <td>unsigned char (char)</td>
+    </tr>
+    <tr>
+      <td>short int / short</td>
+      <td>unsigned short int / unsigned short</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>unsigned int</td>
+    </tr>
+    <tr>
+      <td>long int / long</td>
+      <td>unsigned long int / unsigned long</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>C の int 型の条件</h1>
+
+<p>処理系によって各データ型の大きさ
+(ビット数、バイト数)
+が違うが、次の条件を満たさないといけない:</p>
+<ul>
+  <li>char
+    は「機械で文字を表す型」(但し、普通は英字等だけ、漢字は別の話)</li>
+  <li>sizeof(char) は 1 に固定</li>
+  <li>int
+    は「機械が普通に表現できるもの」(すなわち、レジスタの大きさ、但し、ポインタと同じかそれ以上の大きさ)</li>
+  <li>sizeof(char) &lt;= sizeof(short) &lt;= sizeof(int) &lt;=
+  sizeof(long)</li>
+</ul>
+
+<h1>文字と文字列</h1>
+<ul>
+  <li>一文字の定数には(一重)引用符を使う</li>
+  <li>文字列には二重引用符を使う</li>
+  <li>'A' と "A" は別物</li>
+  <li>文字は数字として扱われる</li>
+  <li>文字列は配列として扱われる</li>
+  <li>文字列の長さの決め手: 最後に 0
+    <ul>
+      <li>配列の長さを指定するときに加味しないといけない</li>
+      <li>しかし、<code>strlen</code>
+        関数は文字そのものしか数えない</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>漢字の文字列</h1>
+
+<p>従来のやりかた:</p>
+<ul>
+  <li>漢字一字あたり複数 (通常 2) の <code>char</code>
+    (バイト) を使う</li>
+  <li>処理系によって直接文字列に書ける</li>
+  <li>符号化 (日本の Windows の場合: <code>Shift_JIS</code>)
+    によって処理が複雑</li>
+</ul>
+
+<p>新しいやりかた (参考):</p>
+<ul>
+  <li>処理系のすべての文字を表せるデータ型
+    <code>wchar_t</code></li>
+  <li>この文字の数字には ユニコードを使うのが普通</li>
+  <li>文字定数 <code>L'例'</code></li>
+  <li>文字列定数 <code>L"文字列の例"</code></li>
+  <li>それ用の関数</li>
+</ul>
+
+<h1>8 進数と 16 進数の定数</h1>
+<ul>
+  <li>ビットで考えるときに非常に便利</li>
+  <li>昔は 8 進数が多かったが、最近は 16 進数が人気</li>
+  <li>16 進数では 1 バイトを二桁で表せる</li>
+</ul>
+
+<h1>存在しない定数</h1>
+
+<p><code>short</code> の定数はなぜないのか</p>
+<ul>
+  <li>計算、引数は少なくとも <code>int</code>
+    の大きさで行われる</li>
+  <li><code>short</code>
+    の初期化はコンパイラがチェックできる</li>
+  <li><code>char</code> の定数も文字定数以外ない</li>
+</ul>
+
+<h1>変数 (variable) の定義の書き方</h1>
+<ul>
+  <li>基本のデータ型の部分</li>
+  <li>識別子等の部分</li>
+  <li>初期化の部分</li>
+</ul>
+
+<p>例: <code>unsigned int i, j[5], k = 7;</code></p>
+
+<h1>配列のindex</h1>
+<ul>
+  <li>重要: 最初の index は 0</li>
+  <li><code>int a[5];</code> は <code>a[0]</code> から <code>a[4]</code>
+    まで (計 5 個) を用意する</li>
+  <li><code>for</code> の典型例</li>
+</ul>
+<pre>int a[5], i;
+for (i=0; i&lt;5; i++) /* 作業 */;</pre>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>C: ドライブに作ったプログラムを忘れずに Z:
+    ドライブに移す</li>
+  <li>今日の復習</li>
+  <li>新訂新 C 言語入門の第 4 章 (pp. 75-93) を読む</li>
+</ul>
+</body>
+</html>

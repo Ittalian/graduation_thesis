@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>情報数学 I: 復習</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">情報数学 I</h1>
+
+<h2 style="text-align: center">第十三回: 復習</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Math I/lecture12.html">http://www.sw.it.aoyama.ac.jp/2005/Math%20I/lecture12.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今日の予定</h1>
+<ul>
+  <li>期末試験について</li>
+  <li>数学的帰納法の復習</li>
+  <li>関係の種類の復習</li>
+  <li>ブール代数の復習</li>
+  <li>量記号の復習</li>
+</ul>
+
+<h1>期末試験</h1>
+<dl>
+  <dt>日付:</dt>
+    <dd>2006年 1月27日 (金曜日)</dd>
+  <dt>時間:</dt>
+    <dd>11:10-12:35 (85分間)</dd>
+  <dt>試験範囲:</dt>
+    <dd>授業全体。授業で習ってないことは含まない。</dd>
+  <dt>問題の種類:</dt>
+    <dd>ミニテストと同様やそれに似た形。</dd>
+</dl>
+
+<h1>先週の宿題</h1>
+
+<p>次の証明のどこがおかしいのかを見つけてください。</p>
+<ul>
+  <li>全てお互いに平行ではない平面上の直線 <var>n</var>
+    本は全て一つの点を共通する。
+    <p>証明:</p>
+    <ol>
+      <li>基底: <var>n</var>=1 と <var>n</var>=2
+        の場合に明らかである。</li>
+      <li>帰納: <var>n</var>+1 本の場合、最初の <var>n</var>
+        本にも、最後の <var>n</var>
+        本にも共通点があるので全ての <var>n</var>+1
+        本に共通点がある。</li>
+    </ol>
+  </li>
+</ul>
+
+<p>正解: 基底は <var>n</var>=2 まで成り立つが、帰納は
+<var>n</var>=3 からしか有効ではない。</p>
+
+<h1>数学的帰納法の応用例</h1>
+
+<p>次の式を考えよう:</p>
+
+<p>1 = 1</p>
+
+<p>3 + 5 = 8</p>
+
+<p>7 + 9 + 11 = 27</p>
+
+<p>13 + 15 + 17 + 19 = 64</p>
+
+<p>21 + 23 + 25 + 27 + 29 = 125</p>
+
+<p>この式に秘めている法則を仮説として明確にして、数学的帰納法で証明して下さい。</p>
+
+<h1>関係の種類の復習</h1>
+
+<p><a href="lecture6.html#relationProperties">関係の種類</a></p>
+
+<p>全てある集合 <var>A</var> の<strong>中</strong>の関係
+<var>R</var></p>
+<ol>
+  <li>反射的 (reflexive): 全ての <var>x</var>∈<var>A</var>
+    に対して、<var>x</var> は自分と関係がある。</li>
+  <li>対称的 (symmetric): 全ての <var>x</var>,
+    <var>y</var>∈<var>A</var> に対して、<var>x</var> から
+    <var>y</var> の関係があれば <var>y</var> から <var>x</var>
+    の関係もある。</li>
+  <li>推移的 (transitive): <var>R</var> = <var>R</var>∘<var>R</var>;
+    <var>R</var> を自分と合成しても変わらない。</li>
+  <li>反対称的 (asymmetric): x から <var>y</var>
+    の関係と<var>y</var> から <var>x</var>
+    の関係が両方存在すると<var>x</var> と <var>y</var>
+    が同じ。x と <var>y</var> が同じでない場合、x と
+    <var>y</var> の間の関係は両方向には存在しない。</li>
+</ol>
+
+<p><a
+href="lecture8.html#relationExamples">種類の組み合わせの例</a></p>
+
+<h1>ブール代数の復習</h1>
+
+<p><a href="lecture8.html#booleanAlgebra">ブール代数の定義</a></p>
+
+<table border="1">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>集合</td>
+      <td>ビット毎演算</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><var>B</var></td>
+      <td><var>n</var> の元を含む集合のベキ集合</td>
+      <td><var>n</var> ビットのビット列</td>
+      <td>お互いに素の整数 <var>n</var>
+        個とその全ての組み合わせの積からなる集合とその間で「割れる」と言う関係で定義された半順序</td>
+      <td><var>n</var> 次元の立方体の頂点</td>
+    </tr>
+    <tr>
+      <td><strong>0</strong></td>
+      <td>空集合</td>
+      <td>全て 0 のビット列</td>
+      <td>1</td>
+      <td>原点の頂点</td>
+    </tr>
+    <tr>
+      <td><strong>1</strong></td>
+      <td>全集合</td>
+      <td>全て 1 のビット列</td>
+      <td>全てのお互いに素の数の積</td>
+      <td>単位点の頂点</td>
+    </tr>
+    <tr>
+      <td><strong>¬</strong></td>
+      <td>補集合</td>
+      <td>ビット毎否定</td>
+      <td><strong>1</strong> をその数で割ったもの</td>
+      <td>真反対の頂点</td>
+    </tr>
+    <tr>
+      <td><strong>∧</strong></td>
+      <td>積集合</td>
+      <td>ビット毎論理積</td>
+      <td>二つの数の最大公約数</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>∨<strong></strong></td>
+      <td>和集合</td>
+      <td>ビット毎論理和</td>
+      <td>二つの数の最小公倍数</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>量記号の復習</h1>
+
+<p><a href="lecture11.html#quantifiers">量記号の定義</a></p>
+
+<p>量記号の場合の注意点:</p>
+<ul>
+  <li>全集合の把握</li>
+  <li>書き方 (コロン、括弧など)</li>
+  <li>使用する述語の定義</li>
+  <li>自由変数の存在</li>
+</ul>
+</body>
+</html>

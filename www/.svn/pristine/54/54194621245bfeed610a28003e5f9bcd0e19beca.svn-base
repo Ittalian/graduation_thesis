@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>第十一回: コード生成</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1
+style="text-align: center;"><strong>言語理論とコンパイラ</strong></h1>
+
+<p style="text-align: center;"><strong>第十</strong><strong>一回:</strong>
+コード生成</p>
+
+<p style="text-align: center;">2005 年 7月 7日</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture11.html">http://www.sw.it.aoyama.ac.jp/2006/Compiler/lecture11.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin J.
+Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>目次</h1>
+<ul>
+  <li>これからの予定</li>
+  <li>宿題</li>
+  <li>エラー処理</li>
+  <li>中間表現: 名前表と構文木</li>
+  <li>意味解析</li>
+  <li>コード生成</li>
+</ul>
+
+<h1>これからの日程</h1>
+
+<p>補講日: 7月11日 (火曜日) 4限 E202</p>
+
+<p>最終の授業: 7月14日 (金曜日) 2限 E202</p>
+
+<p>期末試験: 7月28日 (金曜日) 2限 (11:10-12:35)</p>
+
+<p><a href="index.html">全体の日程</a></p>
+
+<h1>宿題: 複素数の電卓</h1>
+
+<p>提出: 再来週の金曜日 (7月7日) 10時45分、O 棟
+529号室の前</p>
+
+<p>簡単な電卓を複素数の電卓に拡張してください。複素数の表し方は
+<code>5i</code> で虚数を表し、<code>[実部,虚部]</code>
+で複素数を表すようにして下さい。[]
+内には実数演算は許されるが <code>5i</code>
+みたいなものが使えないように文法を設計してください。</p>
+
+<p>complex.lex と complex.y を提出ください。紙の大きさは
+A4。複数の紙はホチキスで止めること。</p>
+
+<h1>宿題の正解例</h1>
+
+<p>[都合により削除]</p>
+
+<h1>宿題のヒント</h1>
+
+<p><a href="complex/test.in">入力の一例</a></p>
+
+<h1>構文エラー処理</h1>
+<ul>
+  <li>エラー処理の難しさ</li>
+  <li>エラー処理の要点</li>
+  <li>エラーの技法</li>
+</ul>
+
+<h1>エラー処理の難しさ</h1>
+<ul>
+  <li>一つの正しいプログラムに対してエラーのプログラムは多数ある</li>
+  <li>人間にとって間違いやすいものと間違いにくいものはプログラムに区別できない</li>
+  <li>構文解析には理論があるが、エラー処理には理論がない</li>
+</ul>
+
+<h1>エラー処理の要点</h1>
+<ul>
+  <li>分かりやすいエラーメッセージを出す</li>
+  <li>一つだけではなく、複数のエラーを見つける</li>
+  <li>二次エラーをできるだけ出さない</li>
+  <li>正しいプログラムの処理を遅くさせない</li>
+  <li>コンパイラを複雑しすぎない</li>
+</ul>
+
+<h1>エラー処理の技法</h1>
+<ul>
+  <li>文法に合ったトークンを見つけるまでにトークンを捨てる
+    (panic mode)</li>
+  <li>少数のトークンを追加又は入れ替え</li>
+  <li>文法にエラーをキャッチする規則を追加</li>
+  <li>入力に一番近い正しいプログラムを探す</li>
+</ul>
+
+<h1>bison でのエラー処理</h1>
+<ul>
+  <li><code>error</code> トークンを文法に追加できる</li>
+  <li>エラーが起こると bison が一番近い <code>error</code>
+    トークンの含まれる規則までエラー前のトークンや非終端記号を捨てる</li>
+  <li>その規則の <code>error</code>
+    トークンの後に来るトークンが来る入力も捨てる</li>
+</ul>
+
+<h1>コンパイラの段階</h1>
+
+<p>字句解析 (lexical analysis)</p>
+
+<p>構文解析 (parsing; syntax analysis)</p>
+
+<p>意味解析 (semantic analysis)</p>
+
+<p>コード生成 (code generation)</p>
+
+<p>最適化 (optimization)</p>
+
+<h1>中間表現: 名前表</h1>
+
+<p>(symbol table)</p>
+<ul>
+  <li>提供する機能: 
+    <ul>
+      <li>名前の検索</li>
+      <li>名前の登録と取り消し</li>
+      <li>名前についてのデータの管理</li>
+    </ul>
+  </li>
+  <li>要点: 
+    <ul>
+      <li>使うことが多く、名前の数が多いので効率が大切</li>
+      <li>同じ名前が複数ある可能性があるので区別が必要</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>名前表が扱うデータ</h1>
+<ul>
+  <li>名前の種類 (変数、関数、型など)</li>
+  <li>定義か宣言だけか</li>
+  <li>変数、関数などの型</li>
+  <li>名前が有効な領域 (例えば関数、ブロック)</li>
+  <li>変数などの場合: 大きさ (必要なメモリ)</li>
+  <li>関数、変数などの (相対) アドレス</li>
+</ul>
+
+<h1>中間表現: 構文木</h1>
+
+<p>(parse tree)</p>
+
+<p>簡単なプログラム言語と簡単なマシーン・アーキテクチャの場合
+(例えば Pascal からスタック・マシーン)
+には構文解析しながらコード生成を行う
+(すなわち構文木を生成しない) こともある</p>
+
+<p>構文木の生成: 構文規則ごとの処理で生成。例:</p>
+
+<p><code>expression: expression '+' term { $$ = $1 + $3; }</code></p>
+
+<p>を次に変える:</p>
+<pre>expression: expression '+' term<code><br /></code>            { $$ = newnode(PLUS, $1, $3; }</pre>
+
+<p>(<code>YYSTYPE</code> も変更)</p>
+
+<p>二分木が普通だが、関数の引数などに特別な措置が必要</p>
+
+<h1>意味解析</h1>
+<ul>
+  <li>主に型の処理: 
+    <ul>
+      <li>型が合うかどうかのチェック</li>
+      <li>必要に応じて型の自動変換
+        (構文木に新たなノードの追加)</li>
+    </ul>
+  </li>
+  <li>構文木の生成の時に行うか後に行うか</li>
+</ul>
+
+<p>型が同じかどうか複数の定義がある:</p>
+<ul>
+  <li>同じ名前の型が同じ (簡単だが利用者にとって不便)</li>
+  <li>同じ中身の型が同じ (複雑)</li>
+</ul>
+
+<h1>型の役割</h1>
+
+<p>プログラム言語によって型の役割が違う:</p>
+<ul>
+  <li>変数などに型がなくて、どの種類 (型)
+    のデータでも代入できる: Perl, Ruby, JavaScript 等</li>
+  <li>変数などに型を宣言しないといけない: C, C++, Java 等</li>
+  <li>型が必要が多くの場合にコンパイラが割り出す: Haskell
+    等</li>
+</ul>
+
+<h1>コード生成と最適化の関係</h1>
+<ul>
+  <li>構文木で最適化、そこからコード生成</li>
+  <li>生成したコードを分析、最適化</li>
+  <li>実際は両方の組み合わせが多い</li>
+</ul>
+
+<h1>コード生成の難しさ</h1>
+<ul>
+  <li>機械によって使える命令は大幅に違う</li>
+</ul>
+
+<h1>コード生成の手法</h1>
+<ul>
+  <li>構文木を作らないで文法規則ごとにコード生成 (例:
+    スタック・マシーン、条件文など)</li>
+  <li>構文木を辿りながらノードごとにコードを書き出す</li>
+  <li>構文木の構造をコード生成用のパターンに比べてコードを書き出す</li>
+</ul>
+
+<h1>機械の主な種類</h1>
+<ul>
+  <li>スタック・マシーン:<br />
+    演算は全てスタックに行われて、バーチャルマシーンに多い</li>
+  <li>RISC:<br />
+    演算は全てレジスタ内に行われて、純粋のロードとストアしかない</li>
+  <li>CISC:<br />
+    命令の数が多くて複雑 (例: Intel Pentium)</li>
+</ul>
+
+<h1>コードの書き方: アセンブリ言語</h1>
+
+<p>(assembly language)</p>
+<ul>
+  <li>アセンブリは機械語をちゃっかん抽象化し、人間が読めるようにしたもの</li>
+  <li>アセンブラ (assembler) によって機械語に変換される</li>
+  <li>機械などによって種類が多いが、書き方はだいたい似ています</li>
+  <li>機械命令一個を一行に書く</li>
+  <li>一行は四つの部分からなる: 
+    <ul>
+      <li>ラベル</li>
+      <li>命令 (演算子など)</li>
+      <li>被演算子 (レジスタ、変数名、定数など)</li>
+      <li>コメント</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>超単純アセンブリ言語</h1>
+<ul>
+  <li>命令は次の通り: 
+    <ul>
+      <li>LOAD: メモリ (変数) からレジスタへデータを移動</li>
+      <li>STORE: レジスタからメモリへデータの移動</li>
+      <li>ADD, SUB, MUL, DIV: レジスタ間の演算</li>
+      <li>JUMP&lt;、JUMP&lt;= など:
+        二つのレジスタの比較が真でしたらラベルへジャンプ</li>
+    </ul>
+  </li>
+  <li>メモリのアドレスは変数名 (小文字) で表す</li>
+  <li>レジスタは R1, R2,... で表し、数の制限はない</li>
+  <li>被演算子の順番は結果が一番最初に
+    (第一回の授業の宿題と違う)</li>
+</ul>
+
+<h1>if 文などのコード生成</h1>
+<ul>
+  <li>条件を条件付きジャンプ命令に変更</li>
+  <li>条件付き命令は前の演算から残るフラグを使ったり、0
+    との比較が多い</li>
+  <li>条件が合わない場合にジャンプすることが多い</li>
+  <li>例: <code>if (a&gt;b)</code> → <code>a-b; jumpLE0</code></li>
+  <li>ジャンプの行き先がまだ分からない場合が多い</li>
+</ul>
+
+<h1>関数呼び出しのコード生成</h1>
+<ul>
+  <li>呼び出し側と関数側に特別なコードが必要</li>
+  <li>機械・OS・言語特有の関数呼び出しスタックの構成を考慮する必要があ</li>
+  <li>関数呼び出しスタックの内容 (関数フレーム): 
+    <ul>
+      <li>戻り番地 (関数後どこに戻るか)</li>
+      <li>引数、戻り値</li>
+      <li>前の関数フレームのベースポインタ</li>
+      <li>使われるレジスターの値を退避する一時変数</li>
+      <li>ローカル変数</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+</ul>
+</body>
+</html>

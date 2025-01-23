@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>計算機実習 I - 第八回 - ポインタの応用</title>
+  <meta name="generator" content="amaya 9.5, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">計<acronym></acronym>算機実習 I</h1>
+
+<h2 style="text-align: center">第八回 (2006年 6月 8日)</h2>
+
+<h2 style="text-align: center">ポインタの応用</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2006 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>プログラミングへの心構え</h1>
+<ul>
+  <li>ゆっくりやってもいいが、基本のところにはスピードをつけないと大変</li>
+  <li>基本的なところは絶対身につけないといけない</li>
+  <li>効率よく「身につける」のは人による</li>
+  <li>提案: 現状認識→紙一枚に要約→暗記→練習</li>
+  <li>主に身につけたいものは何だろう</li>
+</ul>
+
+<h1>授業の進み方</h1>
+<ul>
+  <li>Moodle にどんどん質問を出して下さい</li>
+  <li>宿題でも Moodle に質問が出せる</li>
+</ul>
+
+<h1>ポインタの用途</h1>
+<ul>
+  <li>低レベルのアドレス操作 (デバイス割り当てなど)</li>
+  <li>動的メモリの管理</li>
+  <li>配列の処理の効率化</li>
+  <li>参照 (関数への渡しなど)</li>
+  <li>間接 (indirection)</li>
+</ul>
+
+<h1>先週のまとめ</h1>
+<ul>
+  <li>メモリの番地はアドレス。ポインタはアドレスの変数。</li>
+  <li>ポインタには型がある: <code>int</code>
+    のポインタなど。</li>
+  <li>変数のアドレスは <code>&amp;</code> (アドレス演算子)
+    でとる。</li>
+  <li><code>*</code> (関節演算子)
+    ではアドレスが指しているものに戻る。</li>
+  <li>ポインタと整数で足し算、引き算ができる。+= 1
+    でポインタが指す型の大きさ一個分移す。</li>
+</ul>
+
+<h1>演習 08A2: 用語の再確認</h1>
+<dl>
+  <dt>スタック:
+  関数内の変数が関数が呼ばれる順番に配置される領域</dt>
+  <dt>ヒープ: 動的メモリの領域</dt>
+  <dt>グローバル変数: 関数の外に定義されている変数</dt>
+  <dt>ローカル変数: 関数の中に定義されている変数</dt>
+  <dt>関数内の static な変数: 関数が終わっても残る変数</dt>
+</dl>
+
+<h1>メモリの使い方</h1>
+
+<p>メモリは変数などの種類によってに分けられ、使用領域が違う。典型例:</p>
+
+<table border="1" style="font-size: 70%">
+  <caption></caption>
+  <tbody>
+    <tr>
+      <td>FFFFFFFF</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>スタック:
+        ローカル変数、引数、関数呼び出しに必要なもの</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>↓↓↓↓↓↓↓↓ <span
+        style="text-align: center">下方向に伸び、使用後縮む</span>
+        ↑↑↑↑↑↑↑↑</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> <br />
+        空き領域<br />
+         </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>↑ ↑ ↑ ↑ ↑ ↑ およそ上方向に伸びる ↑ ↑ ↑
+        ↑ ↑ ↑</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ヒープ: プログラム中任意に必要なメモリ</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>初期値を持たないグローバル変数</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>初期値を持つグローバル変数</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>関数などプログラムそのもの</td>
+    </tr>
+    <tr>
+      <td>00000000</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>ヒープの使い方</h1>
+<ul>
+  <li>プログラムの途中にメモリを使いたいが、どのぐらい必要か予想できない</li>
+  <li>主な用途:
+    <ul>
+      <li>要素数が予想できない配列 (文字列を含めて)</li>
+      <li>要素の数が予想できないデータ構造
+        (木、リスト等)</li>
+    </ul>
+  </li>
+  <li>使い方:
+    <ul>
+      <li>メモリが必要なとき、メモリを用意する関数
+        (malloc 等) を呼ぶ</li>
+      <li>メモリが要らなくなったとき、領域を解放する関数
+        (free) を呼ぶ</li>
+    </ul>
+  </li>
+</ul>
+
+<h1>ポインタの方程式 (演習 08B1)</h1>
+
+<p><code>&amp;*</code><var>p</var> ≡ <var>p</var></p>
+
+<p><code>*&amp;</code><var>v</var> ≡ <var>v</var></p>
+
+<p><code>*(</code><var>p</var><code>+</code><var>i</var><code>)</code> ≡
+<var>p</var><code>[</code><var>i</var><code>]</code> ≡
+<var>i</var><code>[</code><var>p</var><code>]</code></p>
+
+<p>(<var>p</var> はポインタか配列かは問わない)</p>
+
+<h1>配列方式からポインタ方式への変換</h1>
+<pre>int countUpper (char string[])
+{
+    int i = 0;
+    int count = 0;
+
+    while (string[i])
+        if (isUpper(string[i++]))
+            count++;
+    return count;
+}</pre>
+
+<h1>演習 08B2: 再帰のパターン</h1>
+
+<h2>ハノイの塔のパターン</h2>
+<ol>
+  <li>再帰が必要か確認</li>
+  <li>第一回の再帰</li>
+  <li>大きい円盤の移動</li>
+  <li>第二回の再帰</li>
+</ol>
+
+<h1>Fibonacchi 関数の場合のパターン</h1>
+<ol>
+  <li>再帰が必要か確認</li>
+  <li>二つの再帰</li>
+  <li>結果を (足し) 合わせて返す</li>
+</ol>
+
+<h1>再帰を使用して逆転するパターン</h1>
+<ol>
+  <li>ものを取っておく</li>
+  <li>再帰が必要か確認</li>
+  <li>再帰</li>
+  <li>取っておいたものの処理</li>
+</ol>
+
+<p>再帰で逆転の例: 整数を十進数として出力</p>
+
+<h1>動的メモリの定石</h1>
+<ul>
+  <li>ヘッダファイルのインクルード:<br />
+    <code>#include &lt;stdlib.h&gt;</code></li>
+  <li>ポインタの定義:<br />
+    <code>int *array;<br />
+    int asize = 10;</code></li>
+  <li>メモリ領域の用意:
+    <pre>if (!(array = (int *) malloc(sizeof(int)*10)))
+    printf("Not enough memory!\n"), exit(1);</pre>
+  </li>
+  <li>使用:<br />
+    <code>array[i] = 500;</code></li>
+  <li>メモリ領域の解放:<br />
+    <code>free (array);</code></li>
+</ul>
+
+<h1>定石の説明</h1>
+<pre>if (!(              /* メモリが足りるかのテスト */
+     array =        /* 新しいメモリへのポインタの代入 */
+     (int *)        /* 適切なポインタ型への変換 */
+     malloc(sizeof(int) * 10)) /* メモリの大きさの計算と関数の呼び出し */
+{
+    printf("Not enough memory!\n"); /* エラー処理 */
+    exit(1);
+}</pre>
+
+<h1>動的メモリの関数</h1>
+<ul>
+  <li>malloc:
+    メモリブロックの確保、初期化なし、メモリが足りないときに
+    (void*)0 を返す</li>
+  <li>calloc: メモリブロックの確保、 0000 で初期化</li>
+  <li>realloc: メモリブロックの再確保<br />
+    <code>新場所 = realloc(旧場所、新サイズ);<br />
+    pNew = realloc(pOld, 10);</code> <br />
+  </li>
+  <li>free: メモリブロックの解放</li>
+</ul>
+
+<h1>動的メモリの注意</h1>
+<ul>
+  <li>realloc, free
+    にはブロックの先端のアドレスしか使えない</li>
+  <li>解放後、再確保後の使用は禁物</li>
+  <li>確保と解放の責任を決める必要がある</li>
+  <li>要らなくなった領域を解放し忘れない (memory leak)</li>
+</ul>
+
+<h1><code>void *</code> と <code>NULL</code></h1>
+<ul>
+  <li>ポインタの型が関係ないときには <code>void *</code>
+    を使う</li>
+  <li>普通のポインタ型から又は普通のポインタ型への変換が可能</li>
+  <li>ポインタがどこにも指してないときは <code>NULL</code>
+    (0) を使う</li>
+  <li>NULL
+    のポインタを参照するのはエラーになるので必要に応じて使う前にチェック</li>
+</ul>
+
+<h1>次回の準備</h1>
+<ul>
+  <li>宿題として残った問題を完成して出す</li>
+  <li>今日の復習</li>
+  <li>参考書の第 11 章 (ポインタ、pp. 282-311)
+    をもう一回よく読む。分かるところをリストアップする。</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 I: 初めての Perl</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 I</h1>
+
+<h2 style="text-align: center">第四回 (2005年 5月 9日):
+条件と枝分かれ</h2>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>演習問題・宿題</h1>
+<ol>
+  <li>BMI (body mass index) を計算するプログラムを作る</li>
+  <li>他に面白い、役に立つ、興味のある計算をプログラムにする</li>
+</ol>
+
+<h3>BMI のプログラム (1)</h3>
+<pre># perl program to calculate BMI
+
+# input
+$name = shift;
+$weight = shift;
+$height = shift;</pre>
+
+<h1>BMI のプログラム (2)</h1>
+<pre># calculation
+$bmi = $weight / $height ** 2;
+
+# output
+print "$name, your bmi is: $bmi\n",
+       "for a weight of $weight kg\n",
+       "and a height of $height m\n";</pre>
+
+<h1>先週の復習</h1>
+<ul>
+  <li>変数は｢箱」みたいな物、値を取っておく為に使う</li>
+  <li>Perl の (スカラ) 変数の名前は $ で始まる</li>
+  <li>変数に値を入れるのは代入と言います
+    <p><code>$変数名 = 値・演算式</code></p>
+    <p>と書きます</p>
+  </li>
+  <li>変数の値を使う時は<code>$変数名</code>だけ書けばよい</li>
+  <li>二重引用符で囲む文字列の中でも使える</li>
+</ul>
+
+<h1>演習の不満点</h1>
+
+<p>BMI
+の値は計算できますが、それによっての区分は判定できない。</p>
+
+<p>BMI の値によって違う処理をしたい。</p>
+
+<p>枝分かれの文が必要。</p>
+
+<table border="1">
+  <caption>BMI</caption>
+  <tbody>
+    <tr>
+      <td>下限</td>
+      <td>上限</td>
+      <td>Category</td>
+      <td>判定</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>18.4</td>
+      <td>underweight</td>
+      <td>軽すぎ</td>
+    </tr>
+    <tr>
+      <td>18.5</td>
+      <td>24.9</td>
+      <td>normal weight</td>
+      <td>普通</td>
+    </tr>
+    <tr>
+      <td>25.0</td>
+      <td>29.9</td>
+      <td>overweight</td>
+      <td>重すぎ</td>
+    </tr>
+    <tr>
+      <td>30.0</td>
+      <td></td>
+      <td>obesity</td>
+      <td>肥満</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1><code>if</code> 文の構造</h1>
+
+<p><code>if</code> 文の例:</p>
+<pre>if ($bmi &lt; 18.5) {
+    print "underweight";
+}</pre>
+
+<p><code>if</code> 文の基本構造:</p>
+
+<p><code>if (</code>条件<code>) {<br />
+</code><code>    </code>その条件の時の処理<code><br />
+}</code></p>
+
+<h1><code>if</code> 文の意味</h1>
+<dl>
+  <dt>｢条件」が真 (合っている、true) の場合:</dt>
+    <dd><code>{}</code> 内の処理を実行する</dd>
+  <dt>｢条件｣が偽 (合っていない、false) の場合:</dt>
+    <dd>何もしない (<code>if</code> 文の次に進む)</dd>
+</dl>
+
+<h2><code>if</code> 文の書き方</h2>
+<ul>
+  <li>必ず <code>{}</code> を付ける</li>
+  <li>読みやすいように <code>{}</code>
+  内の文を字下げする</li>
+</ul>
+<dl>
+</dl>
+
+<h1>条件の書き方</h1>
+<dl>
+  <dt>数字として比べる:</dt>
+    <dd><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>,
+      <code>&gt;=</code>, <code>==</code>, <code>!=</code>
+    (等しくない)</dd>
+  <dt>文字として比べる:</dt>
+    <dd><code>lt</code>, <code>gt</code>, <code>le</code>, <code>ge</code>,
+      <code>eq</code>, <code>ne</code></dd>
+  <dt>条件としての数字:</dt>
+    <dd><code>0</code>
+    は偽、他の値は真として扱われている。</dd>
+  <dt>条件としての文字列:</dt>
+    <dd>空文字列 (<code>""</code>)
+    は偽、文字のある文字列は真</dd>
+</dl>
+
+<h1>条件の組み合わせ</h1>
+
+<p><strong>かつ</strong>: <code>&amp;&amp;</code> 又は <code>and</code>:
+両方が真でないと条件全体は真にならない。例:</p>
+<pre>if (18.5 &lt;= $bmi &amp;&amp; $bmi &lt; 25) {
+    print "normal weight";
+}</pre>
+
+<p><strong>又は</strong>: <code>||</code> 又は <code>or</code>:
+どちらかが真でしたら条件全体が真。例:</p>
+<pre>if ($bmi &lt; 18.5 || 25 &gt;= $bmi) {
+    print "take care of your weight";
+}</pre>
+
+<h1><code>if</code> 文の拡張:
+<code>if</code>-<code>elsif</code>-<code>else</code><code></code> 文</h1>
+
+<p>目的: 複数の選択から一つだけを選ぶ</p>
+
+<p><code>if</code>-<code>elsif</code>-<code>else</code> 文の構造:</p>
+
+<p><code>if (</code>条件1<code>) {<br />
+    </code>条件1 の時の処理<code><br />
+} elsif (</code>条件2<code>) {<br />
+    </code>条件2 (かつ条件1 でない) 時の処理<code><br />
+} else</code> <code>{<br />
+    </code>条件1 と条件2 以外の時の処理<code><br />
+}</code></p>
+
+<h1><code>if</code>-<code>elsif</code>-<code>else</code><code></code>
+文の例</h1>
+<pre>if ($bmi &lt; 18.5) {
+    $advice = "eat more";
+} elsif ($bmi &lt; 25) {
+    $advice = "keep your weight";
+} elsif ($bim &lt; 30) {
+    $advice = "eat less";
+} else {
+    $advice = "eat much, much less";
+}</pre>
+
+<h1>演習問題 (1. は授業の終わりまで提出)</h1>
+<ol>
+  <li>東京ガスの値段表によってある月間使用量
+    (m<sup>3</sup>) から使用料金を計算する</li>
+  <li>摂氏と華氏とケルビンの変換プログラムを一般化して、値と単位の入力に対して残りの二つの単位を計算するようにする</li>
+  <li>他に面白い、役に立つ、興味のある計算をプログラムする</li>
+</ol>
+
+<h1>東京ガスの料金表</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <td>使用料 r (m<sup>3</sup>/月)</td>
+      <td style="text-align: right">基本料金</td>
+      <td>単位料金</td>
+    </tr>
+    <tr>
+      <td>0 &lt; r ≤ 20</td>
+      <td style="text-align: right">724.50 円</td>
+      <td style="text-align: right">130.28 円</td>
+    </tr>
+    <tr>
+      <td>20 &lt; r ≤ 80</td>
+      <td style="text-align: right">1,083.60 円</td>
+      <td style="text-align: right">112.32 円</td>
+    </tr>
+    <tr>
+      <td>80 &lt; r ≤ 200</td>
+      <td style="text-align: right">1,365.00 円</td>
+      <td style="text-align: right">108.81 円</td>
+    </tr>
+    <tr>
+      <td>200 &lt; r ≤ 500</td>
+      <td style="text-align: right">2,499.00 円</td>
+      <td style="text-align: right">103.14 円</td>
+    </tr>
+    <tr>
+      <td>500 &lt; r ≤ 800</td>
+      <td style="text-align: right">5,806.50 円</td>
+      <td style="text-align: right">96.52 円</td>
+    </tr>
+    <tr>
+      <td>800 &lt; r</td>
+      <td style="text-align: right">13,786.50 円</td>
+      <td style="text-align: right">86.55 円</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

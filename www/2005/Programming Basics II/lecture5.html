@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 II: 配列、文字列、入力</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 II</h1>
+
+<h2 style="text-align: center">第五回: 配列、文字列、入力</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture5.html">http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture5.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>今週の目的</h1>
+<ul>
+  <li>プログラムの流れが分かる</li>
+  <li>C の配列の基本が分かる</li>
+  <li>C の文字列が使える</li>
+  <li>文字列などの入出力ができる</li>
+</ul>
+
+<h1>先々週の演習題・宿題</h1>
+<ol>
+  <li>先週やった演習題の内二つを <code>scanf</code>
+    を使って対話的に使えるようにして下さい。</li>
+  <li>同じ式にたくさんの演算子を使って、優先度と結合方法を確かめて下さい。</li>
+  <li>代入演算子を使ってみて下さい。</li>
+  <li>自分の分野などから複数の数値を入力して、それを使って面白い計算をするプログラムを作って下さい。</li>
+</ol>
+
+<p>提出: 再来週の授業 (11月 7日) まで 4
+番のプログラムと入出力経過を提出して下さい。</p>
+
+<h1>プログラムの基本的な流れ</h1>
+<ol>
+  <li>入力 (利用者などからキーボードなどを通して)</li>
+  <li>計算</li>
+  <li>出力 (利用者などへ画面などを通して)</li>
+</ol>
+<ul>
+  <li>その前に必要な変数の定義</li>
+  <li>入力を利用者に促す出力 (プロンプト) もある</li>
+</ul>
+
+<h1>C の文字列の基本</h1>
+<ul>
+  <li>プログラム内で文章を扱うには文字列が使われている</li>
+  <li>文字列は文字通り文字の列である</li>
+  <li>C は文字列に<strong>配列</strong>を使う</li>
+  <li>C では文字 (列)
+  の細かい処理を簡単で高速にできる</li>
+  <li>C
+  で文字列全体の処理には気をつけないといけない</li>
+</ul>
+
+<h1>配列とは</h1>
+
+<p>(教科書 5.6 節参照)</p>
+<ul>
+  <li>普通の変数にはデータを一個しか格納できない</li>
+  <li>配列では同じ名前で使える変数 (箱)
+    の列が用意される</li>
+  <li>配列のそれそれの部分は添字と言う数で番号が付けられて、整理されている</li>
+  <li>配列の全ての部分 (箱) は同じデータ型である</li>
+  <li>C では配列の長さを前もって決めないといけない</li>
+  <li>C
+    では配列の長さ以上の添字を使わないようにするのはプログラマの責任である</li>
+</ul>
+
+<h1>配列の定義と使い方</h1>
+<ul>
+  <li>配列の定義 (<code>[]</code> 内は長さ):<br />
+    <code>int array[5];</code><br />
+    <code>double array2[20];</code></li>
+  <li>配列の初期化 (長さを指定する必要はない):<br />
+    <code>int a[] = {1, 1, 2, 3, 5, 8};</code></li>
+  <li>配列の使い方:<br />
+    <code>a[2] = a[1] + a[0];</code><code></code></li>
+  <li>要注意: 添字は 1 からではなくて、0
+    から始まる。長さ <var>n</var> の配列の最後の添字は
+    <var>n</var>-1 になる。</li>
+</ul>
+
+<h1>文字列</h1>
+<ul>
+  <li>文字列は <code>char</code> 型の配列</li>
+  <li>文字列を終了するために最後 NULL
+    文字が終端マークとして入っている</li>
+  <li>その分、文字列の長さは最低文字の数プラス 1
+    にしないといけない</li>
+  <li><code>char</code> 型は英数字を扱える</li>
+  <li>漢字には <code>char</code> 二個 (Shift_JIS) 及び三個 (UTF-8)
+    が必要になる</li>
+</ul>
+
+<h1>文字列の定義と使い方</h1>
+<ul>
+  <li>文字列の定義:<br />
+    <code>char name[20];</code></li>
+  <li>文字列の初期化:<br />
+    <code>char name[] = "My Name";</code></li>
+  <li>文字列の出力:<br />
+    <code>puts (name); /* 最後に改行 */<br />
+    puts ("Hello!"); /* 文字列定数 */<br />
+    printf (name); /* 改行無し */<br />
+    printf ("Hello %s!\n", name);</code></li>
+</ul>
+
+<h1>一文字の入力</h1>
+<ul>
+  <li>用途:
+    <ul>
+      <li>一文字だけ入力したい (例えば y/n の答え)</li>
+      <li>文字を一個づつ読んで細かく分析したい</li>
+    </ul>
+  </li>
+  <li>使用例:<br />
+    <code>char c; /* 一般には int を使用 </code><code>*/<br />
+    printf ("Quit (y/n): ");<br />
+    c = getchar();</code></li>
+</ul>
+
+<h1>一文字出力</h1>
+<ul>
+  <li><code>putchar</code> による出力:<br />
+    <code>char c = 'A';<br />
+    putchar(c);</code></li>
+  <li><code>printf</code> による出力:<br />
+    <code>printf ("one character: %c\n", c);</code></li>
+  <li>文字の番号の出力:<br />
+    <code>printf ("character: %c, code: %d\n", c, c);</code></li>
+</ul>
+
+<h1>文字列の入力</h1>
+<ul>
+  <li>読み込む文字列の長さを制限できないため、<code>gets</code>
+    も <code>scanf</code> も使わないこと!</li>
+  <li>その代わりにに <code>fgets</code> を使う:<br />
+    <code>char input[20]; /* 場所の用意 */<br />
+    fgets (input, 20, stdin);</code><br />
+  </li>
+  <li>20 で最大の長さの指定</li>
+  <li><code>stdin</code> で「標準入力から」と指定</li>
+</ul>
+
+<h1>文字列の操作</h1>
+<ul>
+  <li>文字は代入できるが、文字列は代入できない</li>
+  <li>その代わりに <code>strncpy</code> の関数が使える</li>
+  <li>使う場合にプログラムの頭に<br />
+    <code>#include &lt;string.h&gt;</code><br />
+    を追加する必要がある</li>
+  <li><code>strncpy</code> の使い方:<br />
+    <code>char a[] = "start", b[10];<br />
+    strncpy (b, a, 10);</code></li>
+</ul>
+
+<h1>文字列の組み合わせ</h1>
+<ul>
+  <li><code>strncat</code>
+    によって、ある文字列の後ろに違う文字列を付けることができる
+    (場所が十分あるかどうか要注意)</li>
+  <li><code>strncat</code> の使い方:<br />
+    <code>char s[20] = "start", e[] = "end";<br />
+    strncat (s, e, 15);</code></li>
+  <li>文字列の長さ (使われる配列の長さではなくて;
+    最後の NULL を含まない) を計算する関数:<br />
+    <code>strlen (s);</code></li>
+</ul>
+
+<h1>今日の演習題</h1>
+<ul>
+  <li>先週作ったプログラムに文字列の入出力を追加して下さい。(例えば利用者の名前を聞いて、結果と一緒に出力する)</li>
+  <li>自分の名前とかを入力して、その中の <code>char</code>
+    一個一個の番号を出力するようなプログラムを作って下さい。</li>
+  <li>(ローマ字の)
+    文字列を入力して、一部変更して出力するプログラムを作って下さい。<br
+    />
+    (例えばある文字にある数字を足したり引いたりして見るとかある一定の一に
+    NULL 文字を代入した後に出力するとか)</li>
+  <li><code>strncpy</code>, <code>strncat</code>, <code>strlen</code>
+    を使う面白いプログラムを作って下さい。</li>
+</ul>
+
+<h1>次回のための準備</h1>
+<ul>
+  <li>第八章を読む</li>
+  <li>余った演習題を完成する</li>
+</ul>
+</body>
+</html>

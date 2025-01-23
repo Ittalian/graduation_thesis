@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>プログラミング基礎 II: ファイル処理</title>
+  <meta name="generator" content="amaya 9.0, see http://www.w3.org/Amaya/" />
+  <link href="../../stylesheets/bert-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-screen.css" rel="stylesheet"
+  type="text/css" media="screen" />
+  <link href="../../stylesheets/slide-proj.css" rel="stylesheet"
+  type="text/css" media="projection" />
+  <link href="../../stylesheets/slide-print.css" rel="stylesheet"
+  type="text/css" media="print" />
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<h1 style="text-align: center">プログラミング基礎 II</h1>
+
+<h2 style="text-align: center">第十一回: ファイル処理</h2>
+
+<h3 style="text-align: center">Martin J. Dürst</h3>
+
+<p style="text-align: center"><a
+href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a></p>
+
+<p style="text-align: center">O 棟 529号室</p>
+
+<p style="text-align: center">テュールスト マーティン ヤコブ</p>
+
+<p style="text-align: center"><a
+href="http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture11.html">http://www.sw.it.aoyama.ac.jp/2005/Programming%20Basics%20II/lecture11.html</a></p>
+
+<p class="letterhead"><a href="http://www.aoyama.ac.jp/"><img alt="AGU"
+src="../../stylesheets/aoyamalogo.jpg" /></a></p>
+
+<p class="signature">© 2005 <a href="mailto:duerst@it.aoyama.ac.jp">Martin
+J. Dürst</a> <a href="http://www.aoyama.ac.jp/">青山学院大学</a></p>
+
+<h1>先週の演習題</h1>
+<ol>
+  <li>一行の文字列 (最大 80文字) を入力し (<code>fgets</code>
+    使用)、その文字列の大文字を全部小文字にするプログラムを作って下さい(ヒント:
+    教科書 p. 156
+    参照)。大文字から小文字への変換を関数にして下さい。</li>
+  <li>複数の数 (例えば 10個)
+    を入力し、その最大、最少、そして平均を計算するプログラムを作って下さい。</li>
+  <li>複数 (例えば 10個)
+    の整数を入力し、その数二つ同士の足算、掛算、余り、最大公約数、最小公倍数等の表を出力するプログラムを作って下さい。(ヒント:
+    <var>a</var> と <var>b</var> の最小公倍数 lcm(<var>a</var>,
+    <var>b</var>) は <var>a</var> × <var>b</var> / gcd(<var>a</var>,
+    <var>b</var>)) 正解の例: <a href="prog/table.c">table.c</a>
+    (単純なやりかた)、<a href="prog/table2.c">table2.c</a>
+    (関数を引数として関数に渡すことによる高度なやりかた)</li>
+  <li>複数の数を入力し、その数を小さい順に出力するプログラムを作って下さい。</li>
+  <li>十個ほどの商品の名前と値段の分かる店があって、選択に応じて商品リスト、ある商品の注文、今までの注文のリスト、そして注文のまとめ
+    (合計と消費税の計算など)
+    ができるプログラムを作って下さい。</li>
+</ol>
+
+<p>第 3 問のプログラムを来週 (12月19日月曜日)
+の授業前に提出して下さい。出力は提出しなくて結構。プログラムの印刷は等幅の書体
+(<tt style="color: black">Courrier</tt> 等)
+を使って下さい。字下げ、コメントなどを忘れないように。</p>
+
+<p>関数に渡すことは簡単にはできない。</p>
+
+<h1>期末試験</h1>
+<dl>
+  <dt>日付</dt>
+    <dd>2006年 1月23日 (月曜日)</dd>
+  <dt>時間</dt>
+    <dd>13:10-14:10 (60分間)</dd>
+</dl>
+
+<h1>ファイル入出力</h1>
+
+<p>今までの入出力の問題点:</p>
+<ul>
+  <li>キーボードからの入力は手間がかかる</li>
+  <li>画面へ出力された結果は取っておけない</li>
+</ul>
+
+<p>問題点の解決方法:</p>
+<ol>
+  <li>プログラムを変更しないで入出力をファイルから・ファイルへ行う
+    (標準入出力のリダイレクト)</li>
+  <li>ファイル名を指定しての入出力</li>
+</ol>
+
+<h1>リダイレクト</h1>
+<ul>
+  <li><code>scanf</code> や <code>prinf</code>
+    での入出力は普通画面から、そしてキーボードへと流れる。</li>
+  <li>プログラムそのものは具体的なことが分からない。プログラムからみるとただ標準入力
+    (<code>stdin</code>) と標準出力 (<code>stdout</code>)
+    というものを使っている。</li>
+  <li>プログラムの外から標準入力と標準出力が指定できる。指定がない場合にはキーボード・画面になる。</li>
+  <li>指定がデータの流れを変えるのでリダイレクト
+    (redirect) と呼ばれる。</li>
+</ul>
+
+<h1>リダイレクトの指定</h1>
+
+<p>コマンドラインで指定する</p>
+
+<p>プログラム名が「 <code>test</code>」、入力ファイルが
+「<code>input.txt</code>」、出力ファイルが
+「<code>output.txt</code>」 の場合</p>
+<ul>
+  <li>入力だけ:
+    <p><code>test &lt;input.txt</code></p>
+  </li>
+  <li>出力だけ:
+    <p><code>test &gt;output.txt</code></p>
+  </li>
+  <li>両方:
+    <p><code>test &lt;input.txt &gt;output.txt</code></p>
+  </li>
+</ul>
+
+<p>出力の場合には上書きに要注意!</p>
+
+<h1>ファイルの名前の指定</h1>
+<ul>
+  <li>標準入力、標準出力 (そして標準エラー出力
+    (<code>stderr</code>)) はいつも用意されている。</li>
+  <li>それ以上ファイルを使いたい場合がある:
+    <ul>
+      <li>プログラムの中から名前を指定したい</li>
+      <li>ファイルの数を増やしたい</li>
+    </ul>
+  </li>
+  <li>この場合、ファイルを開かないといけない</li>
+  <li>使い終わったら閉じた方がいい</li>
+</ul>
+
+<h1>ファイルを開く: <code>fopen</code></h1>
+<pre>FILE *infile, *outfile; /* ファイルの変数を用意 */
+
+infile  = fopen ("input.txt",  "r");
+outfile = fopen ("output.txt", "w");</pre>
+
+<p>説明:</p>
+<ul>
+  <li>ファイルの名前は文字列 (文字の配列)
+    の変数でも可能</li>
+  <li><code>"r"</code> は読み込み、<code>"w"</code> は書き込み
+    (最初から、ファイルの古い内容が消える)、<code>"a"</code>
+    はファイルの最後への追加</li>
+</ul>
+
+<h1>名前指定のファイルとの入出力</h1>
+
+<p>普段使う関数と似た関数を使う:</p>
+<ul>
+  <li>関数が <code>f</code> (file) で始まる</li>
+  <li>関数の最初の引数 (<code>fgets</code>
+    みたいに例外もある)
+    はファイル変数でファイルを指定する</li>
+</ul>
+
+<p>入力の例:</p>
+
+<p><code>/* ファイル infile から整数変数 count
+に整数を読み込む */</code></p>
+
+<p><code>fscanf (infile, "%d", &amp;count);</code></p>
+
+<p>出力の例:</p>
+
+<p><code>/* ファイル outfile へ整数変数 count の値を出力する
+*/</code></p>
+
+<p><code>fprintf (outfile, "%d", count);</code></p>
+
+<p>それそれの関数の引数の順番などは参考書やマニュアルページ
+(cygwin で例えば <code>man fgets</code>)
+もしくはウェブでみられる</p>
+
+<h1>読み込みのファイルの修了</h1>
+
+<p>書き出すときには
+(ハードディスクなどに空きがある限り)
+いくらでも書き出せるが、読み込みのファイルはいつか終わる。</p>
+
+<p>これを EOF (end of file) と呼ぶ。入力の関数にはそれぞれ
+EOF を伝える機能があるが、関数によって違う。</p>
+
+<p>例: <code>scanf</code> や <code>fscanf</code> は EOF
+になると「<code>EOF</code>」を返す。</p>
+
+<p>プログラム (の一部) の例:</p>
+<pre>int result = 0, in;
+
+while (result != EOF) {
+    result = scanf ("%d", &amp;in);
+    /* 入力の処理 */
+}</pre>
+
+<h1>今週の演習題</h1>
+<ol>
+  <li>今までの作ったプログラムから一つ選んで、キーボードと画面の入出力の代わりにリダイレクトを試してみて下さい。</li>
+  <li>今までの演習題で一回の計算があったところを、繰り返しを使って複数の入力を使うようにする。その入力をファイルで用意し、リダイレクトで操作して下さい。</li>
+  <li>複数のファイルからの入力が必要なプログラムを作って下さい。<br
+    />
+    例:
+    今日までの提出宿題で縦の数と横の数を別にして、別のファイルから読み込んで下さい。</li>
+</ol>
+
+<h1>次回のための準備</h1>
+<ul>
+  <li>余った演習題を完成する。</li>
+  <li>期末試験に向けての準備。</li>
+</ul>
+</body>
+</html>
