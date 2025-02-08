@@ -13,38 +13,54 @@
 \contentsline {subsection}{\numberline {2.2.1}非階層的クラスタリング}{5}{}%
 \contentsline {subsection}{\numberline {2.2.2}階層的クラスタリング}{5}{}%
 \contentsline {chapter}{\numberline {第3章}関連研究}{6}{}%
-\contentsline {section}{\numberline {3.1}カテゴライズに関する研究}{6}{}%
-\contentsline {subsection}{\numberline {3.1.1}機械学習を用いたカテゴライズ}{6}{}%
-\contentsline {subsection}{\numberline {3.1.2}ドキュメントのカテゴライズ}{6}{}%
-\contentsline {section}{\numberline {3.2}先行研究との比較}{7}{}%
-\contentsline {subsection}{\numberline {3.2.1}先行研究との類似点}{7}{}%
-\contentsline {subsection}{\numberline {3.2.2}先行研究との差異}{7}{}%
-\contentsline {chapter}{\numberline {第4章}提案手法}{8}{}%
-\contentsline {section}{\numberline {4.1}システム設計}{8}{}%
-\contentsline {subsection}{\numberline {4.1.1}データベース設計}{8}{}%
-\contentsline {paragraph}{Word テーブル}{8}{}%
-\contentsline {paragraph}{Synset テーブル}{8}{}%
-\contentsline {paragraph}{Sense テーブル}{8}{}%
-\contentsline {subsection}{\numberline {4.1.2}モデル設計}{9}{}%
-\contentsline {paragraph}{Word モデル}{9}{}%
-\contentsline {paragraph}{Synset モデル}{9}{}%
-\contentsline {paragraph}{Sense モデル}{10}{}%
-\contentsline {section}{\numberline {4.2}提案する手法 ・ アプローチ}{10}{}%
-\contentsline {subsection}{\numberline {4.2.1}ドキュメントファイルをアップロード}{10}{}%
-\contentsline {subsection}{\numberline {4.2.2}OCRによってドキュメントの内容を取得}{11}{}%
-\contentsline {subsection}{\numberline {4.2.3}それぞれの単語の定義の取得}{12}{}%
-\contentsline {subsection}{\numberline {4.2.4}単語ごとにカテゴライズ，ラベリング}{13}{}%
-\contentsline {subsection}{\numberline {4.2.5}ラベリング結果から文章のカテゴリを決定}{13}{}%
-\contentsline {chapter}{\numberline {第5章}実験・評価}{15}{}%
-\contentsline {section}{\numberline {5.1}精度の分析}{15}{}%
-\contentsline {subsection}{\numberline {5.1.1}タイトルごとの精度}{15}{}%
-\contentsline {subsection}{\numberline {5.1.2}カテゴリごとの精度}{16}{}%
-\contentsline {chapter}{\numberline {第6章}考察}{17}{}%
-\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{17}{}%
-\contentsline {section}{\numberline {6.2}改善点}{17}{}%
-\contentsline {chapter}{\numberline {第7章}おわりに}{19}{}%
-\contentsline {section}{\numberline {7.1}研究のまとめ}{19}{}%
-\contentsline {section}{\numberline {7.2}今後の展望}{19}{}%
-\contentsline {chapter}{謝辞}{20}{}%
-\contentsline {chapter}{参考文献}{21}{}%
-\contentsline {chapter}{付録 実験で使用した資料}{22}{}%
+\contentsline {section}{\numberline {3.1}RPA に関する研究}{6}{}%
+\contentsline {subsection}{\numberline {3.1.1}RPA の歴史}{6}{}%
+\contentsline {subsection}{\numberline {3.1.2}RPA の将来と可能性}{6}{}%
+\contentsline {section}{\numberline {3.2}カテゴライズに関する先行研究}{7}{}%
+\contentsline {subsection}{\numberline {3.2.1}機械学習を用いたカテゴライズ}{7}{}%
+\contentsline {subsection}{\numberline {3.2.2}ドキュメントのカテゴライズ}{7}{}%
+\contentsline {section}{\numberline {3.3}先行研究との比較}{8}{}%
+\contentsline {subsection}{\numberline {3.3.1}先行研究との類似点}{8}{}%
+\contentsline {subsection}{\numberline {3.3.2}先行研究との差異}{8}{}%
+\contentsline {chapter}{\numberline {第4章}提案手法}{9}{}%
+\contentsline {section}{\numberline {4.1}システム設計}{9}{}%
+\contentsline {subsection}{\numberline {4.1.1}データベース設計}{9}{}%
+\contentsline {paragraph}{Word テーブル}{9}{}%
+\contentsline {paragraph}{Synset テーブル}{9}{}%
+\contentsline {paragraph}{Sense テーブル}{9}{}%
+\contentsline {subsection}{\numberline {4.1.2}モデル設計}{10}{}%
+\contentsline {paragraph}{Word モデル}{10}{}%
+\contentsline {paragraph}{Synset モデル}{10}{}%
+\contentsline {paragraph}{Sense モデル}{11}{}%
+\contentsline {subsection}{\numberline {4.1.3}各カテゴリの指標}{11}{}%
+\contentsline {paragraph}{経理}{11}{}%
+\contentsline {paragraph}{人事}{11}{}%
+\contentsline {paragraph}{庶務}{11}{}%
+\contentsline {section}{\numberline {4.2}提案する手法 ・ アプローチ}{11}{}%
+\contentsline {subsection}{\numberline {4.2.1}ドキュメントファイルをアップロード}{11}{}%
+\contentsline {subsection}{\numberline {4.2.2}OCRによってドキュメントの内容を取得}{12}{}%
+\contentsline {subsection}{\numberline {4.2.3}それぞれの単語の定義の取得}{13}{}%
+\contentsline {subsection}{\numberline {4.2.4}単語ごとにカテゴライズ，ラベリング}{14}{}%
+\contentsline {subsection}{\numberline {4.2.5}ラベリング結果から文章のカテゴリを決定}{15}{}%
+\contentsline {chapter}{\numberline {第5章}実験・評価}{16}{}%
+\contentsline {section}{\numberline {5.1}精度の分析}{16}{}%
+\contentsline {subsection}{\numberline {5.1.1}タイトルごとの精度}{16}{}%
+\contentsline {subsection}{\numberline {5.1.2}カテゴリごとの精度}{17}{}%
+\contentsline {chapter}{\numberline {第6章}考察}{18}{}%
+\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{18}{}%
+\contentsline {section}{\numberline {6.2}改善点}{18}{}%
+\contentsline {chapter}{\numberline {第7章}おわりに}{20}{}%
+\contentsline {section}{\numberline {7.1}研究のまとめ}{20}{}%
+\contentsline {section}{\numberline {7.2}今後の展望}{20}{}%
+\contentsline {chapter}{謝辞}{21}{}%
+\contentsline {chapter}{参考文献}{22}{}%
+\contentsline {chapter}{付録}{24}{}%
+\vspace {1em}
+\noindent \textbf {付録 A}\par 
+\noindent \hspace {4em} 質疑応答 \hfill \textbf {A-1}\par 
+\vspace {1em}
+\noindent \textbf {付録 B}\par 
+\noindent \hspace {4em} 実験で使用したドキュメント \hfill \textbf {B-1}
+\vspace {1em}
+\noindent \textbf {付録 C}\par 
+\noindent \hspace {4em} カテゴライズの指標となる単語群 \hfill \textbf {C-1}

@@ -11,7 +11,7 @@
 さまざまなフォーマットや内容の文書を対象にOCR処理を実施し，タイトルごとの処理精度を評価した．その結果を表5.1に示す．
 
 \begin{table}[h]
-  \centering
+  \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
     \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
@@ -31,6 +31,7 @@
     女性事務職のキャリア拡大と職場組織 & 成功 & \\ \hline
     女性事務職の賃金と就業行動 & 成功 & \\ \hline
   \end{tabular}
+  \end{center}
   \caption{タイトルごとの精度}
   \label{tab:title_accuracy}
 \end{table}
@@ -44,17 +45,17 @@
 続いて，文書をカテゴリに分類し，それぞれのカテゴリごとに処理精度を評価した結果を表5.2に示す．
 
 \begin{table}[h]
-  \centering
-  \begin{tabular}{|l|c|}
+  \begin{center}
+  \begin{tabular}{|r|r|}
     \hline
     \textbf{カテゴリ} & \textbf{精度 (\%)} \\ \hline
     経理 & 60 \\ \hline
     人事 & 100 \\ \hline
     事務 & 100 \\ \hline
   \end{tabular}
+  \end{center}
   \caption{カテゴリごとの精度}
-  \label{tab:c
-  ategory_accuracy}
+  \label{tab:category_accuracy}
 \end{table}
 
 表5.2に示したように，経理カテゴリにおける精度が他のカテゴリと比べて著しく低いことが確認された．この主な要因としては，経理カテゴリの文書に旧字体や特殊な専門用語が多く含まれている点が挙げられる．一方で，人事や事務カテゴリにおいては，フォーマットが比較的一般的であるため，100\%の精度を達成している．

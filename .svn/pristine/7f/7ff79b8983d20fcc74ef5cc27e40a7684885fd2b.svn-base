@@ -18,7 +18,7 @@ D-Analyzer.
 \newblock 参照日2024年12月12日.
 
 \bibitem{rubybook2024}
-Noel Rappin and Dave Thomas.
+Dave~Thomas Noel~Rappin.
 \newblock {\em Programming Ruby 3.3: The Pragmatic Programmers' Guide
   (Pragmatic Programmers; Facets of Ruby)}.
 \newblock Pragmatic Bookshelf, 5th edition, 2024.
@@ -49,18 +49,6 @@ Noel Rappin and Dave Thomas.
 \newblock 階層的クラスタリングを用いたクラスタ数の自動推定に関する検討.
 \newblock 日本知能情報ファジィ学会 ファジィ システム シンポジウム 講演論文集,
   Vol.~38, pp. 679--684, 2022.
-
-\bibitem{Madakam2019}
-Somayya Madakam, Rajesh~M Holmukhe, and Durgesh~Kumar Jaiswal.
-\newblock The future digital work force: Robotic process automation (rpa).
-\newblock {\em Journal of Information Systems and Technology Management},
-  Vol.~16, No.~1, Jan. 2019.
-
-\bibitem{lee2023}
-Lee Kasowaki and Eden Jack.
-\newblock Robots at work: Robotics process automation and the future of
-  employment.
-\newblock EasyChair Preprint 11256, EasyChair, 2023.
 
 \bibitem{hanabusa2015}
 花房亮, 山岸秀一, 松本慎平, 加島智子.

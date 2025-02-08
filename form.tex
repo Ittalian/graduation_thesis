@@ -45,35 +45,6 @@
 
 \makeatletter
 \def\ngram{{\it n}-gram}
-\def\@AppendixFirst{TRUE}
-\def\appendix#1#2{%
-  \def\true{TRUE}
-  \ifx\@AppendixFirst\true
-  \clearpage\pagenumbering{arabic}\setcounter{page}{1}%
-  \setcounter{chapter}{0}%
-  \def\@AppendixFirst{FALSE}
-  \fi
-  \addtocounter{chapter}{1}%
-  \setcounter{figure}{0}%
-  \renewcommand{\thefigure}{\Alph{chapter}.\@arabic\c@figure}%
-  \renewcommand{\thetable}{\Alph{chapter}.\@arabic\c@table}%
-  \def\addcontentsline##1##2##3{%
-    \protected@write\@auxout
-    {\let\label\@gobble \let\index\@gobble \let\glossary\@gobble\@temptokena{#1-\thepage}}%
-    {\string\@writefile{##1}%
-      {\protect\contentsline{##2}{##3}{\the\@temptokena}}}%
-    }%
-  \setcounter{section}{0}%
-  \chapter*{付録 #1 #2}%
-  \def\ps@jpl@in{%
-    \def\@oddhead{\@empty}\def\@evenhead{\@empty}%
-    \def\@oddfoot{\hfil{#1-\thepage}\hfil}%
-    \def\@evenfoot{\hfil{#1-\thepage}\hfil}}%
-  \pagestyle{jpl@in}%
-
-  \setcounter{page}{1}%
-  \addcontentsline{toc}{chapter}{付録 #1 #2}%
-  \renewcommand{\thesection}{#1-\arabic{section}}}
 \makeatother
 
 \ronbun{~}
@@ -153,8 +124,54 @@
 \bibliography{biblio}
 
 \newpage
-\chapter*{付録: 実験で使用した資料}
-\addcontentsline{toc}{chapter}{付録 実験で使用した資料}
-\input{./appendix.tex}
+\addcontentsline{toc}{chapter}{付録}
+\thispagestyle{empty}
+\vspace*{5.0truecm}
+\begin{center}
+  {\Huge 付録}
+\end{center}
+\vspace*{5.0truecm}
+{\Large
+A. 質疑応答
+}
+
+\newpage
+\addtocontents{toc}{\vspace{1em}}
+\addtocontents{toc}{\noindent\textbf{付録 A}\par}
+\addtocontents{toc}{\noindent\hspace{4em} 質疑応答 \hfill \textbf{A-1}\par}
+
+\renewcommand{\thepage}{A-\arabic{page}}
+\setcounter{page}{1}
+\input{question_appendix.tex}
+
+\newpage
+\thispagestyle{empty}
+{\Large
+B. 実験で使用したドキュメント
+}
+
+\newpage
+\addtocontents{toc}{\vspace{1em}}
+\addtocontents{toc}{\noindent\textbf{付録 B}\par}
+\addtocontents{toc}{\noindent\hspace{4em} 実験で使用したドキュメント \hfill \textbf{B-1}}
+
+\renewcommand{\thepage}{B-\arabic{page}}
+\setcounter{page}{1}
+\input{document_appendix.tex}
+
+\newpage
+\thispagestyle{empty}
+{\Large
+C. カテゴライズの指標となる単語群
+}
+
+\newpage
+\addtocontents{toc}{\vspace{1em}}
+\addtocontents{toc}{\noindent\textbf{付録 C}\par}
+\addtocontents{toc}{\noindent\hspace{4em} カテゴライズの指標となる単語群 \hfill \textbf{C-1}}
+
+\renewcommand{\thepage}{C-\arabic{page}}
+\setcounter{page}{1}
+\input{words_appendix.tex}
 
 \end{document}

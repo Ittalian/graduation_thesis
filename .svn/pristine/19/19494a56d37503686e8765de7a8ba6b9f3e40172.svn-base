@@ -22,7 +22,7 @@
   note = {参照日2024年12月12日}
 }
 @book{rubybook2024,
-  author = {Noel Rappin and Dave Thomas},
+  author = {Noel Rappin, Dave Thomas},
   title = {Programming Ruby 3.3: The Pragmatic Programmers' Guide (Pragmatic Programmers; Facets of Ruby)},
   publisher = {Pragmatic Bookshelf},
   year = {2024},
@@ -88,22 +88,4 @@
   institution = {NECヒューマンメディア研究所, NECヒューマンメディア研究所},
   number = {20(2007-FI-053)},
   month = {{M}ar}
-}
-@booklet{lee2023,
-  author = {Lee Kasowaki and Eden Jack},
-  title = {Robots at Work: Robotics Process Automation and the Future of Employment},
-  howpublished = {EasyChair Preprint 11256},
-  year = {EasyChair, 2023}
-}
-@article{Madakam2019,
-  title        = {The Future Digital Work Force: Robotic Process Automation (RPA)},
-  volume       = {16},
-  url          = {https://jistem.ojsbr.com/jistem/article/view/3077},
-  doi          = {10.4301/S1807-1775201916001},
-  abstractnote = {The Robotic Process Automation (RPA) is a new wave of future technologies. Robotic Process Automation is one of the most advanced technologies in the area of computers science, electronic and communications, mechanical engineering, and information technology. It is a combination of both hardware and software, networking and automation for doing things very simple. In this light, the research manuscript investigated the secondary data - which is available on google, academic and research databases. The investigation went for totally 6 months, i.e., 1-1-2018 to 30-6-2018. A very few empirical articles, white papers, blogs and were found RPA and came across to compose this research manuscript. This study is exploratory in nature because of the contemporary phenomenon. The keywords used in searching of the database were Robotic Process Automation, RPA, Robots, Artificial Intelligence, Blue Prism. The study finally discovered that Robots and Robotic Process Automation technologies are becoming compulsory as a part to do business operations in organizations across the globe. Robotic Process Automation can bring immediate value to the core business processes including employee payroll, employee status changes, new hire recruitment, and onboarding, accounts receivable and payable, invoice processing, inventory management, report creation, software installations, data migration, and vendor onboarding etc. to name a few applications. Besides, the Robotic Process Automation has abundant applications including healthcare and pharmaceuticals, financial services, outsourcing, retail, telecom, energy and utilities, real estate and FMCG and many more sectors. To put in the right place of RPA in business operations, their many allied technologies are working at the background level, artificial intelligence, machine learning, deep learning, data analytics, HR analytics, virtual reality (second life), home automation, blockchain technologies, 4D printing etc. Moreover, it covers the content of different start-ups companies and existing companies - their RPA applications used across the world. This manuscript will be a good guideline for the academicians, researchers, students, and practitioners to get an overall idea.},
-  number       = {1},
-  journal      = {Journal of Information Systems and Technology Management},
-  author       = {Madakam, Somayya and Holmukhe, Rajesh M and Jaiswal, Durgesh Kumar},
-  year         = {2019},
-  month        = {Jan.}
 }
