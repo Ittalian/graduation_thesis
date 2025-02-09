@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  8 FEB 2025 17:52
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  9 FEB 2025 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -774,23 +774,41 @@ LaTeX Font Info:    Kanji font shape `JY2/hgt/m/it' undefined
 
 [2
 
-])
+]
 
 [3
 
 ]
 
-[4] (./words_appendix.tex
+[4
+
+])
+
+[5
+
+]
+
+[6] (./words_appendix.tex
 
 [1
 
 ]
 
-[2]
+[2
 
-[3])
+]
 
-[4] (./form.aux)
+[3
+
+]
+
+[4
+
+])
+
+[5
+
+] (./form.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 1
@@ -806,4 +824,4 @@ Here is how much of TeX's memory you used:
  36 hyphenation exceptions out of 8191
  84i,8n,102p,691b,1869s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on form.dvi (38 pages, 114944 bytes).
+Output written on form.dvi (41 pages, 121496 bytes).
