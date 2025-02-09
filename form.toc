@@ -60,7 +60,7 @@
 \noindent \hspace {4em} 質疑応答 \hfill \textbf {A-1}\par 
 \vspace {1em}
 \noindent \textbf {付録 B}\par 
-\noindent \hspace {4em} 実験で使用したドキュメント \hfill \textbf {B-1}
+\noindent \hspace {4em} 実験で使用したドキュメント \hfill \textbf {B-1}\par 
 \vspace {1em}
 \noindent \textbf {付録 C}\par 
 \noindent \hspace {4em} カテゴライズの指標となる単語群 \hfill \textbf {C-1}

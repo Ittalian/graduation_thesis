@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  9 FEB 2025 18:18
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.19)  10 FEB 2025 02:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,31 +562,65 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 (c:/texlive/2024/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )))
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 101.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 101.
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 101.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 101.
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 101.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 19.95642pt on input line 101.
+File: ./cover.pdf Graphic file (type pdf)
+<./cover.pdf>
+File: ./cover.pdf Graphic file (type pdf)
+<./cover.pdf>
+File: ./cover.pdf Graphic file (type pdf)
+<./cover.pdf>
+File: ./cover.pdf Graphic file (type pdf)
+<./cover.pdf>
 
 
+File: ./cover.pdf Graphic file (type pdf)
+<./cover.pdf>
 [1
 
+
 ]
+
+Package pdfpages Warning: Option `page' is unknow to \includepdf.
+(pdfpages)                Did you mean `pages'? (Note the `s'!)
+(pdfpages)                OK, I'll proceed as if it were `pages'.
+
+File: ./abstract.pdf Graphic file (type pdf)
+<./abstract.pdf>
+File: ./abstract.pdf Graphic file (type pdf)
+<./abstract.pdf>
+File: ./abstract.pdf Graphic file (type pdf)
+<./abstract.pdf>
+File: ./abstract.pdf Graphic file (type pdf)
+<./abstract.pdf>
+
+
+File: ./abstract.pdf Graphic file (type pdf)
+<./abstract.pdf>
+[2
+
+]
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 104.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 23.94002pt on input line 104.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 104.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 13.85594pt on input line 104.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 19.95642pt on input line 104.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 19.95642pt on input line 104.
+
+
+[1]
 LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <24.88> not available
-(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 104.
+(Font)              Font shape `JT2/hgt/m/n' tried instead on input line 107.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 104.
+(Font)              scaled to size 23.94002pt on input line 107.
 LaTeX Font Info:    Font shape `JY2/hmc/bx/n' in size <24.88> not available
-(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 104.
+(Font)              Font shape `JY2/hgt/m/n' tried instead on input line 107.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 23.94002pt on input line 104.
+(Font)              scaled to size 23.94002pt on input line 107.
  (./form.toc
 LaTeX Font Info:    Font shape `JT2/hmc/bx/n' in size <12> not available
 (Font)              Font shape `JT2/hgt/m/n' tried instead on input line 1.
@@ -816,12 +850,12 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18257 strings out of 475436
- 350295 string characters out of 5771435
- 975953 words of memory out of 5000000
- 40937 multiletter control sequences out of 15000+600000
+ 18274 strings out of 475436
+ 350657 string characters out of 5771435
+ 976031 words of memory out of 5000000
+ 40951 multiletter control sequences out of 15000+600000
  575227 words of font info for 97 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 84i,8n,102p,691b,1869s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,102p,691b,1869s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on form.dvi (41 pages, 121496 bytes).
+Output written on form.dvi (43 pages, 124576 bytes).
