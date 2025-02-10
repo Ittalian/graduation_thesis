@@ -3,50 +3,51 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: form.aux
 The style file: junsrt.bst
 Database file #1: biblio.bib
+Warning--there's a number but no volume in ito2023
 Warning--empty booktitle in takahashi2013rails
 Warning--empty booktitle in ohnishi2018ocr
 Warning--empty booktitle in takeuchi2019wordnet
 Warning--empty booktitle in kurahashi2007k-means
-You've used 13 entries,
+You've used 14 entries,
             2270 wiz_defined-function locations,
-            617 strings with 5861 characters,
-and the built_in function-call counts, 3833 in all, are:
-= -- 303
-> -- 79
-< -- 13
-+ -- 35
-- -- 22
-* -- 153
-:= -- 460
-add.period$ -- 41
-call.type$ -- 13
-change.case$ -- 13
+            625 strings with 5959 characters,
+and the built_in function-call counts, 4198 in all, are:
+= -- 335
+> -- 83
+< -- 15
++ -- 37
+- -- 23
+* -- 172
+:= -- 500
+add.period$ -- 44
+call.type$ -- 14
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 253
-empty$ -- 404
-format.name$ -- 44
-if$ -- 969
+cite$ -- 19
+duplicate$ -- 278
+empty$ -- 441
+format.name$ -- 46
+if$ -- 1063
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 10
-newline$ -- 70
-num.names$ -- 13
-pop$ -- 112
+int.to.str$ -- 14
+missing$ -- 11
+newline$ -- 75
+num.names$ -- 14
+pop$ -- 118
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 205
+skip$ -- 226
 stack$ -- 0
-substring$ -- 188
-swap$ -- 76
-text.length$ -- 13
+substring$ -- 216
+swap$ -- 86
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 4
-while$ -- 27
-width$ -- 15
-write$ -- 146
-is.kanji.str$ -- 121
-(There were 4 warnings)
+warning$ -- 5
+while$ -- 30
+width$ -- 16
+write$ -- 157
+is.kanji.str$ -- 130
+(There were 5 warnings)

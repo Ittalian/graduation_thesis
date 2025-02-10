@@ -8,41 +8,123 @@
 \subsection{タイトルごとの精度}
 \label{subsec:title}
 
-さまざまなフォーマットや内容の文書を対象にOCR処理を実施し，タイトルごとの処理精度を評価した．その結果を表5.1に示す．
+本システムの実験にあたり，経理，人事，庶務，営業，エンジニアの5カテゴリを用意し，様々な内容やフォーマットのドキュメントで評価を実施した．タイトルごとの実験結果を表5.1 ～ 5.5に示す．
 
 \begin{table}[h]
+  \label{tab:doc_accounting}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
     \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
-    会社経理統制と経理検査 & 失敗 & 昔の字体が存在する \\ \hline
-    工業経理規範 & 失敗 & 字体は全て昔の書き方 \\ \hline
-    戦時会社経理統制体制の展開 & 成功 & 縦書き2列構成 \\ \hline
-    法人税法の損金経理要件について & 成功 & 減価償却等の専門的な情報 \\ \hline
-    陸軍経理組織の変遷と内部監査制度 & 成功 & \\ \hline
-    トヨタウェイと人事管理・労使管理 & 成功 & 縦書き2列構成 \\ \hline
-    公務員の人事異動と人材形成 & 成功 & 図や英語が混在 \\ \hline
-    新・人事労務管理 & 成功 & フォントがゴシック体の太文字 \\ \hline
-    人事労務管理 & 成功 & 縦書きと横書きが混在 \\ \hline
-    戦略的パートナーとしての日本の人事部 & 成功 & 図や見出しが英語表記 \\ \hline
-    RPA が事務職に及ぼす影響に関する一考察 & 成功 & \\ \hline
-    一般事務女性の職業生活意識に関する一考察 & 成功 & 見出しのみ英語表記 \\ \hline
-    女性事務職に得る派遣労働者の活用 & 成功 & 縦書き2列構成のゴシック体 \\ \hline
-    女性事務職のキャリア拡大と職場組織 & 成功 & \\ \hline
-    女性事務職の賃金と就業行動 & 成功 & \\ \hline
+    会社経理統制と経理検査 & \textcolor{blue}{失敗} & 昔の字体が存在する \\ \hline
+    工業経理規範 & \textcolor{blue}{失敗} & 字体は全て昔の書き方 \\ \hline
+    戦時会社経理統制体制の展開 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+    法人税法の損金経理要件について & \textcolor{red}{成功} & 減価償却等の専門的な情報 \\ \hline
+    陸軍経理組織の変遷と内部監査制度 & \textcolor{red}{成功} & \\ \hline
+    企業における ERP システム導入 & \textcolor{red}{成功} & \\ \hline
+    アスピレーションの欠如と管理会計 & \textcolor{red}{成功} & \\ \hline
+    中小企業の内部統制の進め方 & \textcolor{blue}{失敗} & \\ \hline
+    日本の中小企業の会計情報システム & \textcolor{blue}{失敗} & \\ \hline
+    中小企業の経営情報収集 & \textcolor{red}{成功} & \\ \hline
   \end{tabular}
   \end{center}
-  \caption{タイトルごとの精度}
-  \label{tab:title_accuracy}
+  \caption{経理カテゴリの精度}
+\end{table}
+\clearpage
+
+\begin{table}[h]
+  \label{tab:doc_human}
+  \begin{center}
+  \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
+    トヨタウェイと人事管理・労使管理 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+    公務員の人事異動と人材形成 & \textcolor{red}{成功} & 図や英語が混在 \\ \hline
+    新・人事労務管理 & \textcolor{red}{成功} & フォントがゴシック体の太文字 \\ \hline
+    人事労務管理 & \textcolor{red}{成功} & 縦書きと横書きが混在 \\ \hline
+    戦略的パートナーとしての日本の人事部 & \textcolor{red}{成功} & 図や見出しが英語表記 \\ \hline
+    人事制度に関する総合調査 & \textcolor{red}{成功} & \\ \hline
+    中小企業の従業員満足度 & \textcolor{red}{成功} & \\ \hline
+    中小企業の新卒採用行動 & \textcolor{red}{成功} & \\ \hline
+    日本企業におけるタレントマネジメント & \textcolor{red}{成功} & \\ \hline
+    中小企業の人材育成 & \textcolor{blue}{失敗} & \\ \hline
+  \end{tabular}
+  \end{center}
+  \caption{人事カテゴリの精度}
 \end{table}
 
-表5.1に示したように，処理精度にはタイトルごとにばらつきが見られる．特に，「会社経理統制と経理検査」や「工業経理規範」のように，旧字体を含む文書では処理が失敗する傾向が確認された．一方で，縦書きや横書きが混在する文書，英語表記が一部含まれる文書，ゴシック体や太文字を用いた文書などにおいては，ほとんど問題なく処理が成功している．これは，現代の標準的なフォーマットに近い文書に対しては，OCRの処理が適切に機能することを示している．
-また，縦書き2列構成や図表が含まれる場合も成功率は高く，特に人事関連のタイトルにおいては安定した処理精度が見られた．これらの結果から，フォーマットや字体の違いがOCRの精度に与える影響が明確になった．
+\begin{table}[h]
+  \label{tab:doc_operation}
+  \begin{center}
+  \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
+    RPA が事務職に及ぼす影響に関する一考察 & \textcolor{red}{成功} & \\ \hline
+    一般事務女性の職業生活意識に関する一考察 & \textcolor{red}{成功} & 見出しのみ英語表記 \\ \hline
+    女性事務職に得る派遣労働者の活用 & \textcolor{red}{成功} & 縦書き2列構成のゴシック体 \\ \hline
+    女性事務職のキャリア拡大と職場組織 & \textcolor{red}{成功} & \\ \hline
+    女性事務職の賃金と就業行動 & \textcolor{red}{成功} & \\ \hline
+    事務作業における RPA の進展 & \textcolor{blue}{失敗} & \\ \hline
+    事務職のストレス状況調査 & \textcolor{red}{成功} & \\ \hline
+    女性事務職のキャリア形成 & \textcolor{red}{成功} & \\ \hline
+    ミクロデータを用いた女性事務職 & \textcolor{red}{成功} & \\ \hline
+    大学の事務業務と効率化 & \textcolor{blue}{失敗} & \\ \hline
+  \end{tabular}
+  \end{center}
+  \caption{庶務カテゴリの精度}
+\end{table}
+\clearpage
 
+\begin{table}[h]
+  \label{tab:doc_sales}
+  \begin{center}
+  \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
+    CRM 主要成功要因 & \textcolor{red}{成功} & CRM 関連の専門的な情報 \\ \hline
+    チームワーク型営業のパフォーマンス & \textcolor{red}{成功} &  \\ \hline
+    デジタル化と顧客経験価値 & \textcolor{blue}{失敗} & DX 分野の内容が多い \\ \hline
+    営業組織のスキル可視化 & \textcolor{red}{成功} & 新人研修で使用するスライド形式 \\ \hline
+    改善思考の営業プロセス管理 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+    企業における営業力と管理体制 & \textcolor{red}{成功} & \\ \hline
+    企業の営業力向上のために & \textcolor{red}{成功} & \\ \hline
+    中小企業の営業組織強化法 & \textcolor{red}{成功} & \\ \hline
+    小企業実態基本調査 & \textcolor{red}{成功} & \\ \hline
+    日本における「営業」と「販売」 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+  \end{tabular}
+  \end{center}
+  \caption{営業カテゴリの精度}
+\end{table}
+
+\begin{table}[h]
+  \label{tab:doc_engineer}
+  \begin{center}
+  \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
+    アジャイル開発の成功度 & \textcolor{red}{成功} & 英語と日本語が混在 \\ \hline
+    組織的なソフトウェアプロセス改善 & \textcolor{red}{成功} &  \\ \hline
+    大規模組織のソフトウェアプロセス改善 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+    中小企業のソフトウェア品質改善 & \textcolor{red}{成功} & スライド形式 \\ \hline
+    中小企業の IT 活動 & \textcolor{red}{成功} & \\ \hline
+    中小企業のアジャイル開発のすすめ & \textcolor{red}{成功} & \\ \hline
+    プロジェクトに対するリスク分析 & \textcolor{red}{成功} & \\ \hline
+    円滑なマネジメントの失敗要因 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
+    プロジェクトの失敗回避に向けた分析 & \textcolor{red}{成功} & \\ \hline
+    日本企業のオープンソース・ソフトウェア & \textcolor{red}{成功} & 英語と日本語が混在 \\ \hline
+  \end{tabular}
+  \end{center}
+  \caption{エンジニアカテゴリの精度}
+\end{table}
+
+表5.1 ～ 5.5に示したように，処理精度にはタイトルごとにばらつきが見られる．特に，「会社経理統制と経理検査」や「工業経理規範」のように，旧字体を含む文書では処理が失敗する傾向が確認された．一方で，縦書きや横書きが混在する文書，英語表記が一部含まれる文書，ゴシック体や太文字を用いた文書などにおいては，ほとんど問題なく処理が成功している．これは，現代の標準的なフォーマットに近い文書に対しては，OCR の処理が適切に機能することを示している．
+また，縦書き2列構成や図表が含まれる場合も成功率は高く，特に人事，営業，エンジニア関連のタイトルにおいては安定した処理精度が見られた．これらの結果から，フォーマットや字体の違いが OCR の精度に与える影響が明確になった．
+
+\clearpage
 \subsection{カテゴリごとの精度}
 \label{subsec:category}
 
-続いて，文書をカテゴリに分類し，それぞれのカテゴリごとに処理精度を評価した結果を表5.2に示す．
+続いて，文書をカテゴリに分類し，それぞれのカテゴリごとに処理精度を評価した結果を表5.6に示す．
 
 \begin{table}[h]
   \begin{center}
@@ -50,14 +132,17 @@
     \hline
     \textbf{カテゴリ} & \textbf{精度 (\%)} \\ \hline
     経理 & 60 \\ \hline
-    人事 & 100 \\ \hline
-    事務 & 100 \\ \hline
+    人事 & 90 \\ \hline
+    庶務 & 80 \\ \hline
+    営業 & 90 \\ \hline
+    エンジニア & 100 \\ \hline
   \end{tabular}
   \end{center}
   \caption{カテゴリごとの精度}
   \label{tab:category_accuracy}
 \end{table}
 
-表5.2に示したように，経理カテゴリにおける精度が他のカテゴリと比べて著しく低いことが確認された．この主な要因としては，経理カテゴリの文書に旧字体や特殊な専門用語が多く含まれている点が挙げられる．一方で，人事や事務カテゴリにおいては，フォーマットが比較的一般的であるため，100\%の精度を達成している．
-さらに，精度が高いカテゴリにおいても，処理内容には軽微な誤解釈が存在する場合があるが，全体としてカテゴリごとの分類精度に影響を与えるような問題は確認されなかった．これにより，OCR処理のカテゴリごとの安定性について評価することができる．
+表5.6に示したように，経理カテゴリにおける精度が他のカテゴリと比べて低いことが確認された．この主な要因としては，経理カテゴリの文書に旧字体や特殊な専門用語が多く含まれている点が挙げられる．
+一方で，エンジニアカテゴリにおいては，フォーマットが比較的一般的であり，他のカテゴリの内容が含まれていることが少ないため，100\%の精度を達成している．
+さらに，精度が高いカテゴリにおいても，処理内容には軽微な誤解釈が存在する場合があるが，全体としてカテゴリごとの分類精度に影響を与えるような問題は確認されなかった．これにより，OCR 処理のカテゴリごとの安定性について評価することができる．
 以上の結果から，タイトルごとの処理精度とカテゴリごとの精度において，それぞれの特性が確認された．本研究では，特定の条件下における処理の成功率を明らかにしたが，さらなる精度向上を目指すためには，旧字体や特殊なフォーマットへの対応が課題として残る．これらの詳細な考察については次章で述べる．

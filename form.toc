@@ -32,29 +32,25 @@
 \contentsline {paragraph}{Word モデル}{10}{}%
 \contentsline {paragraph}{Synset モデル}{10}{}%
 \contentsline {paragraph}{Sense モデル}{11}{}%
-\contentsline {subsection}{\numberline {4.1.3}各カテゴリの指標}{11}{}%
-\contentsline {paragraph}{経理}{11}{}%
-\contentsline {paragraph}{人事}{11}{}%
-\contentsline {paragraph}{庶務}{11}{}%
 \contentsline {section}{\numberline {4.2}提案する手法 ・ アプローチ}{11}{}%
 \contentsline {subsection}{\numberline {4.2.1}ドキュメントファイルをアップロード}{11}{}%
 \contentsline {subsection}{\numberline {4.2.2}OCRによってドキュメントの内容を取得}{12}{}%
 \contentsline {subsection}{\numberline {4.2.3}それぞれの単語の定義の取得}{13}{}%
 \contentsline {subsection}{\numberline {4.2.4}単語ごとにカテゴライズ，ラベリング}{14}{}%
-\contentsline {subsection}{\numberline {4.2.5}ラベリング結果から文章のカテゴリを決定}{15}{}%
+\contentsline {subsection}{\numberline {4.2.5}ラベリング結果から文章のカテゴリを決定}{14}{}%
 \contentsline {chapter}{\numberline {第5章}実験・評価}{16}{}%
 \contentsline {section}{\numberline {5.1}精度の分析}{16}{}%
 \contentsline {subsection}{\numberline {5.1.1}タイトルごとの精度}{16}{}%
-\contentsline {subsection}{\numberline {5.1.2}カテゴリごとの精度}{17}{}%
-\contentsline {chapter}{\numberline {第6章}考察}{18}{}%
-\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{18}{}%
-\contentsline {section}{\numberline {6.2}改善点}{18}{}%
-\contentsline {chapter}{\numberline {第7章}おわりに}{20}{}%
-\contentsline {section}{\numberline {7.1}研究のまとめ}{20}{}%
-\contentsline {section}{\numberline {7.2}今後の展望}{20}{}%
-\contentsline {chapter}{謝辞}{21}{}%
-\contentsline {chapter}{参考文献}{22}{}%
-\contentsline {chapter}{付録}{24}{}%
+\contentsline {subsection}{\numberline {5.1.2}カテゴリごとの精度}{19}{}%
+\contentsline {chapter}{\numberline {第6章}考察}{20}{}%
+\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{20}{}%
+\contentsline {section}{\numberline {6.2}改善点}{20}{}%
+\contentsline {chapter}{\numberline {第7章}おわりに}{22}{}%
+\contentsline {section}{\numberline {7.1}研究のまとめ}{22}{}%
+\contentsline {section}{\numberline {7.2}今後の展望}{22}{}%
+\contentsline {chapter}{謝辞}{23}{}%
+\contentsline {chapter}{参考文献}{24}{}%
+\contentsline {chapter}{付録}{26}{}%
 \vspace {1em}
 \noindent \textbf {付録 A}\par 
 \noindent \hspace {4em} 質疑応答 \hfill \textbf {A-1}\par 
