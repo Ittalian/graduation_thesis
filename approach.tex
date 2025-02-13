@@ -7,7 +7,7 @@
 
 \section{システム設計}
 \label{sec:app_design}
-本研究のシステムのバックエンドに当たる部分を具体的に示す．
+本研究のシステムのバックエンドに該当する部分を具体的に示す．
 \subsection{データベース設計}
 \label{subsec:table}
 
@@ -114,10 +114,45 @@ API のレスポンスは，テキスト認識結果を保持するオブジェ�
     end
 \end{lstlisting}
 
-\subsection{それぞれの単語の定義の取得}
-\label{sebsec:app_synset}
+\clearpage
 
-OCR によって取得した単語に対し，WordNet のデータベースを用いて定義を取得する．まず OCR の結果を配列形式でインスタンス変数に格納し，その後，分析プロセスを開始する．
+\subsection{旧字体を新字体に変換}
+\label{subsec:app_convert}
+
+分割した単語に旧字体が含まれていた場合，それらを新字体に変換する．この処理によって，OCR により取得したドキュメントに含まれる旧字体が新字体へと効率的かつ高速に置換され，
+システム全体の信頼性や正確性の向上につながる．
+
+変換前の旧字体文字列と変換後の新字体文字列を Font クラスに定数として定義し，
+変換対象となる文字とその一対一の対応関係を明確にする．なお，旧字体と新字体のデータは旧字新字対照表を参照している\cite{kanji}．
+Analyzers::OldFontAnalyzer モジュールの convert メソッドでは，受け取ったテキストに対して Ruby の String\#tr メソッドを用い，
+Font クラスで定義された旧字体と新字体の文字列を基に一括変換を実施する．詳細な実装例はソースコード4.3および4.4に示す．
+
+例えば，経理カテゴリの「會計」という旧字体を「会計」という新字体に変換することで，古いドキュメントや，昔の文書を参照しているドキュメントに対しても適切なラベリングが可能になり，より汎用的なシステムになる．
+
+\begin{lstlisting}[language=Ruby, caption=Font クラスの定義]
+    class Font
+        BEFORE_CONVERT = "亞惡壓圍醫爲壹逸隱榮營衞驛謁圓鹽緣艷..."
+        AFTER_CONVERT = "亜悪圧囲医為壱逸隠栄営衛駅謁円塩縁艶..."
+    end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby, caption=新字体への変換]
+    module Analyzers::OldFontAnalyzer
+        def convert(text)
+            before_convert_text = Font::BEFORE_CONVERT
+            after_convert_text = Font::AFTER_CONVERT
+
+            text.tr(before_convert_text, after_convert_text)
+        end
+    end
+\end{lstlisting}
+
+\clearpage
+
+\subsection{それぞれの単語の定義の取得}
+\label{subsec:app_synset}
+
+変換後の単語に対し，WordNet のデータベースを用いて定義を取得する．まず OCR の結果を配列形式でインスタンス変数に格納し，その後，分析プロセスを開始する．
 
 具体的には，まず単語リストに対して，WordNet の Word テーブルから該当するエントリを検索し，関連する定義情報を取得する．
 定義情報が見つからない場合は，"カテゴリ無し" として処理する．これらの処理は，OCR 結果のすべての単語に対して適用される．
@@ -152,8 +187,10 @@ OCR によって取得した単語に対し，WordNet のデータベースを�
     end
 \end{lstlisting}
 
+\clearpage
+
 \subsection{単語ごとにカテゴライズ，ラベリング}
-\label{sebsec:app_categolize}
+\label{subsec:app_categolize}
 
 取得した単語の定義を基に，文書を適切なカテゴリに分類するためのラベリングを行う．
 カテゴライズ処理では，WordNet から取得した Synset 情報をもとに，どの単語がどのカテゴリに属するかを決定する．システムは，各 Synset を解析し，それがどのカテゴリに該当するかを判別する．
@@ -184,6 +221,8 @@ OCR によって取得した単語に対し，WordNet のデータベースを�
         end
     end
 \end{lstlisting}
+
+\clearpage
 
 \subsection{ラベリング結果から文章のカテゴリを決定}
 \label{subsec:app_classify}

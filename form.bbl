@@ -56,8 +56,8 @@ Noel Rappin and Dave Thomas.
   Vol.~38, pp. 679--684, 2022.
 
 \bibitem{Madakam2019}
-Somayya Madakam, Rajesh~M Holmukhe, and Durgesh~Kumar Jaiswal.
-\newblock The future digital work force: Robotic process automation (rpa).
+Somayya Madakam, Rajesh~M. Holmukhe, and Durgesh~Kumar Jaiswal.
+\newblock The future digital work force: Robotic process automation ({R}pa).
 \newblock {\em Journal of Information Systems and Technology Management},
   Vol.~16, No.~1, Jan. 2019.
 
@@ -77,5 +77,11 @@ Lee Kasowaki and Eden Jack.
 \newblock 文書タイプ分類による問題解決向きwww検索システムの開発と評価.
 \newblock Technical Report 20(2007-FI-053), NECヒューマンメディア研究所,
   NECヒューマンメディア研究所, {M}ar 2007.
+
+\bibitem{kanji}
+{kameique.com}.
+\newblock {旧字新字対照表}.
+\newblock \url{http://www.kameique.com/tool/kanji34/kyujitable.html}.
+\newblock 参照日2025年2月12日.
 
 \end{thebibliography}

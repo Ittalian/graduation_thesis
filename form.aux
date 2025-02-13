@@ -46,7 +46,6 @@
 \newlabel{sebsec:rw_hierar}{{2.2.2}{5}{}{subsection.2.2.2}{}}
 \citation{Madakam2019}
 \citation{lee2023}
-\citation{hanabusa2015}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第3章}関連研究}{6}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -57,6 +56,7 @@
 \newlabel{subsec:rpa_history}{{3.1.1}{6}{}{subsection.3.1.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}RPA の将来と可能性}{6}{}\protected@file@percent }
 \newlabel{subsec:rpa_future}{{3.1.2}{6}{}{subsection.3.1.2}{}}
+\citation{hanabusa2015}
 \citation{matsuda1999}
 \citation{matsuda1999}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}カテゴライズに関する先行研究}{7}{}\protected@file@percent }
@@ -99,54 +99,61 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}OCRによってドキュメントの内容を取得}{12}{}\protected@file@percent }
 \newlabel{subsec:app_ocr}{{4.2.2}{12}{}{subsection.4.2.2}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}Ruby による OCR の実装}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}それぞれの単語の定義の取得}{13}{}\protected@file@percent }
-\newlabel{sebsec:app_synset}{{4.2.3}{13}{}{subsection.4.2.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}ActiveRecord による WordNet との連携}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}単語ごとにカテゴライズ，ラベリング}{14}{}\protected@file@percent }
-\newlabel{sebsec:app_categolize}{{4.2.4}{14}{}{subsection.4.2.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}カテゴリのラベリングメソッド}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}ラベリング結果から文章のカテゴリを決定}{14}{}\protected@file@percent }
-\newlabel{subsec:app_classify}{{4.2.5}{14}{}{subsection.4.2.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}文書のカテゴリを決定するメソッド}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}実験・評価}{16}{}\protected@file@percent }
+\citation{kanji}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}旧字体を新字体に変換}{13}{}\protected@file@percent }
+\newlabel{subsec:app_convert}{{4.2.3}{13}{}{subsection.4.2.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}Font クラスの定義}{13}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}新字体への変換}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}それぞれの単語の定義の取得}{14}{}\protected@file@percent }
+\newlabel{subsec:app_synset}{{4.2.4}{14}{}{subsection.4.2.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}ActiveRecord による WordNet との連携}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}単語ごとにカテゴライズ，ラベリング}{15}{}\protected@file@percent }
+\newlabel{subsec:app_categolize}{{4.2.5}{15}{}{subsection.4.2.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}カテゴリのラベリングメソッド}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}ラベリング結果から文章のカテゴリを決定}{16}{}\protected@file@percent }
+\newlabel{subsec:app_classify}{{4.2.6}{16}{}{subsection.4.2.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}文書のカテゴリを決定するメソッド}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}実験・評価}{17}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:exp}{{5}{16}{}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}精度の分析}{16}{}\protected@file@percent }
-\newlabel{sec:exp_anal}{{5.1}{16}{}{section.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}タイトルごとの精度}{16}{}\protected@file@percent }
-\newlabel{subsec:title}{{5.1.1}{16}{}{subsection.5.1.1}{}}
-\newlabel{tab:doc_accounting}{{5.1.1}{16}{}{subsection.5.1.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces 経理カテゴリの精度}}{16}{}\protected@file@percent }
-\newlabel{tab:doc_human}{{5.1.1}{17}{}{table.5.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces 人事カテゴリの精度}}{17}{}\protected@file@percent }
-\newlabel{tab:doc_operation}{{5.1.1}{17}{}{table.5.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces 庶務カテゴリの精度}}{17}{}\protected@file@percent }
-\newlabel{tab:doc_sales}{{5.1.1}{18}{}{table.5.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces 営業カテゴリの精度}}{18}{}\protected@file@percent }
-\newlabel{tab:doc_engineer}{{5.1.1}{18}{}{table.5.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces エンジニアカテゴリの精度}}{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}カテゴリごとの精度}{19}{}\protected@file@percent }
-\newlabel{subsec:category}{{5.1.2}{19}{}{subsection.5.1.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces カテゴリごとの精度}}{19}{}\protected@file@percent }
-\newlabel{tab:category_accuracy}{{5.6}{19}{}{table.5.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}考察}{20}{}\protected@file@percent }
+\newlabel{ch:exp}{{5}{17}{}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}実験で使用したカテゴリ・ドキュメント}{17}{}\protected@file@percent }
+\newlabel{subsec:resource}{{5.1}{17}{}{section.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}精度の分析}{18}{}\protected@file@percent }
+\newlabel{sec:exp_anal}{{5.2}{18}{}{section.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}タイトルごとの精度}{18}{}\protected@file@percent }
+\newlabel{subsec:title}{{5.2.1}{18}{}{subsection.5.2.1}{}}
+\newlabel{tab:doc_accounting}{{5.2.1}{18}{}{subsection.5.2.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces 経理カテゴリの精度}}{18}{}\protected@file@percent }
+\newlabel{tab:doc_human}{{5.2.1}{18}{}{table.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces 人事カテゴリの精度}}{18}{}\protected@file@percent }
+\newlabel{tab:doc_operation}{{5.2.1}{19}{}{table.5.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces 庶務カテゴリの精度}}{19}{}\protected@file@percent }
+\newlabel{tab:doc_sales}{{5.2.1}{19}{}{table.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces 営業カテゴリの精度}}{19}{}\protected@file@percent }
+\newlabel{tab:doc_engineer}{{5.2.1}{20}{}{table.5.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces エンジニアリングカテゴリの精度}}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}カテゴリごとの精度}{20}{}\protected@file@percent }
+\newlabel{subsec:category}{{5.2.2}{20}{}{subsection.5.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces カテゴリごとの精度}}{20}{}\protected@file@percent }
+\newlabel{tab:category_accuracy}{{5.6}{20}{}{table.5.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}考察}{22}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:eval}{{6}{20}{}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{20}{}\protected@file@percent }
-\newlabel{sec:eval_docs}{{6.1}{20}{}{section.6.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}改善点}{20}{}\protected@file@percent }
-\newlabel{sec:eval_improve}{{6.2}{20}{}{section.6.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第7章}おわりに}{22}{}\protected@file@percent }
+\newlabel{ch:eval}{{6}{22}{}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}ドキュメントごとの結果の解釈}{22}{}\protected@file@percent }
+\newlabel{sec:eval_docs}{{6.1}{22}{}{section.6.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}改善点}{22}{}\protected@file@percent }
+\newlabel{sec:eval_improve}{{6.2}{22}{}{section.6.2}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第7章}おわりに}{24}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:con}{{7}{22}{}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}研究のまとめ}{22}{}\protected@file@percent }
-\newlabel{sec:con_fin}{{7.1}{22}{}{section.7.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}今後の展望}{22}{}\protected@file@percent }
-\newlabel{sec:con_future}{{7.2}{22}{}{section.7.2}{}}
-\@writefile{toc}{\contentsline {chapter}{謝辞}{23}{}\protected@file@percent }
+\newlabel{ch:con}{{7}{24}{}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}研究のまとめ}{24}{}\protected@file@percent }
+\newlabel{sec:con_fin}{{7.1}{24}{}{section.7.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}今後の展望}{24}{}\protected@file@percent }
+\newlabel{sec:con_future}{{7.2}{24}{}{section.7.2}{}}
+\@writefile{toc}{\contentsline {chapter}{謝辞}{25}{}\protected@file@percent }
 \bibstyle{junsrt}
 \bibdata{biblio}
 \bibcite{yasuhiro2017rpa}{1}
@@ -161,10 +168,11 @@
 \bibcite{2023hierar}{10}
 \bibcite{Madakam2019}{11}
 \bibcite{lee2023}{12}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{24}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{参考文献}{26}{}\protected@file@percent }
 \bibcite{hanabusa2015}{13}
 \bibcite{matsuda1999}{14}
-\@writefile{toc}{\contentsline {chapter}{付録}{26}{}\protected@file@percent }
+\bibcite{kanji}{15}
+\@writefile{toc}{\contentsline {chapter}{付録}{28}{}\protected@file@percent }
 \@writefile{toc}{\vspace  {1em}}
 \@writefile{toc}{\noindent \textbf  {付録 A}\par }
 \@writefile{toc}{\noindent \hspace  {4em} 質疑応答 \hfill \textbf  {A-1}\par }
@@ -173,5 +181,5 @@
 \@writefile{toc}{\noindent \hspace  {4em} 実験で使用したドキュメント \hfill \textbf  {B-1}\par }
 \@writefile{toc}{\vspace  {1em}}
 \@writefile{toc}{\noindent \textbf  {付録 C}\par }
-\@writefile{toc}{\noindent \hspace  {4em} カテゴライズの指標となる単語群 \hfill \textbf  {C-1}}
+\@writefile{toc}{\noindent \hspace  {4em} カテゴライズの判別基準となる単語群 \hfill \textbf  {C-1}}
 \gdef \@abspage@last{45}

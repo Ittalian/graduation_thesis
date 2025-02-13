@@ -8,46 +8,46 @@ Warning--empty booktitle in takahashi2013rails
 Warning--empty booktitle in ohnishi2018ocr
 Warning--empty booktitle in takeuchi2019wordnet
 Warning--empty booktitle in kurahashi2007k-means
-You've used 14 entries,
+You've used 15 entries,
             2270 wiz_defined-function locations,
-            625 strings with 5959 characters,
-and the built_in function-call counts, 4198 in all, are:
-= -- 335
-> -- 83
+            630 strings with 6074 characters,
+and the built_in function-call counts, 4376 in all, are:
+= -- 347
+> -- 87
 < -- 15
-+ -- 37
-- -- 23
++ -- 39
+- -- 24
 * -- 172
-:= -- 500
-add.period$ -- 44
-call.type$ -- 14
-change.case$ -- 14
+:= -- 522
+add.period$ -- 48
+call.type$ -- 15
+change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 278
-empty$ -- 441
-format.name$ -- 46
-if$ -- 1063
+cite$ -- 20
+duplicate$ -- 289
+empty$ -- 465
+format.name$ -- 48
+if$ -- 1107
 int.to.chr$ -- 0
-int.to.str$ -- 14
+int.to.str$ -- 15
 missing$ -- 11
-newline$ -- 75
-num.names$ -- 14
-pop$ -- 118
+newline$ -- 81
+num.names$ -- 15
+pop$ -- 130
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 226
+skip$ -- 234
 stack$ -- 0
 substring$ -- 216
-swap$ -- 86
+swap$ -- 87
 text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 30
-width$ -- 16
-write$ -- 157
-is.kanji.str$ -- 130
+while$ -- 31
+width$ -- 17
+write$ -- 168
+is.kanji.str$ -- 137
 (There were 5 warnings)
