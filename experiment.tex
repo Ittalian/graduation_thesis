@@ -24,14 +24,17 @@
 
 タイトルごとの実験結果を表5.1 ～ 5.5に示す．
 
-\begin{table}[h]
+\begin{table}[!htbp]
   \label{tab:doc_accounting}
+  \setlength{\abovecaptionskip}{5pt}
+  \setlength{\belowcaptionskip}{5pt}
+  \caption{経理カテゴリの精度}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
     \textbf{タイトル} & \textbf{結果} & \textbf{備考} \\ \hline
-    会社経理統制と経理検査 & \textcolor{blue}{失敗} & 昔の字体が存在する \\ \hline
-    工業経理規範 & \textcolor{blue}{失敗} & 字体は全て昔の書き方 \\ \hline
+    会社経理統制と経理検査 & \textcolor{red}{成功} & 昔の字体が存在する \\ \hline
+    工業経理規範 & \textcolor{red}{成功} & 字体は全て昔の書き方 \\ \hline
     戦時会社経理統制体制の展開 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
     法人税法の損金経理要件について & \textcolor{red}{成功} & 減価償却等の専門的な情報 \\ \hline
     陸軍経理組織の変遷と内部監査制度 & \textcolor{red}{成功} & \\ \hline
@@ -42,11 +45,11 @@
     中小企業の経営情報収集 & \textcolor{red}{成功} & \\ \hline
   \end{tabular}
   \end{center}
-  \caption{経理カテゴリの精度}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[!htbp]
   \label{tab:doc_human}
+  \caption{人事カテゴリの精度}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
@@ -63,13 +66,13 @@
     中小企業の人材育成 & \textcolor{blue}{失敗} & 図やグラフを使用した細かい分析 \\ \hline
   \end{tabular}
   \end{center}
-  \caption{人事カテゴリの精度}
 \end{table}
 
 \clearpage
 
-\begin{table}[h]
+\begin{table}[!htbp]
   \label{tab:doc_operation}
+  \caption{庶務カテゴリの精度}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
@@ -86,11 +89,11 @@
     大学の事務業務と効率化 & \textcolor{blue}{失敗} & 情報システム関連の単語 \\ \hline
   \end{tabular}
   \end{center}
-  \caption{庶務カテゴリの精度}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[!htbp]
   \label{tab:doc_sales}
+  \caption{営業カテゴリの精度}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
@@ -107,13 +110,13 @@
     日本における「営業」と「販売」 & \textcolor{red}{成功} & 縦書き2列構成 \\ \hline
   \end{tabular}
   \end{center}
-  \caption{営業カテゴリの精度}
 \end{table}
 
 \clearpage
 
-\begin{table}[h]
+\begin{table}[!htbp]
   \label{tab:doc_engineer}
+  \caption{エンジニアリングカテゴリの精度}
   \begin{center}
   \begin{tabular}{|l|c|l|}
     \hline
@@ -130,7 +133,6 @@
     日本企業のオープンソース・ソフトウェア & \textcolor{red}{成功} & 英語と日本語が混在 \\ \hline
   \end{tabular}
   \end{center}
-  \caption{エンジニアリングカテゴリの精度}
 \end{table}
 
 表5.1 ～ 5.5に示したように，処理精度にはタイトルごとにばらつきが見られる．特に，内容の専門性が高い文書や，他の分野の情報を多く含んでいる文書では処理が失敗する傾向が確認された．一方で，縦書きや横書きが混在する文書，英語表記が一部含まれる文書，ゴシック体や太文字を用いた文書などにおいては，ほとんど問題なく処理が成功している．これは，現代の標準的なフォーマットに近い文書に対しては，OCR の処理が適切に機能することを示している．
@@ -139,7 +141,7 @@
 \subsection{カテゴリごとの精度}
 \label{subsec:category}
 
-続いて，文書をカテゴリに分類し，それぞれのカテゴリごとに処理精度を評価した結果を表5.6に示す．ううう
+続いて，文書をカテゴリに分類し，それぞれのカテゴリごとに処理精度を評価した結果を表5.6に示す．
 
 \begin{table}[h]
   \begin{center}
